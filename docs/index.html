@@ -173,6 +173,11 @@ footer a{color:#fff}
 @media (max-width:860px){.hero .in,.route,.about,.gridg,footer .in{grid-template-columns:1fr}.tickets{grid-template-columns:1fr 1fr}.herocard{justify-self:start}aside{position:static}.polaroid{transform:none}}
 @media (max-width:600px){.tickets{grid-template-columns:1fr}.wall{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px}.t-big,.t-wide{grid-column:span 2}.hero{min-height:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+
+/* photo strip for place pages */
+.gal{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:26px}
+.gal img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:var(--night2)}
+@media (max-width:860px){.gal{grid-template-columns:repeat(3,minmax(0,1fr))}.gal img:nth-child(n+4){display:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Scratch & Roam with Natali", "url": "https://scratchandroam.com", "inLanguage": "en", "publisher": {"@type": "Person", "name": "Natali", "url": "https://scratchandroam.com/about/", "sameAs": ["https://www.youtube.com/@scratchandroam", "https://www.instagram.com/scratchandroam/", "https://www.tiktok.com/@scratchandroam", "https://www.facebook.com/scratchandroam", "https://www.pinterest.com/scratchandroam/"]}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Natali", "url": "https://scratchandroam.com/about/", "jobTitle": "Travel creator and maker", "homeLocation": {"@type": "Place", "name": "Ireland"}, "sameAs": ["https://www.youtube.com/@scratchandroam", "https://www.instagram.com/scratchandroam/", "https://www.tiktok.com/@scratchandroam", "https://www.facebook.com/scratchandroam", "https://www.pinterest.com/scratchandroam/"]}</script>
 </head>
@@ -210,13 +215,13 @@ footer a{color:#fff}
 </div></section>
 
 <section class="sec alt" id="shanghai"><div class="wrap">
-  <div class="sechead"><div><p class="eyebrow">From the road</p><h2>Shanghai, mostly at night</h2><p>Short videos and photo sets from the last trip. Tap one to watch it on the channel.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
+  <div class="sechead"><div><p class="eyebrow">From the road</p><h2>Shanghai, mostly at night</h2><p>What we filmed, turned into the practical answers: how to get there, when to go, what it costs.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
   <div class="wall">
-    <a class="tile t-big" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night, gold lit buildings" loading="lazy"><span class="cap"><small>Photo set</small>The Bund after dark</span></a>
-    <a class="tile t-tall" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/nanjing-3x4.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span class="cap"><small>Photo set</small>Nanjing Road: shop, glow, repeat</span></a>
-    <a class="tile" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span class="cap"><small>Short</small>From the water</span></a>
+    <a class="tile t-big" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night, gold lit buildings" loading="lazy"><span class="cap"><small>Guide</small>The Bund at night: how to get there</span></a>
+    <a class="tile t-tall" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-3x4.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span class="cap"><small>Guide</small>Nanjing Road: when the neon is on</span></a>
+    <a class="tile" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span class="cap"><small>Guide</small>River cruise: which pier, which ticket</span></a>
     <a class="tile" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/film-4x5.jpg" alt="Shanghai at night as one roll of film" loading="lazy"><span class="cap"><small>Photo set</small>One roll of film</span></a>
-    <a class="tile t-wide" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span class="cap"><small>Long video</small>A night at Shanghai Circus World</span></a>
+    <a class="tile t-wide" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span class="cap"><small>Guide</small>ERA show: tickets and how to get there</span></a>
     <a class="tile t-wide" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/circus-photo-16x9.jpg" alt="Shanghai Circus photo dump cover" loading="lazy"><span class="cap"><small>Photo set</small>Circus photo dump</span></a>
   </div>
 </div></section>

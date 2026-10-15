@@ -173,6 +173,11 @@ footer a{color:#fff}
 @media (max-width:860px){.hero .in,.route,.about,.gridg,footer .in{grid-template-columns:1fr}.tickets{grid-template-columns:1fr 1fr}.herocard{justify-self:start}aside{position:static}.polaroid{transform:none}}
 @media (max-width:600px){.tickets{grid-template-columns:1fr}.wall{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px}.t-big,.t-wide{grid-column:span 2}.hero{min-height:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+
+/* photo strip for place pages */
+.gal{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:26px}
+.gal img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:var(--night2)}
+@media (max-width:860px){.gal{grid-template-columns:repeat(3,minmax(0,1fr))}.gal img:nth-child(n+4){display:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "AboutPage", "name": "About Scratch & Roam with Natali", "url": "https://scratchandroam.com/about/", "mainEntity": {"@type": "Person", "name": "Natali", "sameAs": ["https://www.youtube.com/@scratchandroam", "https://www.instagram.com/scratchandroam/", "https://www.tiktok.com/@scratchandroam", "https://www.facebook.com/scratchandroam", "https://www.pinterest.com/scratchandroam/"]}}</script>
 </head>

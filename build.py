@@ -57,7 +57,7 @@ def yt(vid,title):
         return f'<div class="video soon" style="background-image:url(/img/first-time-16x9.jpg)"><div><b>Video goes live on YouTube on Friday 16 October</b><br><small>This page will embed it as soon as it is up.</small></div></div>'
     return f'''<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="{html.escape(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'''
 
-def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None):
+def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None):
     path=f"/guides/{slug}/"
     url=SITE+path
     steps_html="".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p></div></li>' for i,s in enumerate(steps))
@@ -69,22 +69,29 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
     rel_html=""
     if related:
         rel_html='<section class="related"><h2>Related guides</h2><div class="tickets">'+"".join(f'<a class="tk" href="{u}"><img src="/img/{cl}.jpg" alt="{html.escape(n)} cover" loading="lazy"><span class="num">{html.escape(t)}</span><div class="cb"><h3>{html.escape(n)}</h3><span class="go">Read the guide</span></div></a>' for u,cl,t,n in related)+'</div></section>'
+    gal=""
+    if gallery:
+        gal='<div class="gal">'+"".join(f'<img src="/img/{g[0]}.jpg" alt="{html.escape(g[1])}" loading="lazy">' for g in gallery)+'</div>'
+    short_html=""
+    if shorts:
+        short_html='<div class="sidebox"><h3>Watch the short</h3><p>'+" · ".join(f'<a href="{u}" rel="noopener">{n}</a>' for n,u in shorts.items())+'</p></div>'
     body=f'''<main class="wrap guide">
 <p class="eyebrow"><a href="/china/">China guides</a> · checked {checked}</p>
 <h1>{h1}</h1>
 <p class="lede">{desc}</p>
-{yt(vid,title)}
+{yt(vid,title) if vid or not gallery else ""}
+{gal}
 <div class="gridg">
 <article>
 <div class="intro">{intro}</div>
 <h2>Quick answers</h2>
 <div class="faq">{faq_html}</div>
-<h2>Step by step</h2>
+<h2>{steps_title}</h2>
 <ol class="steps">{steps_html}</ol>
 <p class="note">Rules change. Everything here was checked on {checked} against the sources below. Before you fly, open the official page once more.</p>
 <h2>Sources</h2><ul class="sources">{src_html}</ul>
 </article>
-<aside>{ch_html}<div class="sidebox"><h3>Watch it short</h3><p>The same guide as a vertical video on <a href="{SOC['TikTok']}" rel="noopener">TikTok</a>, <a href="{SOC['Instagram']}" rel="noopener">Instagram</a> and <a href="{SOC['Pinterest']}" rel="noopener">Pinterest</a>.</p></div><div class="sidebox"><h3>Who writes this</h3><p>Natali, a maker from Ireland who films her trips and writes down the parts nobody explains. <a href="/about/">About</a></p></div></aside>
+<aside>{ch_html}{short_html}<div class="sidebox" {'hidden' if shorts else ''}><h3>Watch it short</h3><p>The same guide as a vertical video on <a href="{SOC['TikTok']}" rel="noopener">TikTok</a>, <a href="{SOC['Instagram']}" rel="noopener">Instagram</a> and <a href="{SOC['Pinterest']}" rel="noopener">Pinterest</a>.</p></div><div class="sidebox"><h3>Who writes this</h3><p>Natali, a maker from Ireland who films her trips and writes down the parts nobody explains. <a href="/about/">About</a></p></div></aside>
 </div>
 {rel_html}
 </main>'''
@@ -94,6 +101,8 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
             {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}]
     if vid:
         schema.append({"@context":"https://schema.org","@type":"VideoObject","name":title,"description":desc,"thumbnailUrl":[og] if og else f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg","uploadDate":upload or checked,"duration":minutes,"embedUrl":f"https://www.youtube.com/embed/{vid}","contentUrl":f"https://www.youtube.com/watch?v={vid}","author":{"@type":"Person","name":"Natali"}})
+    if place:
+        schema.append({"@context":"https://schema.org","@type":"TouristAttraction","name":place["name"],"address":{"@type":"PostalAddress","addressLocality":place.get("city","Shanghai"),"addressCountry":"CN"},"url":url,"isAccessibleForFree":place.get("free",False)})
     schema.append({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"China guides","item":SITE+"/china/"},{"@type":"ListItem","position":3,"name":h1,"item":url}]})
     page(path,title,desc,body,schema,og)
 

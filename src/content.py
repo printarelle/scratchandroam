@@ -43,13 +43,13 @@ HOME = '''<main>
 </div></section>
 
 <section class="sec alt" id="shanghai"><div class="wrap">
-  <div class="sechead"><div><p class="eyebrow">From the road</p><h2>Shanghai, mostly at night</h2><p>Short videos and photo sets from the last trip. Tap one to watch it on the channel.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
+  <div class="sechead"><div><p class="eyebrow">From the road</p><h2>Shanghai, mostly at night</h2><p>What we filmed, turned into the practical answers: how to get there, when to go, what it costs.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
   <div class="wall">
-    <a class="tile t-big" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night, gold lit buildings" loading="lazy"><span class="cap"><small>Photo set</small>The Bund after dark</span></a>
-    <a class="tile t-tall" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/nanjing-3x4.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span class="cap"><small>Photo set</small>Nanjing Road: shop, glow, repeat</span></a>
-    <a class="tile" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span class="cap"><small>Short</small>From the water</span></a>
+    <a class="tile t-big" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night, gold lit buildings" loading="lazy"><span class="cap"><small>Guide</small>The Bund at night: how to get there</span></a>
+    <a class="tile t-tall" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-3x4.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span class="cap"><small>Guide</small>Nanjing Road: when the neon is on</span></a>
+    <a class="tile" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span class="cap"><small>Guide</small>River cruise: which pier, which ticket</span></a>
     <a class="tile" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/film-4x5.jpg" alt="Shanghai at night as one roll of film" loading="lazy"><span class="cap"><small>Photo set</small>One roll of film</span></a>
-    <a class="tile t-wide" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span class="cap"><small>Long video</small>A night at Shanghai Circus World</span></a>
+    <a class="tile t-wide" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span class="cap"><small>Guide</small>ERA show: tickets and how to get there</span></a>
     <a class="tile t-wide" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/circus-photo-16x9.jpg" alt="Shanghai Circus photo dump cover" loading="lazy"><span class="cap"><small>Photo set</small>Circus photo dump</span></a>
   </div>
 </div></section>
@@ -83,7 +83,7 @@ CHINA = '''<main class="wrap guide">
 <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card online on a computer</h3><span class="go">Read the guide</span></div></a>
 <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card in Alipay on your phone</h3><span class="go">Read the guide</span></div></a>
 </div></section>
-<section class="sec"><h2 style="margin-bottom:14px">Shanghai, mostly at night</h2><div class="wall" style="margin-bottom:20px"><a class="tile t-wide" href="/#shanghai"><img src="/img/bund-4x5.jpg" alt="The Bund at night" loading="lazy"><span class="cap">The Bund after dark</span></a><a class="tile" href="/#shanghai"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road" loading="lazy"><span class="cap">Nanjing Road</span></a><a class="tile" href="/#shanghai"><img src="/img/river-4x5.jpg" alt="Huangpu river skyline" loading="lazy"><span class="cap">From the water</span></a></div><p class="intro">Short videos and photo sets from the last trip are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>: the Bund after dark, Nanjing Road, the Huangpu river cruise, Shanghai Circus World and Shanghai Disneyland after dark. Pages for each are coming.</p></section>
+<section class="sec"><h2 style="margin-bottom:14px">Shanghai, mostly at night</h2><div class="wall" style="margin-bottom:20px"><a class="tile t-wide" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund at night" loading="lazy"><span class="cap"><small>Guide</small>The Bund at night: how to get there</span></a><a class="tile" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road" loading="lazy"><span class="cap"><small>Guide</small>Nanjing Road</span></a><a class="tile" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Huangpu river skyline" loading="lazy"><span class="cap"><small>Guide</small>River cruise</span></a><a class="tile t-wide" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World" loading="lazy"><span class="cap"><small>Guide</small>ERA show: tickets and how to get there</span></a></div><p class="intro">The videos and photo sets behind these pages are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>. Shanghai Disneyland after dark is next.</p></section>
 </main>'''
 page("/china/","China guides for first-timers: entry, payments, trains",
      "Practical China guides from Scratch & Roam: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.",
@@ -183,3 +183,91 @@ guide("first-time-in-china","First time in China: 13 things to set up before you
       SITE+"/og/first-time.jpg",
       chapters=[("1","Entry rules"),("2","Arrival card"),("3","Get the apps"),("4","Pay setup"),("5","Mini-programs"),("6","The ¥200 fee"),("7","Cash"),("8","Flights"),("9","Booking"),("10","Trains"),("11","Station day"),("12","Maps"),("13","Pack light")],
       related=[("/guides/china-arrival-card-pc/","arrival-pc-16x9","GUIDE 14","China arrival card online on a computer"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone")])
+
+# ---------- Shanghai place guides (facts from the sources listed on each page, checked 15 Oct 2026) ----------
+SH=dict(city="Shanghai")
+CHECK='<p>Prices and times here are from the sources at the bottom, checked on 15 October 2026. They move. Treat the numbers as a guide and check the official page or Trip.com on the day.</p>'
+
+guide("the-bund-shanghai-at-night","The Bund Shanghai at night: how to get there and when to go","The Bund in Shanghai at night: how to get there, where to start, when the lights go off",
+      "How to get to the Bund by metro (East Nanjing Road, exit 2 or 7), the best time for the lights, when they switch off, and a simple route along the river. Free, no ticket.",
+      "the Bund Shanghai at night",None,
+      "<p>The Bund is the river promenade with the old European banks on one side and the Pudong towers across the water. It is free, it is open all the time, and the only thing you can get wrong is the timing. We went at night and the gold-lit buildings are the whole point. Here is how to do it without wandering.</p>"+CHECK,
+      [("Take the metro to East Nanjing Road and use exit 2 or 7","East Nanjing Road station is on Lines 2 and 10. From exit 2 you are on the pedestrian street; walk east, towards the river, about 10 to 15 minutes. Taxis cannot drop you on the promenade itself."),
+       ("Arrive about an hour before sunset","You get the buildings in daylight, then sunset, then the lights. Coming from the north, Tiantong Road station on Lines 10 and 12 also works."),
+       ("Start at the Peace Hotel and walk south","The green-roofed Peace Hotel is where Nanjing Road meets the Bund, so it is the natural start. Walk south along the raised promenade with the old banks on your right and Pudong on your left."),
+       ("Know when the lights go off","The architectural lights on both banks usually switch off at 22:00. In winter they come on from about 18:00, in summer not until about 19:30. Do not arrive at 22:30 expecting the show."),
+       ("Skip the sightseeing tunnel unless you have kids","The Bund Sightseeing Tunnel under the river is a short light-effects ride with no river view. Fun for children, not for the skyline."),
+       ("Give it 90 minutes, or half a day with a cruise","The promenade and the main buildings take about 90 minutes. Add a river cruise from Jinling East Road pier (10 minutes south) and you have an evening.")],
+      [("Is the Bund free?","Yes. The promenade has no ticket. Only the cruises, observation decks and the sightseeing tunnel cost money."),
+       ("Which metro exit for the Bund?","East Nanjing Road station, Lines 2 and 10, exit 2 or exit 7, then walk east along Nanjing East Road to the river."),
+       ("What time do the Bund lights turn off?","Usually 22:00 on both banks. They come on around 18:00 in winter and around 19:30 in summer."),
+       ("Is the Bund better by day or by night?","Arrive about 45 to 60 minutes before sunset and you get both. Weekday mornings are the quiet option for photos.")],
+      [("Wander in China: The Bund guide (updated 21 July 2026)","https://www.wanderinchina.com/destinations/shanghai/the-bund/",False)],
+      SITE+"/og/bund.jpg",
+      related=[("/guides/nanjing-road-shanghai/","nanjing-4x5","SHANGHAI","Nanjing Road: how to walk it and when the neon is on"),("/guides/huangpu-river-night-cruise/","river-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
+      gallery=[("bund-4x5","The Bund after dark, gold lit bank buildings"),("bund-s2","Bund buildings lit at night"),("bund-s3","The Bund promenade at night"),("bund-s4","Bund facade detail at night"),("bund-s5","Pudong skyline from the Bund")],
+      place={"name":"The Bund","city":"Shanghai","free":True},steps_title="How to do the Bund in one evening",
+      shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
+
+guide("nanjing-road-shanghai","Nanjing Road Shanghai: how to get there, what to see, when the neon is on","Nanjing Road in Shanghai: how to walk it, which metro exit, when the neon comes on",
+      "Nanjing Road pedestrian street: 1.6 km from People's Square to the Bund, metro exits at each end, neon on from 18:00 or 19:00 until 22:00, and the walk that ends at the river.",
+      "Nanjing Road Shanghai",None,
+      "<p>Nanjing Road is the long pedestrian shopping street that runs from People's Square to the Bund. It is loud, bright and busy, and the trick is to walk it in one direction at the right hour so it ends at the river with the lights on.</p>"+CHECK,
+      [("Start at People's Square","People's Square station is on Lines 1, 2 and 8. Exit 19 brings you straight into the New World City basement; come up and you are at the west end of the street."),
+       ("Walk east, about 1.6 km","The pedestrian section is car free. The old department stores (No. 1 Department Store, Wing On) and the neon signs are along the middle stretch."),
+       ("Time it for the neon","Signs come on at 19:00 from June to September and at 18:00 from October to May, and go off at 22:00. Evening from about 17:00 to 22:00 is the time; weekday evenings are quieter than weekends."),
+       ("Keep going past Henan Road to the Bund","The last 500 m east of Henan Road was pedestrianised in 2020 and leads straight to the Peace Hotel and the river. Do this bit at the end, not the start."),
+       ("If you only want the east end","East Nanjing Road station, Lines 2 and 10, exit 2 puts you on the street; exit 3 is quieter if you have luggage."),
+       ("Taxis and DiDi stop at the edge","Cars cannot enter. Drop-off points are the side streets such as West Tibet Road, Henan Middle Road or Jiujiang Road.")],
+      [("How long is Nanjing Road pedestrian street?","About 1.6 km of pedestrian-only street, from People's Square to the Bund. Allow an hour to walk it with stops."),
+       ("Which metro station for Nanjing Road?","People's Square (Lines 1, 2, 8) for the west end, East Nanjing Road (Lines 2, 10) for the east end near the Bund."),
+       ("When do the Nanjing Road lights come on?","18:00 from October to May, 19:00 from June to September, off at 22:00."),
+       ("Does Nanjing Road connect to the Bund?","Yes. Walk east past Henan Road and the street ends at the Peace Hotel on the Bund, about 500 m further.")],
+      [("Wander in China: Nanjing East Road guide (updated 8 June 2026)","https://wanderinchina.com/destinations/shanghai/nanjing-east-road/",False)],
+      SITE+"/og/nanjing.jpg",
+      related=[("/guides/the-bund-shanghai-at-night/","bund-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/huangpu-river-night-cruise/","river-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
+      gallery=[("nanjing-4x5","Nanjing Road neon shop fronts"),("nanjing-s2","Nanjing Road at night"),("nanjing-s3","Shops on Nanjing Road"),("nanjing-s4","Nanjing Road crowd and lights"),("nanjing-s5","Nanjing Road by day")],
+      place={"name":"Nanjing Road Pedestrian Street","city":"Shanghai","free":True},steps_title="How to walk Nanjing Road",
+      shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
+
+guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: which pier, ticket and time","Huangpu River night cruise in Shanghai: which pier, which ticket, and which side to stand on",
+      "Three piers, three cruise lengths, about 120 to 150 RMB for the standard night cruise. How to book as a foreigner, why your passport matters, and which side of the boat to stand on.",
+      "Huangpu River night cruise",None,
+      "<p>The night cruise is the one Shanghai thing that looks exactly like the photos. Both banks are lit, the boat is slow, and you are in the middle. The confusing part is the booking: three piers, tickets tied to one of them, and a voucher that is not a boarding pass. Here is the version that worked for us.</p>"+CHECK,
+      [("Pick the pier before the ticket","Shiliupu pier (south end of the Bund) has the most routes. Jinling East Road pier (middle of the Bund) is best for a short ride and a 10 minute walk from East Nanjing Road station. Oriental Pearl pier is on the Pudong side. Your ticket only works at its own pier."),
+       ("Choose the length","30 minutes express (about 80 to 100 RMB, mostly from Jinling East Road), 45 to 60 minutes classic (about 120 to 150 RMB, all piers, the usual choice), or 90 minutes plus, often a dinner cruise from Shiliupu (250 to 400 RMB and up)."),
+       ("Go between 19:00 and 21:00","That is when both banks are fully lit. Some landmark lighting goes off after 21:00 or 22:00, so the last boats see less. The 17:00 to 19:00 sunset slot gives you daylight and then lights."),
+       ("Book online, then swap the voucher at the pier","An online booking is a voucher, not a ticket. Exchange it at the pier window with your original passport; a photo of it is not accepted. Night cruise collection windows are roughly 17:00 to 20:00."),
+       ("Arrive 30 to 60 minutes early","Pre-booking skips the ticket queue but not security, which can take 20 to 60 minutes on busy evenings."),
+       ("Stand on the left going north","From Shiliupu heading north the Bund buildings are on the left; on the way back Pudong is on the left. Skip the cruise in rain or fog, the towers disappear.")],
+      [("How much is the Huangpu River night cruise?","About 120 to 150 RMB for the standard 45 to 60 minute sightseeing cruise, 80 to 100 RMB for the 30 minute express, more for VIP decks and dinner cruises (figures from a Trip.com guide dated August 2026)."),
+       ("Which pier is best for the Huangpu cruise?","Shiliupu for choice of routes, Jinling East Road for a short ride near the Bund, Oriental Pearl if you are staying in Pudong. Tickets are tied to one pier."),
+       ("Do I need my passport for the river cruise?","Yes, the original. Online bookings are exchanged for tickets at the pier window against your passport."),
+       ("What time is best for the Huangpu night cruise?","Between 19:00 and 21:00, when both banks are fully lit. Some lights go off from 21:00 to 22:00.")],
+      [("Trip.com: Huangpu River cruise guide (10 August 2026)","https://www.trip.com/guide/attraction/huangpu-river-cruise.html",False)],
+      SITE+"/og/river.jpg",
+      related=[("/guides/the-bund-shanghai-at-night/","bund-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/shanghai-circus-world-era-show/","circus-4x5","SHANGHAI","Shanghai Circus World ERA show: tickets and how to get there")],
+      gallery=[("river-4x5","Shanghai skyline from the Huangpu river at night"),("river-s2","Pudong towers from the water"),("river-s3","Bund buildings from the cruise"),("river-s4","Lujiazui lit up from the river"),("river-s5","The Oriental Pearl tower from the water")],
+      place={"name":"Huangpu River Cruise","city":"Shanghai","free":False},steps_title="How to book and board",
+      shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
+
+guide("shanghai-circus-world-era-show","Shanghai Circus World ERA show: tickets, seats and how to get there","Shanghai Circus World ERA show: how to book tickets, where to sit, how to get there",
+      "ERA at Shanghai Circus World: metro Line 1 to Shanghai Circus World station exit 3, shows at 19:30 Tuesday to Sunday, ticket zones from about 280 to 880 RMB, and where foreigners can book.",
+      "Shanghai Circus World ERA tickets",None,
+      "<p>We saw the acrobatics show at Shanghai Circus World on a weeknight and filmed five of the acts (the long video is on YouTube). The show is excellent. The part people search for is the boring part: where to buy the ticket, which zone, and how to get to a venue that is not in the centre. So that is this page.</p>"+CHECK,
+      [("Get there on Line 1","Shanghai Circus World has its own metro station on Line 1 (上海马戏城). Take exit 3 and the venue is about 3 minutes on foot. Evening traffic makes taxis slower than the metro."),
+       ("Check the show times for your date","Evening show at 19:30, Tuesday to Sunday, with Monday usually dark. Saturday and Sunday add a 14:00 matinee. Weekday shows are the shorter 60 minute version; the full 100 minute version is most often on Sundays."),
+       ("Book online before you go","Official site: shcircusworld.com. Trip.com sells zone tickets with QR entry, listing Zone A around 580 RMB and Zones B and C around 380 RMB, with the seat assigned inside the zone. The box office opens around 09:30 but weekends sell out."),
+       ("Pick a zone, not a seat","Zones differ by distance and angle, not quality. Rows 3 to 7 of Zone A are a good balance for floor acts and overhead acts. VIP (around 880 RMB) is closest for the floor acts."),
+       ("Arrive by 19:00","Scanning starts about 30 minutes before the show, and latecomers are held at the door until the first act ends."),
+       ("Photos only in the breaks","Rules on flash and video vary; photos during applause are generally fine, long video recording is not.")],
+      [("How do I get to Shanghai Circus World?","Metro Line 1 to Shanghai Circus World station, exit 3, then a 3 minute walk. Address: 2266 Gonghexin Road, Jing'an District."),
+       ("How much are ERA tickets?","Roughly 280 to 880 RMB depending on zone (VIP 880, A 580, B 380, side and upper sections 280 to 480), per a 2026 guide. Check the official site or Trip.com for the date."),
+       ("Where can foreigners book ERA tickets?","The official site shcircusworld.com, Trip.com (QR code entry), or the venue box office from about 09:30."),
+       ("What time is the ERA show?","19:30 Tuesday to Sunday, plus 14:00 on Saturday and Sunday. Monday is usually a rest day.")],
+      [("Nomado: ERA acrobatics show guide (2026)","https://www.nomadotravel.app/en/attractions/era-acrobatics-show",False),("Shanghai Circus World official site","https://www.shcircusworld.com/",True)],
+      SITE+"/og/circus.jpg",
+      related=[("/guides/huangpu-river-night-cruise/","river-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket"),("/guides/the-bund-shanghai-at-night/","bund-4x5","SHANGHAI","The Bund at night: how to get there and when to go")],
+      gallery=[("circus-4x5","Aerial silks act at Shanghai Circus World"),("circus-b-4x5","Hand balance act"),("circus-c-4x5","Laser light act"),("circus-d-4x5","Act four at Shanghai Circus World"),("circus-e-4x5","Act five at Shanghai Circus World")],
+      place={"name":"Shanghai Circus World","city":"Shanghai","free":False},steps_title="How to book and get there",
+      shorts={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam"})
