@@ -1,72 +1,89 @@
 # Pages for scratchandroam.com. Facts only from Natali's own guides and the sources listed on each page.
 
-SCRATCH_JS = '''<script>
-(function(){var box=document.getElementById('scratch'),c=document.getElementById('foil');if(!box||!c)return;
-var ctx=c.getContext('2d'),down=false,cleared=false,px=0;
+SCRATCH_JS = """<script>
+(function(){var box=document.getElementById('hero'),c=document.getElementById('foil');if(!box||!c)return;
+var ctx=c.getContext('2d'),down=false,cleared=false,px=0,hint=document.getElementById('shint');
 function size(){var r=box.getBoundingClientRect();c.width=Math.max(1,Math.round(r.width));c.height=Math.max(1,Math.round(r.height));paint();}
-function paint(){var g=ctx.createLinearGradient(0,0,c.width,c.height);g.addColorStop(0,'#d6d9de');g.addColorStop(.5,'#b7bcc3');g.addColorStop(1,'#e2e5e9');ctx.globalCompositeOperation='source-over';ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='rgba(255,255,255,.35)';for(var i=0;i<60;i++){ctx.fillRect(Math.random()*c.width,Math.random()*c.height,2,2);}ctx.fillStyle='#1E1B1F';ctx.font='700 '+Math.round(c.height*.11)+'px "Special Elite", monospace';ctx.textAlign='center';ctx.fillText('SCRATCH TO REVEAL',c.width/2,c.height/2+6);}
+function paint(){if(cleared)return;var g=ctx.createLinearGradient(0,0,c.width,c.height);g.addColorStop(0,'#cfd3d8');g.addColorStop(.5,'#aeb3ba');g.addColorStop(1,'#dadde1');ctx.globalCompositeOperation='source-over';ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='rgba(255,255,255,.3)';for(var i=0;i<180;i++){ctx.fillRect(Math.random()*c.width,Math.random()*c.height,2,2);}ctx.fillStyle='#1E1B1F';ctx.textAlign='center';ctx.font='700 '+Math.round(Math.min(c.width*.05,52))+'px "Special Elite", monospace';ctx.fillText('SCRATCH TO REVEAL SHANGHAI',c.width/2,c.height*.5);ctx.font=Math.round(Math.min(c.width*.03,22))+'px "Special Elite", monospace';ctx.fillText('drag anywhere',c.width/2,c.height*.5+40);}
 function pos(e){var r=c.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
-function scratch(e){if(!down||cleared)return;var p=pos(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(p.x,p.y,Math.max(18,c.width*.05),0,Math.PI*2);ctx.fill();px++;if(px>70){cleared=true;c.style.transition='opacity .6s';c.style.opacity='0';var h=box.querySelector('.hint');if(h)h.textContent='';}e.preventDefault();}
+function scratch(e){if(!down||cleared)return;var p=pos(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(p.x,p.y,Math.max(34,c.width*.06),0,Math.PI*2);ctx.fill();px++;if(px>90){cleared=true;c.style.transition='opacity .7s';c.style.opacity='0';c.style.pointerEvents='none';if(hint)hint.textContent='';}e.preventDefault();}
 c.addEventListener('mousedown',function(e){down=true;scratch(e);});c.addEventListener('touchstart',function(e){down=true;scratch(e);},{passive:false});
 c.addEventListener('mousemove',scratch);c.addEventListener('touchmove',scratch,{passive:false});
 window.addEventListener('mouseup',function(){down=false;});window.addEventListener('touchend',function(){down=false;});window.addEventListener('resize',size);
 if(document.fonts&&document.fonts.ready){document.fonts.ready.then(size);}size();})();
-</script>'''
+</script>"""
 
-HOME = f'''<main>
-<section class="hero wrap" id="top">
-  <div>
-    <p class="eyebrow">Travel guides and videos from Ireland</p>
-    <h1 style="margin-top:10px">First time in China? <span>Scratch here first.</span></h1>
-    <p class="lede">Step by step guides for the things nobody explains before you fly: the arrival card, Alipay, visa-free rules, trains and metros. Filmed on the trip, written down so you can follow along at the airport.</p>
-    <div class="cta"><a class="btn pri" href="/china/">Start with the China guides</a><a class="btn" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div>
-    <p style="margin-top:22px"><span class="hand">Scratch to reveal. Roam to discover.</span></p>
+HOME = '''<main>
+<section class="hero">
+  <div class="pic" id="hero">
+    <div class="bg" style="background-image:url('/img/bund-3x4.jpg')"></div>
+    <canvas id="foil" aria-label="Scratch the foil to reveal Shanghai"></canvas>
+    <span class="scratch-hint" id="shint">scratch me</span>
+    <div class="veil"></div>
   </div>
-  <div class="ticket"><span class="tape"></span><span class="stamp">BON VOYAGE</span>
-    <div class="top"><span>FROM: CORK, IRELAND</span><span>SEAT 12A</span></div>
-    <div class="to">TO: <span style="color:var(--pink)">???</span></div>
-    <div class="scratch" id="scratch"><div class="photo"><b>SHANGHAI</b></div><canvas id="foil" aria-label="Scratch the foil to reveal the destination"></canvas><div class="hint">scratch me ✎</div></div>
+  <div class="wrap in">
+    <div>
+      <p class="eyebrow" style="color:#C0DACE">Travel guides and videos from Ireland</p>
+      <h1 style="margin-top:10px">First time in China?<br><span>Scratch here first.</span></h1>
+      <p class="lede">Step by step guides for the things nobody explains before you fly: the arrival card, Alipay, visa-free rules, trains and metros. Filmed on the trip, written down so you can follow along at the airport.</p>
+      <div class="cta"><a class="btn pri" href="/china/">Start with the China guides</a><a class="btn light" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div>
+    </div>
+    <div class="herocard"><span class="k">Newest guide</span><b>China arrival card on a PC, step by step</b><p>Upload your passport, let the form fill itself, save the QR. <a href="/guides/china-arrival-card-pc/">Read it</a></p></div>
   </div>
 </section>
+<div class="strip" aria-hidden="true"><span>Scratch to reveal · Roam to discover · Shanghai · Chengdu · Chongqing · Xi'an · Arrival card · Alipay · Visa-free · Scratch to reveal · Roam to discover · Shanghai · Chengdu · Chongqing · Xi'an · Arrival card · Alipay · Visa-free · </span></div>
 
-<section class="sec"><div class="wrap">
+<section class="sec" id="guides"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Start here</p><h2>China first-timer guides</h2><p>Each guide is the video plus the full written steps, so you can read it without sound. Facts checked against official pages, with the date we checked them.</p></div><span class="pill">Rules change, so every guide is dated</span></div>
-  <div class="grid">
-    <a class="card" href="/guides/china-arrival-card-pc/"><div class="thumb t1"><b>ARRIVAL CARD<br>ON A PC</b></div><div class="cb"><div class="meta"><span>GUIDE</span><span>VIDEO + STEPS</span></div><h3>China arrival card online, step by step on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide →</span></div></a>
-    <a class="card" href="/guides/china-arrival-card-alipay/"><div class="thumb t2"><b>ARRIVAL CARD<br>IN ALIPAY</b></div><div class="cb"><div class="meta"><span>GUIDE</span><span>VIDEO + STEPS</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide →</span></div></a>
-    <a class="card" href="/guides/first-time-in-china/"><div class="thumb t3"><b>13 THINGS<br>BEFORE YOU FLY</b></div><div class="cb"><div class="meta"><span>GUIDE</span><span>VIDEO + CHECKLIST</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide →</span></div></a>
+  <div class="tickets">
+    <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online, step by step on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the China arrival card guide for Alipay on a phone" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="Cover of the 13 things before China guide, with the 200 yuan fee card" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">
+<section class="sec alt" id="shanghai"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">From the road</p><h2>Shanghai, mostly at night</h2><p>Short videos and photo sets from the last trip. Tap one to watch it on the channel.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
+  <div class="wall">
+    <a class="tile t-big" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night, gold lit buildings" loading="lazy"><span class="cap"><small>Photo set</small>The Bund after dark</span></a>
+    <a class="tile t-tall" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/nanjing-3x4.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span class="cap"><small>Photo set</small>Nanjing Road: shop, glow, repeat</span></a>
+    <a class="tile" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span class="cap"><small>Short</small>From the water</span></a>
+    <a class="tile" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/film-4x5.jpg" alt="Shanghai at night as one roll of film" loading="lazy"><span class="cap"><small>Photo set</small>One roll of film</span></a>
+    <a class="tile t-wide" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span class="cap"><small>Long video</small>A night at Shanghai Circus World</span></a>
+    <a class="tile t-wide" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/circus-photo-16x9.jpg" alt="Shanghai Circus photo dump cover" loading="lazy"><span class="cap"><small>Photo set</small>Circus photo dump</span></a>
+  </div>
+</div></section>
+
+<section class="sec" id="december"><div class="wrap">
   <div class="route"><div><p class="eyebrow" style="color:#CFC7D4">Next trip</p><h2>December: Chengdu, Chongqing, Xi'an</h2><p>Pandas, hotpot, a metro that runs through a building, and the Terracotta Army. The guides from this trip land here first, then the videos.</p></div>
   <div class="stops"><span class="stop home">CORK</span><span class="dash">- - -</span><span class="stop">LONDON</span><span class="dash">- - -</span><span class="stop">CHENGDU</span><span class="dash">- - -</span><span class="stop">CHONGQING</span><span class="dash">- - -</span><span class="stop">XI'AN</span></div></div>
 </div></section>
 
-<section class="sec"><div class="wrap about">
+<section class="sec alt"><div class="wrap about">
   <div class="polaroid"><div class="img">photo of Natali</div><div class="cap">Natali, somewhere with a camera</div></div>
-  <div><p class="eyebrow">About</p><h2>A maker from Ireland who travels with a camera and a lot of curiosity</h2><p>I make things for a living and film the trips in between. The scratch card is the idea: a place stays hidden until you scratch it, then it is all there. These pages are the parts I wish someone had written down for me.</p><p style="margin-top:16px"><a href="/about/">More about Scratch &amp; Roam →</a></p></div>
+  <div><p class="eyebrow">About</p><h2>A maker from Ireland who travels with a camera and a lot of curiosity</h2><p>I make things for a living and film the trips in between. The scratch card is the idea: a place stays hidden until you scratch it, then it is all there. These pages are the parts I wish someone had written down for me.</p><p style="margin-top:16px"><a href="/about/">More about Scratch &amp; Roam</a></p></div>
 </div></section>
 </main>
-{SCRATCH_JS}'''
+''' + SCRATCH_JS
 
 page("/","Scratch & Roam with Natali: China first-timer guides and travel videos",
      "Travel guides and videos from Natali, a maker from Ireland. First-timer China guides: arrival card, Alipay, visa-free rules. Scratch to reveal. Roam to discover.",
      HOME,
      [{"@context":"https://schema.org","@type":"WebSite","name":"Scratch & Roam with Natali","url":SITE,"inLanguage":"en","publisher":{"@type":"Person","name":"Natali","url":SITE+"/about/","sameAs":json.loads(SAMEAS)}},
-      {"@context":"https://schema.org","@type":"Person","name":"Natali","url":SITE+"/about/","jobTitle":"Travel creator and maker","homeLocation":{"@type":"Place","name":"Ireland"},"sameAs":json.loads(SAMEAS)}])
+      {"@context":"https://schema.org","@type":"Person","name":"Natali","url":SITE+"/about/","jobTitle":"Travel creator and maker","homeLocation":{"@type":"Place","name":"Ireland"},"sameAs":json.loads(SAMEAS)}],
+     og_image=SITE+"/og/circus-photo.jpg", dark=True)
 
 # China index
 CHINA = '''<main class="wrap guide">
 <p class="eyebrow">China</p>
 <h1>China guides for first-timers</h1>
 <p class="lede">The practical part first: entry, payments, trains. The city pages (Shanghai now, Chengdu, Chongqing and Xi'an after December) come next.</p>
-<section class="sec" style="border:0;padding-top:30px"><h2 style="margin-bottom:16px">Before you fly</h2><div class="grid">
-<a class="card" href="/guides/first-time-in-china/"><div class="thumb t3"><b>13 THINGS<br>BEFORE YOU FLY</b></div><div class="cb"><div class="meta"><span>CHECKLIST</span></div><h3>First time in China: 13 things to set up before you fly</h3><span class="go">Read →</span></div></a>
-<a class="card" href="/guides/china-arrival-card-pc/"><div class="thumb t1"><b>ARRIVAL CARD<br>ON A PC</b></div><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card online on a computer</h3><span class="go">Read →</span></div></a>
-<a class="card" href="/guides/china-arrival-card-alipay/"><div class="thumb t2"><b>ARRIVAL CARD<br>IN ALIPAY</b></div><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card in Alipay on your phone</h3><span class="go">Read →</span></div></a>
+<section class="sec" style="padding-top:30px"><h2 style="margin-bottom:16px">Before you fly</h2><div class="tickets">
+<a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>CHECKLIST</span></div><h3>First time in China: 13 things to set up before you fly</h3><span class="go">Read the guide</span></div></a>
+<a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card online on a computer</h3><span class="go">Read the guide</span></div></a>
+<a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card in Alipay on your phone</h3><span class="go">Read the guide</span></div></a>
 </div></section>
-<section class="sec"><h2 style="margin-bottom:10px">Shanghai, mostly at night</h2><p class="intro">Short videos and photo sets from the last trip are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>: the Bund after dark, Nanjing Road, the Huangpu river cruise, Shanghai Circus World and Shanghai Disneyland after dark. Pages for each are coming.</p></section>
+<section class="sec"><h2 style="margin-bottom:14px">Shanghai, mostly at night</h2><div class="wall" style="margin-bottom:20px"><a class="tile t-wide" href="/#shanghai"><img src="/img/bund-4x5.jpg" alt="The Bund at night" loading="lazy"><span class="cap">The Bund after dark</span></a><a class="tile" href="/#shanghai"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road" loading="lazy"><span class="cap">Nanjing Road</span></a><a class="tile" href="/#shanghai"><img src="/img/river-4x5.jpg" alt="Huangpu river skyline" loading="lazy"><span class="cap">From the water</span></a></div><p class="intro">Short videos and photo sets from the last trip are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>: the Bund after dark, Nanjing Road, the Huangpu river cruise, Shanghai Circus World and Shanghai Disneyland after dark. Pages for each are coming.</p></section>
 </main>'''
 page("/china/","China guides for first-timers: entry, payments, trains",
      "Practical China guides from Scratch & Roam: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.",
@@ -108,9 +125,9 @@ guide("china-arrival-card-pc","China arrival card on a PC: step by step guide","
       "<p>The arrival card is the one form every visitor fills in before landing in China. On a computer it takes a few minutes: the passport page does most of the typing, and at the end you save a QR code. This is the computer version; if you prefer your phone, use the <a href='/guides/china-arrival-card-alipay/'>Alipay guide</a>.</p>",
       PC_STEPS,COMMON_FAQ,
       [("National Immigration Administration: arrival card filling page",NIA,True)],
-      None,
+      SITE+"/og/arrival-pc.jpg",
       chapters=[("0:00","Intro: the arrival card on a PC"),("0:15","What the arrival card is"),("0:44","Get ready"),("1:04","Open the website"),("1:20","Passport page: the form fills itself"),("1:43","Basic information"),("2:04","Personal information"),("2:28","Travel information"),("2:51","Sign and confirm"),("3:01","Save your QR code"),("3:29","Your move")],
-      related=[("/guides/china-arrival-card-alipay/","t2","ARRIVAL CARD IN ALIPAY","China arrival card in Alipay on your phone"),("/guides/first-time-in-china/","t3","13 THINGS","First time in China: 13 things to set up before you fly")],
+      related=[("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly")],
       minutes="PT3M41S",upload="2026-10-15")
 
 AP_STEPS=[
@@ -130,9 +147,9 @@ guide("china-arrival-card-alipay","China arrival card in Alipay: step by step gu
       "<p>If you already have Alipay set up for paying in China, the arrival card is inside it too. The passport page fills in most of the form, you check it, and you save the QR code at the end. Prefer a computer? Use the <a href='/guides/china-arrival-card-pc/'>PC guide</a>.</p>",
       AP_STEPS,COMMON_FAQ,
       [("National Immigration Administration: arrival card filling page",NIA,True)],
-      None,
+      SITE+"/og/arrival-alipay.jpg",
       chapters=[("0:00","Intro: the arrival card in Alipay"),("0:13","What the arrival card is"),("0:42","Get ready"),("1:03","Find the mini program in Alipay"),("1:21","Agree and passport page"),("1:42","Basic information"),("1:59","Personal information"),("2:15","Travel information"),("2:32","Sign and confirm"),("2:42","Save your QR code"),("3:10","Your move")],
-      related=[("/guides/china-arrival-card-pc/","t1","ARRIVAL CARD ON A PC","China arrival card online on a computer"),("/guides/first-time-in-china/","t3","13 THINGS","First time in China: 13 things to set up before you fly")],
+      related=[("/guides/china-arrival-card-pc/","arrival-pc-16x9","GUIDE 14","China arrival card online on a computer"),("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly")],
       minutes="PT3M23S",upload="2026-10-15")
 
 FT_STEPS=[
@@ -162,6 +179,6 @@ guide("first-time-in-china","First time in China: 13 things to set up before you
       [("Shanghai municipal government (English): visa-free entry policy","https://english.shanghai.gov.cn/en-Individuals-ImmigrationandVisas-Visa-freepolicies/20260709/469e8c5656534926a04b31a1084351f0.html",True),
        ("National Immigration Administration: arrival card filling page",NIA,True),
        ("China Railway 12306","https://www.12306.cn/en/",True)],
-      None,
+      SITE+"/og/first-time.jpg",
       chapters=[("1","Entry rules"),("2","Arrival card"),("3","Get the apps"),("4","Pay setup"),("5","Mini-programs"),("6","The ¥200 fee"),("7","Cash"),("8","Flights"),("9","Booking"),("10","Trains"),("11","Station day"),("12","Maps"),("13","Pack light")],
-      related=[("/guides/china-arrival-card-pc/","t1","ARRIVAL CARD ON A PC","China arrival card online on a computer"),("/guides/china-arrival-card-alipay/","t2","ARRIVAL CARD IN ALIPAY","China arrival card in Alipay on your phone")])
+      related=[("/guides/china-arrival-card-pc/","arrival-pc-16x9","GUIDE 14","China arrival card online on a computer"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone")])

@@ -6,14 +6,16 @@ CSS=open('src/site.css').read()
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
 SAMEAS=json.dumps(list(SOC.values()))
 
-def nav():
-    return f'''<nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<div class="links"><a href="/china/">China guides</a><a href="/about/">About</a><a class="live" href="{SOC['YouTube']}" rel="me">YouTube</a></div></nav>'''
+def nav(dark=False):
+    return f'''<header class="hdr{' dark' if dark else ''}"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
+<button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+<div class="links" id="menu"><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>'''
+NAVJS='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>'
 def footer():
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
-    return f'''<footer class="wrap"><div class="follow">{links}</div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div><p class="fine">Scratch to reveal. Roam to discover.</p></footer>'''
+    return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p></div><div><p class="eyebrow" style="color:#9a93a3">Follow along</p><div class="follow">{links}</div></div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer>{NAVJS}'''
 
-def page(path,title,desc,body,schema=None,og_image=None,extra_head=""):
+def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False):
     url=SITE+path
     img=og_image or SITE+"/og/home.jpg"
     sj="".join(f'<script type="application/ld+json">{json.dumps(s,ensure_ascii=False)}</script>' for s in (schema or []))
@@ -39,7 +41,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head=""):
 {sj}
 </head>
 <body>
-{nav()}
+{nav(dark)}
 {body}
 {footer()}
 </body>
@@ -52,7 +54,7 @@ PAGES=[]
 
 def yt(vid,title):
     if not vid:
-        return f'<div class="video soon"><div><b>Video goes live on YouTube on Friday 16 October</b><br><small>This page will embed it as soon as it is up.</small></div></div>'
+        return f'<div class="video soon" style="background-image:url(/img/first-time-16x9.jpg)"><div><b>Video goes live on YouTube on Friday 16 October</b><br><small>This page will embed it as soon as it is up.</small></div></div>'
     return f'''<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="{html.escape(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'''
 
 def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None):
@@ -66,7 +68,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
         ch_html='<div class="chapters"><h3>In the video</h3><ol>'+"".join(f'<li><span>{t}</span>{html.escape(c)}</li>' for t,c in chapters)+'</ol></div>'
     rel_html=""
     if related:
-        rel_html='<section class="related"><h2>Related guides</h2><div class="grid">'+"".join(f'<a class="card" href="{u}"><div class="thumb {cl}"><b>{html.escape(t)}</b></div><div class="cb"><h3>{html.escape(n)}</h3><span class="go">Read the guide →</span></div></a>' for u,cl,t,n in related)+'</div></section>'
+        rel_html='<section class="related"><h2>Related guides</h2><div class="tickets">'+"".join(f'<a class="tk" href="{u}"><img src="/img/{cl}.jpg" alt="{html.escape(n)} cover" loading="lazy"><span class="num">{html.escape(t)}</span><div class="cb"><h3>{html.escape(n)}</h3><span class="go">Read the guide</span></div></a>' for u,cl,t,n in related)+'</div></section>'
     body=f'''<main class="wrap guide">
 <p class="eyebrow"><a href="/china/">China guides</a> · checked {checked}</p>
 <h1>{h1}</h1>
