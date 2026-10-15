@@ -60,7 +60,7 @@ HOME = '''<main>
 </div></section>
 
 <section class="sec alt"><div class="wrap about">
-  <div class="polaroid"><div class="img">photo of Natali</div><div class="cap">Natali, somewhere with a camera</div></div>
+  <div class="polaroid"><div class="img"><img src="/img/natali.jpg" alt="Natali in her studio, smiling at the camera" loading="lazy"></div><div class="cap">Natali, somewhere with a camera</div></div>
   <div><p class="eyebrow">About</p><h2>A maker from Ireland who travels with a camera and a lot of curiosity</h2><p>I make things for a living and film the trips in between. The scratch card is the idea: a place stays hidden until you scratch it, then it is all there. These pages are the parts I wish someone had written down for me.</p><p style="margin-top:16px"><a href="/about/">More about Scratch &amp; Roam</a></p></div>
 </div></section>
 </main>
@@ -92,6 +92,7 @@ page("/china/","China guides for first-timers: entry, payments, trains",
 ABOUT = '''<main class="wrap guide" style="max-width:800px">
 <p class="eyebrow">About</p>
 <h1>Scratch &amp; Roam with Natali</h1>
+<div class="polaroid" style="float:right;margin:0 0 20px 24px;max-width:280px"><div class="img"><img src="/img/natali.jpg" alt="Natali in her studio"></div><div class="cap">hello from the studio</div></div>
 <div class="intro" style="margin-top:20px">
 <p>I am Natali, a maker from Ireland. I make things for a living and film the trips in between: China, Japan and wherever comes next. My husband and family turn up in the videos sometimes, and so does the work on the days I am not travelling.</p>
 <p>The scratch card is the idea behind the name. A place stays hidden until you scratch it, and then it is all there. Every video opens that way, and the guides on this site are the parts I wish someone had written down for me before my first trip.</p>
@@ -110,14 +111,14 @@ COMMON_FAQ=[
  ("What do I need to have ready?","Your passport, your flight number, where you will stay in China and the reason for the trip. The passport page fills most of the form for you."),
 ]
 PC_STEPS=[
- ("What the arrival card is","China's arrival card is filled in online before you land. The official page is on the National Immigration Administration site and it is free."),
- ("Get ready","Have your passport, your flight number, the address of where you are staying and your reason for travel next to you."),
- ("Open the website",f'Go to the official page at <a href="{NIA}" rel="noopener">s.nia.gov.cn</a>. Use a computer with a camera or have a clear photo of your passport page ready to upload.'),
- ("Passport page: the form fills itself","Upload the photo page of your passport. The site reads it and fills in your name, passport number, nationality and dates. Check every field against your passport; type only what it did not recognise."),
- ("Basic and personal information","Confirm the basic details, then add the personal ones: contact details and anything the passport page could not supply."),
- ("Travel information","Flight number, where you will stay, how long, and why you are travelling. Use the address exactly as your booking shows it."),
- ("Sign and confirm","Sign on the screen and confirm. Read the summary once more before you submit."),
- ("Save your QR code","The site offers a QR code, a PDF download and an email copy. Take all of them. Keep the PDF on your phone in case there is no signal at the airport."),
+ ("What is the China arrival card and is it free?","China's arrival card is filled in online before you land. The official page is on the National Immigration Administration site and it is free."),
+ ("What do I need before I start?","Have your passport, your flight number, the address of where you are staying and your reason for travel next to you."),
+ ("Where is the official arrival card website?",f'Go to the official page at <a href="{NIA}" rel="noopener">s.nia.gov.cn</a>. Use a computer with a camera or have a clear photo of your passport page ready to upload.'),
+ ("Upload your passport page and check what it filled in","Upload the photo page of your passport. The site reads it and fills in your name, passport number, nationality and dates. Check every field against your passport; type only what it did not recognise."),
+ ("Fill in the basic and personal information","Confirm the basic details, then add the personal ones: contact details and anything the passport page could not supply."),
+ ("Fill in the travel information: flight, address, reason","Flight number, where you will stay, how long, and why you are travelling. Use the address exactly as your booking shows it."),
+ ("Sign and confirm the card","Sign on the screen and confirm. Read the summary once more before you submit."),
+ ("Save the QR code as a PDF and email","The site offers a QR code, a PDF download and an email copy. Take all of them. Keep the PDF on your phone in case there is no signal at the airport."),
 ]
 guide("china-arrival-card-pc","China arrival card on a PC: step by step guide","China arrival card online on a PC, step by step",
       "Filling in the China arrival card online on a computer? Here is the whole form step by step, with the real form enlarged. Upload your passport and most of the details fill in for you.",
@@ -131,15 +132,15 @@ guide("china-arrival-card-pc","China arrival card on a PC: step by step guide","
       minutes="PT3M41S",upload="2026-10-15")
 
 AP_STEPS=[
- ("What the arrival card is","China's arrival card is filled in online before you land. The official version also lives inside Alipay as a mini program, and it is free."),
- ("Get ready","Have your passport, your flight number, the address of where you are staying and your reason for travel next to you. Install Alipay first if you have not yet."),
- ("Find the mini program in Alipay","Open Alipay and search for the arrival card mini program. Open it and agree to the terms."),
- ("Agree and passport page","Take a photo of the photo page of your passport. The app reads it and fills in your name, passport number, nationality and dates. Check each one."),
- ("Basic information","Confirm the basic details the passport page supplied."),
- ("Personal information","Add your contact details and anything the passport could not supply."),
- ("Travel information","Flight number, where you will stay, how long, and why you are travelling. Use the address exactly as your booking shows it."),
- ("Sign and confirm","Sign on the screen and confirm. Read the summary once more before you submit."),
- ("Save your QR code","Save the QR code, download the PDF and send it to your email, so it is on your phone even without signal."),
+ ("What is the China arrival card and is it free?","China's arrival card is filled in online before you land. The official version also lives inside Alipay as a mini program, and it is free."),
+ ("What do I need before I start?","Have your passport, your flight number, the address of where you are staying and your reason for travel next to you. Install Alipay first if you have not yet."),
+ ("Where is the arrival card inside Alipay?","Open Alipay and search for the arrival card mini program. Open it and agree to the terms."),
+ ("Agree, then photograph your passport page","Take a photo of the photo page of your passport. The app reads it and fills in your name, passport number, nationality and dates. Check each one."),
+ ("Check the basic information","Confirm the basic details the passport page supplied."),
+ ("Add the personal information","Add your contact details and anything the passport could not supply."),
+ ("Fill in the travel information: flight, address, reason","Flight number, where you will stay, how long, and why you are travelling. Use the address exactly as your booking shows it."),
+ ("Sign and confirm the card","Sign on the screen and confirm. Read the summary once more before you submit."),
+ ("Save the QR code as a PDF and email","Save the QR code, download the PDF and send it to your email, so it is on your phone even without signal."),
 ]
 guide("china-arrival-card-alipay","China arrival card in Alipay: step by step guide","China arrival card in Alipay on your phone, step by step",
       "Filling in the China arrival card online with Alipay on your phone? Here is the whole form step by step. Upload your passport and most of the details fill in for you.",

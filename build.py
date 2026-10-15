@@ -61,7 +61,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
     path=f"/guides/{slug}/"
     url=SITE+path
     steps_html="".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p></div></li>' for i,s in enumerate(steps))
-    faq_html="".join(f'<details><summary>{html.escape(q)}</summary><p>{a}</p></details>' for q,a in faq)
+    faq_html="".join(f'<details{" open" if i==0 else ""}><summary>{html.escape(q)}</summary><p>{a}</p></details>' for i,(q,a) in enumerate(faq))
     src_html="".join(f'<li><a href="{u}" rel="noopener">{html.escape(n)}</a>{" (official)" if off else ""}</li>' for n,u,off in sources)
     ch_html=""
     if chapters:
@@ -77,10 +77,10 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
 <div class="gridg">
 <article>
 <div class="intro">{intro}</div>
+<h2>Quick answers</h2>
+<div class="faq">{faq_html}</div>
 <h2>Step by step</h2>
 <ol class="steps">{steps_html}</ol>
-<h2>Questions people ask</h2>
-<div class="faq">{faq_html}</div>
 <p class="note">Rules change. Everything here was checked on {checked} against the sources below. Before you fly, open the official page once more.</p>
 <h2>Sources</h2><ul class="sources">{src_html}</ul>
 </article>
@@ -93,7 +93,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
              "step":[{"@type":"HowToStep","position":i+1,"name":s[0],"text":html.unescape(s[1].replace('<a','').replace('</a>','')),"url":f"{url}#step-{i+1}"} for i,s in enumerate(steps)]},
             {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}]
     if vid:
-        schema.append({"@context":"https://schema.org","@type":"VideoObject","name":title,"description":desc,"thumbnailUrl":f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg","uploadDate":upload or checked,"duration":minutes,"embedUrl":f"https://www.youtube.com/embed/{vid}","contentUrl":f"https://www.youtube.com/watch?v={vid}","author":{"@type":"Person","name":"Natali"}})
+        schema.append({"@context":"https://schema.org","@type":"VideoObject","name":title,"description":desc,"thumbnailUrl":[og] if og else f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg","uploadDate":upload or checked,"duration":minutes,"embedUrl":f"https://www.youtube.com/embed/{vid}","contentUrl":f"https://www.youtube.com/watch?v={vid}","author":{"@type":"Person","name":"Natali"}})
     schema.append({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"China guides","item":SITE+"/china/"},{"@type":"ListItem","position":3,"name":h1,"item":url}]})
     page(path,title,desc,body,schema,og)
 
