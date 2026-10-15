@@ -103,4 +103,5 @@ open('docs/sitemap.xml','w').write(sm)
 open('docs/robots.txt','w').write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
 open('docs/favicon.svg','w').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#2F6F73"/><path d="M14 40c8-10 14-8 20-16 4-5 9-6 16-4" fill="none" stroke="#FBF7F0" stroke-width="6" stroke-linecap="round"/><circle cx="46" cy="22" r="6" fill="#E05A7A"/></svg>')
 open('docs/.nojekyll','w').write('')
+import shutil; shutil.copy('src/404.html','docs/404.html') if os.path.exists('src/404.html') else None
 print("built", len(PAGES), "pages")
