@@ -11,7 +11,7 @@
 <meta property="og:title" content="China guides for first-timers: entry, payments, trains">
 <meta property="og:description" content="Practical China guides from Scratch &amp; Roam: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.">
 <meta property="og:url" content="https://scratchandroam.com/china/">
-<meta property="og:image" content="https://scratchandroam.com/og/home.jpg">
+<meta property="og:image" content="https://scratchandroam.com/og/first-time.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Caveat:wght@700&family=Archivo+Black&family=Special+Elite&family=Libre+Franklin:ital,wght@0,400;0,500;0,700;1,400&display=swap">
@@ -235,23 +235,137 @@ footer a{color:#fff}
 .row .go{font-size:14px;color:var(--pink);font-weight:700}
 @media (max-width:860px){.hero2 .top,.cardsec{grid-template-columns:1fr}.qs,.rows{grid-template-columns:1fr}.scard{transform:none}}
 @media (max-width:600px){.scard{padding:14px}.scard .mk{font-size:20px}.scard .no{font-size:10px}.row{grid-template-columns:110px minmax(0,1fr)}.row img{width:110px;height:84px}.cities{gap:8px}.city b{font-size:15px}.city .hand{font-size:15px}}
+
+/* v2 pages (16 Oct 2026): guide hero band, author box, about page, china page */
+.ghero{background:var(--night);color:#fff;padding-block:36px 150px}
+.ghero .eyebrow,.ghero .eyebrow a{color:#C0DACE}
+.ghero h1{color:#fff;max-width:22ch;margin-top:10px}
+.ghero .lede{font-size:18px;color:#E6E0E8;max-width:62ch;margin-top:16px}
+.gmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.gmeta span{font-family:var(--typed);font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 12px;color:#F3EEE6}
+.gmeta span.hot{background:var(--pink);border-color:var(--pink);color:#fff}
+.lift{margin-top:-120px;position:relative;z-index:2}
+.guide2{padding-block:0 60px}
+.guide2 .video{margin-top:0}
+.guide2 .gal{margin-top:0}
+.guide2 .gal img{aspect-ratio:3/4;box-shadow:0 18px 40px rgba(30,27,31,.2)}
+.guide2 .gridg{margin-top:40px}
+.guide2 h2{font-size:clamp(24px,3vw,32px)}
+.author{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.author img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--paper2)}
+.author b{display:block;font-family:var(--display);font-size:15px;font-weight:400}
+.author p{color:var(--ink2);font-size:14px;margin-top:4px}
+.share{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.share a{font-size:13px;font-weight:600;text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:7px 12px;color:var(--ink)}
+.share a:hover{background:var(--paper2)}
+.faq summary{list-style:none;position:relative;padding-right:28px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:0;font-family:var(--display);color:var(--pink);font-size:20px;line-height:1.1}
+.faq details[open] summary::after{content:"\2013"}
+.related2{margin-top:52px;padding-top:36px;border-top:2px dashed var(--line)}
+.related2 h2{margin-bottom:18px}
+
+/* about */
+.ahero{background:var(--night);color:#fff;padding-block:48px 64px;overflow:hidden}
+.ahero .in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center}
+.ahero h1{color:#fff;margin-top:10px}.ahero h1 span{color:#FFD27A}
+.ahero .lede{font-size:18px;color:#E6E0E8;max-width:48ch;margin-top:16px}
+.stack{position:relative;height:460px;max-width:460px;justify-self:center;width:100%}
+.stack .ph{position:absolute;background:#fff;padding:10px 10px 36px;box-shadow:0 22px 50px rgba(0,0,0,.45);width:min(62%,260px)}
+.stack .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.stack .ph .cap{font-family:var(--hand);font-size:20px;color:#1E1B1F;margin-top:8px}
+.stack .p1{left:0;top:40px;transform:rotate(-7deg);z-index:1}
+.stack .p2{right:0;top:0;transform:rotate(5deg);z-index:2}
+.stack .p3{left:26%;bottom:0;transform:rotate(-2deg);z-index:3}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.fact b{display:block;font-family:var(--display);font-size:26px;color:var(--pink);font-weight:400}
+.fact span{font-family:var(--typed);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.story.flip .pic{order:2}
+.story .pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;box-shadow:0 22px 50px rgba(30,27,31,.18)}
+.story .pic .sm{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.story .pic .sm img{aspect-ratio:1;border-radius:12px;box-shadow:none}
+.story .pic.wide img,.story .pic.wide .sm img{aspect-ratio:16/9}
+.story p{color:var(--ink2);margin-top:12px;max-width:58ch}
+.story p+p{margin-top:10px}
+.howl{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:10px;max-width:58ch}
+.howl li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start}
+.howl .n{font-family:var(--display);color:var(--pink);font-size:22px;line-height:1.2}
+.howl b{display:block;font-weight:700}.howl span{color:var(--ink2);font-size:15px}
+.socs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.soc{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-decoration:none;color:var(--ink);transition:transform .15s}
+.soc:hover{transform:translateY(-3px)}
+.soc b{font-family:var(--display);font-size:16px;font-weight:400}
+.soc span{font-size:13px;color:var(--ink2)}
+.soc .h{font-family:var(--typed);font-size:12px;color:var(--teal)}
+.hello{background:var(--night);color:#F3EEE6;border-radius:22px;padding:34px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:center}
+.hello h2{color:#fff}.hello p{color:#CFC7D4;margin-top:8px}
+.hello .big{font-family:var(--typed);font-size:20px;color:#FFD27A;word-break:break-all}
+
+/* china page */
+.chero{background:var(--night);color:#fff;padding-block:40px 56px}
+.chero h1{color:#fff;margin-top:10px}.chero h1 span{color:#FFD27A}
+.chero .lede{font-size:18px;color:#E6E0E8;max-width:56ch;margin-top:14px}
+.chero .pick{margin-top:28px}
+
+@media (max-width:960px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.socs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:860px){.ahero .in,.story,.hello{grid-template-columns:1fr}.story.flip .pic{order:0}.stack{height:380px}.ghero{padding-bottom:120px}.lift{margin-top:-90px}}
+@media (max-width:600px){.socs{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{gap:10px}.fact{padding:14px}.stack{height:330px}.stack .ph{width:58%}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "China guides for first-timers", "url": "https://scratchandroam.com/china/"}</script>
 </head>
 <body>
-<header class="hdr"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
+<header class="hdr dark"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
 <div class="links" id="menu"><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>
-<main class="wrap guide">
-<p class="eyebrow">China</p>
-<h1>China guides for first-timers</h1>
-<p class="lede">The practical part first: entry, payments, trains. The city pages (Shanghai now, Chengdu, Chongqing and Xi'an after December) come next.</p>
-<section class="sec" style="padding-top:30px"><h2 style="margin-bottom:16px">Before you fly</h2><div class="tickets">
-<a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>CHECKLIST</span></div><h3>First time in China: 13 things to set up before you fly</h3><span class="go">Read the guide</span></div></a>
-<a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card online on a computer</h3><span class="go">Read the guide</span></div></a>
-<a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card in Alipay on your phone</h3><span class="go">Read the guide</span></div></a>
+<main>
+<section class="chero"><div class="wrap">
+<p class="eyebrow" style="color:#C0DACE"><a href="/" style="color:inherit">Home</a> · China</p>
+<h1>China guides for first-timers: <span>entry, paying, trains.</span></h1>
+<p class="lede">The practical part first, in the order you will need it: before you fly, at the border, then paying and getting around. Shanghai is filmed and written up; Chengdu, Chongqing and Xi'an land after December.</p>
+<div class="pick">
+  <p class="hand" style="color:#FFD27A;transform:none">Pick the thing you need to sort out:</p>
+  <div class="qs">
+    <a class="q" href="/guides/first-time-in-china/"><span class="k">Before you fly</span><b>What do I need to set up before I land?</b><span class="go">13-point checklist, 6 min</span></a>
+    <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
+    <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
+    <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
+    <a class="q" href="/guides/first-time-in-china/"><span class="k">Paying</span><b>How do I pay when nobody takes cash or cards?</b><span class="go">Alipay and WeChat, in the checklist</span></a>
+    <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
+  </div>
+</div>
 </div></section>
-<section class="sec"><h2 style="margin-bottom:14px">Shanghai, mostly at night</h2><div class="wall" style="margin-bottom:20px"><a class="tile t-wide" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund at night" loading="lazy"><span class="cap"><small>Guide</small>The Bund at night: how to get there</span></a><a class="tile" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road" loading="lazy"><span class="cap"><small>Guide</small>Nanjing Road</span></a><a class="tile" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Huangpu river skyline" loading="lazy"><span class="cap"><small>Guide</small>River cruise</span></a><a class="tile t-wide" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World" loading="lazy"><span class="cap"><small>Guide</small>ERA show: tickets and how to get there</span></a></div><p class="intro">The videos and photo sets behind these pages are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>. Shanghai Disneyland after dark is next.</p></section>
+
+<section class="sec" id="before"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Before you fly</p><h2>The setup guides</h2><p>Each one is the video plus the written steps, checked against the official page on the date shown.</p></div><span class="pill">Rules change, so every guide is dated</span></div>
+  <div class="tickets">
+    <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
+  </div>
+</div></section>
+
+<section class="sec alt" id="shanghai"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Shanghai, answered</p><h2>What we filmed, turned into the practical answers</h2><p>Four place guides from the trip, mostly at night: how to get there, when to go, what it costs.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
+  <div class="rows">
+    <a class="row" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span><span class="k">The Bund</span><b>How do I get to the Bund at night, and when do the lights go off?</b><span class="go">Guide</span></span></a>
+    <a class="row" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span><span class="k">Nanjing Road</span><b>When is the neon on, and where does the walking street start?</b><span class="go">Guide</span></span></a>
+    <a class="row" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span><span class="k">River cruise</span><b>Which pier, which ticket, and is the night cruise worth it?</b><span class="go">Guide</span></span></a>
+    <a class="row" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span><span class="k">ERA show</span><b>Where do I book ERA circus tickets and how do I get there?</b><span class="go">Guide</span></span></a>
+  </div>
+  <p class="intro" style="margin-top:26px;margin-bottom:0">The videos and photo sets behind these pages are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>. Shanghai Disneyland after dark is next.</p>
+</div></section>
+
+<section class="sec" id="december"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Still under the foil</p><h2>December: Chengdu, Chongqing, Xi'an</h2><p>Pandas, hotpot, a metro that runs through a building, and the Terracotta Army. The guides from this trip land here first, then the videos.</p></div></div>
+  <div class="cities" style="grid-template-columns:repeat(3,minmax(0,1fr));max-width:720px;margin-top:0">
+    <div class="city"><b>Chengdu</b><span class="k">December</span><span class="hand">pandas, hotpot</span></div>
+    <div class="city"><b>Chongqing</b><span class="k">December</span><span class="hand">metro through a building</span></div>
+    <div class="city"><b>Xi'an</b><span class="k">December</span><span class="hand">Terracotta Army</span></div>
+  </div>
+  <div class="stops" style="margin-top:18px;font-size:12px"><span class="stop home">CORK</span><span class="dash">- -</span><span class="stop">LONDON</span><span class="dash">- -</span><span class="stop">CHENGDU</span><span class="dash">- -</span><span class="stop">CHONGQING</span><span class="dash">- -</span><span class="stop">XI'AN</span></div>
+</div></section>
 </main>
 <footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p></div><div><p class="eyebrow" style="color:#9a93a3">Follow along</p><div class="follow"><a href="https://www.youtube.com/@scratchandroam" rel="me noopener">YouTube</a><a href="https://www.instagram.com/scratchandroam/" rel="me noopener">Instagram</a><a href="https://www.tiktok.com/@scratchandroam" rel="me noopener">TikTok</a><a href="https://www.facebook.com/scratchandroam" rel="me noopener">Facebook</a><a href="https://www.pinterest.com/scratchandroam/" rel="me noopener">Pinterest</a></div></div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer><script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
 </body>

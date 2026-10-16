@@ -11,7 +11,7 @@
 <meta property="og:title" content="About Scratch &amp; Roam with Natali">
 <meta property="og:description" content="Natali is a maker from Ireland who films her trips and writes first-timer travel guides. Scratch to reveal. Roam to discover.">
 <meta property="og:url" content="https://scratchandroam.com/about/">
-<meta property="og:image" content="https://scratchandroam.com/og/home.jpg">
+<meta property="og:image" content="https://scratchandroam.com/og/circus-photo.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Caveat:wght@700&family=Archivo+Black&family=Special+Elite&family=Libre+Franklin:ital,wght@0,400;0,500;0,700;1,400&display=swap">
@@ -235,23 +235,162 @@ footer a{color:#fff}
 .row .go{font-size:14px;color:var(--pink);font-weight:700}
 @media (max-width:860px){.hero2 .top,.cardsec{grid-template-columns:1fr}.qs,.rows{grid-template-columns:1fr}.scard{transform:none}}
 @media (max-width:600px){.scard{padding:14px}.scard .mk{font-size:20px}.scard .no{font-size:10px}.row{grid-template-columns:110px minmax(0,1fr)}.row img{width:110px;height:84px}.cities{gap:8px}.city b{font-size:15px}.city .hand{font-size:15px}}
+
+/* v2 pages (16 Oct 2026): guide hero band, author box, about page, china page */
+.ghero{background:var(--night);color:#fff;padding-block:36px 150px}
+.ghero .eyebrow,.ghero .eyebrow a{color:#C0DACE}
+.ghero h1{color:#fff;max-width:22ch;margin-top:10px}
+.ghero .lede{font-size:18px;color:#E6E0E8;max-width:62ch;margin-top:16px}
+.gmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.gmeta span{font-family:var(--typed);font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 12px;color:#F3EEE6}
+.gmeta span.hot{background:var(--pink);border-color:var(--pink);color:#fff}
+.lift{margin-top:-120px;position:relative;z-index:2}
+.guide2{padding-block:0 60px}
+.guide2 .video{margin-top:0}
+.guide2 .gal{margin-top:0}
+.guide2 .gal img{aspect-ratio:3/4;box-shadow:0 18px 40px rgba(30,27,31,.2)}
+.guide2 .gridg{margin-top:40px}
+.guide2 h2{font-size:clamp(24px,3vw,32px)}
+.author{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.author img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--paper2)}
+.author b{display:block;font-family:var(--display);font-size:15px;font-weight:400}
+.author p{color:var(--ink2);font-size:14px;margin-top:4px}
+.share{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.share a{font-size:13px;font-weight:600;text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:7px 12px;color:var(--ink)}
+.share a:hover{background:var(--paper2)}
+.faq summary{list-style:none;position:relative;padding-right:28px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:0;font-family:var(--display);color:var(--pink);font-size:20px;line-height:1.1}
+.faq details[open] summary::after{content:"\2013"}
+.related2{margin-top:52px;padding-top:36px;border-top:2px dashed var(--line)}
+.related2 h2{margin-bottom:18px}
+
+/* about */
+.ahero{background:var(--night);color:#fff;padding-block:48px 64px;overflow:hidden}
+.ahero .in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center}
+.ahero h1{color:#fff;margin-top:10px}.ahero h1 span{color:#FFD27A}
+.ahero .lede{font-size:18px;color:#E6E0E8;max-width:48ch;margin-top:16px}
+.stack{position:relative;height:460px;max-width:460px;justify-self:center;width:100%}
+.stack .ph{position:absolute;background:#fff;padding:10px 10px 36px;box-shadow:0 22px 50px rgba(0,0,0,.45);width:min(62%,260px)}
+.stack .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.stack .ph .cap{font-family:var(--hand);font-size:20px;color:#1E1B1F;margin-top:8px}
+.stack .p1{left:0;top:40px;transform:rotate(-7deg);z-index:1}
+.stack .p2{right:0;top:0;transform:rotate(5deg);z-index:2}
+.stack .p3{left:26%;bottom:0;transform:rotate(-2deg);z-index:3}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.fact b{display:block;font-family:var(--display);font-size:26px;color:var(--pink);font-weight:400}
+.fact span{font-family:var(--typed);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.story.flip .pic{order:2}
+.story .pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;box-shadow:0 22px 50px rgba(30,27,31,.18)}
+.story .pic .sm{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.story .pic .sm img{aspect-ratio:1;border-radius:12px;box-shadow:none}
+.story .pic.wide img,.story .pic.wide .sm img{aspect-ratio:16/9}
+.story p{color:var(--ink2);margin-top:12px;max-width:58ch}
+.story p+p{margin-top:10px}
+.howl{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:10px;max-width:58ch}
+.howl li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start}
+.howl .n{font-family:var(--display);color:var(--pink);font-size:22px;line-height:1.2}
+.howl b{display:block;font-weight:700}.howl span{color:var(--ink2);font-size:15px}
+.socs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.soc{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-decoration:none;color:var(--ink);transition:transform .15s}
+.soc:hover{transform:translateY(-3px)}
+.soc b{font-family:var(--display);font-size:16px;font-weight:400}
+.soc span{font-size:13px;color:var(--ink2)}
+.soc .h{font-family:var(--typed);font-size:12px;color:var(--teal)}
+.hello{background:var(--night);color:#F3EEE6;border-radius:22px;padding:34px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:center}
+.hello h2{color:#fff}.hello p{color:#CFC7D4;margin-top:8px}
+.hello .big{font-family:var(--typed);font-size:20px;color:#FFD27A;word-break:break-all}
+
+/* china page */
+.chero{background:var(--night);color:#fff;padding-block:40px 56px}
+.chero h1{color:#fff;margin-top:10px}.chero h1 span{color:#FFD27A}
+.chero .lede{font-size:18px;color:#E6E0E8;max-width:56ch;margin-top:14px}
+.chero .pick{margin-top:28px}
+
+@media (max-width:960px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.socs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:860px){.ahero .in,.story,.hello{grid-template-columns:1fr}.story.flip .pic{order:0}.stack{height:380px}.ghero{padding-bottom:120px}.lift{margin-top:-90px}}
+@media (max-width:600px){.socs{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{gap:10px}.fact{padding:14px}.stack{height:330px}.stack .ph{width:58%}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "AboutPage", "name": "About Scratch & Roam with Natali", "url": "https://scratchandroam.com/about/", "mainEntity": {"@type": "Person", "name": "Natali", "sameAs": ["https://www.youtube.com/@scratchandroam", "https://www.instagram.com/scratchandroam/", "https://www.tiktok.com/@scratchandroam", "https://www.facebook.com/scratchandroam", "https://www.pinterest.com/scratchandroam/"]}}</script>
 </head>
 <body>
-<header class="hdr"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
+<header class="hdr dark"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
 <div class="links" id="menu"><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>
-<main class="wrap guide" style="max-width:800px">
-<p class="eyebrow">About</p>
-<h1>Scratch &amp; Roam with Natali</h1>
-<div class="polaroid" style="float:right;margin:0 0 20px 24px;max-width:280px"><div class="img"><img src="/img/natali.jpg" alt="Natali in her studio"></div><div class="cap">hello from the studio</div></div>
-<div class="intro" style="margin-top:20px">
-<p>I am Natali, a maker from Ireland. I make things for a living and film the trips in between: China, Japan and wherever comes next. My husband and family turn up in the videos sometimes, and so does the work on the days I am not travelling.</p>
-<p>The scratch card is the idea behind the name. A place stays hidden until you scratch it, and then it is all there. Every video opens that way, and the guides on this site are the parts I wish someone had written down for me before my first trip.</p>
-<p>How the guides are made: I film the real screens and the real streets, check every rule against the official page on the day, and write the date on the guide. When a rule changes, the guide gets updated, not left to go stale.</p>
-</div>
-<div class="sidebox"><h3>Say hello</h3><p>scratchandroam@gmail.com</p><p>Handle everywhere: @scratchandroam</p></div>
+<main>
+<section class="ahero"><div class="wrap in">
+  <div>
+    <p class="eyebrow" style="color:#C0DACE"><a href="/" style="color:inherit">Home</a> · About</p>
+    <h1>A maker from Ireland who travels <span>with a camera.</span></h1>
+    <p class="lede">I am Natali. I make things for a living and film the trips in between: Shanghai so far, Chengdu, Chongqing and Xi'an in December, Japan after that. The guides on this site are the parts I wish someone had written down for me before my first trip.</p>
+    <div class="cta"><a class="btn pri" href="/china/">Read the China guides</a><a class="btn light" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div>
+  </div>
+  <div class="stack" aria-hidden="true">
+    <div class="ph p1"><img src="/img/bund-s3.jpg" alt=""><div class="cap">the Bund, late</div></div>
+    <div class="ph p2"><img src="/img/circus-b-4x5.jpg" alt=""><div class="cap">Shanghai Circus World</div></div>
+    <div class="ph p3"><img src="/img/natali.jpg" alt=""><div class="cap">me, in the studio</div></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="facts">
+    <div class="fact"><b>Ireland</b><span>Home base, Co. Cork</span></div>
+    <div class="fact"><b>1 city</b><span>Filmed and written up</span></div>
+    <div class="fact"><b>3 cities</b><span>Under the foil for December</span></div>
+    <div class="fact"><b>Dated</b><span>Every guide says when it was checked</span></div>
+  </div>
+</div></section>
+
+<section class="sec alt"><div class="wrap story">
+  <div class="pic"><img src="/img/nanjing-s2.jpg" alt="Nanjing Road in Shanghai at night" loading="lazy"><div class="sm"><img src="/img/river-s2.jpg" alt="Pudong towers from the Huangpu river" loading="lazy"><img src="/img/bund-s5.jpg" alt="Pudong skyline from the Bund" loading="lazy"></div></div>
+  <div>
+    <p class="eyebrow">The person</p>
+    <h2>Making things by day, filming by night</h2>
+    <p>I have a background in graphic design and I run a small studio in Ireland. Travel is the thing I do with the time in between, and the camera comes along because I want to remember the practical bits as much as the views: which exit, which pier, what it cost.</p>
+    <p>My husband and family turn up in the videos sometimes, and so does the work on the days I am not travelling. Nothing here is sponsored. If a rule or a price is on a page, I checked it on the date written next to it.</p>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap story flip">
+  <div class="pic"><div class="scard" style="max-width:380px;margin:0 auto"><div class="head"><span class="mk">Scratch <em>&amp;</em> Roam</span><span class="no">Card no. 001 · Shanghai</span></div><div class="win open" style="background:#1F1C28"><img src="/img/bund-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span class="done" style="opacity:1">Shanghai, scratched off</span></div><div class="foot"><span class="hand">Scratch to reveal. Roam to discover.</span></div></div></div>
+  <div>
+    <p class="eyebrow">The idea</p>
+    <h2>Why a scratch card?</h2>
+    <p>A place stays hidden until you scratch it, and then it is all there. Every video opens that way: the name of the place under silver foil, a coin, and then the real thing. On the site a city gets scratched off once we have actually been, so the foil over Chengdu, Chongqing and Xi'an comes off in December.</p>
+    <p>It is also a reminder of how I like to travel: not knowing everything in advance, but having the practical parts sorted so the rest can be a surprise.</p>
+  </div>
+</div></section>
+
+<section class="sec alt"><div class="wrap story">
+  <div class="pic wide"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide" loading="lazy"><div class="sm"><img src="/img/first-time-16x9.jpg" alt="Cover of the first time in China checklist" loading="lazy"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the Alipay arrival card guide" loading="lazy"></div></div>
+  <div>
+    <p class="eyebrow">The method</p>
+    <h2>How a guide gets made</h2>
+    <ol class="howl">
+      <li><span class="n">1</span><div><b>Film the real screens and the real streets</b><span>The actual arrival card form, the actual metro exit. No stock footage.</span></div></li>
+      <li><span class="n">2</span><div><b>Check every rule against the official page</b><span>Visa lists, fees, opening hours. Official sources are marked on each guide.</span></div></li>
+      <li><span class="n">3</span><div><b>Write the steps so they work without sound</b><span>Each step heading is the thing you would type into a search box.</span></div></li>
+      <li><span class="n">4</span><div><b>Date it, and recheck it</b><span>When a rule changes, the guide gets updated, not left to go stale.</span></div></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Follow along</p><h2>Same trips, different lengths</h2><p>Long videos on YouTube, short ones everywhere else, carousels on Instagram and Pinterest.</p></div></div>
+  <div class="socs">
+    <a class="soc" href="https://www.youtube.com/@scratchandroam" rel="me noopener"><b>YouTube</b><span>Full guides and long videos</span><span class="h">@scratchandroam</span></a>
+    <a class="soc" href="https://www.instagram.com/scratchandroam/" rel="me noopener"><b>Instagram</b><span>Reels and facts carousels</span><span class="h">@scratchandroam</span></a>
+    <a class="soc" href="https://www.tiktok.com/@scratchandroam" rel="me noopener"><b>TikTok</b><span>The short versions</span><span class="h">@scratchandroam</span></a>
+    <a class="soc" href="https://www.pinterest.com/scratchandroam/" rel="me noopener"><b>Pinterest</b><span>Carousels and covers to save</span><span class="h">@scratchandroam</span></a>
+    <a class="soc" href="https://www.facebook.com/scratchandroam" rel="me noopener"><b>Facebook</b><span>Everything, a day later</span><span class="h">@scratchandroam</span></a>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="hello"><div><p class="eyebrow" style="color:#CFC7D4">Say hello</p><h2>Questions about a trip, or a place you want covered?</h2><p>Email is best. I read everything, and the guides often start with a question someone sent.</p></div><div><p class="big">scratchandroam@gmail.com</p><p style="margin-top:8px">Handle everywhere: @scratchandroam</p></div></div>
+</div></section>
 </main>
 <footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p></div><div><p class="eyebrow" style="color:#9a93a3">Follow along</p><div class="follow"><a href="https://www.youtube.com/@scratchandroam" rel="me noopener">YouTube</a><a href="https://www.instagram.com/scratchandroam/" rel="me noopener">Instagram</a><a href="https://www.tiktok.com/@scratchandroam" rel="me noopener">TikTok</a><a href="https://www.facebook.com/scratchandroam" rel="me noopener">Facebook</a><a href="https://www.pinterest.com/scratchandroam/" rel="me noopener">Pinterest</a></div></div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer><script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
 </body>

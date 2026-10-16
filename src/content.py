@@ -100,34 +100,136 @@ page("/","Scratch & Roam with Natali: China first-timer guides and travel videos
      og_image=SITE+"/og/circus-photo.jpg", dark=True)
 
 # China index
-CHINA = '''<main class="wrap guide">
-<p class="eyebrow">China</p>
-<h1>China guides for first-timers</h1>
-<p class="lede">The practical part first: entry, payments, trains. The city pages (Shanghai now, Chengdu, Chongqing and Xi'an after December) come next.</p>
-<section class="sec" style="padding-top:30px"><h2 style="margin-bottom:16px">Before you fly</h2><div class="tickets">
-<a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>CHECKLIST</span></div><h3>First time in China: 13 things to set up before you fly</h3><span class="go">Read the guide</span></div></a>
-<a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card online on a computer</h3><span class="go">Read the guide</span></div></a>
-<a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>STEP BY STEP</span></div><h3>China arrival card in Alipay on your phone</h3><span class="go">Read the guide</span></div></a>
+CHINA = '''<main>
+<section class="chero"><div class="wrap">
+<p class="eyebrow" style="color:#C0DACE"><a href="/" style="color:inherit">Home</a> · China</p>
+<h1>China guides for first-timers: <span>entry, paying, trains.</span></h1>
+<p class="lede">The practical part first, in the order you will need it: before you fly, at the border, then paying and getting around. Shanghai is filmed and written up; Chengdu, Chongqing and Xi'an land after December.</p>
+<div class="pick">
+  <p class="hand" style="color:#FFD27A;transform:none">Pick the thing you need to sort out:</p>
+  <div class="qs">
+    <a class="q" href="/guides/first-time-in-china/"><span class="k">Before you fly</span><b>What do I need to set up before I land?</b><span class="go">13-point checklist, 6 min</span></a>
+    <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
+    <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
+    <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
+    <a class="q" href="/guides/first-time-in-china/"><span class="k">Paying</span><b>How do I pay when nobody takes cash or cards?</b><span class="go">Alipay and WeChat, in the checklist</span></a>
+    <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
+  </div>
+</div>
 </div></section>
-<section class="sec"><h2 style="margin-bottom:14px">Shanghai, mostly at night</h2><div class="wall" style="margin-bottom:20px"><a class="tile t-wide" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund at night" loading="lazy"><span class="cap"><small>Guide</small>The Bund at night: how to get there</span></a><a class="tile" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road" loading="lazy"><span class="cap"><small>Guide</small>Nanjing Road</span></a><a class="tile" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Huangpu river skyline" loading="lazy"><span class="cap"><small>Guide</small>River cruise</span></a><a class="tile t-wide" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World" loading="lazy"><span class="cap"><small>Guide</small>ERA show: tickets and how to get there</span></a></div><p class="intro">The videos and photo sets behind these pages are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>. Shanghai Disneyland after dark is next.</p></section>
+
+<section class="sec" id="before"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Before you fly</p><h2>The setup guides</h2><p>Each one is the video plus the written steps, checked against the official page on the date shown.</p></div><span class="pill">Rules change, so every guide is dated</span></div>
+  <div class="tickets">
+    <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
+  </div>
+</div></section>
+
+<section class="sec alt" id="shanghai"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Shanghai, answered</p><h2>What we filmed, turned into the practical answers</h2><p>Four place guides from the trip, mostly at night: how to get there, when to go, what it costs.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
+  <div class="rows">
+    <a class="row" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span><span class="k">The Bund</span><b>How do I get to the Bund at night, and when do the lights go off?</b><span class="go">Guide</span></span></a>
+    <a class="row" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span><span class="k">Nanjing Road</span><b>When is the neon on, and where does the walking street start?</b><span class="go">Guide</span></span></a>
+    <a class="row" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span><span class="k">River cruise</span><b>Which pier, which ticket, and is the night cruise worth it?</b><span class="go">Guide</span></span></a>
+    <a class="row" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span><span class="k">ERA show</span><b>Where do I book ERA circus tickets and how do I get there?</b><span class="go">Guide</span></span></a>
+  </div>
+  <p class="intro" style="margin-top:26px;margin-bottom:0">The videos and photo sets behind these pages are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>. Shanghai Disneyland after dark is next.</p>
+</div></section>
+
+<section class="sec" id="december"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Still under the foil</p><h2>December: Chengdu, Chongqing, Xi'an</h2><p>Pandas, hotpot, a metro that runs through a building, and the Terracotta Army. The guides from this trip land here first, then the videos.</p></div></div>
+  <div class="cities" style="grid-template-columns:repeat(3,minmax(0,1fr));max-width:720px;margin-top:0">
+    <div class="city"><b>Chengdu</b><span class="k">December</span><span class="hand">pandas, hotpot</span></div>
+    <div class="city"><b>Chongqing</b><span class="k">December</span><span class="hand">metro through a building</span></div>
+    <div class="city"><b>Xi'an</b><span class="k">December</span><span class="hand">Terracotta Army</span></div>
+  </div>
+  <div class="stops" style="margin-top:18px;font-size:12px"><span class="stop home">CORK</span><span class="dash">- -</span><span class="stop">LONDON</span><span class="dash">- -</span><span class="stop">CHENGDU</span><span class="dash">- -</span><span class="stop">CHONGQING</span><span class="dash">- -</span><span class="stop">XI'AN</span></div>
+</div></section>
 </main>'''
 page("/china/","China guides for first-timers: entry, payments, trains",
      "Practical China guides from Scratch & Roam: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.",
-     CHINA,[{"@context":"https://schema.org","@type":"CollectionPage","name":"China guides for first-timers","url":SITE+"/china/"}])
+     CHINA,[{"@context":"https://schema.org","@type":"CollectionPage","name":"China guides for first-timers","url":SITE+"/china/"}],
+     og_image=SITE+"/og/first-time.jpg", dark=True)
 
-ABOUT = '''<main class="wrap guide" style="max-width:800px">
-<p class="eyebrow">About</p>
-<h1>Scratch &amp; Roam with Natali</h1>
-<div class="polaroid" style="float:right;margin:0 0 20px 24px;max-width:280px"><div class="img"><img src="/img/natali.jpg" alt="Natali in her studio"></div><div class="cap">hello from the studio</div></div>
-<div class="intro" style="margin-top:20px">
-<p>I am Natali, a maker from Ireland. I make things for a living and film the trips in between: China, Japan and wherever comes next. My husband and family turn up in the videos sometimes, and so does the work on the days I am not travelling.</p>
-<p>The scratch card is the idea behind the name. A place stays hidden until you scratch it, and then it is all there. Every video opens that way, and the guides on this site are the parts I wish someone had written down for me before my first trip.</p>
-<p>How the guides are made: I film the real screens and the real streets, check every rule against the official page on the day, and write the date on the guide. When a rule changes, the guide gets updated, not left to go stale.</p>
-</div>
-<div class="sidebox"><h3>Say hello</h3><p>scratchandroam@gmail.com</p><p>Handle everywhere: @scratchandroam</p></div>
+# About. Photos: swap any /img/ file for a personal one later (same aspect ratio keeps the layout).
+ABOUT = '''<main>
+<section class="ahero"><div class="wrap in">
+  <div>
+    <p class="eyebrow" style="color:#C0DACE"><a href="/" style="color:inherit">Home</a> · About</p>
+    <h1>A maker from Ireland who travels <span>with a camera.</span></h1>
+    <p class="lede">I am Natali. I make things for a living and film the trips in between: Shanghai so far, Chengdu, Chongqing and Xi'an in December, Japan after that. The guides on this site are the parts I wish someone had written down for me before my first trip.</p>
+    <div class="cta"><a class="btn pri" href="/china/">Read the China guides</a><a class="btn light" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div>
+  </div>
+  <div class="stack" aria-hidden="true">
+    <div class="ph p1"><img src="/img/bund-s3.jpg" alt=""><div class="cap">the Bund, late</div></div>
+    <div class="ph p2"><img src="/img/circus-b-4x5.jpg" alt=""><div class="cap">Shanghai Circus World</div></div>
+    <div class="ph p3"><img src="/img/natali.jpg" alt=""><div class="cap">me, in the studio</div></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="facts">
+    <div class="fact"><b>Ireland</b><span>Home base, Co. Cork</span></div>
+    <div class="fact"><b>1 city</b><span>Filmed and written up</span></div>
+    <div class="fact"><b>3 cities</b><span>Under the foil for December</span></div>
+    <div class="fact"><b>Dated</b><span>Every guide says when it was checked</span></div>
+  </div>
+</div></section>
+
+<section class="sec alt"><div class="wrap story">
+  <div class="pic"><img src="/img/nanjing-s2.jpg" alt="Nanjing Road in Shanghai at night" loading="lazy"><div class="sm"><img src="/img/river-s2.jpg" alt="Pudong towers from the Huangpu river" loading="lazy"><img src="/img/bund-s5.jpg" alt="Pudong skyline from the Bund" loading="lazy"></div></div>
+  <div>
+    <p class="eyebrow">The person</p>
+    <h2>Making things by day, filming by night</h2>
+    <p>I have a background in graphic design and I run a small studio in Ireland. Travel is the thing I do with the time in between, and the camera comes along because I want to remember the practical bits as much as the views: which exit, which pier, what it cost.</p>
+    <p>My husband and family turn up in the videos sometimes, and so does the work on the days I am not travelling. Nothing here is sponsored. If a rule or a price is on a page, I checked it on the date written next to it.</p>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap story flip">
+  <div class="pic"><div class="scard" style="max-width:380px;margin:0 auto"><div class="head"><span class="mk">Scratch <em>&amp;</em> Roam</span><span class="no">Card no. 001 · Shanghai</span></div><div class="win open" style="background:#1F1C28"><img src="/img/bund-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span class="done" style="opacity:1">Shanghai, scratched off</span></div><div class="foot"><span class="hand">Scratch to reveal. Roam to discover.</span></div></div></div>
+  <div>
+    <p class="eyebrow">The idea</p>
+    <h2>Why a scratch card?</h2>
+    <p>A place stays hidden until you scratch it, and then it is all there. Every video opens that way: the name of the place under silver foil, a coin, and then the real thing. On the site a city gets scratched off once we have actually been, so the foil over Chengdu, Chongqing and Xi'an comes off in December.</p>
+    <p>It is also a reminder of how I like to travel: not knowing everything in advance, but having the practical parts sorted so the rest can be a surprise.</p>
+  </div>
+</div></section>
+
+<section class="sec alt"><div class="wrap story">
+  <div class="pic wide"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide" loading="lazy"><div class="sm"><img src="/img/first-time-16x9.jpg" alt="Cover of the first time in China checklist" loading="lazy"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the Alipay arrival card guide" loading="lazy"></div></div>
+  <div>
+    <p class="eyebrow">The method</p>
+    <h2>How a guide gets made</h2>
+    <ol class="howl">
+      <li><span class="n">1</span><div><b>Film the real screens and the real streets</b><span>The actual arrival card form, the actual metro exit. No stock footage.</span></div></li>
+      <li><span class="n">2</span><div><b>Check every rule against the official page</b><span>Visa lists, fees, opening hours. Official sources are marked on each guide.</span></div></li>
+      <li><span class="n">3</span><div><b>Write the steps so they work without sound</b><span>Each step heading is the thing you would type into a search box.</span></div></li>
+      <li><span class="n">4</span><div><b>Date it, and recheck it</b><span>When a rule changes, the guide gets updated, not left to go stale.</span></div></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Follow along</p><h2>Same trips, different lengths</h2><p>Long videos on YouTube, short ones everywhere else, carousels on Instagram and Pinterest.</p></div></div>
+  <div class="socs">
+    <a class="soc" href="https://www.youtube.com/@scratchandroam" rel="me noopener"><b>YouTube</b><span>Full guides and long videos</span><span class="h">@scratchandroam</span></a>
+    <a class="soc" href="https://www.instagram.com/scratchandroam/" rel="me noopener"><b>Instagram</b><span>Reels and facts carousels</span><span class="h">@scratchandroam</span></a>
+    <a class="soc" href="https://www.tiktok.com/@scratchandroam" rel="me noopener"><b>TikTok</b><span>The short versions</span><span class="h">@scratchandroam</span></a>
+    <a class="soc" href="https://www.pinterest.com/scratchandroam/" rel="me noopener"><b>Pinterest</b><span>Carousels and covers to save</span><span class="h">@scratchandroam</span></a>
+    <a class="soc" href="https://www.facebook.com/scratchandroam" rel="me noopener"><b>Facebook</b><span>Everything, a day later</span><span class="h">@scratchandroam</span></a>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="hello"><div><p class="eyebrow" style="color:#CFC7D4">Say hello</p><h2>Questions about a trip, or a place you want covered?</h2><p>Email is best. I read everything, and the guides often start with a question someone sent.</p></div><div><p class="big">scratchandroam@gmail.com</p><p style="margin-top:8px">Handle everywhere: @scratchandroam</p></div></div>
+</div></section>
 </main>'''
 page("/about/","About Scratch & Roam with Natali","Natali is a maker from Ireland who films her trips and writes first-timer travel guides. Scratch to reveal. Roam to discover.",ABOUT,
-     [{"@context":"https://schema.org","@type":"AboutPage","name":"About Scratch & Roam with Natali","url":SITE+"/about/","mainEntity":{"@type":"Person","name":"Natali","sameAs":json.loads(SAMEAS)}}])
+     [{"@context":"https://schema.org","@type":"AboutPage","name":"About Scratch & Roam with Natali","url":SITE+"/about/","mainEntity":{"@type":"Person","name":"Natali","sameAs":json.loads(SAMEAS)}}],
+     og_image=SITE+"/og/circus-photo.jpg", dark=True)
 
 NIA="https://s.nia.gov.cn/ArrivalCardFillingPC/"
 COMMON_FAQ=[
