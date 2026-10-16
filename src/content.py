@@ -34,7 +34,7 @@ HOME = '''<main>
       <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
       <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
       <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
-      <a class="q" href="/guides/first-time-in-china/"><span class="k">Paying</span><b>How do I pay when nobody takes cash or cards?</b><span class="go">Alipay and WeChat, in the checklist</span></a>
+      <a class="q" href="/guides/china-travel-apps/"><span class="k">Paying · Maps · Trains</span><b>Which apps do I need, and which can I skip?</b><span class="go">12 apps + hidden gems</span></a>
       <a class="q" href="/guides/first-time-in-china/"><span class="k">Before you fly</span><b>What do I need to set up before I land?</b><span class="go">13-point checklist, 6 min</span></a>
       <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
     </div>
@@ -70,6 +70,7 @@ HOME = '''<main>
     <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online, step by step on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the China arrival card guide for Alipay on a phone" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="Cover of the 13 things before China guide, with the 200 yuan fee card" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-travel-apps/"><img src="/img/apps-16x9.jpg" alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag" loading="lazy"><span class="num">APPS LIST</span><div class="cb"><div class="meta"><span>LIST + VIDEO</span><span>12 APPS</span></div><h3>Apps to download before you go to China: the full list</h3><p>Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.</p><span class="go">Read the guide</span></div></a>
   </div>
 </div></section>
 
@@ -112,7 +113,7 @@ CHINA = '''<main>
     <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
     <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
     <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
-    <a class="q" href="/guides/first-time-in-china/"><span class="k">Paying</span><b>How do I pay when nobody takes cash or cards?</b><span class="go">Alipay and WeChat, in the checklist</span></a>
+      <a class="q" href="/guides/china-travel-apps/"><span class="k">Paying · Maps · Trains</span><b>Which apps do I need, and which can I skip?</b><span class="go">12 apps + hidden gems</span></a>
     <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
   </div>
 </div>
@@ -122,6 +123,7 @@ CHINA = '''<main>
   <div class="sechead"><div><p class="eyebrow">Before you fly</p><h2>The setup guides</h2><p>Each one is the video plus the written steps, checked against the official page on the date shown.</p></div><span class="pill">Rules change, so every guide is dated</span></div>
   <div class="tickets">
     <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-travel-apps/"><img src="/img/apps-16x9.jpg" alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag" loading="lazy"><span class="num">APPS LIST</span><div class="cb"><div class="meta"><span>LIST + VIDEO</span><span>12 APPS</span></div><h3>Apps to download before you go to China: the full list</h3><p>Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
   </div>
@@ -298,7 +300,7 @@ FT_STEPS=[
 ]
 guide("first-time-in-china","First time in China: 13 things to set up before you fly","First time in China: 13 things to set up before you fly",
       "Going to China for the first time? The 13 things we set up before flying: entry rules, the arrival card, Alipay and WeChat, cards, cash, flights, trains, maps and packing.",
-      "first time in China",None,
+      "first time in China","TuP9NS00Ugg",
       "<p>This is the checklist we wish we had before the first trip: not sights, just the setup. Everything on it was checked on 15 October 2026 against the sources at the bottom, and the video walks through the same 13 things.</p>",
       FT_STEPS,
       [("Do I need a visa for China?","It depends on your passport. In October 2026 China listed 50 countries with visa-free entry for short stays, most of it dated to 31 December 2026. Check the official list for your own country before booking."),
@@ -308,9 +310,128 @@ guide("first-time-in-china","First time in China: 13 things to set up before you
       [("Shanghai municipal government (English): visa-free entry policy","https://english.shanghai.gov.cn/en-Individuals-ImmigrationandVisas-Visa-freepolicies/20260709/469e8c5656534926a04b31a1084351f0.html",True),
        ("National Immigration Administration: arrival card filling page",NIA,True),
        ("China Railway 12306","https://www.12306.cn/en/",True)],
-      SITE+"/og/first-time.jpg",
+      SITE+"/og/first-time.jpg",minutes="PT5M45S",upload="2026-10-16",
       chapters=[("1","Entry rules"),("2","Arrival card"),("3","Get the apps"),("4","Pay setup"),("5","Mini-programs"),("6","The ¥200 fee"),("7","Cash"),("8","Flights"),("9","Booking"),("10","Trains"),("11","Station day"),("12","Maps"),("13","Pack light")],
       related=[("/guides/china-arrival-card-pc/","arrival-pc-16x9","GUIDE 14","China arrival card online on a computer"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone")])
+
+# ---------- China travel apps (every fact checked 16 Oct 2026 against the sources on the page) ----------
+H='<span class="tag h">Set up at home</span>'
+A='<span class="tag a">On arrival is fine</span>'
+G='<span class="tag g">Hidden gem</span>'
+APP_STEPS=[
+ ("Alipay: the one app you cannot skip",
+  H+"<br>Download the international Alipay (on the App Store it is called <b>Alipay - Simplify Your Life</b>), verify your passport first under Me, Settings, Account and Security, Identity Information, then link a Visa or Mastercard. Do it two or three days before you fly: the passport check is usually minutes, but guides report waits of up to 72 hours, and the codes go by text to your home number. Payments up to ¥200 are free; a payment over ¥200 carries a 3% fee, so split big bills or pay those by card where you can. The real reason it comes first: half the apps other lists tell you to download live inside it as mini-programs, so you can skip them (see the hidden gems below)."),
+ ("WeChat and WeChat Pay: the backup with a 90-day fee break",
+  H+G+"<br>Small shops, scan-to-order menus and a lot of ticket systems run on WeChat, so have it ready even if Alipay is your main wallet. Add your card under Me, Pay and Services, Wallet, Bank Cards; any number that can get a text works, no Chinese number needed. New accounts are sometimes asked for a friend verification, where an existing user scans a code for you, which is one more reason to start at home. The gem: Tencent announced on 27 May 2026 that first-time users who link an international card pay no transaction fee for 90 days from their first payment, on up to ¥1,000 a day. After that, WeChat's own help page says payments over ¥200 carry 3%."),
+ ("AMap Global: maps in English, with a taxi app hiding inside",
+  H+G+"<br>AMap (Gaode) is the map most people in China use, and the AMap Global app has had English since January 2025 and 14 more languages since July 2025. The part most lists miss: it has its own ride-hailing that books several taxi companies at once and shows pickup points and fare estimates in English. Its August 2026 announcement says you can sign in with a phone number from 65 countries and regions and pay through Alipay or WeChat Pay, so link Alipay at home. Search tip: paste the Chinese name of your hotel from the booking. On an iPhone, Apple Maps also works in China without a VPN and is a fine second map."),
+ ("MetroMan China: the offline metro map nobody mentions",
+  H+G+"<br>A small English app with offline metro maps for 53 Chinese cities, including Chengdu, Chongqing and Xi'an; free, with an optional paid upgrade, and its App Store listing was updated on 30 September 2026. It is the one I would open on a platform with no signal. You do not even need a ticket app for the metro in some cities: in Beijing, Shanghai and Chengdu you can tap a foreign Visa or Mastercard straight on the gate, and Alipay has a Transport code for each city you activate once."),
+ ("Railway 12306: the official train app, and its two quiet features",
+  H+G+"<br>The official China Railway app (on the App Store as <b>铁路12306</b>, with English inside). Register with your passport; you cannot buy until it is verified, and verification can take a while, so do it at home. Tickets normally open 15 days ahead, counting the travel day. Two features most visitors never find: the <b>waitlist</b> for sold-out trains, where you prepay and the system keeps trying until shortly before departure and refunds you if it fails, and a <b>60-day reservation</b> pilot running since 20 July 2026 on more than 200 Beijing to Shanghai trains, where you order 17 to 60 days ahead, the system fills orders 16 to 20 days before departure, and you pay by 23:00 that day. Also new: one free refund a day if you cancel within 30 minutes of buying and at least 4 hours before departure. Careful with lookalikes: <b>China Train Ticket for 12306官网</b> is a private app, not the official one."),
+ ("Trip.com: the English backup for trains and hotels",
+  H+"<br>The easiest place to book in English, with 24/7 English support and guest checkout for trains that does not need a verified passport. Its hotel search can filter for hotels that accept foreign guests, which matters because some hotels in China still cannot take foreigners. Trip.com's own pages disagree with each other about train booking fees in 2026, so compare the final price with 12306 before you pay."),
+ ("NIA 12367: the government app that does your arrival card",
+  H+G+"<br>The National Immigration Administration's app. Since 20 November 2025 you can fill in the China arrival card online before you land, in this app, in its Alipay or WeChat mini-program, or on the official website; Shanghai warns about lookalike scam sites, so use only official channels. It also handles police registration for stays outside hotels: hotels register you themselves, but if you stay in a flat or with friends you must register within 24 hours, and an online pilot started on 20 March 2026 in seven provinces including Sichuan and Chongqing. The Irish Department of Foreign Affairs notes that online registration needs a Chinese mobile number. Step by step: <a href='/guides/china-arrival-card-pc/'>arrival card on a PC</a> or <a href='/guides/china-arrival-card-alipay/'>in Alipay</a>."),
+ ("A travel eSIM: how Google and WhatsApp keep working",
+  H+"<br>eSIM sellers such as Airalo, Holafly, Nomad and Trip.com say their China plans route your data outside China, so Google, WhatsApp and Instagram work without a VPN; read the plan description to be sure. Install the eSIM at home on Wi-Fi: Airalo needs a connection to install, and Nomad says new plans cannot be bought once you are in mainland China. Two catches: an eSIM is data only, so keep your home SIM on for text codes from your bank, Alipay and WeChat, and hotel Wi-Fi does not route abroad, so blocked apps stop working the moment you switch to it."),
+ ("A paid VPN, only as the backup for hotel Wi-Fi",
+  H+"<br>You cannot get one after you land: Apple removed VPN apps from the China App Store in 2017 and provider websites are blocked. The 2026 twist most lists missed: LetsVPN, long the one people recommended, announced in April 2026 that it was ending its service for mainland China after weeks of blocking. Nobody publishes independent, dated tests from inside China, so pick a paid VPN with an obfuscation or stealth mode, install and test it at home, and treat it as a backup, not a plan. Using one sits in a legal grey area in China."),
+ ("Apple Translate or Microsoft Translator, plus Pleco",
+  H+G+"<br>Google Translate is blocked online in China; its offline Chinese pack works only if you download it before you go. Apple Translate is free, works fully offline once Chinese is downloaded and translates through the camera; on Android, Microsoft Translator works without a VPN and has offline packs too. The gem is <b>Pleco</b>, a free offline Chinese dictionary: when the translation of a menu line makes no sense, look up the characters one by one. Its camera recognition is a paid add-on (€9.99 on the Irish App Store). Alipay also has Scan, Translate built in for menus and signs."),
+ ("RedNote (Xiaohongshu): where locals actually find places",
+  H+G+"<br>Ask anyone in China where to eat and they open RedNote, not a review site. It is the best search engine for what is good right now: new cafés, viewpoints, which queue is worth it. It added AI translation in January 2025 and you can sign up with a foreign number, but the interface is still mostly Chinese, so search with the Chinese name of a place copied from AMap."),
+ ("Dianping: reviews, plus a digital queue number",
+  A+G+"<br>China's main restaurant review app. The App Store lists English, though in practice the English is partial and reviews are not translated. The feature worth installing it for is <b>排队 (queue)</b>: take a number for a busy restaurant from your phone and watch how many tables are ahead of you, instead of standing at the door for an hour."),
+]
+APP_EXTRA='''
+<h2>Hidden gems inside Alipay (nothing to download)</h2>
+<p>These are the apps other lists tell you to install. Open them from Alipay's search bar or Transport section instead, and they use the card you already linked.</p>
+<ul class="gemlist">
+<li><b>Taxi.</b> Transport, then Taxi, opens DiDi inside Alipay, with no separate account and fewer payment problems. The standalone DiDi app also has English and in-app translation if you prefer it.</li>
+<li><b>Metro code.</b> Transport, then your city: activate each city's metro QR code once and scan through the gates.</li>
+<li><b>Shared bikes.</b> Scan the QR code on a Hello Bike or Meituan bike with Alipay's scanner and the right mini-program opens. Meituan's own app needs a Chinese number; this way does not.</li>
+<li><b>Power banks.</b> Scan a rental kiosk (Energy Monster and others). Expect a ¥99 hold on your card that is released when you return it.</li>
+<li><b>Food delivery.</b> Ele.me was renamed Taobao Instant Commerce in December 2025 and runs as a mini-program in Alipay, which is the easiest delivery option for visitors.</li>
+<li><b>Coffee.</b> Luckin's own app wants a Chinese number; the Luckin mini-program in Alipay does not.</li>
+<li><b>Luggage storage.</b> Search 行李寄存 (luggage storage) to find left-luggage points near stations and sights.</li>
+<li><b>China Bound.</b> China Daily's English travel platform, launched 1 January 2026, with translation, tickets, hotels and an AI itinerary helper. I have not tested it yet.</li>
+<li><b>Shanghai Easy Go.</b> Shanghai's visitor service inside Alipay since July 2025: about 30 mini-programs for food, transport, tickets, luggage and tax refunds, with translation in 14 languages.</li>
+<li><b>Travel Wallet.</b> Launched in April 2026 with Beijing's GO BEIJING service: you fund it by an international transfer and spend anywhere in mainland China with no card fee. It is open to people from 40 countries and regions, so check yours is on the list before relying on it.</li>
+</ul>
+<h2>Which apps must be set up at home?</h2>
+<table class="tbl"><thead><tr><th>App</th><th>When</th><th>Why</th></tr></thead><tbody>
+<tr><td>Alipay, WeChat</td><td class="home">At home</td><td>Passport checks, text codes to your home number, your bank's first-payment check</td></tr>
+<tr><td>Railway 12306, Trip.com</td><td class="home">At home</td><td>Passport verification before you can buy trains</td></tr>
+<tr><td>AMap Global, MetroMan</td><td class="home">At home</td><td>Google Play does not work in China; offline maps need downloading</td></tr>
+<tr><td>Travel eSIM</td><td class="home">At home</td><td>Needs Wi-Fi to install; some plans cannot be bought in China</td></tr>
+<tr><td>VPN</td><td class="home">At home</td><td>Not in China's App Store, provider sites blocked</td></tr>
+<tr><td>NIA 12367</td><td class="home">At home</td><td>Arrival card before you land</td></tr>
+<tr><td>Translation packs, Pleco, RedNote</td><td class="home">At home</td><td>Offline packs and sign-up are easier on open internet</td></tr>
+<tr><td>Dianping, bikes, power banks, taxis</td><td class="arr">On arrival</td><td>Run through Alipay once it works</td></tr>
+</tbody></table>
+<h2>China travel apps you can skip</h2>
+<ul class="skiplist">
+<li><b>Google Maps.</b> Blocked without a VPN, and even with one the China map is offset, so your blue dot can sit hundreds of metres from where you are.</li>
+<li><b>Uber.</b> It sold its China business to DiDi in 2016.</li>
+<li><b>Airbnb for mainland China.</b> It removed its mainland listings in July 2022.</li>
+<li><b>Baidu Maps.</b> Works, but AMap Global is the better English choice.</li>
+<li><b>The standalone Meituan and Luckin apps.</b> Both expect a Chinese number; use their Alipay mini-programs.</li>
+<li><b>Alipay Tour Card.</b> A prepaid card with a 5% top-up fee, and 2026 reports say it closed to new users. Do not plan around it.</li>
+<li><b>Waygo.</b> Still in the App Store, but not updated since 2017.</li>
+<li><b>LetsVPN and free VPNs.</b> LetsVPN left mainland China in April 2026; free VPNs are reported to fail.</li>
+<li><b>Lookalike 12306 apps.</b> Only 铁路12306 from China Railway is official.</li>
+</ul>'''
+guide("china-travel-apps","China travel apps: 12 to set up before you go (2026)","Apps to download before you go to China: the full list",
+      "The China travel apps to set up before you fly: paying, maps, taxis and trains, what must be done at home, the hidden gems inside Alipay, and what to skip.",
+      "china travel apps","TuP9NS00Ugg",
+      "<p>Most lists of China travel apps stop at Alipay, WeChat and a VPN. This one is the full setup: the 12 apps worth having on your phone before you land, which ones have to be set up at home, the hidden gems that sit inside apps you already have, and the ones you can skip.</p><p>Every fact here was checked on 16 October 2026 against the sources at the bottom, and a lot changed this year: a new 90-day fee break on WeChat Pay, a 60-day train reservation pilot, English taxis inside AMap, and the VPN everyone used to recommend pulling out of China.</p>",
+      APP_STEPS,
+      [("Which apps do I need for paying, maps, taxis and trains in China?","Alipay and WeChat for paying, AMap Global for maps (Apple Maps also works on an iPhone), the DiDi taxi inside Alipay or AMap's own ride-hailing for taxis, and Railway 12306 or Trip.com for trains. With those set up you can get through almost any day."),
+       ("Which China travel apps must be set up at home?","Anything that needs a passport check, a text code or a download from a store that is blocked in China: Alipay, WeChat, 12306, Trip.com, AMap, your eSIM and any VPN. Passport checks can take up to a few days and Google Play and VPN sites do not work once you land."),
+       ("Which apps can I skip?","Google Maps, Uber, Airbnb for mainland stays, the standalone Meituan and Luckin apps, Alipay's Tour Card, Waygo, LetsVPN and any 12306 lookalike."),
+       ("Do I need a separate taxi app in China?","No. DiDi opens inside Alipay under Transport, and AMap Global books rides in English. Download the DiDi app only if you prefer a standalone app."),
+       ("Do I need a VPN if I have a travel eSIM?","Usually not on mobile data, because travel eSIM plans for China route your data abroad. A VPN still helps on hotel Wi-Fi, which does not, and it has to be installed before you fly.")],
+      [("WeChat Help Center: international cards on Weixin Pay","https://cs.help.wechat.com/hc/en-us/articles/11975770896271-How-to-Set-Up-International-Cards-for-Weixin-Pay",True),
+       ("Tencent: Weixin Pay 90-day fee waiver, 27 May 2026","https://www.tencent.com/en-us/articles/2202338.html",True),
+       ("Alipay on the App Store","https://apps.apple.com/app/alipay/id333206289",True),
+       ("Trip.com: how to add a card to Alipay, June 2026","https://www.trip.com/guide/payments/how-to-add-card-to-alipay.html",False),
+       ("China for Travelers: Alipay for foreigners, August 2026","https://chinafortravelers.com/guides/alipay-for-foreigners/",False),
+       ("Beijing government: Travel Wallet and GO BEIJING, April 2026","https://english.beijing.gov.cn/specials/paymentservices/news/202604/t20260430_4624215.html",True),
+       ("Shanghai government: AMap in 15 languages, July 2025","https://english.shanghai.gov.cn/en-Latest-WhatsNew/20250711/8f2fcf3c6b624a56a6b2c0d8152ea2f2.html",True),
+       ("AMap: ride-hailing for international visitors, August 2026","https://en.prnasia.com/releases/global/amap-brings-ride-hailing-to-international-visitors-in-china-543611.shtml",True),
+       ("MetroMan China on the App Store","https://apps.apple.com/app/id466351433",True),
+       ("China for Travelers: paying with a foreign card at metro gates, August 2026","https://chinafortravelers.com/guides/china-metro-foreign-card/",False),
+       ("DiDi China on the App Store","https://apps.apple.com/app/id554499054",True),
+       ("Ministry of Culture and Tourism: getting around, March 2026","https://www.travelchina.org.cn/en/article/PVxGvzt38tts",True),
+       ("Ministry of Culture and Tourism: train tickets with 12306, April 2026","https://www.travelchina.org.cn/en/article/LvQmnlhnsKzF",True),
+       ("Beijing government: 12306 ticket reservation pilot, July 2026","https://english.beijing.gov.cn/travellinginbeijing/transportation/railway/202607/t20260720_4772390.html",True),
+       ("China Railway 12306: FAQ","https://www.12306.cn/en/faq.html",True),
+       ("Trip.com: sold-out trains and the waitlist, August 2026","https://my.trip.com/guide/transport/china-train-tickets-sold-out.html",False),
+       ("Beijing government: online arrival card, November 2025","https://english.beijing.gov.cn/latest/news/202511/t20251105_4259688.html",True),
+       ("National Immigration Administration: registration for stays outside hotels, March 2026","https://en.nia.gov.cn/n147418/n147463/c196956/content.html",True),
+       ("Department of Foreign Affairs (Ireland): China travel advice","https://www.ireland.ie/en/dfa/overseas-travel/advice/china/",True),
+       ("Airalo: is a VPN needed in China?","https://www.airalo.com/help/using-managing-esims/ZSEEHBT5HW6F/stay-connected-in-china-your-guide-to-unfiltered-internet-access-is-a-vpn-required/ZDZBNIKI4TFP",False),
+       ("Nomad: do eSIMs work in China?","https://www.nomadesim.com/blog/do-esims-work-in-china",False),
+       ("China Digital Times: LetsVPN ends mainland service, April 2026","https://chinadigitaltimes.net/chinese/726869.html",False),
+       ("Comparitech: are VPNs legal in China? June 2026","https://www.comparitech.com/blog/vpn-privacy/are-vpns-legal-in-china",False),
+       ("mychina.guide: does Google Translate work in China? September 2026","https://mychina.guide/blog/does-google-translate-work-in-china",False),
+       ("Pleco on the Irish App Store","https://apps.apple.com/ie/app/pleco-chinese-dictionary/id341922306",True),
+       ("TechNode: RedNote adds translation, January 2025","https://technode.com/2025/01/20/xiaohongshu-rolls-out-ai-powered-translation-feature-likely-using-gpt-4/",False),
+       ("WanderInChina: Dianping and Meituan, February 2026","https://wanderinchina.com/survival-guide/useful-mobile-apps/dazhong-dianping-meituan/",False),
+       ("Caixin: Alibaba retires the Ele.me brand, December 2025","https://www.caixinglobal.com/2025-12-05/alibaba-retires-eleme-brand-in-shift-to-instant-retail-102390218.html",False),
+       ("China Daily: China Bound launches, January 2026","https://studychina.chinaservicesinfo.com/s/202601/01/WS6955ce18498e36855033978d/china-daily-launches-china-bound-an-english-language-smart-tourism-service-platform-for-international-traveler.html",True),
+       ("Shanghai government: Easy Go on Alipay, July 2025","https://english.shanghai.gov.cn/en-ExpatServices-Videos-WhatsNew/20250702/104ac119548743968fe343bb14d14bdd.html",True),
+       ("Trip.com: shared bikes in China, August 2026","https://au.trip.com/guide/transport/shared-bikes-in-china.html",False),
+       ("China Survival Kit: renting a power bank, October 2026","https://chinasurvivalkit.com/blog/rent-power-bank-china-guide",False),
+       ("Skift: Airbnb and China, March 2025","https://skift.com/2025/03/20/airbnb-stopped-listing-in-china-but-it-still-wants-chinese-travelers/",False),
+       ("Waygo on the Irish App Store","https://apps.apple.com/ie/app/waygo-chinese-japanese-and-korean-translator/id496038103",True)],
+      SITE+"/og/china-travel-apps.jpg",checked="2026-10-16",start=90,vschema=False,
+      video_note='<p class="vnote">The video starts at 1:30, where my first-timer guide gets to the apps: Alipay and WeChat set up at home on my own phone, linking a card, mini-programs, trains, taxis and Amap. <a href="/guides/first-time-in-china/">Full 13-step guide</a>.</p>',
+      steps_title="The 12 apps, in the order to set them up",
+      chapters=[("1:30","Download Alipay and WeChat"),("1:50","Link your card"),("2:10","Alipay Travel Wallet"),("2:32","WeChat Pay"),("2:45","Mini-programs"),("4:42","Trains, taxis and Trip.com in Alipay"),("5:09","Maps: Amap and offline notes")],
+      related=[("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone")],
+      extra=APP_EXTRA)
 
 # ---------- Shanghai place guides (facts from the sources listed on each page, checked 15 Oct 2026) ----------
 SH=dict(city="Shanghai")

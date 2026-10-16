@@ -1,3 +1,4 @@
+import re
 import os, json, datetime, html
 SITE="https://scratchandroam.com"
 TODAY="2026-10-15"
@@ -52,12 +53,12 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
     PAGES.append((path,TODAY))
 PAGES=[]
 
-def yt(vid,title):
+def yt(vid,title,start=None):
     if not vid:
         return f'<div class="video soon" style="background-image:url(/img/first-time-16x9.jpg)"><div><b>Video goes live on YouTube on Friday 16 October</b><br><small>This page will embed it as soon as it is up.</small></div></div>'
-    return f'''<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="{html.escape(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'''
+    return f'''<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}{"?start="+str(start) if start else ""}" title="{html.escape(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'''
 
-def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None):
+def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None):
     path=f"/guides/{slug}/"
     url=SITE+path
     steps_html="".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p></div></li>' for i,s in enumerate(steps))
@@ -93,7 +94,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
 <div class="gmeta">{kind}{mins}{cityp}<span>Dated and rechecked</span></div>
 </div></section>
 <div class="wrap lift">
-{yt(vid,title) if vid or not gallery else ""}
+{yt(vid,title,start) if vid or not gallery else ""}{video_note or ""}
 {gal}
 <div class="gridg">
 <article>
@@ -102,6 +103,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
 <div class="faq">{faq_html}</div>
 <h2>{steps_title}</h2>
 <ol class="steps">{steps_html}</ol>
+{extra or ""}
 <p class="note">Rules change. Everything here was checked on {checked} against the sources below. Before you fly, open the official page once more.</p>
 <h2>Sources</h2><ul class="sources">{src_html}</ul>
 </article>
@@ -114,9 +116,9 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
 </main>'''
     schema=[{"@context":"https://schema.org","@type":"HowTo","name":h1,"description":desc,"url":url,"dateModified":checked,
              "author":{"@type":"Person","name":"Natali","url":SITE+"/about/"},
-             "step":[{"@type":"HowToStep","position":i+1,"name":s[0],"text":html.unescape(s[1].replace('<a','').replace('</a>','')),"url":f"{url}#step-{i+1}"} for i,s in enumerate(steps)]},
+             "step":[{"@type":"HowToStep","position":i+1,"name":s[0],"text":html.unescape(re.sub(r'<[^>]+>','',re.sub(r'<span class="tag[^"]*">.*?</span>|<br>','',s[1]))),"url":f"{url}#step-{i+1}"} for i,s in enumerate(steps)]},
             {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}]
-    if vid:
+    if vid and vschema:
         up=(upload or checked)
         if len(up)==10: up=up+"T17:00:00+01:00"
         vo={"@context":"https://schema.org","@type":"VideoObject","name":title,"description":desc,"thumbnailUrl":[og] if og else [f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"],"uploadDate":up,"embedUrl":f"https://www.youtube.com/embed/{vid}","contentUrl":f"https://www.youtube.com/watch?v={vid}","author":{"@type":"Person","name":"Natali","url":SITE+"/about/"},"publisher":{"@type":"Person","name":"Natali","url":SITE+"/about/"}}

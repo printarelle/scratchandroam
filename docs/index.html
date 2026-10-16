@@ -312,6 +312,24 @@ footer a{color:#fff}
 @media (max-width:960px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.socs{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:860px){.ahero .in,.story,.hello{grid-template-columns:1fr}.story.flip .pic{order:0}.stack{height:380px}.ghero{padding-bottom:120px}.lift{margin-top:-90px}}
 @media (max-width:600px){.socs{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{gap:10px}.fact{padding:14px}.stack{height:330px}.stack .ph{width:58%}}
+
+/* apps guide: at-home table, gem and skip lists */
+.vnote{font-size:14px;color:var(--ink2);margin:10px 0 0}
+.tbl{width:100%;max-width:70ch;border-collapse:collapse;margin:8px 0 6px;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:var(--paper2);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .home{color:var(--pink);font-weight:700;white-space:nowrap}
+.tbl .arr{color:var(--teal);font-weight:700;white-space:nowrap}
+.gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
+.gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
+.gemlist li b,.skiplist li b{color:var(--ink)}
+.gemlist li::before{content:"\2726";position:absolute;left:16px;top:13px;color:var(--gold);font-size:20px}
+.skiplist li::before{content:"\2715";position:absolute;left:18px;top:13px;color:var(--pink);font-weight:700}
+.steps .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin:0 6px 6px 0}
+.steps .tag.h{background:var(--pink);color:#fff}.steps .tag.a{background:var(--teal);color:#fff}.steps .tag.g{background:var(--gold);color:#1E1B1F}
+@media (max-width:560px){.tbl{font-size:14px}.tbl th,.tbl td{padding:8px}}
+.steps+h2,.gemlist+h2,.tbl+h2,.skiplist+.note{margin-top:38px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Scratch & Roam with Natali", "url": "https://scratchandroam.com", "inLanguage": "en", "publisher": {"@type": "Person", "name": "Natali", "url": "https://scratchandroam.com/about/", "sameAs": ["https://www.youtube.com/@scratchandroam", "https://www.instagram.com/scratchandroam/", "https://www.tiktok.com/@scratchandroam", "https://www.facebook.com/scratchandroam", "https://www.pinterest.com/scratchandroam/"]}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Natali", "url": "https://scratchandroam.com/about/", "jobTitle": "Travel creator and maker", "homeLocation": {"@type": "Place", "name": "Ireland"}, "sameAs": ["https://www.youtube.com/@scratchandroam", "https://www.instagram.com/scratchandroam/", "https://www.tiktok.com/@scratchandroam", "https://www.facebook.com/scratchandroam", "https://www.pinterest.com/scratchandroam/"]}</script>
 </head>
@@ -336,7 +354,7 @@ footer a{color:#fff}
       <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
       <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
       <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
-      <a class="q" href="/guides/first-time-in-china/"><span class="k">Paying</span><b>How do I pay when nobody takes cash or cards?</b><span class="go">Alipay and WeChat, in the checklist</span></a>
+      <a class="q" href="/guides/china-travel-apps/"><span class="k">Paying · Maps · Trains</span><b>Which apps do I need, and which can I skip?</b><span class="go">12 apps + hidden gems</span></a>
       <a class="q" href="/guides/first-time-in-china/"><span class="k">Before you fly</span><b>What do I need to set up before I land?</b><span class="go">13-point checklist, 6 min</span></a>
       <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
     </div>
@@ -372,6 +390,7 @@ footer a{color:#fff}
     <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online, step by step on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the China arrival card guide for Alipay on a phone" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="Cover of the 13 things before China guide, with the 200 yuan fee card" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-travel-apps/"><img src="/img/apps-16x9.jpg" alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag" loading="lazy"><span class="num">APPS LIST</span><div class="cb"><div class="meta"><span>LIST + VIDEO</span><span>12 APPS</span></div><h3>Apps to download before you go to China: the full list</h3><p>Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.</p><span class="go">Read the guide</span></div></a>
   </div>
 </div></section>
 
