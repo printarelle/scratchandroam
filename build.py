@@ -58,7 +58,7 @@ def yt(vid,title,start=None):
         return f'<div class="video soon" style="background-image:url(/img/first-time-16x9.jpg)"><div><b>Video goes live on YouTube on Friday 16 October</b><br><small>This page will embed it as soon as it is up.</small></div></div>'
     return f'''<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}{"?start="+str(start) if start else ""}" title="{html.escape(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'''
 
-def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None):
+def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None,lift=None,head=""):
     path=f"/guides/{slug}/"
     url=SITE+path
     steps_html="".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p></div></li>' for i,s in enumerate(steps))
@@ -94,15 +94,13 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
 <div class="gmeta">{kind}{mins}{cityp}<span>Dated and rechecked</span></div>
 </div></section>
 <div class="wrap lift">
-{yt(vid,title,start) if vid or not gallery else ""}{video_note or ""}
-{gal}
+{lift if lift else (yt(vid,title,start) if vid or not gallery else "")+(video_note or "")+gal}
 <div class="gridg">
 <article>
 <div class="intro">{intro}</div>
 <h2>Quick answers</h2>
 <div class="faq">{faq_html}</div>
-<h2>{steps_title}</h2>
-<ol class="steps">{steps_html}</ol>
+{f'<h2>{steps_title}</h2><ol class="steps">{steps_html}</ol>' if steps else ""}
 {extra or ""}
 <p class="note">Rules change. Everything here was checked on {checked} against the sources below. Before you fly, open the official page once more.</p>
 <h2>Sources</h2><ul class="sources">{src_html}</ul>
@@ -114,10 +112,12 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
 {rel2}
 </div>
 </main>'''
-    schema=[{"@context":"https://schema.org","@type":"HowTo","name":h1,"description":desc,"url":url,"dateModified":checked,
+    schema=[] if not steps else [{"@context":"https://schema.org","@type":"HowTo","name":h1,"description":desc,"url":url,"dateModified":checked,
              "author":{"@type":"Person","name":"Natali","url":SITE+"/about/"},
-             "step":[{"@type":"HowToStep","position":i+1,"name":s[0],"text":html.unescape(re.sub(r'<[^>]+>','',re.sub(r'<span class="tag[^"]*">.*?</span>|<br>','',s[1]))),"url":f"{url}#step-{i+1}"} for i,s in enumerate(steps)]},
-            {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}]
+             "step":[{"@type":"HowToStep","position":i+1,"name":s[0],"text":html.unescape(re.sub(r'<[^>]+>','',re.sub(r'<span class="tag[^"]*">.*?</span>|<br>','',s[1]))),"url":f"{url}#step-{i+1}"} for i,s in enumerate(steps)]}]
+    schema.append({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]})
+    if not steps:
+        schema.append({"@context":"https://schema.org","@type":"Article","headline":h1,"description":desc,"url":url,"dateModified":checked,"image":og,"author":{"@type":"Person","name":"Natali","url":SITE+"/about/"}})
     if vid and vschema:
         up=(upload or checked)
         if len(up)==10: up=up+"T17:00:00+01:00"
@@ -127,7 +127,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
     if place:
         schema.append({"@context":"https://schema.org","@type":"TouristAttraction","name":place["name"],"address":{"@type":"PostalAddress","addressLocality":place.get("city","Shanghai"),"addressCountry":"CN"},"url":url,"isAccessibleForFree":place.get("free",False)})
     schema.append({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"China guides","item":SITE+"/china/"},{"@type":"ListItem","position":3,"name":h1,"item":url}]})
-    page(path,title,desc,body,schema,og,dark=True)
+    page(path,title,desc,body,schema,og,extra_head=head,dark=True)
 
 exec(open('src/content.py').read())
 

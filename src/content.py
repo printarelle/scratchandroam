@@ -70,6 +70,7 @@ HOME = '''<main>
     <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online, step by step on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the China arrival card guide for Alipay on a phone" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="Cover of the 13 things before China guide, with the 200 yuan fee card" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-dos-and-donts/"><img src="/img/dos-donts-16x9.jpg" alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts" loading="lazy"><span class="num">15 RULES</span><div class="cb"><div class="meta"><span>LIST</span><span>15 DO'S AND DON'TS</span></div><h3>China do's and don'ts: what not to bring, and what not to do</h3><p>What customs and security take off you, the table manners that get stares, and what to pack or just buy there.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-travel-apps/"><img src="/img/apps-16x9.jpg" alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag" loading="lazy"><span class="num">APPS LIST</span><div class="cb"><div class="meta"><span>LIST + VIDEO</span><span>12 APPS</span></div><h3>Apps to download before you go to China: the full list</h3><p>Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.</p><span class="go">Read the guide</span></div></a>
   </div>
 </div></section>
@@ -123,6 +124,7 @@ CHINA = '''<main>
   <div class="sechead"><div><p class="eyebrow">Before you fly</p><h2>The setup guides</h2><p>Each one is the video plus the written steps, checked against the official page on the date shown.</p></div><span class="pill">Rules change, so every guide is dated</span></div>
   <div class="tickets">
     <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-dos-and-donts/"><img src="/img/dos-donts-16x9.jpg" alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts" loading="lazy"><span class="num">15 RULES</span><div class="cb"><div class="meta"><span>LIST</span><span>15 DO'S AND DON'TS</span></div><h3>China do's and don'ts: what not to bring, and what not to do</h3><p>What customs and security take off you, the table manners that get stares, and what to pack or just buy there.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-travel-apps/"><img src="/img/apps-16x9.jpg" alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag" loading="lazy"><span class="num">APPS LIST</span><div class="cb"><div class="meta"><span>LIST + VIDEO</span><span>12 APPS</span></div><h3>Apps to download before you go to China: the full list</h3><p>Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
@@ -520,3 +522,115 @@ guide("shanghai-circus-world-era-show","Shanghai Circus World ERA show: tickets,
       gallery=[("circus-4x5","Aerial silks act at Shanghai Circus World"),("circus-b-4x5","Hand balance act"),("circus-c-4x5","Laser light act"),("circus-d-4x5","Act four at Shanghai Circus World"),("circus-e-4x5","Act five at Shanghai Circus World")],
       place={"name":"Shanghai Circus World","city":"Shanghai","free":False},steps_title="How to book and get there",
       shorts={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam"})
+
+# ---- China do's and don'ts (SR-0021, 16 Oct 2026): Contraband board matching the reel and carousel ----
+DD_ROUNDS=[
+ ("customs","#FF2E2E","#fff","Round 01 / 04","Customs will <em>take it</em>","What you can't bring into China",[
+  ("01","Fruit, meat, dairy","CONFISCATED","Sealed, cooked, the airplane apple. All of it. Bin.",
+   "China's quarantine list bans <b>fresh fruit and vegetables, meat and meat products (raw or cooked), eggs, fresh milk, cheese, butter and cream</b>. Sealed packaging makes no difference. Eat the plane snack on the plane or drop it in the bins before customs. Packaged sweets, crisps and biscuits are generally fine.",
+   "China consulate list; Sanya Airport customs (official); Trip.com 2026",False,"X-ray of an apple"),
+  ("02","Sensitive media","CONFISCATED","Political books, prints, files. Customs decides what counts.",
+   "China Customs bans printed matter, films, photos, discs and computer storage media that it considers <b>harmful to China's politics, economy, culture or morals</b>. The wording is broad and the officer decides, so leave anything political at home.",
+   "China Customs (GACC) prohibited list, via Gulf News",False,"X-ray of a stack of books"),
+  ("03","A drone, in Beijing","CONFISCATED","Banned from entering the city. Soon you can't even own one there.",
+   "Bringing a drone into Beijing from outside the city is already prohibited, tourists included, and from <b>15 November 2026</b> owning or storing a drone inside the city limits is banned too. Drones can be confiscated and fines issued. Elsewhere in China you can still fly outdoors, but the drone needs real-name registration.",
+   "AP via The Star, 13 September 2026",False,"X-ray of a drone"),
+ ]),
+ ("security","#FF8A00","#0A0A0C","Round 02 / 04","Security will <em>take it</em>","At airport security in China",[
+  ("04","Power bank with no 3C mark","CONFISCATED","Flying inside China? It stays at security.",
+   "Since <b>28 June 2025</b>, power banks without a clearly printed 3C (CCC) mark are banned on domestic flights in mainland China and are taken at security. Most power banks bought in Ireland or the UK do not have it. On trains and in the city it is no problem; it only matters at the airport. If you fly between cities, buy a 3C power bank in China.",
+   "CAAC rule, via Techlicious 2026 and China Discovery",False,"X-ray of a battery"),
+  ("05","Lighters and matches","BINNED","Not in your pocket. Not in your suitcase.",
+   "Chinese authorities do not allow matches or lighters in the cabin or in checked bags, and you will be asked to throw them away at the security checkpoint. Buy a cheap one after you land if you need it.",
+   "JAL, Beijing Capital Airport page; Trip.com 2026",False,"X-ray of a flame"),
+  ("06","Cold meds like Sudafed","SECOND LOOK","Pseudoephedrine is controlled. Read the label first.",
+   "Pseudoephedrine, the decongestant in Sudafed and many cold and flu tablets, is <b>strictly controlled in China</b>. Check the ingredients of every cold medicine before you pack it, keep medicines in the original box, and carry the prescription and a doctor's letter for anything prescribed.",
+   "Travel China With Me; Trvlogue, August 2026",False,"X-ray of a capsule"),
+  ("07","Cash over ¥20,000","DECLARE IT","Or US$5,000. Declare it, or explain it.",
+   "Carrying more than <b>¥20,000 in Chinese cash, or foreign cash worth more than US$5,000</b>? It is not banned, but you must declare it in the red channel when you arrive.",
+   "Shanghai government customs guide (official)",False,"X-ray of a banknote bundle"),
+ ]),
+ ("etiquette","#B26BFF","#0A0A0C","Round 03 / 04","Don't <em>do this</em>","Table manners and habits that get stares",[
+  ("08","Chopsticks upright in rice","RUDE","In your rice they look like funeral incense. Lay them down.",
+   "Standing chopsticks upright in a bowl of rice looks like the <b>incense burned for the dead</b>, Beijing's official tourism site explains. Lay them across the bowl or on the chopstick rest instead.",
+   "Visit Beijing (official tourism site)",False,"X-ray of a rice bowl with chopsticks standing in it"),
+  ("09","Tapping your bowl","RUDE","Old saying: tap your bowl, beg for life. Stop drumming.",
+   "The old saying goes <b>tap your bowl and you'll be a beggar for life</b>, because beggars once tapped their bowls for attention. Tapping the bowl or the table with your chopsticks is simply seen as rude.",
+   "Visit Beijing (official tourism site); China Highlights",False,"X-ray of chopsticks"),
+  ("10","Hands off heads","DON'T","In Tibetan areas the head is sacred. Everywhere else, it's just weird.",
+   "This one is less strict than people say. It is not a strong taboo across most of mainland China. The clear rule is in <b>Tibetan areas</b>, where the head is considered sacred, so do not touch a Tibetan person on the head. Everywhere else, touching a stranger's head is just personal space.",
+   "China Highlights etiquette guide; Chinese Forums",False,"X-ray of a person getting a head massage"),
+  ("11","Drinking tap water","BOIL IT","Locals don't. They boil it, or make tea.",
+   "Even in Beijing, where the tap water is among the cleanest in the country, it is <b>not considered safe to drink straight from the tap</b>. Locals boil it or drink tea. Use the kettle or bottled water.",
+   "Natali; Visit Beijing (official tourism site)",True,"X-ray of a tap and a glass"),
+ ]),
+ ("instead","#2BD67B","#0A0A0C","Round 04 / 04","Do this <em>instead</em>","What to pack, and what to just buy there",[
+  ("12","Bring a plug adapter","PACK IT","Irish and UK plugs fit zero sockets.",
+   "Mainland China runs on <b>220V with Type A and Type I sockets</b>. Irish and UK three-pin plugs (Type G) fit none of them, and most European, Indian, South African and US three-pin plugs do not fit either. Australian plugs do. Phone and laptop chargers usually handle 220V; check single-voltage hair tools.",
+   "Chinavigators; Travel of China; Trip.com",False,"X-ray of a plug"),
+  ("13","Deodorant, SPF, tampons","PACK IT","The ones you trust are hard to find. Bring your own.",
+   "Strong antiperspirant is hard to find outside big cities, a lot of sunscreen sold in China adds <b>skin whitener</b>, and pads are far more common than tampons (Watsons in big cities stocks a few, often one brand). Bring the ones you trust.",
+   "The Culture Trip; Travel China Cheaper; Sara Jaaksola",False,"X-ray of a lotion bottle"),
+  ("14","Tissues? Buy them there","BUY THERE","Toilets rarely have paper, but every corner shop sells pocket packs.",
+   "Most public toilets have no paper and often no soap, but don't fill your suitcase with rolls: <b>pocket tissue packs are sold everywhere</b> for very little. Keep two packs and a small hand sanitiser in your day bag. In older buildings the paper goes in the bin, not the toilet.",
+   "Natali; Chinavigators; Travel China Cheaper",True,"X-ray of a toilet roll"),
+  ("15","Not expired","STILL GOOD","That date is the day it was made. Add the shelf life.",
+   "Chinese packaging usually prints the <b>production date (生产日期)</b> and a <b>shelf life (保质期)</b>, for example 12 months. The date you see is when it was made, so add the shelf life to get the expiry. The new national label standard GB 7718-2025 makes the expiry date compulsory from 16 March 2027.",
+   "Natali; SAMR 2024 via CIRS; GB 7718-2025 via REACH24H",True,"X-ray of a tin can"),
+ ]),
+]
+def _dd_board():
+    jump="".join(f'<a href="#{rid}" style="--c:{c}">{html.escape(t.replace("<em>","").replace("</em>",""))}</a>' for rid,c,ink,k,t,sub,items in DD_ROUNDS)
+    out=f'<section class="dd" aria-label="China do\'s and don\'ts"><div class="dd-top"><span>SCAN / ARRIVALS</span><span class="rec">● 15 ITEMS FLAGGED</span></div><div class="dd-jump">{jump}</div>'
+    for rid,c,ink,k,t,sub,items in DD_ROUNDS:
+        out+=f'<div class="dd-round" id="{rid}" style="--c:{c};--ink:{ink}"><p class="dd-k">{k}</p><h2>{t}</h2><p class="dd-sub">{sub}</p>'
+        for n,name,v,sar,body,src,tip,alt in items:
+            t_=' <span class="dd-tip">NATALI\'S TIP</span>' if tip else ''
+            out+=f'<div class="dd-item" id="dd-{n}"><img src="/img/dd/dd-{n}.png" alt="{html.escape(alt)}" width="96" height="96" loading="lazy"><div><span class="dd-v">{v}</span>{t_}<h3><i>#{n}</i>{html.escape(name)}</h3><p class="dd-s">{html.escape(sar)}</p><p>{body}</p><p class="dd-src">SRC: {html.escape(src)}</p></div></div>'
+        out+='</div>'
+    slides="".join(f'<img src="/img/dd-slide-{i}.jpg" alt="China do\'s and don\'ts carousel, slide {i} of 5" loading="lazy">' for i in range(1,6))
+    out+=f'<div class="dd-end"><b>Save this. <em>Or learn it the hard way.</em></b><p>Send it to the friend who packs a drone. The same list as a carousel, to screenshot or save:</p><div class="dd-slides">{slides}</div></div></section>'
+    return out
+
+guide("china-dos-and-donts","China do's and don'ts: 15 rules before you fly (2026)","China do's and don'ts: what not to bring, and what not to do",
+      "China do's and don'ts for first-timers: what customs and airport security take off you, the table manners that get stares, and what to pack or just buy there.",
+      "china do's and don'ts",None,
+      "<p>Most China packing lists tell you to download a VPN and call it a day. These China do's and don'ts are the other stuff: what customs and airport security will actually take off you, the table habits that get you stares, and what to pack versus what to just buy when you land.</p><p>It is the written version of the Scratch &amp; Roam short, in the same order. Three of the tips are mine from the trip, marked as Natali's tip; everything else was checked on 16 October 2026 against the sources at the bottom.</p>",
+      [],
+      [("What can't you bring into China?","Fresh fruit and vegetables, meat and meat products, eggs, fresh milk, cheese, butter and cream, seeds and soil, and media that China Customs considers politically harmful. Drones cannot be brought into Beijing."),
+       ("Can I bring a power bank to China?","Yes, into the country. But on domestic flights inside China it needs a clearly printed 3C mark, or security takes it."),
+       ("Can you drink tap water in China?","No. Even in Beijing it is not considered safe straight from the tap. Boil it, drink tea, or buy bottled water."),
+       ("Is it rude to stick chopsticks in rice in China?","Yes. Chopsticks standing upright in rice look like incense burned for the dead. Lay them across the bowl or on the rest."),
+       ("Do I need a plug adapter for China from Ireland or the UK?","Yes. Irish and UK three-pin plugs fit no socket in mainland China, which uses Type A and Type I at 220V.")],
+      [("Chinese Consulate General in Sydney: objects prohibited from being carried into China","https://sydney.china-consulate.gov.cn/eng/zlgdt/previous2024b_/202208/t20220825_10752452.htm",True),
+       ("Sanya Phoenix International Airport: international customs clearance","https://en.sanyaairport.com/engjtg.jhtml",True),
+       ("Trip.com: restricted and prohibited items for China entry, 2026","https://uk.trip.com/guide/info/china-prohibited-restricted-items.html",False),
+       ("Gulf News: China customs prohibited items, citing customs.gov.cn","https://gulfnews.com/living-in-uae/ask-us/uae-travelling-to-china-what-customs-regulations-do-i-need-to-know-of-1.1689605810796",False),
+       ("The Star (AP): Beijing bans drone possession in the city, 13 September 2026","https://www.thestar.com.my/aseanplus/aseanplus-news/2026/09/13/beijing-bans-drone-possession-in-the-city-after-earlier-moves-to-tighten-rules",False),
+       ("Techlicious: flying within China, your power bank needs a 3C label","https://www.techlicious.com/tip/flying-within-china-your-power-bank-needs-a-3c-label/",False),
+       ("China Discovery: China power bank rules 2026","https://www.chinadiscovery.com/articles/china-power-bank-rules-3c-certification-guide.html",False),
+       ("JAL: Beijing Capital International Airport information","https://jal.co.jp/en/inter/airport/pek/info",False),
+       ("Trip.com: can I bring a lighter on a plane in China?","https://au.trip.com/guide/info/can-i-bring-a-lighter-on-a-plane.html",False),
+       ("Travel China With Me: traveling to China with medicine","https://travelchinawith.me/china-facts/traveling-to-china-with-medicine/",False),
+       ("Trvlogue: China medicine regulations 2026","https://www.trvlogue.com/en/china-medicine-regulations-2026",False),
+       ("Shanghai government: customs clearance guide for inbound passengers","https://english.shanghai.gov.cn/en-CustomsRegulations/20231212/9a3c7f512d464e0798be3fc76c8dd6f2.html",True),
+       ("Visit Beijing: chopsticks etiquette","https://english.visitbeijing.com.cn/article/47ONGlfHcES",True),
+       ("Visit Beijing: tap water","https://english.visitbeijing.com.cn/article/47ON183WTWN",True),
+       ("China Highlights: do's and don'ts in China","https://www.chinahighlights.com/travelguide/guidebook/etiquette.htm",False),
+       ("Chinese Forums: touching a child's head","https://www.chinese-forums.com/forums/topic/7557-culture-question-touching-a-childs-head/",False),
+       ("Chinavigators: do you need a power adapter for China?","https://www.chinavigators.com/power-adapter-china/",False),
+       ("Travel of China: travel adaptors for China","https://www.travelofchina.com/travel-adaptors-for-china/",False),
+       ("Trip.com: China plug guide","https://in.trip.com/guide/info/china-plug.html",False),
+       ("The Culture Trip: things to bring when you move to China","https://theculturetrip.com/articles/12-things-to-bring-when-you-move-to-china",False),
+       ("Travel China Cheaper: China packing checklist","https://www.travelchinacheaper.com/China-travel-packing-checklist",False),
+       ("Sara Jaaksola: what you should really bring to China","https://sarajaaksola.com/what-should-you-really-bring-to-china",False),
+       ("Chinavigators: the China toilet guide","https://www.chinavigators.com/china-toilet-guide/",False),
+       ("CIRS: SAMR on production date and shelf life labelling, March 2024","https://www.cirs-group.com/en/food/china-samr-issues-announcement-on-encouraging-food-enterprises-to-improve-the-labeling-of-production-dates-and-shelf-lives-of-pre-packaged-foods",False),
+       ("REACH24H: China 2025 food labelling regulation (GB 7718-2025)","https://en.reach24h.com/news/insights/food/china-2025-food-labeling-regulations-key-changes",False)],
+      SITE+"/og/china-dos-and-donts.jpg",
+      related=[("/guides/first-time-in-china/","first-time-16x9","13-point checklist","First time in China: 13 things to set up before you fly"),
+               ("/guides/china-travel-apps/","apps-16x9","12 apps","Apps to download before you go to China"),
+               ("/guides/china-arrival-card-pc/","arrival-pc-16x9","Arrival card","China arrival card online, step by step")],
+      checked="2026-10-16",
+      lift='<div class="dd-hero"><img src="/img/dos-donts-16x9.jpg" alt="China will take your drone: 15 do\'s and don\'ts, an airport X-ray monitor with a confiscated drone" width="1280" height="720"></div>',
+      extra=_dd_board())
