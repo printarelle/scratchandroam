@@ -46,7 +46,7 @@ HOME = '''<main>
   <div class="cardwrap">
     <div class="scard">
       <div class="head"><span class="mk">Scratch <em>&amp;</em> Roam</span><span class="no">Card no. 001 · Shanghai</span></div>
-      <div class="win" id="cwin"><img src="/img/bund-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><canvas id="foil" aria-label="Scratch the silver foil to reveal Shanghai"></canvas><span class="done">The Bund, Shanghai</span></div>
+      <div class="win" id="cwin"><img src="/img/bund-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><canvas id="foil" aria-label="Scratch the silver foil to reveal Shanghai"></canvas><span class="done">Shanghai, scratched off</span></div>
       <div class="foot"><span class="hand">Scratch to reveal. Roam to discover.</span><button class="reveal" id="reveal" type="button">Reveal it for me</button></div>
     </div>
     <p class="hint" id="chint">drag your finger across the silver bit</p>

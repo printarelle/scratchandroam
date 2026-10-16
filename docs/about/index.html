@@ -205,12 +205,12 @@ footer a{color:#fff}
 .cardwrap{justify-self:center;width:100%;max-width:440px;display:flex;flex-direction:column;gap:12px;align-items:center}
 .scard{width:100%;background:#fff;color:#1E1B1F;border:1px solid #E3D9C8;border-radius:20px;padding:18px;box-shadow:0 26px 60px rgba(30,27,31,.18);transform:rotate(-2deg)}
 .scard .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px}
-.scard .mk{font-family:var(--script);font-size:24px}.scard .mk em{font-style:normal;color:var(--pink)}
+.scard .mk{font-family:var(--script);font-size:24px;white-space:nowrap}.scard .mk em{font-style:normal;color:var(--pink)}
 .scard .no{font-family:var(--typed);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5B5560;text-align:right}
 .scard .win{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;border:1px solid #E3D9C8;background:var(--night2)}
 .scard .win img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .scard canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none;z-index:2}
-.scard .win .done{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));color:#fff;font-family:var(--display);font-size:16px;opacity:0;transition:opacity .6s;z-index:1}
+.scard .win .done{position:absolute;left:10px;top:10px;padding:5px 10px;border-radius:8px;background:rgba(20,18,26,.8);color:#FFD27A;font-family:var(--typed);font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:0;transition:opacity .6s;z-index:1}
 .scard .win.open .done{opacity:1}
 .scard .foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px;flex-wrap:wrap}
 .scard .foot .hand{font-size:22px;transform:none}
@@ -232,7 +232,7 @@ footer a{color:#fff}
 .row b{display:block;font-family:var(--display);font-size:19px;line-height:1.2;font-weight:400;margin:6px 0}
 .row .go{font-size:14px;color:var(--pink);font-weight:700}
 @media (max-width:860px){.hero2 .top,.cardsec{grid-template-columns:1fr}.qs,.rows{grid-template-columns:1fr}.scard{transform:none}}
-@media (max-width:600px){.row{grid-template-columns:110px minmax(0,1fr)}.row img{width:110px;height:84px}.cities{gap:8px}.city b{font-size:15px}.city .hand{font-size:15px}}
+@media (max-width:600px){.scard{padding:14px}.scard .mk{font-size:20px}.scard .no{font-size:10px}.row{grid-template-columns:110px minmax(0,1fr)}.row img{width:110px;height:84px}.cities{gap:8px}.city b{font-size:15px}.city .hand{font-size:15px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "AboutPage", "name": "About Scratch & Roam with Natali", "url": "https://scratchandroam.com/about/", "mainEntity": {"@type": "Person", "name": "Natali", "sameAs": ["https://www.youtube.com/@scratchandroam", "https://www.instagram.com/scratchandroam/", "https://www.tiktok.com/@scratchandroam", "https://www.facebook.com/scratchandroam", "https://www.pinterest.com/scratchandroam/"]}}</script>
 </head>
