@@ -1,5 +1,54 @@
 # Pages for scratchandroam.com. Facts only from Natali's own guides and the sources listed on each page.
 
+# ---------------------------------------------------------------------------
+# GUIDE REGISTRY. Every guide() must have an entry here, or the build stops.
+# This one list feeds the home page tickets and rows, the /china/ sections, the
+# Shopping menu link and the footer "Guides" column, so a new guide shows up
+# everywhere without hand-editing five places.
+#   sec: "before" (setup guides, top of /china/ and home tickets),
+#        "shop" (Shopping section on /china/, "Shopping" menu link),
+#        "place" (Shanghai answers rows).
+#   Question cards (qs grids) stay at 5 plus "Coming next": choose which five in
+#   QS_HOME and QS_CHINA below, and add the guide's card to QCARDS.
+# ---------------------------------------------------------------------------
+CARDS=[
+ dict(slug="first-time-in-china",sec="before",img="first-time-16x9",alt="Cover of the 13 things before China guide, with the 200 yuan fee card",num="GUIDE 13",meta=("VIDEO + CHECKLIST","6 MIN"),t="First time in China: 13 things to set up before you fly",p="Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.",short="First time in China: 13 things"),
+ dict(slug="china-dos-and-donts",sec="before",img="dos-donts-16x9",alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts",num="15 RULES",meta=("LIST","15 DO'S AND DON'TS"),t="China do's and don'ts: what not to bring, and what not to do",p="What customs and security take off you, the table manners that get stares, and what to pack or just buy there.",short="China do's and don'ts"),
+ dict(slug="china-travel-apps",sec="before",img="apps-16x9",alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag",num="APPS LIST",meta=("LIST + VIDEO","12 APPS"),t="Apps to download before you go to China: the full list",p="Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.",short="China travel apps"),
+ dict(slug="china-arrival-card-pc",sec="before",img="arrival-pc-16x9",alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card online, step by step on a computer",p="Upload your passport, let it fill the form, save the QR. Every screen shown.",short="Arrival card on a PC"),
+ dict(slug="china-arrival-card-alipay",sec="before",img="arrival-alipay-16x9",alt="Cover of the China arrival card guide for Alipay on a phone",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card in Alipay on your phone",p="The same card through the Alipay mini program, for people who do it on the way.",short="Arrival card in Alipay"),
+ dict(slug="taobao-for-foreigners",sec="shop",img="taobao-16x9",alt="Cover of the how to order on Taobao guide, a phone showing the Taobao app",num="SHOPPING",meta=("STEP BY STEP","12 STEPS"),t="How to order on Taobao as a foreigner, step by step",p="Settings, euro prices, searching in English, sending a parcel to your hotel and paying with Alipay.",short="How to order on Taobao"),
+ dict(slug="the-bund-shanghai-at-night",sec="place",img="bund-4x5",alt="The Bund in Shanghai at night",row_k="The Bund",row_q="How do I get to the Bund at night, and when do the lights go off?",short="The Bund at night"),
+ dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
+ dict(slug="huangpu-river-night-cruise",sec="place",img="river-4x5",alt="Shanghai skyline from the Huangpu river at night",row_k="River cruise",row_q="Which pier, which ticket, and is the night cruise worth it?",short="Huangpu River night cruise"),
+ dict(slug="shanghai-circus-world-era-show",sec="place",img="circus-16x9",alt="Shanghai Circus World stage with aerial silks",row_k="ERA show",row_q="Where do I book ERA circus tickets and how do I get there?",short="Shanghai Circus World ERA show"),
+]
+CARD_SLUGS={c["slug"] for c in CARDS}
+QCARDS={
+ "pc":("Arrival card · PC","How do I fill the China arrival card online?","3 min video + steps","china-arrival-card-pc"),
+ "alipay":("Arrival card · Phone","Can I do the arrival card in Alipay on the way?","3 min video + steps","china-arrival-card-alipay"),
+ "visa":("Visa-free","Do I need a visa, and for how many days?","In the checklist guide","first-time-in-china"),
+ "apps":("Paying · Maps · Trains","Which apps do I need, and which can I skip?","12 apps + hidden gems","china-travel-apps"),
+ "taobao":("Shopping · Taobao","How do I order on Taobao when it is all in Chinese?","12 steps, hotel delivery","taobao-for-foreigners"),
+ "before":("Before you fly","What do I need to set up before I land?","13-point checklist, 6 min","first-time-in-china"),
+}
+QS_HOME=["pc","alipay","visa","apps","taobao"]
+QS_CHINA=["visa","pc","alipay","apps","taobao"]
+QS_NEXT='<a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi\'an route</b><span class="go">Subscribe to catch the December guides</span></a>'
+def qs_html(keys):
+    return "\n".join(f'      <a class="q" href="/guides/{QCARDS[k][3]}/"><span class="k">{QCARDS[k][0]}</span><b>{QCARDS[k][1]}</b><span class="go">{QCARDS[k][2]}</span></a>' for k in keys)+"\n      "+QS_NEXT
+def cards_in(sec): return [c for c in CARDS if c["sec"]==sec]
+def home_tickets():
+    first=["china-arrival-card-pc","china-arrival-card-alipay","first-time-in-china","china-dos-and-donts","china-travel-apps"]
+    by={c["slug"]:c for c in CARDS}
+    rest=[c for c in CARDS if c["sec"] in ("before","shop") and c["slug"] not in first]
+    return [by[s] for s in first]+rest
+def tickets_html(cs):
+    return "\n".join(f'    <a class="tk" href="/guides/{c["slug"]}/"><img src="/img/{c["img"]}.jpg" alt="{c["alt"]}" loading="lazy"><span class="num">{c["num"]}</span><div class="cb"><div class="meta"><span>{c["meta"][0]}</span><span>{c["meta"][1]}</span></div><h3>{c["t"]}</h3><p>{c["p"]}</p><span class="go">Read the guide</span></div></a>' for c in cs)
+def rows_html():
+    return "\n".join(f'    <a class="row" href="/guides/{c["slug"]}/"><img src="/img/{c["img"]}.jpg" alt="{c["alt"]}" loading="lazy"><span><span class="k">{c["row_k"]}</span><b>{c["row_q"]}</b><span class="go">Guide</span></span></a>' for c in cards_in("place"))
+
+
 SCRATCH_JS = """<script>
 (function(){var win=document.getElementById('cwin'),c=document.getElementById('foil'),btn=document.getElementById('reveal'),hint=document.getElementById('chint');if(!win||!c)return;
 var ctx=c.getContext('2d'),down=false,cleared=false,px=0;
@@ -31,12 +80,7 @@ HOME = '''<main>
   <div class="pick">
     <p class="hand">Pick the thing you need to sort out:</p>
     <div class="qs">
-      <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
-      <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
-      <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
-      <a class="q" href="/guides/china-travel-apps/"><span class="k">Paying · Maps · Trains</span><b>Which apps do I need, and which can I skip?</b><span class="go">12 apps + hidden gems</span></a>
-      <a class="q" href="/guides/first-time-in-china/"><span class="k">Before you fly</span><b>What do I need to set up before I land?</b><span class="go">13-point checklist, 6 min</span></a>
-      <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
+@@QS_HOME@@
     </div>
   </div>
 </div></section>
@@ -67,21 +111,14 @@ HOME = '''<main>
 <section class="sec alt" id="guides"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Start here</p><h2>China first-timer guides</h2><p>Each guide is the video plus the full written steps, so you can read it without sound. Facts checked against official pages, with the date we checked them.</p></div><span class="pill" style="background:#fff">Rules change, so every guide is dated</span></div>
   <div class="tickets">
-    <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online, step by step on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the China arrival card guide for Alipay on a phone" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="Cover of the 13 things before China guide, with the 200 yuan fee card" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-dos-and-donts/"><img src="/img/dos-donts-16x9.jpg" alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts" loading="lazy"><span class="num">15 RULES</span><div class="cb"><div class="meta"><span>LIST</span><span>15 DO'S AND DON'TS</span></div><h3>China do's and don'ts: what not to bring, and what not to do</h3><p>What customs and security take off you, the table manners that get stares, and what to pack or just buy there.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-travel-apps/"><img src="/img/apps-16x9.jpg" alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag" loading="lazy"><span class="num">APPS LIST</span><div class="cb"><div class="meta"><span>LIST + VIDEO</span><span>12 APPS</span></div><h3>Apps to download before you go to China: the full list</h3><p>Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.</p><span class="go">Read the guide</span></div></a>
+@@TK_HOME@@
   </div>
 </div></section>
 
 <section class="sec" id="shanghai"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Shanghai, answered</p><h2>What we filmed, turned into the practical answers</h2></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
   <div class="rows">
-    <a class="row" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span><span class="k">The Bund</span><b>How do I get to the Bund at night, and when do the lights go off?</b><span class="go">Guide</span></span></a>
-    <a class="row" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span><span class="k">Nanjing Road</span><b>When is the neon on, and where does the walking street start?</b><span class="go">Guide</span></span></a>
-    <a class="row" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span><span class="k">River cruise</span><b>Which pier, which ticket, and is the night cruise worth it?</b><span class="go">Guide</span></span></a>
-    <a class="row" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span><span class="k">ERA show</span><b>Where do I book ERA circus tickets and how do I get there?</b><span class="go">Guide</span></span></a>
+@@ROWS@@
     <a class="row" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/film-4x5.jpg" alt="Shanghai at night as one roll of film" loading="lazy"><span><span class="k">Photo set</span><b>Shanghai at night as one roll of film</b><span class="go">Photos</span></span></a>
     <a class="row" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/circus-photo-16x9.jpg" alt="Shanghai Circus photo dump cover" loading="lazy"><span><span class="k">Photo set</span><b>Circus photo dump</b><span class="go">Photos</span></span></a>
   </div>
@@ -94,6 +131,7 @@ HOME = '''<main>
 </main>
 ''' + SCRATCH_JS
 
+HOME=HOME.replace('@@QS_HOME@@',qs_html(QS_HOME)).replace('@@TK_HOME@@',tickets_html(home_tickets())).replace('@@ROWS@@',rows_html())
 page("/","Scratch & Roam with Natali: China first-timer guides and travel videos",
      "Travel guides and videos from Natali, a maker from Ireland. First-timer China guides: arrival card, Alipay, visa-free rules. Scratch to reveal. Roam to discover.",
      HOME,
@@ -110,12 +148,7 @@ CHINA = '''<main>
 <div class="pick">
   <p class="hand" style="color:#FFD27A;transform:none">Pick the thing you need to sort out:</p>
   <div class="qs">
-    <a class="q" href="/guides/first-time-in-china/"><span class="k">Before you fly</span><b>What do I need to set up before I land?</b><span class="go">13-point checklist, 6 min</span></a>
-    <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
-    <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
-    <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
-      <a class="q" href="/guides/china-travel-apps/"><span class="k">Paying · Maps · Trains</span><b>Which apps do I need, and which can I skip?</b><span class="go">12 apps + hidden gems</span></a>
-    <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
+@@QS_CHINA@@
   </div>
 </div>
 </div></section>
@@ -123,26 +156,26 @@ CHINA = '''<main>
 <section class="sec" id="before"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Before you fly</p><h2>The setup guides</h2><p>Each one is the video plus the written steps, checked against the official page on the date shown.</p></div><span class="pill">Rules change, so every guide is dated</span></div>
   <div class="tickets">
-    <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-dos-and-donts/"><img src="/img/dos-donts-16x9.jpg" alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts" loading="lazy"><span class="num">15 RULES</span><div class="cb"><div class="meta"><span>LIST</span><span>15 DO'S AND DON'TS</span></div><h3>China do's and don'ts: what not to bring, and what not to do</h3><p>What customs and security take off you, the table manners that get stares, and what to pack or just buy there.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-travel-apps/"><img src="/img/apps-16x9.jpg" alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag" loading="lazy"><span class="num">APPS LIST</span><div class="cb"><div class="meta"><span>LIST + VIDEO</span><span>12 APPS</span></div><h3>Apps to download before you go to China: the full list</h3><p>Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
+@@TK_BEFORE@@
+  </div>
+</div></section>
+<section class="sec alt" id="shopping"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Once you are there</p><h2>Shopping, ordering and paying</h2><p>The things you do on your phone in China once the basics are set up, step by step, with the real screens.</p></div><span class="pill" style="background:#fff">Apps change, so every guide is dated</span></div>
+  <div class="tickets">
+@@TK_SHOP@@
   </div>
 </div></section>
 
-<section class="sec alt" id="shanghai"><div class="wrap">
+
+<section class="sec" id="shanghai"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Shanghai, answered</p><h2>What we filmed, turned into the practical answers</h2><p>Four place guides from the trip, mostly at night: how to get there, when to go, what it costs.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
   <div class="rows">
-    <a class="row" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span><span class="k">The Bund</span><b>How do I get to the Bund at night, and when do the lights go off?</b><span class="go">Guide</span></span></a>
-    <a class="row" href="/guides/nanjing-road-shanghai/"><img src="/img/nanjing-4x5.jpg" alt="Nanjing Road neon shop fronts" loading="lazy"><span><span class="k">Nanjing Road</span><b>When is the neon on, and where does the walking street start?</b><span class="go">Guide</span></span></a>
-    <a class="row" href="/guides/huangpu-river-night-cruise/"><img src="/img/river-4x5.jpg" alt="Shanghai skyline from the Huangpu river at night" loading="lazy"><span><span class="k">River cruise</span><b>Which pier, which ticket, and is the night cruise worth it?</b><span class="go">Guide</span></span></a>
-    <a class="row" href="/guides/shanghai-circus-world-era-show/"><img src="/img/circus-16x9.jpg" alt="Shanghai Circus World stage with aerial silks" loading="lazy"><span><span class="k">ERA show</span><b>Where do I book ERA circus tickets and how do I get there?</b><span class="go">Guide</span></span></a>
+@@ROWS@@
   </div>
   <p class="intro" style="margin-top:26px;margin-bottom:0">The videos and photo sets behind these pages are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>. Shanghai Disneyland after dark is next.</p>
 </div></section>
 
-<section class="sec" id="december"><div class="wrap">
+<section class="sec alt" id="december"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Still under the foil</p><h2>December: Chengdu, Chongqing, Xi'an</h2><p>Pandas, hotpot, a metro that runs through a building, and the Terracotta Army. The guides from this trip land here first, then the videos.</p></div></div>
   <div class="cities" style="grid-template-columns:repeat(3,minmax(0,1fr));max-width:720px;margin-top:0">
     <div class="city"><b>Chengdu</b><span class="k">December</span><span class="hand">pandas, hotpot</span></div>
@@ -152,6 +185,7 @@ CHINA = '''<main>
   <div class="stops" style="margin-top:18px;font-size:12px"><span class="stop home">CORK</span><span class="dash">- -</span><span class="stop">LONDON</span><span class="dash">- -</span><span class="stop">CHENGDU</span><span class="dash">- -</span><span class="stop">CHONGQING</span><span class="dash">- -</span><span class="stop">XI'AN</span></div>
 </div></section>
 </main>'''
+CHINA=CHINA.replace('@@QS_CHINA@@',qs_html(QS_CHINA)).replace('@@TK_BEFORE@@',tickets_html(cards_in('before'))).replace('@@TK_SHOP@@',tickets_html(cards_in('shop'))).replace('@@ROWS@@',rows_html())
 page("/china/","China guides for first-timers: entry, payments, trains",
      "Practical China guides from Scratch & Roam: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.",
      CHINA,[{"@context":"https://schema.org","@type":"CollectionPage","name":"China guides for first-timers","url":SITE+"/china/"}],
@@ -432,7 +466,7 @@ guide("china-travel-apps","China travel apps: 12 to set up before you go (2026)"
       video_note='<p class="vnote">The video starts at 1:30, where my first-timer guide gets to the apps: Alipay and WeChat set up at home on my own phone, linking a card, mini-programs, trains, taxis and Amap. <a href="/guides/first-time-in-china/">Full 13-step guide</a>.</p>',
       steps_title="The 12 apps, in the order to set them up",
       chapters=[("1:30","Download Alipay and WeChat"),("1:50","Link your card"),("2:10","Alipay Travel Wallet"),("2:32","WeChat Pay"),("2:45","Mini-programs"),("4:42","Trains, taxis and Trip.com in Alipay"),("5:09","Maps: Amap and offline notes")],
-      related=[("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone")],
+      related=[("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/taobao-for-foreigners/","taobao-16x9","SHOPPING","How to order on Taobao as a foreigner, step by step")],
       extra=APP_EXTRA)
 
 # ---------- Shanghai place guides (facts from the sources listed on each page, checked 15 Oct 2026) ----------

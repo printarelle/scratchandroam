@@ -162,7 +162,8 @@ aside{display:flex;flex-direction:column;gap:14px;position:sticky;top:86px}
 
 /* footer */
 footer{background:var(--night);color:#CFC7D4;padding-block:40px 44px;margin-top:40px;font-size:14px}
-footer .in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:start}
+footer .in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.fg{display:flex;flex-direction:column;gap:7px;margin-top:14px}.fg a{text-decoration:none;color:#fff}.fg a:hover{text-decoration:underline}
 footer .logo{color:#fff}footer .logo .with{color:#8fd3d6}
 footer .tag{font-family:var(--hand);font-size:22px;color:#FFD27A;margin-top:8px}
 .follow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
@@ -377,7 +378,7 @@ footer a{color:#fff}
 <body>
 <header class="hdr dark"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
-<div class="links" id="menu"><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>
+<div class="links" id="menu"><a href="/china/">China guides</a><a href="/china/#shopping">Shopping</a><a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>
 <main>
 <section class="chero"><div class="wrap">
 <p class="eyebrow" style="color:#C0DACE"><a href="/" style="color:inherit">Home</a> · China</p>
@@ -386,12 +387,12 @@ footer a{color:#fff}
 <div class="pick">
   <p class="hand" style="color:#FFD27A;transform:none">Pick the thing you need to sort out:</p>
   <div class="qs">
-    <a class="q" href="/guides/first-time-in-china/"><span class="k">Before you fly</span><b>What do I need to set up before I land?</b><span class="go">13-point checklist, 6 min</span></a>
-    <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
-    <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
-    <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
+      <a class="q" href="/guides/first-time-in-china/"><span class="k">Visa-free</span><b>Do I need a visa, and for how many days?</b><span class="go">In the checklist guide</span></a>
+      <a class="q" href="/guides/china-arrival-card-pc/"><span class="k">Arrival card · PC</span><b>How do I fill the China arrival card online?</b><span class="go">3 min video + steps</span></a>
+      <a class="q" href="/guides/china-arrival-card-alipay/"><span class="k">Arrival card · Phone</span><b>Can I do the arrival card in Alipay on the way?</b><span class="go">3 min video + steps</span></a>
       <a class="q" href="/guides/china-travel-apps/"><span class="k">Paying · Maps · Trains</span><b>Which apps do I need, and which can I skip?</b><span class="go">12 apps + hidden gems</span></a>
-    <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
+      <a class="q" href="/guides/taobao-for-foreigners/"><span class="k">Shopping · Taobao</span><b>How do I order on Taobao when it is all in Chinese?</b><span class="go">12 steps, hotel delivery</span></a>
+      <a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi'an route</b><span class="go">Subscribe to catch the December guides</span></a>
   </div>
 </div>
 </div></section>
@@ -399,15 +400,22 @@ footer a{color:#fff}
 <section class="sec" id="before"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Before you fly</p><h2>The setup guides</h2><p>Each one is the video plus the written steps, checked against the official page on the date shown.</p></div><span class="pill">Rules change, so every guide is dated</span></div>
   <div class="tickets">
-    <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="13 things before China guide cover" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="Cover of the 13 things before China guide, with the 200 yuan fee card" loading="lazy"><span class="num">GUIDE 13</span><div class="cb"><div class="meta"><span>VIDEO + CHECKLIST</span><span>6 MIN</span></div><h3>First time in China: 13 things to set up before you fly</h3><p>Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-dos-and-donts/"><img src="/img/dos-donts-16x9.jpg" alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts" loading="lazy"><span class="num">15 RULES</span><div class="cb"><div class="meta"><span>LIST</span><span>15 DO'S AND DON'TS</span></div><h3>China do's and don'ts: what not to bring, and what not to do</h3><p>What customs and security take off you, the table manners that get stares, and what to pack or just buy there.</p><span class="go">Read the guide</span></div></a>
     <a class="tk" href="/guides/china-travel-apps/"><img src="/img/apps-16x9.jpg" alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag" loading="lazy"><span class="num">APPS LIST</span><div class="cb"><div class="meta"><span>LIST + VIDEO</span><span>12 APPS</span></div><h3>Apps to download before you go to China: the full list</h3><p>Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="China arrival card on a PC guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
-    <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="China arrival card in Alipay guide cover" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-arrival-card-pc/"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card online, step by step on a computer</h3><p>Upload your passport, let it fill the form, save the QR. Every screen shown.</p><span class="go">Read the guide</span></div></a>
+    <a class="tk" href="/guides/china-arrival-card-alipay/"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the China arrival card guide for Alipay on a phone" loading="lazy"><span class="num">GUIDE 14</span><div class="cb"><div class="meta"><span>VIDEO + STEPS</span><span>3 MIN</span></div><h3>China arrival card in Alipay on your phone</h3><p>The same card through the Alipay mini program, for people who do it on the way.</p><span class="go">Read the guide</span></div></a>
+  </div>
+</div></section>
+<section class="sec alt" id="shopping"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Once you are there</p><h2>Shopping, ordering and paying</h2><p>The things you do on your phone in China once the basics are set up, step by step, with the real screens.</p></div><span class="pill" style="background:#fff">Apps change, so every guide is dated</span></div>
+  <div class="tickets">
+    <a class="tk" href="/guides/taobao-for-foreigners/"><img src="/img/taobao-16x9.jpg" alt="Cover of the how to order on Taobao guide, a phone showing the Taobao app" loading="lazy"><span class="num">SHOPPING</span><div class="cb"><div class="meta"><span>STEP BY STEP</span><span>12 STEPS</span></div><h3>How to order on Taobao as a foreigner, step by step</h3><p>Settings, euro prices, searching in English, sending a parcel to your hotel and paying with Alipay.</p><span class="go">Read the guide</span></div></a>
   </div>
 </div></section>
 
-<section class="sec alt" id="shanghai"><div class="wrap">
+
+<section class="sec" id="shanghai"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Shanghai, answered</p><h2>What we filmed, turned into the practical answers</h2><p>Four place guides from the trip, mostly at night: how to get there, when to go, what it costs.</p></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
   <div class="rows">
     <a class="row" href="/guides/the-bund-shanghai-at-night/"><img src="/img/bund-4x5.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span><span class="k">The Bund</span><b>How do I get to the Bund at night, and when do the lights go off?</b><span class="go">Guide</span></span></a>
@@ -418,7 +426,7 @@ footer a{color:#fff}
   <p class="intro" style="margin-top:26px;margin-bottom:0">The videos and photo sets behind these pages are on <a href="https://www.youtube.com/@scratchandroam" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/scratchandroam/" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@scratchandroam" rel="noopener">TikTok</a>. Shanghai Disneyland after dark is next.</p>
 </div></section>
 
-<section class="sec" id="december"><div class="wrap">
+<section class="sec alt" id="december"><div class="wrap">
   <div class="sechead"><div><p class="eyebrow">Still under the foil</p><h2>December: Chengdu, Chongqing, Xi'an</h2><p>Pandas, hotpot, a metro that runs through a building, and the Terracotta Army. The guides from this trip land here first, then the videos.</p></div></div>
   <div class="cities" style="grid-template-columns:repeat(3,minmax(0,1fr));max-width:720px;margin-top:0">
     <div class="city"><b>Chengdu</b><span class="k">December</span><span class="hand">pandas, hotpot</span></div>
@@ -428,6 +436,6 @@ footer a{color:#fff}
   <div class="stops" style="margin-top:18px;font-size:12px"><span class="stop home">CORK</span><span class="dash">- -</span><span class="stop">LONDON</span><span class="dash">- -</span><span class="stop">CHENGDU</span><span class="dash">- -</span><span class="stop">CHONGQING</span><span class="dash">- -</span><span class="stop">XI'AN</span></div>
 </div></section>
 </main>
-<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p></div><div><p class="eyebrow" style="color:#9a93a3">Follow along</p><div class="follow"><a href="https://www.youtube.com/@scratchandroam" rel="me noopener">YouTube</a><a href="https://www.instagram.com/scratchandroam/" rel="me noopener">Instagram</a><a href="https://www.tiktok.com/@scratchandroam" rel="me noopener">TikTok</a><a href="https://www.facebook.com/scratchandroam" rel="me noopener">Facebook</a><a href="https://www.pinterest.com/scratchandroam/" rel="me noopener">Pinterest</a></div></div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer><script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p></div><div><p class="eyebrow" style="color:#9a93a3">Guides</p><div class="fg"><a href="/guides/first-time-in-china/">First time in China: 13 things</a><a href="/guides/china-dos-and-donts/">China do&#x27;s and don&#x27;ts</a><a href="/guides/china-travel-apps/">China travel apps</a><a href="/guides/china-arrival-card-pc/">Arrival card on a PC</a><a href="/guides/china-arrival-card-alipay/">Arrival card in Alipay</a><a href="/guides/taobao-for-foreigners/">How to order on Taobao</a><a href="/guides/the-bund-shanghai-at-night/">The Bund at night</a><a href="/guides/nanjing-road-shanghai/">Nanjing Road</a><a href="/guides/huangpu-river-night-cruise/">Huangpu River night cruise</a><a href="/guides/shanghai-circus-world-era-show/">Shanghai Circus World ERA show</a></div></div><div><p class="eyebrow" style="color:#9a93a3">Follow along</p><div class="follow"><a href="https://www.youtube.com/@scratchandroam" rel="me noopener">YouTube</a><a href="https://www.instagram.com/scratchandroam/" rel="me noopener">Instagram</a><a href="https://www.tiktok.com/@scratchandroam" rel="me noopener">TikTok</a><a href="https://www.facebook.com/scratchandroam" rel="me noopener">Facebook</a><a href="https://www.pinterest.com/scratchandroam/" rel="me noopener">Pinterest</a></div></div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer><script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
 </body>
 </html>

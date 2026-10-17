@@ -144,7 +144,8 @@ aside{display:flex;flex-direction:column;gap:14px;position:sticky;top:86px}
 
 /* footer */
 footer{background:var(--night);color:#CFC7D4;padding-block:40px 44px;margin-top:40px;font-size:14px}
-footer .in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:start}
+footer .in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.fg{display:flex;flex-direction:column;gap:7px;margin-top:14px}.fg a{text-decoration:none;color:#fff}.fg a:hover{text-decoration:underline}
 footer .logo{color:#fff}footer .logo .with{color:#8fd3d6}
 footer .tag{font-family:var(--hand);font-size:22px;color:#FFD27A;margin-top:8px}
 .follow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}

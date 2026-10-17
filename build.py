@@ -10,11 +10,16 @@ SAMEAS=json.dumps(list(SOC.values()))
 def nav(dark=False):
     return f'''<header class="hdr{' dark' if dark else ''}"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
-<div class="links" id="menu"><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>'''
+<div class="links" id="menu"><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>'''
+def NAV_SHOP():
+    # "Shopping" menu link appears automatically once any guide is registered with sec="shop"
+    return '<a href="/china/#shopping">Shopping</a>' if any(c["sec"]=="shop" for c in globals().get("CARDS",[])) else ''
+def FOOT_GUIDES():
+    return "".join(f'<a href="/guides/{c["slug"]}/">{html.escape(c["short"])}</a>' for c in globals().get("CARDS",[]))
 NAVJS='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>'
 def footer():
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
-    return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p></div><div><p class="eyebrow" style="color:#9a93a3">Follow along</p><div class="follow">{links}</div></div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer>{NAVJS}'''
+    return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p></div><div><p class="eyebrow" style="color:#9a93a3">Guides</p><div class="fg">{FOOT_GUIDES()}</div></div><div><p class="eyebrow" style="color:#9a93a3">Follow along</p><div class="follow">{links}</div></div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer>{NAVJS}'''
 
 def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False):
     url=SITE+path
@@ -59,6 +64,7 @@ def yt(vid,title,start=None):
     return f'''<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}{"?start="+str(start) if start else ""}" title="{html.escape(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'''
 
 def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None,lift=None,head=""):
+    assert slug in globals().get("CARD_SLUGS",set()), f"guide {slug!r} is not in CARDS (src/content.py): add it so it shows on the home page, /china/, the menu and the footer"
     path=f"/guides/{slug}/"
     url=SITE+path
     steps_html="".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p></div></li>' for i,s in enumerate(steps))
