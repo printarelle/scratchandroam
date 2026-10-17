@@ -13,6 +13,7 @@
 # ---------------------------------------------------------------------------
 CARDS=[
  dict(slug="first-time-in-china",sec="before",img="first-time-in-china-13-things-before-you-fly",alt="Cover of the 13 things before China guide, with the 200 yuan fee card",num="GUIDE 13",meta=("VIDEO + CHECKLIST","6 MIN"),t="First time in China: 13 things to set up before you fly",p="Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.",short="First time in China: 13 things"),
+ dict(slug="china-visa-free-30-days",sec="before",img="china-visa-free-30-days-departure-board-cover-4x5",alt="Cover of the China visa free 30 days guide: a departure board reading China, visa free, to 31 Dec, with the China flag",num="VISA-FREE",meta=("VIDEO + ANSWERS","30 DAYS"),t="China visa free 30 days: Irish, UK and EU passports",p="Who gets 30 days, until when, what to show at the border, and what you cannot extend.",short="China visa free 30 days"),
  dict(slug="china-dos-and-donts",sec="before",img="china-will-take-your-drone-15-dos-and-donts",alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts",num="15 RULES",meta=("LIST","15 DO'S AND DON'TS"),t="China do's and don'ts: what not to bring, and what not to do",p="What customs and security take off you, the table manners that get stares, and what to pack or just buy there.",short="China do's and don'ts"),
  dict(slug="china-travel-apps",sec="before",img="china-travel-apps-12-apps-to-set-up-before-china",alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag",num="APPS LIST",meta=("LIST + VIDEO","12 APPS"),t="Apps to download before you go to China: the full list",p="Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.",short="China travel apps"),
  dict(slug="china-arrival-card-pc",sec="before",img="china-arrival-card-on-a-pc-step-by-step",alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card online, step by step on a computer",p="Upload your passport, let it fill the form, save the QR. Every screen shown.",short="Arrival card on a PC"),
@@ -27,7 +28,7 @@ CARD_SLUGS={c["slug"] for c in CARDS}
 QCARDS={
  "pc":("Arrival card · PC","How do I fill the China arrival card online?","3 min video + steps","china-arrival-card-pc"),
  "alipay":("Arrival card · Phone","Can I do the arrival card in Alipay on the way?","3 min video + steps","china-arrival-card-alipay"),
- "visa":("Visa-free","Do I need a visa, and for how many days?","In the checklist guide","first-time-in-china"),
+ "visa":("Visa-free","Do I need a visa, and for how many days?","Answers by passport, dated","china-visa-free-30-days"),
  "apps":("Paying · Maps · Trains","Which apps do I need, and which can I skip?","12 apps + hidden gems","china-travel-apps"),
  "taobao":("Shopping · Taobao","How do I order on Taobao when it is all in Chinese?","12 steps, hotel delivery","taobao-for-foreigners"),
  "before":("Before you fly","What do I need to set up before I land?","13-point checklist, 6 min","first-time-in-china"),
@@ -709,6 +710,37 @@ TB_FIGS={0:["taobao-app-my-taobao-tab-and-settings-gear-english-labels","taobao-
  9:["taobao-cart-tick-items-and-checkout-english-labels","taobao-checkout-popup-set-delivery-address-first-english-label"],
  11:["taobao-my-orders-to-pay-to-ship-to-receive-refunds-english-labels"]}
 TB_STEPS=[(a,b,TB_FIGS.get(i,[])) for i,(a,b) in enumerate(TB_STEPS)]
+
+VF_STEPS=[
+ ("Check your passport is on the list","The list covers ordinary passports from Ireland, the UK (added from 17 February 2026) and most EU countries. In the 27 EU countries, 25 are on it: Czechia and Lithuania are not."),
+ ("Check the end date, not only the 30 days","The policy runs until 24:00 on 31 December 2026, Beijing time. A trip that starts in December has to fit before that moment. 2027 has not been announced, so do not book a 2027 trip on the assumption that it continues."),
+ ("Check your passport validity","The UK government says your passport must expire at least 6 months after the day you arrive and have 2 blank pages. I use 6 months as the safe rule for Irish and EU passports too, but I did not find the same line on an Irish government page, so check yours."),
+ ("Fill in the free arrival card before you fly","China has a free online arrival card, run on official channels only. Paid copycat sites exist. See my arrival card guides for the step by step."),
+ ("Carry proof of your trip","The embassy FAQ recommends carrying documents such as an invitation letter, air tickets and accommodation bookings that match why you are visiting. It does not say they are always asked for. A ticket and a hotel booking on your phone is the sensible minimum."),
+ ("Plan the 30 days as a hard limit","You cannot extend visa-free time. If you must stay longer for good reason you apply for a stay permit from the local exit-entry police, which is not a normal holiday option. For a longer trip, get the right visa before you fly."),
+]
+
+guide("china-visa-free-30-days","China Visa Free 30 Days: Irish, UK and EU Passports","China visa free 30 days: Irish, UK and EU passports",
+      "Who gets 30 days visa free in China right now, until when, what to show at the border, and whether you can extend or leave and come back. Checked 17 October 2026.",
+      "china visa free 30 days","",
+      "<p>If you hold an Irish, UK or EU passport, you can currently enter China without a visa for up to 30 days. The catch is the date: the policy runs until 24:00 on 31 December 2026, Beijing time, and nothing has been announced for 2027. This page answers the four things people ask, with the source for each, checked on 17 October 2026.</p><p>It is a guide, not legal advice. The embassy and your own government's travel page are the final word, so open them once more before you fly.</p>",
+      VF_STEPS,
+      [("Who gets 30 days visa free in China right now?","Ordinary passport holders from Ireland, the UK (from 17 February 2026) and the EU countries on the list can enter for up to 30 days, for tourism, business, family or friend visits, or transit. In the EU, Czechia and Lithuania are not on it."),
+       ("Until when is China visa free?","Until 24:00 Beijing time on 31 December 2026. 2027 has not been announced. Earlier extensions were announced in late 2024 and early November 2025, but that is history, not a promise."),
+       ("What do I show at the border?","A passport valid for at least 6 months with 2 blank pages, plus your free arrival card. The embassy recommends carrying an air ticket, accommodation booking or invitation letter that matches your purpose."),
+       ("Can I extend visa free time in China?","No. If you must stay longer for good reason you can apply for a stay permit from the local exit-entry police. For a planned longer trip, apply for the right visa before you fly."),
+       ("Can I leave China and come back for another 30 days?","The embassy says you can enter visa free multiple times and that there is currently no cap on the number of entries or total days. Entries must still match a visit purpose such as tourism, so this is not a way to live there. Rules can change.")],
+      [("Embassy of China in Ireland: FAQ on visa-free entry","https://ie.china-embassy.gov.cn/eng/qzfw/202412/t20241219_11506444.htm",True),
+       ("Embassy of China in Ireland: notice on extending the unilateral visa-free policy (4 Nov 2025)","https://ie.china-embassy.gov.cn/eng/qzfw/202511/t20251104_11746287.htm",True),
+       ("Chinese Visa Application Service Centre London: notice on the extension, 4 Dec 2025","https://bio.visaforchina.cn/LON3_EN/tongzhigonggao/315858144490295296.html",True),
+       ("UK government: China entry requirements","https://www.gov.uk/foreign-travel-advice/china/entry-requirements",True)],
+      SITE+"/og/china-visa-free-30-days.jpg",checked="2026-10-17",published="2026-10-17",vschema=False,
+      lift='<div class="dd-hero"><img data-hero src="/img/china-visa-free-30-days-departure-board-cover-16x9.jpg" alt=""></div>',
+      steps_title="What to check before you fly",
+      extra='<h2>The carousel</h2><div class="shots"><figure><a href="/img/china-visa-free-30-days-who-can-board-slide.jpg"><img src="/img/china-visa-free-30-days-who-can-board-slide.jpg" alt=""></a><figcaption>Who can board</figcaption></figure><figure><a href="/img/china-visa-free-30-days-time-left-slide.jpg"><img src="/img/china-visa-free-30-days-time-left-slide.jpg" alt=""></a><figcaption>Time left</figcaption></figure><figure><a href="/img/china-visa-free-30-days-at-the-desk-slide.jpg"><img src="/img/china-visa-free-30-days-at-the-desk-slide.jpg" alt=""></a><figcaption>At the desk</figcaption></figure><figure><a href="/img/china-visa-free-30-days-changes-slide.jpg"><img src="/img/china-visa-free-30-days-changes-slide.jpg" alt=""></a><figcaption>What you cannot change</figcaption></figure><figure><a href="/img/china-visa-free-30-days-last-call-slide.jpg"><img src="/img/china-visa-free-30-days-last-call-slide.jpg" alt=""></a><figcaption>Last call</figcaption></figure></div><p class="note">How I count the 30 days in the video: landing day is day 0 and day 30 is the last day. The embassy wording is from the date of entry to the 30th calendar day until 24:00, so if your exit is close to the limit, leave a day early.</p>',
+      shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"},
+      related=[("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China")])
+
 guide("taobao-for-foreigners","How to order on Taobao as a foreigner: step by step guide","How to order on Taobao as a foreigner, step by step",
       "How to order on Taobao without speaking Chinese: language and currency settings, searching in English, hotel delivery, the Chinese note, and paying with Alipay.",
       "how to order on taobao","",

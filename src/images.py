@@ -67,9 +67,18 @@ T={
 "taobao-my-orders-to-pay-to-ship-to-receive-refunds-english-labels":("Taobao My Taobao page with English labels on My orders and its rows To pay, To ship, To receive and Refunds","My orders (我的订单): to pay, to ship, to receive, refunds."),
 }
 for k,(alt,cap) in T.items(): a(k+".jpg",alt,cap)
+a("china-visa-free-30-days-departure-board-cover-4x5.jpg","Aerial view of misty mountains behind a departure board reading China, visa free, to 31 Dec, with chips 30 days and IE UK EU and a China flag sticker")
+a("china-visa-free-30-days-departure-board-cover-3x4.jpg","Aerial view of misty mountains behind a departure board reading China, visa free, to 31 Dec, with chips 30 days and IE UK EU and a China flag sticker")
+a("china-visa-free-30-days-departure-board-cover-16x9.jpg","Hangzhou light show at night beside a departure board reading China, visa free, to 31 Dec, with chips 30 days and IE UK EU and a China flag")
+a("china-visa-free-30-days-who-can-board-slide.jpg","Carousel slide 2: a departure board with Ireland OK, UK OK, EU 25 of 27 OK and CZ, LT NO, over a station hall photo","Who can board: Ireland, UK and 25 of 27 EU countries")
+a("china-visa-free-30-days-time-left-slide.jpg","Carousel slide 3: a departure board reading visa free until, ends 31 Dec 2026, 24:00 Beijing time, 2027 not announced, over a light show photo","Time left: ends 31 December 2026, 2027 not announced")
+a("china-visa-free-30-days-at-the-desk-slide.jpg","Carousel slide 4: a departure board with passport 6 months, arrival card free, official site only and ticket plus hotel proof, over a delta coast photo","At the desk: passport, arrival card, proof of trip")
+a("china-visa-free-30-days-changes-slide.jpg","Carousel slide 5: a departure board with extend NO, leave and return OK, longer stay visa, over an old street photo","What you cannot change: no extension, return allowed")
+a("china-visa-free-30-days-last-call-slide.jpg","Carousel slide 6: a departure board reading save this, before 31 Dec, send to a friend, follow for updates, over a tower photo","Last call: save this before 31 December")
 
 # Alt text for the social share images in docs/og/ (1200x630, one per guide)
 OGALT={
+"china-visa-free-30-days.jpg":R["china-visa-free-30-days-departure-board-cover-16x9.jpg"]["alt"],
 "china-arrival-card-in-alipay.jpg":R["china-arrival-card-in-alipay-step-by-step.jpg"]["alt"],
 "china-arrival-card-on-a-pc.jpg":R["china-arrival-card-on-a-pc-step-by-step.jpg"]["alt"],
 "the-bund-shanghai-at-night.jpg":"Gold-lit historic buildings on the Bund in Shanghai at night, with the title The Bund",
