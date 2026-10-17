@@ -3,7 +3,18 @@ import os, json, datetime, html
 SITE="https://scratchandroam.com"
 import sys; sys.path.insert(0,"src")
 from images import R as IMGREG, OGALT
-from PIL import Image as _PIL
+import struct
+def _size(p):
+    # image width and height without Pillow (the Cloudflare build has no Pillow)
+    d=open(p,"rb").read()
+    if d[:8]==b"\x89PNG\r\n\x1a\n": return struct.unpack(">II",d[16:24])
+    i=2
+    while i<len(d):
+        if d[i]!=0xFF: i+=1; continue
+        m=d[i+1]
+        if m in (0xC0,0xC1,0xC2): h,w=struct.unpack(">HH",d[i+5:i+9]); return w,h
+        i+=2+struct.unpack(">H",d[i+2:i+4])[0]
+    raise SystemExit("cannot read size of "+p)
 TODAY="2026-10-15"
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Caveat:wght@700&family=Archivo+Black&family=Special+Elite&family=Libre+Franklin:ital,wght@0,400;0,500;0,700;1,400&display=swap">'
 CSS=open('src/site.css').read()
@@ -92,7 +103,7 @@ def finish_images(doc,path,og):
         t=re.sub(r'\salt="[^"]*"','',t)
         t=t[:-1].rstrip(" /")+(' alt=""' if decor else f' alt="{html.escape(alt,quote=True)}"')
         if "width=" not in t:
-            w,h=_PIL.open("docs/img/"+key).size; t+=f' width="{w}" height="{h}"'
+            w,h=_size("docs/img/"+key); t+=f' width="{w}" height="{h}"'
         hero="data-hero" in t
         t=t.replace(" data-hero","").replace("data-hero","")
         t=re.sub(r'\sloading="[^"]*"','',t)
