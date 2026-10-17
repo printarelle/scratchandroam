@@ -12,16 +12,16 @@
 #   QS_HOME and QS_CHINA below, and add the guide's card to QCARDS.
 # ---------------------------------------------------------------------------
 CARDS=[
- dict(slug="first-time-in-china",sec="before",img="first-time-16x9",alt="Cover of the 13 things before China guide, with the 200 yuan fee card",num="GUIDE 13",meta=("VIDEO + CHECKLIST","6 MIN"),t="First time in China: 13 things to set up before you fly",p="Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.",short="First time in China: 13 things"),
- dict(slug="china-dos-and-donts",sec="before",img="dos-donts-16x9",alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts",num="15 RULES",meta=("LIST","15 DO'S AND DON'TS"),t="China do's and don'ts: what not to bring, and what not to do",p="What customs and security take off you, the table manners that get stares, and what to pack or just buy there.",short="China do's and don'ts"),
- dict(slug="china-travel-apps",sec="before",img="apps-16x9",alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag",num="APPS LIST",meta=("LIST + VIDEO","12 APPS"),t="Apps to download before you go to China: the full list",p="Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.",short="China travel apps"),
- dict(slug="china-arrival-card-pc",sec="before",img="arrival-pc-16x9",alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card online, step by step on a computer",p="Upload your passport, let it fill the form, save the QR. Every screen shown.",short="Arrival card on a PC"),
- dict(slug="china-arrival-card-alipay",sec="before",img="arrival-alipay-16x9",alt="Cover of the China arrival card guide for Alipay on a phone",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card in Alipay on your phone",p="The same card through the Alipay mini program, for people who do it on the way.",short="Arrival card in Alipay"),
- dict(slug="taobao-for-foreigners",sec="shop",img="taobao-16x9",alt="Cover of the how to order on Taobao guide, a phone showing the Taobao app",num="SHOPPING",meta=("STEP BY STEP","12 STEPS"),t="How to order on Taobao as a foreigner, step by step",p="Settings, euro prices, searching in English, sending a parcel to your hotel and paying with Alipay.",short="How to order on Taobao"),
- dict(slug="the-bund-shanghai-at-night",sec="place",img="bund-4x5",alt="The Bund in Shanghai at night",row_k="The Bund",row_q="How do I get to the Bund at night, and when do the lights go off?",short="The Bund at night"),
- dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
- dict(slug="huangpu-river-night-cruise",sec="place",img="river-4x5",alt="Shanghai skyline from the Huangpu river at night",row_k="River cruise",row_q="Which pier, which ticket, and is the night cruise worth it?",short="Huangpu River night cruise"),
- dict(slug="shanghai-circus-world-era-show",sec="place",img="circus-16x9",alt="Shanghai Circus World stage with aerial silks",row_k="ERA show",row_q="Where do I book ERA circus tickets and how do I get there?",short="Shanghai Circus World ERA show"),
+ dict(slug="first-time-in-china",sec="before",img="first-time-in-china-13-things-before-you-fly",alt="Cover of the 13 things before China guide, with the 200 yuan fee card",num="GUIDE 13",meta=("VIDEO + CHECKLIST","6 MIN"),t="First time in China: 13 things to set up before you fly",p="Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.",short="First time in China: 13 things"),
+ dict(slug="china-dos-and-donts",sec="before",img="china-will-take-your-drone-15-dos-and-donts",alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts",num="15 RULES",meta=("LIST","15 DO'S AND DON'TS"),t="China do's and don'ts: what not to bring, and what not to do",p="What customs and security take off you, the table manners that get stares, and what to pack or just buy there.",short="China do's and don'ts"),
+ dict(slug="china-travel-apps",sec="before",img="china-travel-apps-12-apps-to-set-up-before-china",alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag",num="APPS LIST",meta=("LIST + VIDEO","12 APPS"),t="Apps to download before you go to China: the full list",p="Paying, maps, taxis, trains, what to set up at home, the hidden gems inside Alipay, and what to skip.",short="China travel apps"),
+ dict(slug="china-arrival-card-pc",sec="before",img="china-arrival-card-on-a-pc-step-by-step",alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card online, step by step on a computer",p="Upload your passport, let it fill the form, save the QR. Every screen shown.",short="Arrival card on a PC"),
+ dict(slug="china-arrival-card-alipay",sec="before",img="china-arrival-card-in-alipay-step-by-step",alt="Cover of the China arrival card guide for Alipay on a phone",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card in Alipay on your phone",p="The same card through the Alipay mini program, for people who do it on the way.",short="Arrival card in Alipay"),
+ dict(slug="taobao-for-foreigners",sec="shop",img="how-to-order-on-taobao-step-by-step-guide-cover",alt="Cover of the how to order on Taobao guide, a phone showing the Taobao app",num="SHOPPING",meta=("STEP BY STEP","12 STEPS"),t="How to order on Taobao as a foreigner, step by step",p="Settings, euro prices, searching in English, sending a parcel to your hotel and paying with Alipay.",short="How to order on Taobao"),
+ dict(slug="the-bund-shanghai-at-night",sec="place",img="the-bund-shanghai-after-dark-cover-4x5",alt="The Bund in Shanghai at night",row_k="The Bund",row_q="How do I get to the Bund at night, and when do the lights go off?",short="The Bund at night"),
+ dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-road-shanghai-neon-shop-fronts-cover-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
+ dict(slug="huangpu-river-night-cruise",sec="place",img="huangpu-river-night-cruise-from-the-water-cover-4x5",alt="Shanghai skyline from the Huangpu river at night",row_k="River cruise",row_q="Which pier, which ticket, and is the night cruise worth it?",short="Huangpu River night cruise"),
+ dict(slug="shanghai-circus-world-era-show",sec="place",img="shanghai-circus-world-full-show-cover",alt="Shanghai Circus World stage with aerial silks",row_k="ERA show",row_q="Where do I book ERA circus tickets and how do I get there?",short="Shanghai Circus World ERA show"),
 ]
 CARD_SLUGS={c["slug"] for c in CARDS}
 QCARDS={
@@ -75,7 +75,7 @@ HOME = '''<main>
       <p class="lede">Step by step guides for the things nobody explains before you fly: the arrival card, Alipay, visa-free rules, trains and metros. Filmed on the trip, written down so you can follow along at the airport.</p>
       <div class="cta"><a class="btn pri" href="/china/">Start with the China guides</a><a class="btn light" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div>
     </div>
-    <a class="vid" href="/guides/first-time-in-china/"><img src="/img/first-time-16x9.jpg" alt="Cover of the First time in China video, 13 things to set up before you fly" fetchpriority="high"><span class="tag">Newest video</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="cap">First time in China: 13 things to set up before you fly<small>6 MIN · VIDEO + CHECKLIST</small></span></a>
+    <a class="vid" href="/guides/first-time-in-china/"><img src="/img/first-time-in-china-13-things-before-you-fly.jpg" alt="Cover of the First time in China video, 13 things to set up before you fly" fetchpriority="high"><span class="tag">Newest video</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="cap">First time in China: 13 things to set up before you fly<small>6 MIN · VIDEO + CHECKLIST</small></span></a>
   </div>
   <div class="pick">
     <p class="hand">Pick the thing you need to sort out:</p>
@@ -90,7 +90,7 @@ HOME = '''<main>
   <div class="cardwrap">
     <div class="scard">
       <div class="head"><span class="mk">Scratch <em>&amp;</em> Roam</span><span class="no">Card no. 001 · Shanghai</span></div>
-      <div class="win" id="cwin"><img src="/img/bund-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><canvas id="foil" aria-label="Scratch the silver foil to reveal Shanghai"></canvas><span class="done">Shanghai, scratched off</span></div>
+      <div class="win" id="cwin"><img src="/img/the-bund-shanghai-after-dark-cover-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><canvas id="foil" aria-label="Scratch the silver foil to reveal Shanghai"></canvas><span class="done">Shanghai, scratched off</span></div>
       <div class="foot"><span class="hand">Scratch to reveal. Roam to discover.</span><button class="reveal" id="reveal" type="button">Reveal it for me</button></div>
     </div>
     <p class="hint" id="chint">drag your finger across the silver bit</p>
@@ -119,13 +119,13 @@ HOME = '''<main>
   <div class="sechead"><div><p class="eyebrow">Shanghai, answered</p><h2>What we filmed, turned into the practical answers</h2></div><a class="btn" href="https://www.youtube.com/@scratchandroam" rel="noopener">All videos</a></div>
   <div class="rows">
 @@ROWS@@
-    <a class="row" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/film-4x5.jpg" alt="Shanghai at night as one roll of film" loading="lazy"><span><span class="k">Photo set</span><b>Shanghai at night as one roll of film</b><span class="go">Photos</span></span></a>
-    <a class="row" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/circus-photo-16x9.jpg" alt="Shanghai Circus photo dump cover" loading="lazy"><span><span class="k">Photo set</span><b>Circus photo dump</b><span class="go">Photos</span></span></a>
+    <a class="row" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/shanghai-at-night-film-strip-cover-4x5.jpg" alt="Shanghai at night as one roll of film" loading="lazy"><span><span class="k">Photo set</span><b>Shanghai at night as one roll of film</b><span class="go">Photos</span></span></a>
+    <a class="row" href="https://www.youtube.com/@scratchandroam" rel="noopener"><img src="/img/shanghai-circus-world-photo-dump-cover.jpg" alt="Shanghai Circus photo dump cover" loading="lazy"><span><span class="k">Photo set</span><b>Circus photo dump</b><span class="go">Photos</span></span></a>
   </div>
 </div></section>
 
 <section class="sec alt"><div class="wrap about">
-  <div class="polaroid"><div class="img"><img src="/img/natali.jpg" alt="Natali in her studio, smiling at the camera" loading="lazy"></div><div class="cap">Natali, somewhere with a camera</div></div>
+  <div class="polaroid"><div class="img"><img src="/img/natali-portrait-at-her-desk.jpg" alt="Natali in her studio, smiling at the camera" loading="lazy"></div><div class="cap">Natali, somewhere with a camera</div></div>
   <div><p class="eyebrow">About</p><h2>A maker from Ireland who travels with a camera and a lot of curiosity</h2><p>I make things for a living and film the trips in between. These pages are the parts I wish someone had written down for me.</p><p style="margin-top:16px"><a href="/about/">More about Scratch &amp; Roam</a></p></div>
 </div></section>
 </main>
@@ -137,7 +137,7 @@ page("/","Scratch & Roam with Natali: China first-timer guides and travel videos
      HOME,
      [{"@context":"https://schema.org","@type":"WebSite","name":"Scratch & Roam with Natali","url":SITE,"inLanguage":"en","publisher":{"@type":"Person","name":"Natali","url":SITE+"/about/","sameAs":json.loads(SAMEAS)}},
       {"@context":"https://schema.org","@type":"Person","name":"Natali","url":SITE+"/about/","jobTitle":"Travel creator and maker","homeLocation":{"@type":"Place","name":"Ireland"},"sameAs":json.loads(SAMEAS)}],
-     og_image=SITE+"/og/circus-photo.jpg", dark=True)
+     og_image=SITE+"/og/shanghai-circus-world-photo-dump.jpg", dark=True)
 
 # China index
 CHINA = '''<main>
@@ -189,7 +189,7 @@ CHINA=CHINA.replace('@@QS_CHINA@@',qs_html(QS_CHINA)).replace('@@TK_BEFORE@@',ti
 page("/china/","China guides for first-timers: entry, payments, trains",
      "Practical China guides from Scratch & Roam: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.",
      CHINA,[{"@context":"https://schema.org","@type":"CollectionPage","name":"China guides for first-timers","url":SITE+"/china/"}],
-     og_image=SITE+"/og/first-time.jpg", dark=True)
+     og_image=SITE+"/og/first-time-in-china-13-things.jpg", dark=True)
 
 # About. Photos: swap any /img/ file for a personal one later (same aspect ratio keeps the layout).
 ABOUT = '''<main>
@@ -201,9 +201,9 @@ ABOUT = '''<main>
     <div class="cta"><a class="btn pri" href="/china/">Read the China guides</a><a class="btn light" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div>
   </div>
   <div class="stack" aria-hidden="true">
-    <div class="ph p1"><img src="/img/bund-s3.jpg" alt=""><div class="cap">the Bund, late</div></div>
-    <div class="ph p2"><img src="/img/circus-b-4x5.jpg" alt=""><div class="cap">Shanghai Circus World</div></div>
-    <div class="ph p3"><img src="/img/natali.jpg" alt=""><div class="cap">me, in the studio</div></div>
+    <div class="ph p1"><img src="/img/the-bund-shanghai-mix-of-architecture-styles-slide.jpg" alt=""><div class="cap">the Bund, late</div></div>
+    <div class="ph p2"><img src="/img/shanghai-circus-world-act-2-hand-balance.jpg" alt=""><div class="cap">Shanghai Circus World</div></div>
+    <div class="ph p3"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><div class="cap">me, in the studio</div></div>
   </div>
 </div></section>
 
@@ -217,7 +217,7 @@ ABOUT = '''<main>
 </div></section>
 
 <section class="sec alt"><div class="wrap story">
-  <div class="pic"><img src="/img/nanjing-s2.jpg" alt="Nanjing Road in Shanghai at night" loading="lazy"><div class="sm"><img src="/img/river-s2.jpg" alt="Pudong towers from the Huangpu river" loading="lazy"><img src="/img/bund-s5.jpg" alt="Pudong skyline from the Bund" loading="lazy"></div></div>
+  <div class="pic"><img src="/img/nanjing-road-day-mood-night-mood-slide.jpg" alt="Nanjing Road in Shanghai at night" loading="lazy"><div class="sm"><img src="/img/huangpu-river-light-show-times-slide.jpg" alt="Pudong towers from the Huangpu river" loading="lazy"><img src="/img/the-bund-save-it-for-your-trip-slide.jpg" alt="Pudong skyline from the Bund" loading="lazy"></div></div>
   <div>
     <p class="eyebrow">The person</p>
     <h2>Making things by day, filming by night</h2>
@@ -227,7 +227,7 @@ ABOUT = '''<main>
 </div></section>
 
 <section class="sec"><div class="wrap story flip">
-  <div class="pic"><div class="scard" style="max-width:380px;margin:0 auto"><div class="head"><span class="mk">Scratch <em>&amp;</em> Roam</span><span class="no">Card no. 001 · Shanghai</span></div><div class="win open" style="background:#1F1C28"><img src="/img/bund-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span class="done" style="opacity:1">Shanghai, scratched off</span></div><div class="foot"><span class="hand">Scratch to reveal. Roam to discover.</span></div></div></div>
+  <div class="pic"><div class="scard" style="max-width:380px;margin:0 auto"><div class="head"><span class="mk">Scratch <em>&amp;</em> Roam</span><span class="no">Card no. 001 · Shanghai</span></div><div class="win open" style="background:#1F1C28"><img src="/img/the-bund-shanghai-after-dark-cover-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span class="done" style="opacity:1">Shanghai, scratched off</span></div><div class="foot"><span class="hand">Scratch to reveal. Roam to discover.</span></div></div></div>
   <div>
     <p class="eyebrow">The idea</p>
     <h2>Why a scratch card?</h2>
@@ -237,7 +237,7 @@ ABOUT = '''<main>
 </div></section>
 
 <section class="sec alt"><div class="wrap story">
-  <div class="pic wide"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide" loading="lazy"><div class="sm"><img src="/img/first-time-16x9.jpg" alt="Cover of the first time in China checklist" loading="lazy"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the Alipay arrival card guide" loading="lazy"></div></div>
+  <div class="pic wide"><img src="/img/china-arrival-card-on-a-pc-step-by-step.jpg" alt="Cover of the China arrival card guide" loading="lazy"><div class="sm"><img src="/img/first-time-in-china-13-things-before-you-fly.jpg" alt="Cover of the first time in China checklist" loading="lazy"><img src="/img/china-arrival-card-in-alipay-step-by-step.jpg" alt="Cover of the Alipay arrival card guide" loading="lazy"></div></div>
   <div>
     <p class="eyebrow">The method</p>
     <h2>How a guide gets made</h2>
@@ -267,7 +267,7 @@ ABOUT = '''<main>
 </main>'''
 page("/about/","About Scratch & Roam with Natali","Natali is a maker from Ireland who films her trips and writes first-timer travel guides. Scratch to reveal. Roam to discover.",ABOUT,
      [{"@context":"https://schema.org","@type":"AboutPage","name":"About Scratch & Roam with Natali","url":SITE+"/about/","mainEntity":{"@type":"Person","name":"Natali","sameAs":json.loads(SAMEAS)}}],
-     og_image=SITE+"/og/circus-photo.jpg", dark=True)
+     og_image=SITE+"/og/shanghai-circus-world-photo-dump.jpg", dark=True)
 
 NIA="https://s.nia.gov.cn/ArrivalCardFillingPC/"
 COMMON_FAQ=[
@@ -292,9 +292,9 @@ guide("china-arrival-card-pc","China arrival card on a PC: step by step guide","
       "<p>The arrival card is the one form every visitor fills in before landing in China. On a computer it takes a few minutes: the passport page does most of the typing, and at the end you save a QR code. This is the computer version; if you prefer your phone, use the <a href='/guides/china-arrival-card-alipay/'>Alipay guide</a>.</p>",
       PC_STEPS,COMMON_FAQ,
       [("National Immigration Administration: arrival card filling page",NIA,True)],
-      SITE+"/og/arrival-pc.jpg",
+      SITE+"/og/china-arrival-card-on-a-pc.jpg",
       chapters=[("0:00","Intro: the arrival card on a PC"),("0:15","What the arrival card is"),("0:44","Get ready"),("1:04","Open the website"),("1:20","Passport page: the form fills itself"),("1:43","Basic information"),("2:04","Personal information"),("2:28","Travel information"),("2:51","Sign and confirm"),("3:01","Save your QR code"),("3:29","Your move")],
-      related=[("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly")],
+      related=[("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")],
       minutes="PT3M41S",upload="2026-10-15")
 
 AP_STEPS=[
@@ -314,9 +314,9 @@ guide("china-arrival-card-alipay","China arrival card in Alipay: step by step gu
       "<p>If you already have Alipay set up for paying in China, the arrival card is inside it too. The passport page fills in most of the form, you check it, and you save the QR code at the end. Prefer a computer? Use the <a href='/guides/china-arrival-card-pc/'>PC guide</a>.</p>",
       AP_STEPS,COMMON_FAQ,
       [("National Immigration Administration: arrival card filling page",NIA,True)],
-      SITE+"/og/arrival-alipay.jpg",
+      SITE+"/og/china-arrival-card-in-alipay.jpg",
       chapters=[("0:00","Intro: the arrival card in Alipay"),("0:13","What the arrival card is"),("0:42","Get ready"),("1:03","Find the mini program in Alipay"),("1:21","Agree and passport page"),("1:42","Basic information"),("1:59","Personal information"),("2:15","Travel information"),("2:32","Sign and confirm"),("2:42","Save your QR code"),("3:10","Your move")],
-      related=[("/guides/china-arrival-card-pc/","arrival-pc-16x9","GUIDE 14","China arrival card online on a computer"),("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly")],
+      related=[("/guides/china-arrival-card-pc/","china-arrival-card-on-a-pc-step-by-step","GUIDE 14","China arrival card online on a computer"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")],
       minutes="PT3M23S",upload="2026-10-15")
 
 FT_STEPS=[
@@ -346,9 +346,9 @@ guide("first-time-in-china","First time in China: 13 things to set up before you
       [("Shanghai municipal government (English): visa-free entry policy","https://english.shanghai.gov.cn/en-Individuals-ImmigrationandVisas-Visa-freepolicies/20260709/469e8c5656534926a04b31a1084351f0.html",True),
        ("National Immigration Administration: arrival card filling page",NIA,True),
        ("China Railway 12306","https://www.12306.cn/en/",True)],
-      SITE+"/og/first-time.jpg",minutes="PT5M45S",upload="2026-10-16",
+      SITE+"/og/first-time-in-china-13-things.jpg",minutes="PT5M45S",upload="2026-10-16",
       chapters=[("1","Entry rules"),("2","Arrival card"),("3","Get the apps"),("4","Pay setup"),("5","Mini-programs"),("6","The ¥200 fee"),("7","Cash"),("8","Flights"),("9","Booking"),("10","Trains"),("11","Station day"),("12","Maps"),("13","Pack light")],
-      related=[("/guides/china-arrival-card-pc/","arrival-pc-16x9","GUIDE 14","China arrival card online on a computer"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone")])
+      related=[("/guides/china-arrival-card-pc/","china-arrival-card-on-a-pc-step-by-step","GUIDE 14","China arrival card online on a computer"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone")])
 
 # ---------- China travel apps (every fact checked 16 Oct 2026 against the sources on the page) ----------
 H='<span class="tag h">Set up at home</span>'
@@ -466,7 +466,7 @@ guide("china-travel-apps","China travel apps: 12 to set up before you go (2026)"
       video_note='<p class="vnote">The video starts at 1:30, where my first-timer guide gets to the apps: Alipay and WeChat set up at home on my own phone, linking a card, mini-programs, trains, taxis and Amap. <a href="/guides/first-time-in-china/">Full 13-step guide</a>.</p>',
       steps_title="The 12 apps, in the order to set them up",
       chapters=[("1:30","Download Alipay and WeChat"),("1:50","Link your card"),("2:10","Alipay Travel Wallet"),("2:32","WeChat Pay"),("2:45","Mini-programs"),("4:42","Trains, taxis and Trip.com in Alipay"),("5:09","Maps: Amap and offline notes")],
-      related=[("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/taobao-for-foreigners/","taobao-16x9","SHOPPING","How to order on Taobao as a foreigner, step by step")],
+      related=[("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/taobao-for-foreigners/","how-to-order-on-taobao-step-by-step-guide-cover","SHOPPING","How to order on Taobao as a foreigner, step by step")],
       extra=APP_EXTRA)
 
 # ---------- Shanghai place guides (facts from the sources listed on each page, checked 15 Oct 2026) ----------
@@ -488,9 +488,9 @@ guide("the-bund-shanghai-at-night","The Bund Shanghai at night: how to get there
        ("What time do the Bund lights turn off?","Usually 22:00 on both banks. They come on around 18:00 in winter and around 19:30 in summer."),
        ("Is the Bund better by day or by night?","Arrive about 45 to 60 minutes before sunset and you get both. Weekday mornings are the quiet option for photos.")],
       [("Wander in China: The Bund guide (updated 21 July 2026)","https://www.wanderinchina.com/destinations/shanghai/the-bund/",False)],
-      SITE+"/og/bund.jpg",
-      related=[("/guides/nanjing-road-shanghai/","nanjing-4x5","SHANGHAI","Nanjing Road: how to walk it and when the neon is on"),("/guides/huangpu-river-night-cruise/","river-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
-      gallery=[("bund-4x5","The Bund after dark, gold lit bank buildings"),("bund-s2","Bund buildings lit at night"),("bund-s3","The Bund promenade at night"),("bund-s4","Bund facade detail at night"),("bund-s5","Pudong skyline from the Bund")],
+      SITE+"/og/the-bund-shanghai-at-night.jpg",
+      related=[("/guides/nanjing-road-shanghai/","nanjing-road-shanghai-neon-shop-fronts-cover-4x5","SHANGHAI","Nanjing Road: how to walk it and when the neon is on"),("/guides/huangpu-river-night-cruise/","huangpu-river-night-cruise-from-the-water-cover-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
+      gallery=[("the-bund-shanghai-after-dark-cover-4x5","The Bund after dark, gold lit bank buildings"),("the-bund-shanghai-52-historic-buildings-slide","Bund buildings lit at night"),("the-bund-shanghai-mix-of-architecture-styles-slide","The Bund promenade at night"),("pudong-oriental-pearl-tower-468-metres-slide","Bund facade detail at night"),("the-bund-save-it-for-your-trip-slide","Pudong skyline from the Bund")],
       place={"name":"The Bund","city":"Shanghai","free":True},steps_title="How to do the Bund in one evening",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
@@ -509,9 +509,9 @@ guide("nanjing-road-shanghai","Nanjing Road Shanghai: how to get there, what to 
        ("When do the Nanjing Road lights come on?","18:00 from October to May, 19:00 from June to September, off at 22:00."),
        ("Does Nanjing Road connect to the Bund?","Yes. Walk east past Henan Road and the street ends at the Peace Hotel on the Bund, about 500 m further.")],
       [("Wander in China: Nanjing East Road guide (updated 8 June 2026)","https://wanderinchina.com/destinations/shanghai/nanjing-east-road/",False)],
-      SITE+"/og/nanjing.jpg",
-      related=[("/guides/the-bund-shanghai-at-night/","bund-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/huangpu-river-night-cruise/","river-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
-      gallery=[("nanjing-4x5","Nanjing Road neon shop fronts"),("nanjing-s2","Nanjing Road at night"),("nanjing-s3","Shops on Nanjing Road"),("nanjing-s4","Nanjing Road crowd and lights"),("nanjing-s5","Nanjing Road by day")],
+      SITE+"/og/nanjing-road-shanghai.jpg",
+      related=[("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/huangpu-river-night-cruise/","huangpu-river-night-cruise-from-the-water-cover-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
+      gallery=[("nanjing-road-shanghai-neon-shop-fronts-cover-4x5","Nanjing Road neon shop fronts"),("nanjing-road-day-mood-night-mood-slide","Nanjing Road at night"),("nanjing-road-1-2-km-pedestrian-street-slide","Shops on Nanjing Road"),("nanjing-road-cute-stop-shanghai-in-chocolate-slide","Nanjing Road crowd and lights"),("nanjing-road-come-roam-with-me-slide","Nanjing Road by day")],
       place={"name":"Nanjing Road Pedestrian Street","city":"Shanghai","free":True},steps_title="How to walk Nanjing Road",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
@@ -530,9 +530,9 @@ guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: which p
        ("Do I need my passport for the river cruise?","Yes, the original. Online bookings are exchanged for tickets at the pier window against your passport."),
        ("What time is best for the Huangpu night cruise?","Between 19:00 and 21:00, when both banks are fully lit. Some lights go off from 21:00 to 22:00.")],
       [("Trip.com: Huangpu River cruise guide (10 August 2026)","https://www.trip.com/guide/attraction/huangpu-river-cruise.html",False)],
-      SITE+"/og/river.jpg",
-      related=[("/guides/the-bund-shanghai-at-night/","bund-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/shanghai-circus-world-era-show/","circus-4x5","SHANGHAI","Shanghai Circus World ERA show: tickets and how to get there")],
-      gallery=[("river-4x5","Shanghai skyline from the Huangpu river at night"),("river-s2","Pudong towers from the water"),("river-s3","Bund buildings from the cruise"),("river-s4","Lujiazui lit up from the river"),("river-s5","The Oriental Pearl tower from the water")],
+      SITE+"/og/huangpu-river-night-cruise.jpg",
+      related=[("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/shanghai-circus-world-era-show/","shanghai-circus-world-act-1-aerial-silks","SHANGHAI","Shanghai Circus World ERA show: tickets and how to get there")],
+      gallery=[("huangpu-river-night-cruise-from-the-water-cover-4x5","Shanghai skyline from the Huangpu river at night"),("huangpu-river-light-show-times-slide","Pudong towers from the water"),("huangpu-river-same-river-new-angle-slide","Bund buildings from the cruise"),("huangpu-river-bund-side-and-pudong-side-slide","Lujiazui lit up from the river"),("huangpu-river-take-the-cruise-slide","The Oriental Pearl tower from the water")],
       place={"name":"Huangpu River Cruise","city":"Shanghai","free":False},steps_title="How to book and board",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
@@ -551,9 +551,9 @@ guide("shanghai-circus-world-era-show","Shanghai Circus World ERA show: tickets,
        ("Where can foreigners book ERA tickets?","The official site shcircusworld.com, Trip.com (QR code entry), or the venue box office from about 09:30."),
        ("What time is the ERA show?","19:30 Tuesday to Sunday, plus 14:00 on Saturday and Sunday. Monday is usually a rest day.")],
       [("Nomado: ERA acrobatics show guide (2026)","https://www.nomadotravel.app/en/attractions/era-acrobatics-show",False),("Shanghai Circus World official site","https://www.shcircusworld.com/",True)],
-      SITE+"/og/circus.jpg",
-      related=[("/guides/huangpu-river-night-cruise/","river-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket"),("/guides/the-bund-shanghai-at-night/","bund-4x5","SHANGHAI","The Bund at night: how to get there and when to go")],
-      gallery=[("circus-4x5","Aerial silks act at Shanghai Circus World"),("circus-b-4x5","Hand balance act"),("circus-c-4x5","Laser light act"),("circus-d-4x5","Act four at Shanghai Circus World"),("circus-e-4x5","Act five at Shanghai Circus World")],
+      SITE+"/og/shanghai-circus-world-era-show.jpg",
+      related=[("/guides/huangpu-river-night-cruise/","huangpu-river-night-cruise-from-the-water-cover-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket"),("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go")],
+      gallery=[("shanghai-circus-world-act-1-aerial-silks","Aerial silks act at Shanghai Circus World"),("shanghai-circus-world-act-2-hand-balance","Hand balance act"),("shanghai-circus-world-act-3-laser-lights","Laser light act"),("shanghai-circus-world-act-4-aerial-hoop","Act four at Shanghai Circus World"),("shanghai-circus-world-act-5-the-sphere","Act five at Shanghai Circus World")],
       place={"name":"Shanghai Circus World","city":"Shanghai","free":False},steps_title="How to book and get there",
       shorts={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam"})
 
@@ -613,6 +613,9 @@ DD_ROUNDS=[
    "Natali; SAMR 2024 via CIRS; GB 7718-2025 via REACH24H",True,"X-ray of a tin can"),
  ]),
 ]
+import json as _json
+DD_ICON=_json.load(open("src/dd_icons.json"))
+DD_SLIDES=["china-dos-and-donts-carousel-1-china-will-take-your-drone","china-dos-and-donts-carousel-2-customs-will-take-it","china-dos-and-donts-carousel-3-security-will-take-it","china-dos-and-donts-carousel-4-dont-do-this","china-dos-and-donts-carousel-5-do-this-instead"]
 def _dd_board():
     jump="".join(f'<a href="#{rid}" style="--c:{c}">{html.escape(t.replace("<em>","").replace("</em>",""))}</a>' for rid,c,ink,k,t,sub,items in DD_ROUNDS)
     out=f'<section class="dd" aria-label="China do\'s and don\'ts"><div class="dd-top"><span>SCAN / ARRIVALS</span><span class="rec">● 15 ITEMS FLAGGED</span></div><div class="dd-jump">{jump}</div>'
@@ -620,9 +623,9 @@ def _dd_board():
         out+=f'<div class="dd-round" id="{rid}" style="--c:{c};--ink:{ink}"><p class="dd-k">{k}</p><h2>{t}</h2><p class="dd-sub">{sub}</p>'
         for n,name,v,sar,body,src,tip,alt in items:
             t_=' <span class="dd-tip">NATALI\'S TIP</span>' if tip else ''
-            out+=f'<div class="dd-item" id="dd-{n}"><img src="/img/dd/dd-{n}.png" alt="{html.escape(alt)}" width="96" height="96" loading="lazy"><div><span class="dd-v">{v}</span>{t_}<h3><i>#{n}</i>{html.escape(name)}</h3><p class="dd-s">{html.escape(sar)}</p><p>{body}</p><p class="dd-src">SRC: {html.escape(src)}</p></div></div>'
+            out+=f'<div class="dd-item" id="dd-{n}"><img src="/img/dd/china-customs-xray-icon-{DD_ICON[n]}.png" alt="{html.escape(alt)}" width="96" height="96" loading="lazy"><div><span class="dd-v">{v}</span>{t_}<h3><i>#{n}</i>{html.escape(name)}</h3><p class="dd-s">{html.escape(sar)}</p><p>{body}</p><p class="dd-src">SRC: {html.escape(src)}</p></div></div>'
         out+='</div>'
-    slides="".join(f'<img src="/img/dd-slide-{i}.jpg" alt="China do\'s and don\'ts carousel, slide {i} of 5" loading="lazy">' for i in range(1,6))
+    slides="".join(f'<img src="/img/{DD_SLIDES[i-1]}.jpg" alt="China do\'s and don\'ts carousel, slide {i} of 5" loading="lazy">' for i in range(1,6))
     out+=f'<div class="dd-end"><b>Save this. <em>Or learn it the hard way.</em></b><p>Send it to the friend who packs a drone. The same list as a carousel, to screenshot or save:</p><div class="dd-slides">{slides}</div></div></section>'
     return out
 
@@ -662,11 +665,11 @@ guide("china-dos-and-donts","China do's and don'ts: 15 rules before you fly (202
        ("CIRS: SAMR on production date and shelf life labelling, March 2024","https://www.cirs-group.com/en/food/china-samr-issues-announcement-on-encouraging-food-enterprises-to-improve-the-labeling-of-production-dates-and-shelf-lives-of-pre-packaged-foods",False),
        ("REACH24H: China 2025 food labelling regulation (GB 7718-2025)","https://en.reach24h.com/news/insights/food/china-2025-food-labeling-regulations-key-changes",False)],
       SITE+"/og/china-dos-and-donts.jpg",
-      related=[("/guides/first-time-in-china/","first-time-16x9","13-point checklist","First time in China: 13 things to set up before you fly"),
-               ("/guides/china-travel-apps/","apps-16x9","12 apps","Apps to download before you go to China"),
-               ("/guides/china-arrival-card-pc/","arrival-pc-16x9","Arrival card","China arrival card online, step by step")],
+      related=[("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","13-point checklist","First time in China: 13 things to set up before you fly"),
+               ("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","12 apps","Apps to download before you go to China"),
+               ("/guides/china-arrival-card-pc/","china-arrival-card-on-a-pc-step-by-step","Arrival card","China arrival card online, step by step")],
       checked="2026-10-16",
-      lift='<div class="dd-hero"><img src="/img/dos-donts-16x9.jpg" alt="China will take your drone: 15 do\'s and don\'ts, an airport X-ray monitor with a confiscated drone" width="1280" height="720"></div>',
+      lift='<div class="dd-hero"><img data-hero src="/img/china-will-take-your-drone-15-dos-and-donts.jpg" alt="China will take your drone: 15 do\'s and don\'ts, an airport X-ray monitor with a confiscated drone" width="1280" height="720"></div>',
       extra=_dd_board())
 
 # ---------- Taobao ordering guide (SR-0023) ----------
@@ -696,6 +699,16 @@ TB_STEPS=[
  ("Find the order under My orders",
   "Once paid, everything lives under <b>My orders</b> in the My Taobao tab: to pay, to ship, to receive, and refunds. This is where you follow delivery and where you tap to confirm receipt when the parcel arrives."),
 ]
+TB_FIGS={0:["taobao-app-my-taobao-tab-and-settings-gear-english-labels","taobao-settings-country-language-currency-english-label","taobao-language-country-currency-page-english-labels"],
+ 1:["taobao-currency-list-pick-euro-english-label","taobao-euro-estimate-under-every-price-english-label"],
+ 2:["taobao-search-bar-english-label","taobao-search-type-in-english-labels"],
+ 3:["taobao-settings-delivery-address-english-label","taobao-add-new-address-button-english-label"],
+ 5:["taobao-address-form-full-address-and-door-number-english-label"],
+ 6:["taobao-address-form-recipient-name-and-phone-english-labels"],
+ 8:["taobao-product-options-phone-model-colour-add-to-cart-english-labels","taobao-product-page-favourite-star-english-label"],
+ 9:["taobao-cart-tick-items-and-checkout-english-labels","taobao-checkout-popup-set-delivery-address-first-english-label"],
+ 11:["taobao-my-orders-to-pay-to-ship-to-receive-refunds-english-labels"]}
+TB_STEPS=[(a,b,TB_FIGS.get(i,[])) for i,(a,b) in enumerate(TB_STEPS)]
 guide("taobao-for-foreigners","How to order on Taobao as a foreigner: step by step guide","How to order on Taobao as a foreigner, step by step",
       "How to order on Taobao without speaking Chinese: language and currency settings, searching in English, hotel delivery, the Chinese note, and paying with Alipay.",
       "how to order on taobao","",
@@ -713,7 +726,7 @@ guide("taobao-for-foreigners","How to order on Taobao as a foreigner: step by st
        ("Tianwen: Taobao in English","https://tianwenwangluo.com/en/taobao-in-english/",False),
        ("Trip.com: how to add a card to Alipay","https://www.trip.com/guide/payments/how-to-add-card-to-alipay.html",False),
        ("China for Travelers: Alipay for foreigners","https://chinafortravelers.com/guides/alipay-for-foreigners/",False)],
-      SITE+"/og/taobao-for-foreigners.jpg",checked="2026-10-17",vschema=False,
-      lift='<div class="dd-hero"><img src="/img/taobao-16x9.jpg" alt="How to order on Taobao: step by step guide, a phone showing the Taobao app" width="1280" height="720"></div>',
+      SITE+"/og/taobao-for-foreigners.jpg",checked="2026-10-17",published="2026-10-17",vschema=False,
+      lift='<div class="dd-hero"><img data-hero src="/img/how-to-order-on-taobao-step-by-step-guide-cover.jpg" alt=""></div>',
       steps_title="The 12 steps, in order",
-      related=[("/guides/china-travel-apps/","apps-16x9","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-16x9","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","arrival-alipay-16x9","GUIDE 14","China arrival card in Alipay on your phone")])
+      related=[("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone")])

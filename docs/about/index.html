@@ -11,12 +11,18 @@
 <meta property="og:title" content="About Scratch &amp; Roam with Natali">
 <meta property="og:description" content="Natali is a maker from Ireland who films her trips and writes first-timer travel guides. Scratch to reveal. Roam to discover.">
 <meta property="og:url" content="https://scratchandroam.com/about/">
-<meta property="og:image" content="https://scratchandroam.com/og/circus-photo.jpg">
+<meta property="og:image" content="https://scratchandroam.com/og/shanghai-circus-world-photo-dump.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cover: a performer on a glowing round platform, with the title Photo dump Shanghai Circus">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://scratchandroam.com/og/shanghai-circus-world-photo-dump.jpg">
+<meta name="twitter:image:alt" content="Cover: a performer on a glowing round platform, with the title Photo dump Shanghai Circus">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Caveat:wght@700&family=Archivo+Black&family=Special+Elite&family=Libre+Franklin:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 
-<style>/* Scratch & Roam: night city meets paper travel desk. Sticky header, full-bleed hero, mixed photo wall. */
+<style>img{height:auto}
+/* Scratch & Roam: night city meets paper travel desk. Sticky header, full-bleed hero, mixed photo wall. */
 :root{--paper:#FBF7F0;--paper2:#F3EADB;--ink:#1E1B1F;--ink2:#5B5560;--teal:#2F6F73;--pink:#E05A7A;--gold:#E3A42B;--line:#E3D9C8;--card:#FFFFFF;--night:#14121A;--night2:#1F1C28;
 --display:'Archivo Black','Arial Black',sans-serif;--hand:'Caveat',cursive;--script:'Mr Dafoe',cursive;--typed:'Special Elite','Courier New',monospace;--body:'Libre Franklin','Helvetica Neue',Arial,sans-serif}
 @media (prefers-color-scheme:dark){:root{--paper:#17161A;--paper2:#201E24;--ink:#F3EEE6;--ink2:#B8B0BE;--teal:#4FA3A8;--pink:#F07A96;--gold:#E9B65A;--line:#34313A;--card:#221F26;color-scheme:dark}}
@@ -180,7 +186,7 @@ footer a{color:#fff}
 /* photo strip for place pages */
 .gal{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:26px}
 .gal img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:var(--night2)}
-@media (max-width:860px){.gal{grid-template-columns:repeat(3,minmax(0,1fr))}.gal img:nth-child(n+4){display:none}}
+@media (max-width:860px){.gal{grid-template-columns:repeat(3,minmax(0,1fr))}.gal figure:nth-child(n+4){display:none}}
 
 /* home v2 (16 Oct 2026): video hero, question cards, scratch card object, answer rows */
 .hero2{background:var(--night);color:#fff;padding-block:40px 56px}
@@ -372,6 +378,15 @@ footer a{color:#fff}
 @media (max-width:560px){.dd{padding:22px 16px 26px;border-radius:16px}.dd-item{grid-template-columns:64px 1fr;gap:14px}.dd-item img{width:64px;height:64px;border-radius:9px}.dd-slides img{width:140px}}
 .guide2 .gridg>article{min-width:0}
 .dd-k{text-transform:uppercase}
+
+.gal figure{margin:0}
+.gal figcaption{font-size:12px;line-height:1.3;margin-top:6px;color:var(--ink2)}
+.shots{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}
+.shots figure{margin:0;flex:0 0 calc(50% - 7px);max-width:280px}
+.shots img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);background:#fff}
+.shots figcaption{font-size:13px;line-height:1.35;color:var(--ink2);margin-top:6px}
+.shotnote{font-size:13px;color:var(--ink2);margin-top:10px;font-style:italic}
+@media (max-width:560px){.shots{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}.shots figure{flex:0 0 72%;scroll-snap-align:start}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "AboutPage", "name": "About Scratch & Roam with Natali", "url": "https://scratchandroam.com/about/", "mainEntity": {"@type": "Person", "name": "Natali", "sameAs": ["https://www.youtube.com/@scratchandroam", "https://www.instagram.com/scratchandroam/", "https://www.tiktok.com/@scratchandroam", "https://www.facebook.com/scratchandroam", "https://www.pinterest.com/scratchandroam/"]}}</script>
 </head>
@@ -388,9 +403,9 @@ footer a{color:#fff}
     <div class="cta"><a class="btn pri" href="/china/">Read the China guides</a><a class="btn light" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div>
   </div>
   <div class="stack" aria-hidden="true">
-    <div class="ph p1"><img src="/img/bund-s3.jpg" alt=""><div class="cap">the Bund, late</div></div>
-    <div class="ph p2"><img src="/img/circus-b-4x5.jpg" alt=""><div class="cap">Shanghai Circus World</div></div>
-    <div class="ph p3"><img src="/img/natali.jpg" alt=""><div class="cap">me, in the studio</div></div>
+    <div class="ph p1"><img src="/img/the-bund-shanghai-mix-of-architecture-styles-slide.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"><div class="cap">the Bund, late</div></div>
+    <div class="ph p2"><img src="/img/shanghai-circus-world-act-2-hand-balance.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"><div class="cap">Shanghai Circus World</div></div>
+    <div class="ph p3"><img src="/img/natali-portrait-at-her-desk.jpg" alt="" width="900" height="900" loading="lazy" decoding="async"><div class="cap">me, in the studio</div></div>
   </div>
 </div></section>
 
@@ -404,7 +419,7 @@ footer a{color:#fff}
 </div></section>
 
 <section class="sec alt"><div class="wrap story">
-  <div class="pic"><img src="/img/nanjing-s2.jpg" alt="Nanjing Road in Shanghai at night" loading="lazy"><div class="sm"><img src="/img/river-s2.jpg" alt="Pudong towers from the Huangpu river" loading="lazy"><img src="/img/bund-s5.jpg" alt="Pudong skyline from the Bund" loading="lazy"></div></div>
+  <div class="pic"><img src="/img/nanjing-road-day-mood-night-mood-slide.jpg" alt="Nanjing Road carousel slide 2: two photos of the street, one by day and one by night, under the words Day mood. Night mood." width="800" height="1000" loading="lazy" decoding="async"><div class="sm"><img src="/img/huangpu-river-light-show-times-slide.jpg" alt="Huangpu river carousel slide 2: the lit skyline over the water, with light show times of about 6 pm in winter and 7 pm in summer, lasting 15 to 20 minutes" width="800" height="1000" loading="lazy" decoding="async"><img src="/img/the-bund-save-it-for-your-trip-slide.jpg" alt="Bund carousel slide 5: the Oriental Pearl Tower lit red and blue, with the text Save it for your trip and @scratchandroam" width="800" height="1000" loading="lazy" decoding="async"></div></div>
   <div>
     <p class="eyebrow">The person</p>
     <h2>Making things by day, filming by night</h2>
@@ -414,7 +429,7 @@ footer a{color:#fff}
 </div></section>
 
 <section class="sec"><div class="wrap story flip">
-  <div class="pic"><div class="scard" style="max-width:380px;margin:0 auto"><div class="head"><span class="mk">Scratch <em>&amp;</em> Roam</span><span class="no">Card no. 001 · Shanghai</span></div><div class="win open" style="background:#1F1C28"><img src="/img/bund-3x4.jpg" alt="The Bund in Shanghai at night" loading="lazy"><span class="done" style="opacity:1">Shanghai, scratched off</span></div><div class="foot"><span class="hand">Scratch to reveal. Roam to discover.</span></div></div></div>
+  <div class="pic"><div class="scard" style="max-width:380px;margin:0 auto"><div class="head"><span class="mk">Scratch <em>&amp;</em> Roam</span><span class="no">Card no. 001 · Shanghai</span></div><div class="win open" style="background:#1F1C28"><img src="/img/the-bund-shanghai-after-dark-cover-3x4.jpg" alt="Two gold-lit historic buildings on the Bund in Shanghai at night, one with a green pointed roof, under the title The Bund after dark" width="1080" height="1440" loading="lazy" decoding="async"><span class="done" style="opacity:1">Shanghai, scratched off</span></div><div class="foot"><span class="hand">Scratch to reveal. Roam to discover.</span></div></div></div>
   <div>
     <p class="eyebrow">The idea</p>
     <h2>Why a scratch card?</h2>
@@ -424,7 +439,7 @@ footer a{color:#fff}
 </div></section>
 
 <section class="sec alt"><div class="wrap story">
-  <div class="pic wide"><img src="/img/arrival-pc-16x9.jpg" alt="Cover of the China arrival card guide" loading="lazy"><div class="sm"><img src="/img/first-time-16x9.jpg" alt="Cover of the first time in China checklist" loading="lazy"><img src="/img/arrival-alipay-16x9.jpg" alt="Cover of the Alipay arrival card guide" loading="lazy"></div></div>
+  <div class="pic wide"><img src="/img/china-arrival-card-on-a-pc-step-by-step.jpg" alt="Cover: the number 14, the China arrival card on a PC step by step, with a passport, a plane and a red arrival card stamp" width="1280" height="720" loading="lazy" decoding="async"><div class="sm"><img src="/img/first-time-in-china-13-things-before-you-fly.jpg" alt="Cover: 13 things before China, with a card saying 200 yuan is the number that matters" width="1280" height="720" loading="lazy" decoding="async"><img src="/img/china-arrival-card-in-alipay-step-by-step.jpg" alt="Cover: the number 14, the China arrival card in Alipay step by step, with a passport, a plane and a red arrival card stamp" width="1280" height="720" loading="lazy" decoding="async"></div></div>
   <div>
     <p class="eyebrow">The method</p>
     <h2>How a guide gets made</h2>
