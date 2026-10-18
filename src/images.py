@@ -77,6 +77,11 @@ a("china-visa-free-30-days-changes-slide.jpg","Carousel slide 5: a departure boa
 a("china-visa-free-30-days-last-call-slide.jpg","Carousel slide 6: a departure board reading save this, before 31 Dec, send to a friend, follow for updates, over a tower photo","Last call: save this before 31 December")
 
 # Alt text for the social share images in docs/og/ (1200x630, one per guide)
+a("top-25-china-apps-boarding-pass-cover.jpg","Cover: Top 25 China apps on a dark teal background, with an Access Denied stamp and three boarding passes for Alipay, Amap and Hellobike")
+a("top-25-china-apps-short-frame-alipay-pass-critical-gate-01.jpg","Frame from the Short: the Alipay boarding pass, gate 01, class critical, 5 of 5, with the red stamp You struggle to pay for almost anything")
+a("top-25-china-apps-short-frame-amap-pass-critical-gate-05.jpg","Frame from the Short: the Amap boarding pass, gate 05, class critical, with the red stamp Wrong pins and the wrong metro exit")
+a("top-25-china-apps-short-frame-taobao-pass-handy-gate-16.jpg","Frame from the Short: the Taobao boarding pass, gate 16, class handy, 2 of 5, with the red stamp Missing the tiny prices")
+a("top-25-china-apps-short-frame-boarding-complete-checklist-of-25-apps.jpg","Frame from the Short: Boarding complete, a checklist of all 25 apps ticked, and a button reading send it to your travel buddy")
 OGALT={
 "china-visa-free-30-days.jpg":R["china-visa-free-30-days-departure-board-cover-16x9.jpg"]["alt"],
 "china-arrival-card-in-alipay.jpg":R["china-arrival-card-in-alipay-step-by-step.jpg"]["alt"],
@@ -89,5 +94,6 @@ OGALT={
 "first-time-in-china-13-things.jpg":R["first-time-in-china-13-things-before-you-fly.jpg"]["alt"],
 "nanjing-road-shanghai.jpg":"Two close photos of lit shop fronts on Nanjing Road in Shanghai on a pink background",
 "huangpu-river-night-cruise.jpg":"Pudong towers lit at night seen from the Huangpu river, with the words Huangpu River night cruise",
+"top-25-china-apps.jpg":R["top-25-china-apps-boarding-pass-cover.jpg"]["alt"],
 "taobao-for-foreigners.jpg":R["how-to-order-on-taobao-step-by-step-guide-cover.jpg"]["alt"],
 }
