@@ -134,7 +134,7 @@ HOME = '''<main>
 ''' + SCRATCH_JS
 
 HOME=HOME.replace('@@QS_HOME@@',qs_html(QS_HOME)).replace('@@TK_HOME@@',tickets_html(home_tickets())).replace('@@ROWS@@',rows_html())
-page("/","Scratch & Roam with Natali: China first-timer guides and travel videos",
+page("/","Scratch & Roam: China first-timer guides and travel videos",
      "Travel guides and videos from Natali, a maker from Ireland. First-timer China guides: arrival card, Alipay, visa-free rules. Scratch to reveal. Roam to discover.",
      HOME,
      [{"@context":"https://schema.org","@type":"WebSite","name":"Scratch & Roam with Natali","url":SITE,"inLanguage":"en","publisher":{"@type":"Person","name":"Natali","url":SITE+"/about/","sameAs":json.loads(SAMEAS)}},
@@ -190,7 +190,7 @@ CHINA = '''<main>
 CHINA=CHINA.replace('@@QS_CHINA@@',qs_html(QS_CHINA)).replace('@@TK_BEFORE@@',tickets_html(cards_in('before'))).replace('@@TK_SHOP@@',tickets_html(cards_in('shop'))).replace('@@ROWS@@',rows_html())
 page("/china/","China guides for first-timers: entry, payments, trains",
      "Practical China guides from Scratch & Roam: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.",
-     CHINA,[{"@context":"https://schema.org","@type":"CollectionPage","name":"China guides for first-timers","url":SITE+"/china/"}],
+     CHINA,[{"@context":"https://schema.org","@type":"CollectionPage","name":"China guides for first-timers","url":SITE+"/china/","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":SITE+"/guides/"+c["slug"]+"/","name":c["short"]} for i,c in enumerate(CARDS)]}}],
      og_image=SITE+"/og/first-time-in-china-13-things.jpg", dark=True)
 
 # About. Photos: swap any /img/ file for a personal one later (same aspect ratio keeps the layout).
@@ -496,7 +496,7 @@ guide("the-bund-shanghai-at-night","The Bund Shanghai at night: how to get there
       place={"name":"The Bund","city":"Shanghai","free":True},steps_title="How to do the Bund in one evening",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
-guide("nanjing-road-shanghai","Nanjing Road Shanghai: how to get there, what to see, when the neon is on","Nanjing Road in Shanghai: how to walk it, which metro exit, when the neon comes on",
+guide("nanjing-road-shanghai","Nanjing Road Shanghai: metro exit, neon times and the walk","Nanjing Road in Shanghai: how to walk it, which metro exit, when the neon comes on",
       "Nanjing Road pedestrian street: 1.6 km from People's Square to the Bund, metro exits at each end, neon on from 18:00 or 19:00 until 22:00, and the walk that ends at the river.",
       "Nanjing Road Shanghai",None,
       "<p>Nanjing Road is the long pedestrian shopping street that runs from People's Square to the Bund. It is loud, bright and busy, and the trick is to walk it in one direction at the right hour so it ends at the river with the lights on.</p>"+CHECK,
@@ -517,7 +517,7 @@ guide("nanjing-road-shanghai","Nanjing Road Shanghai: how to get there, what to 
       place={"name":"Nanjing Road Pedestrian Street","city":"Shanghai","free":True},steps_title="How to walk Nanjing Road",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
-guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: which pier, ticket and time","Huangpu River night cruise in Shanghai: which pier, which ticket, and which side to stand on",
+guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: pier, ticket, time","Huangpu River night cruise in Shanghai: which pier, which ticket, and which side to stand on",
       "Three piers, three cruise lengths, about 120 to 150 RMB for the standard night cruise. How to book as a foreigner, why your passport matters, and which side of the boat to stand on.",
       "Huangpu River night cruise",None,
       "<p>The night cruise is the one Shanghai thing that looks exactly like the photos. Both banks are lit, the boat is slow, and you are in the middle. The confusing part is the booking: three piers, tickets tied to one of them, and a voucher that is not a boarding pass. Here is the version that worked for us.</p>"+CHECK,
@@ -538,7 +538,7 @@ guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: which p
       place={"name":"Huangpu River Cruise","city":"Shanghai","free":False},steps_title="How to book and board",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
-guide("shanghai-circus-world-era-show","Shanghai Circus World ERA show: tickets, seats and how to get there","Shanghai Circus World ERA show: how to book tickets, where to sit, how to get there",
+guide("shanghai-circus-world-era-show","Shanghai Circus World ERA show: tickets and how to get there","Shanghai Circus World ERA show: how to book tickets, where to sit, how to get there",
       "ERA at Shanghai Circus World: metro Line 1 to Shanghai Circus World station exit 3, shows at 19:30 Tuesday to Sunday, ticket zones from about 280 to 880 RMB, and where foreigners can book.",
       "Shanghai Circus World ERA tickets",None,
       "<p>We saw the acrobatics show at Shanghai Circus World on a weeknight and filmed five of the acts (the long video is on YouTube). The show is excellent. The part people search for is the boring part: where to buy the ticket, which zone, and how to get to a venue that is not in the centre. So that is this page.</p>"+CHECK,
@@ -787,5 +787,6 @@ guide("top-25-china-apps","Top 25 China apps for tourists, ranked (2026)","Top 2
                ("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),
                ("/guides/taobao-for-foreigners/","how-to-order-on-taobao-step-by-step-guide-cover","SHOPPING","How to order on Taobao as a foreigner, step by step")],
       checked="2026-10-18",published="2026-10-18",
+      jsonld=[{"@context":"https://schema.org","@type":"ItemList","name":"Top 25 China apps, ranked","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":25,"itemListElement":[{"@type":"ListItem","position":a[0],"name":a[1],"url":SITE+"/guides/top-25-china-apps/#app-"+str(a[0])} for a in BP]}],
       lift='<div class="bp-hero"><img data-hero src="/img/top-25-china-apps-boarding-pass-cover.jpg" alt="" width="1280" height="720"></div>',
       extra=_bp_extra())

@@ -91,6 +91,8 @@ BP=[
   "Kuli Kuli on the App Store"),
 ]
 
+BP_SUB=['Pay in China with a foreign card', 'Chat, pay and mini-programs in China', 'Use Google and WhatsApp in China', 'Get mobile data in China from landing', 'Maps in English for China', 'Taxis in China with the price upfront', 'Book trains, flights and hotels in English', 'Official China train tickets', 'Translate menus and signs in China', 'Chinese dictionary for travellers', 'Food delivery in China', 'Restaurant reviews and queue numbers', 'Offline metro maps in English', 'Offline translation for China', 'Backup translator for China', 'Shop online in China', 'Find places and food like a local', 'Scout places and queues in short videos', 'Compare trip prices in China', 'Photo translation for signs', 'Translate long messages', 'Offline menu translator, skip it', 'Food delivery backup, now Taobao Flash Sale', 'Shared bikes and scooters in China', 'Travel translator with a paywall']
+
 BP_SOURCES=[
  ("WeChat Help Center: international cards on Weixin Pay","https://cs.help.wechat.com/hc/en-us/articles/11975770896271-How-to-Set-Up-International-Cards-for-Weixin-Pay",True),
  ("Tencent: Weixin Pay 90-day fee waiver, 27 May 2026","https://www.tencent.com/en-us/articles/2202338.html",True),
@@ -137,7 +139,7 @@ def bp_board():
             c=BP_COL[BP_CATI[cat]%6]
             pips="".join(f'<i{" class=on" if k<imp else ""}></i>' for k in range(5))
             bars="".join(f'<i style="width:{1+((n*7+k*13)%4)}px"></i>' for k in range(46))
-            out+=f'''<article class="bp-pass" id="app-{n}" style="--c:{c}"><div class="bp-h"><span class="bp-g" aria-hidden="true">{esc(g)}</span><div class="bp-tx"><span class="bp-air">HOME → CHINA · BOARDING PASS</span><h3>{esc(name)}<small>{esc(cn) if cn!=name else ""}</small></h3></div><span class="bp-rk">#{n:02d}</span></div>
+            out+=f'''<article class="bp-pass" id="app-{n}" style="--c:{c}"><div class="bp-h"><span class="bp-g" aria-hidden="true">{esc(g)}</span><div class="bp-tx"><span class="bp-air">HOME → CHINA · BOARDING PASS</span><h3>{esc(name)}<small>{esc(cn) if cn!=name else ""}</small><span class="bp-d">{esc(BP_SUB[n-1])}</span></h3></div><span class="bp-rk">#{n:02d}</span></div>
 <div class="bp-b"><div class="bp-fg"><div><b>GATE</b>#{n:02d}</div><div><b>CLASS</b>{BP_IMPW[imp]}</div><div><b>BOARDING</b>{esc(when)}</div><div><b>IMPORTANCE</b>{imp}/5 <span class="bp-pips" aria-hidden="true">{pips}</span></div></div>
 <div class="bp-perf"></div>
 <div class="bp-rows"><div class="bp-r"><b>PURPOSE · USE IT TO</b>{esc(job)}</div><div class="bp-r"><b>WHAT IT IS</b>{esc(what)}</div><div class="bp-r"><b>HOW</b>{esc(how)}</div><div class="bp-r"><b>WHY IT RANKS</b>{esc(why)}</div></div>

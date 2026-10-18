@@ -60,6 +60,8 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 {ART_META}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{img}">
 <meta name="twitter:image:alt" content="{html.escape(OGALT.get(img.rsplit('/',1)[-1],title))}">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="alternate" type="application/rss+xml" title="Scratch &amp; Roam guides" href="/feed.xml">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 {FONTS}
 {extra_head}
@@ -121,10 +123,14 @@ def yt(vid,title,start=None):
         return f'<div class="video soon" style="background-image:url(/img/first-time-in-china-13-things-before-you-fly.jpg)"><div><b>Video goes live on YouTube on Friday 16 October</b><br><small>This page will embed it as soon as it is up.</small></div></div>'
     return f'''<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}{"?start="+str(start) if start else ""}" title="{html.escape(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'''
 
-def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None,lift=None,head="",published=None,og_alt=None):
+PUBDATES={'china-arrival-card-alipay':'2026-10-15','china-arrival-card-pc':'2026-10-15','first-time-in-china':'2026-10-15','huangpu-river-night-cruise':'2026-10-15','nanjing-road-shanghai':'2026-10-15','shanghai-circus-world-era-show':'2026-10-15','the-bund-shanghai-at-night':'2026-10-15','china-dos-and-donts':'2026-10-16','china-travel-apps':'2026-10-16','china-visa-free-30-days':'2026-10-17'}  # first commit date of each page in git = go-live date
+GUIDELIST=[]
+def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None,lift=None,head="",published=None,og_alt=None):
     assert slug in globals().get("CARD_SLUGS",set()), f"guide {slug!r} is not in CARDS (src/content.py): add it so it shows on the home page, /china/, the menu and the footer"
+    published=published or PUBDATES.get(slug)
     path=f"/guides/{slug}/"
     url=SITE+path
+    GUIDELIST.append((slug,title,desc,published,checked))
     def _figs(keys):
         if not keys: return ""
         return '<div class="shots">'+"".join(f'<figure><a href="/img/{k}.jpg"><img src="/img/{k}.jpg" alt=""></a><figcaption>{html.escape(IMGREG[k+".jpg"]["cap"])}</figcaption></figure>' for k in keys)+'</div><p class="shotnote">Screenshots from my own phone. The app is in Chinese, the English labels are mine. Tap a picture to open it larger.</p>'
@@ -193,6 +199,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,chapters=Non
         schema.append(vo)
     if place:
         schema.append({"@context":"https://schema.org","@type":"TouristAttraction","name":place["name"],"address":{"@type":"PostalAddress","addressLocality":place.get("city","Shanghai"),"addressCountry":"CN"},"url":url,"isAccessibleForFree":place.get("free",False)})
+    for j in (jsonld or []): schema.append(j)
     schema.append({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"China guides","item":SITE+"/china/"},{"@type":"ListItem","position":3,"name":h1,"item":url}]})
     page(path,title,desc,body,schema,og,extra_head=head,dark=True,published=published,modified=checked)
 
@@ -201,6 +208,9 @@ exec(open('src/content.py').read())
 # sitemap + robots
 sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+"".join(f'<url><loc>{SITE}{p}</loc><lastmod>{d}</lastmod>'+"".join(f'<image:image><image:loc>{u}</image:loc></image:image>' for u in PAGEIMGS.get(p,[]))+'</url>' for p,d in PAGES)+'</urlset>'
 open('docs/sitemap.xml','w').write(sm)
+import email.utils as _eu,datetime as _dt
+_it=''.join(f'<item><title>{html.escape(t)}</title><link>{SITE}/guides/{sl}/</link><guid isPermaLink="true">{SITE}/guides/{sl}/</guid><pubDate>{_eu.format_datetime(_dt.datetime.fromisoformat((pu or ck)+"T09:00:00+00:00"))}</pubDate><description>{html.escape(d)}</description></item>' for sl,t,d,pu,ck in sorted(GUIDELIST,key=lambda x:(x[3] or x[4]),reverse=True))
+open('docs/feed.xml','w').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Scratch &amp; Roam with Natali: China guides</title><link>{SITE}/</link><description>China first-timer guides and travel answers from Natali.</description><language>en</language>{_it}</channel></rss>')
 open('docs/robots.txt','w').write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
 open('docs/favicon.svg','w').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#2F6F73"/><path d="M14 40c8-10 14-8 20-16 4-5 9-6 16-4" fill="none" stroke="#FBF7F0" stroke-width="6" stroke-linecap="round"/><circle cx="46" cy="22" r="6" fill="#E05A7A"/></svg>')
 open('docs/.nojekyll','w').write('')
