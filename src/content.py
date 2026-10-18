@@ -20,6 +20,7 @@ CARDS=[
  dict(slug="china-arrival-card-pc",sec="before",img="china-arrival-card-on-a-pc-step-by-step",alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card online, step by step on a computer",p="Upload your passport, let it fill the form, save the QR. Every screen shown.",short="Arrival card on a PC"),
  dict(slug="china-arrival-card-alipay",sec="before",img="china-arrival-card-in-alipay-step-by-step",alt="Cover of the China arrival card guide for Alipay on a phone",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card in Alipay on your phone",p="The same card through the Alipay mini program, for people who do it on the way.",short="Arrival card in Alipay"),
  dict(slug="taobao-for-foreigners",sec="shop",img="how-to-order-on-taobao-step-by-step-guide-cover",alt="Cover of the how to order on Taobao guide, a phone showing the Taobao app",num="SHOPPING",meta=("STEP BY STEP","12 STEPS"),t="How to order on Taobao as a foreigner, step by step",p="Settings, euro prices, searching in English, sending a parcel to your hotel and paying with Alipay.",short="How to order on Taobao"),
+ dict(slug="alipay-metro-qr-code-china",sec="before",img="alipay-metro-qr-code-china-cover-16x9",alt="Cover of the Alipay metro QR code guide: Metro QR in China with the chips Alipay, Metro and Bus and a China flag sticker",num="METRO QR",meta=("STEP BY STEP","8 STEPS"),t="Alipay metro QR code in China: how to add it, step by step",p="Pick the city, claim the free card, enter your payment password, and switch city when the code is wrong.",short="Alipay metro QR code"),
  dict(slug="the-bund-shanghai-at-night",sec="place",img="the-bund-shanghai-after-dark-cover-4x5",alt="The Bund in Shanghai at night",row_k="The Bund",row_q="How do I get to the Bund at night, and when do the lights go off?",short="The Bund at night"),
  dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-road-shanghai-neon-shop-fronts-cover-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
  dict(slug="huangpu-river-night-cruise",sec="place",img="huangpu-river-night-cruise-from-the-water-cover-4x5",alt="Shanghai skyline from the Huangpu river at night",row_k="River cruise",row_q="Which pier, which ticket, and is the night cruise worth it?",short="Huangpu River night cruise"),
@@ -32,10 +33,11 @@ QCARDS={
  "visa":("Visa-free","Do I need a visa, and for how many days?","Answers by passport, dated","china-visa-free-30-days"),
  "apps":("Paying · Maps · Trains","Which apps do I need, and which can I skip?","12 apps + hidden gems","china-travel-apps"),
  "taobao":("Shopping · Taobao","How do I order on Taobao when it is all in Chinese?","12 steps, hotel delivery","taobao-for-foreigners"),
+ "metro":("Metro · Bus · Alipay","How do I get the metro QR code in Alipay?","8 steps, any city","alipay-metro-qr-code-china"),
  "before":("Before you fly","What do I need to set up before I land?","13-point checklist, 6 min","first-time-in-china"),
 }
-QS_HOME=["pc","alipay","visa","apps","taobao"]
-QS_CHINA=["visa","pc","alipay","apps","taobao"]
+QS_HOME=["pc","alipay","visa","apps","metro"]
+QS_CHINA=["visa","pc","alipay","apps","metro"]
 QS_NEXT='<a class="q next" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener"><span class="k">Coming next</span><b>Trains, metro cards and the Chengdu to Xi\'an route</b><span class="go">Subscribe to catch the December guides</span></a>'
 def qs_html(keys):
     return "\n".join(f'      <a class="q" href="/guides/{QCARDS[k][3]}/"><span class="k">{QCARDS[k][0]}</span><b>{QCARDS[k][1]}</b><span class="go">{QCARDS[k][2]}</span></a>' for k in keys)+"\n      "+QS_NEXT
@@ -468,7 +470,7 @@ guide("china-travel-apps","China travel apps: 12 to set up before you go (2026)"
       video_note='<p class="vnote">The video starts at 1:30, where my first-timer guide gets to the apps: Alipay and WeChat set up at home on my own phone, linking a card, mini-programs, trains, taxis and Amap. <a href="/guides/first-time-in-china/">Full 13-step guide</a>.</p>',
       steps_title="The 12 apps, in the order to set them up",
       chapters=[("1:30","Download Alipay and WeChat"),("1:50","Link your card"),("2:10","Alipay Travel Wallet"),("2:32","WeChat Pay"),("2:45","Mini-programs"),("4:42","Trains, taxis and Trip.com in Alipay"),("5:09","Maps: Amap and offline notes")],
-      related=[("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/taobao-for-foreigners/","how-to-order-on-taobao-step-by-step-guide-cover","SHOPPING","How to order on Taobao as a foreigner, step by step"),("/guides/top-25-china-apps/","top-25-china-apps-boarding-pass-cover","TOP 25","Top 25 China apps for tourists, ranked like a boarding pass")],
+      related=[("/guides/alipay-metro-qr-code-china/","alipay-metro-qr-code-china-cover-16x9","METRO QR","Alipay metro QR code in China: how to add it"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/taobao-for-foreigners/","how-to-order-on-taobao-step-by-step-guide-cover","SHOPPING","How to order on Taobao as a foreigner, step by step"),("/guides/top-25-china-apps/","top-25-china-apps-boarding-pass-cover","TOP 25","Top 25 China apps for tourists, ranked like a boarding pass")],
       extra=APP_EXTRA)
 
 # ---------- Shanghai place guides (facts from the sources listed on each page, checked 15 Oct 2026) ----------
@@ -790,3 +792,52 @@ guide("top-25-china-apps","Top 25 China apps for tourists, ranked (2026)","Top 2
       jsonld=[{"@context":"https://schema.org","@type":"ItemList","name":"Top 25 China apps, ranked","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":25,"itemListElement":[{"@type":"ListItem","position":a[0],"name":a[1],"url":SITE+"/guides/top-25-china-apps/#app-"+str(a[0])} for a in BP]}],
       lift='<div class="bp-hero"><img data-hero src="/img/top-25-china-apps-boarding-pass-cover.jpg" alt="" width="1280" height="720"></div>',
       extra=_bp_extra())
+
+
+# ---------- Alipay metro QR code (SR-0026) ----------
+AM_FIGS={0:["alipay-home-screen-with-transport-icon-and-quick-tutorial-caption"],
+ 1:["alipay-select-city-list-with-chengdu-highlighted-for-metro-qr"],
+ 2:["alipay-transport-tab-tap-bus-and-metro-icon-for-xian"],
+ 3:["alipay-obtain-metro-card-agree-and-obtain-card-button-xian"],
+ 4:["alipay-payment-password-notice-for-claiming-metro-qr-card"],
+ 5:["alipay-metro-card-collected-successfully-use-now-button"],
+ 7:["alipay-wrong-qr-code-switch-city-top-left-notice"]}
+AM_STEPS=[
+ ("Set up Alipay at home first",
+  "The metro QR code lives inside your Alipay account, so the account has to work first: identity check, a linked bank card and your payment password. The steps are in my <a href=\"/guides/china-travel-apps/\">China travel apps guide</a>. One third-party guide says the account needs a linked foreign card and identity verification before the transit feature works. I did not find an official Alipay page that lists the requirements for visitors, so follow what your own app asks for."),
+ ("Open Alipay and tap Transport",
+  "On the Alipay home screen, <b>Transport</b> is in the top row, next to Scan, Pay/Receive and Pocket. This is not the same thing as the payment code you show in a shop. A third-party guide warns that the shop payment QR does not open a metro gate, so it has to be the Transport code."),
+ ("Pick the city you are going to",
+  "My Alipay was set to Cork. I am going to Chengdu in a month and a half, so I opened the city list and tapped <b>Chengdu</b>. Each city has its own code: another guide says activating Beijing's does not cover Shanghai. Pick the city you are about to ride in, and repeat for each city you visit."),
+ ("Tap Bus & Metro",
+  "Back on the Transport tab, the Metro card was not showing yet, only Taxi and a map. After the city was set, the <b>BusMetro</b> icon appeared in the top row. Tap it. Parts of the page are in Chinese, so the floating <b>Translate</b> button is useful. If the translation seems stuck, be patient, it can take a moment."),
+ ("Tap Agree and obtain card",
+  "The next screen is called Obtain card to take Metro, and it names the metro provider for that city. The screen says <b>Free card</b>. The agreement is in Chinese. Read it with Translate before you tap the blue <b>Agree and obtain card</b> button. The official Alipay+ documentation says the fare is taken after your ride, from the payment method you have linked, on a ride first, pay later basis."),
+ ("Enter your Alipay payment password",
+  "Alipay asks for the payment password you set up for paying. This is the password screen that goes black when you record the screen, which is why my video shows a notice instead. Type it on your own phone, in private."),
+ ("Card collected: tap Use now to open the QR code",
+  "When it works you get <b>Card collected successfully</b> and a <b>Use now</b> button, and Use now takes you to your QR code. The same Bus & Metro card idea applies to buses and to any city you add; I also added another city the same way, and there is an option on the screen to activate all available transports. At the gate, hold the code over the reader. Two third-party guides say to turn the screen brightness up and hold it steady for a second or two. At a bus reader, scan before you go in."),
+ ("If the QR code is for the wrong city, switch the city",
+  "If the code does not match the city you are standing in, the gate will not open. Tap the <b>city name at the top left</b> of the Alipay home screen and choose the right one. A guide updated on 14 October 2026 calls a wrong city selection a common reason codes fail. If a gate still refuses you, step aside and buy a single-journey ticket at the machine, and keep a little cash for buses."),
+]
+AM_STEPS=[(a,b,AM_FIGS.get(i,[])) for i,(a,b) in enumerate(AM_STEPS)]
+guide("alipay-metro-qr-code-china","Alipay metro QR code in China: how to add it","Alipay metro QR code in China: how to add it, step by step",
+      "How to add the Alipay metro and bus QR code for China: pick the city, claim the free card, enter your payment password, and fix the wrong-city code.",
+      "alipay metro qr code china",None,
+      "<p>The Alipay metro QR code is the code you hold over the gate to ride the metro or bus in a Chinese city. This guide shows how I added it on my own phone, from Ireland: where Transport is, how to pick the city, how to claim the free card, and what to do when the QR code is for the wrong city.</p><p>The screenshots are frames from my own screen recording. The facts about how it is charged come from the official Alipay+ documentation and are marked official. Things I could not confirm are marked as such. Checked on 18 October 2026.</p>",
+      AM_STEPS,
+      [("How do I add the metro QR code in Alipay?","Open Alipay, tap Transport, pick your city, tap Bus & Metro, tap Agree and obtain card, then enter your Alipay payment password. When you see Card collected successfully, tap Use now to open the QR code."),
+       ("Do I need a different QR code for each city?","Yes. One third-party guide says each city needs its own ride code and that activating Beijing's does not cover Shanghai. Pick the city, claim its card, and repeat when you move on."),
+       ("Is the Alipay metro card free, and how do I pay?","The card screen I used said Free card. The official Alipay+ documentation describes a ride first, pay later model: the fare is deducted after you exit a station or leave a vehicle, from the payment method linked to your wallet. Fares themselves differ by city, so I give no price."),
+       ("Why does the gate not open with my QR code?","The usual causes are the wrong city selected, or using the shop payment code instead of the Transport code. Switch the city at the top left of the Alipay home screen. If it still fails, buy a single-journey ticket at the machine. The Alipay+ documentation says the ticket machines in every mainland metro station accept Alipay."),
+       ("Can I set it up before I fly?","It worked on my phone in Ireland for a city I have not reached yet. One third-party guide says some users abroad see an empty Transport tab and may need to activate on arrival, so test it at home and have a plan for when you land.")],
+      [("Alipay+ Docs: Cross-border public transport, product introduction","https://docs.alipayplus.com/alipayplus/alipayplus/public_transport/product_introduction",True),
+       ("Alipay+ Docs: Transport Code FAQs","https://docs.alipayplus.com/alipayplus/alipayplus/public_transport/transport_code_faqs",True),
+       ("Chinavigators: How to use Alipay transit codes for China metros (updated 18 March 2026)","https://www.chinavigators.com/alipay-transit-code/",False),
+       ("UnlockChina: How to pay for the metro in China as a foreigner (19 July 2026)","https://www.unlockchina.co/china-metro-payment/",False),
+       ("LocalKey Travel: China metro for foreigners (updated 14 October 2026)","https://www.localkeytravel.com/china-guide/china-metro-for-foreigners",False)],
+      SITE+"/og/alipay-metro-qr-code-china.jpg",checked="2026-10-18",published="2026-10-18",vschema=False,
+      lift='<div class="dd-hero"><img data-hero src="/img/alipay-metro-qr-code-china-cover-16x9.jpg" alt="" width="1280" height="720"></div>',
+      steps_title="The 8 steps, in order",
+      shotnote="Frames from my own screen recording of Alipay. Tap a picture to open it larger.",
+      related=[("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/top-25-china-apps/","top-25-china-apps-boarding-pass-cover","TOP 25","Top 25 China apps for tourists, ranked like a boarding pass")])

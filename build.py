@@ -125,7 +125,7 @@ def yt(vid,title,start=None):
 
 PUBDATES={'china-arrival-card-alipay':'2026-10-15','china-arrival-card-pc':'2026-10-15','first-time-in-china':'2026-10-15','huangpu-river-night-cruise':'2026-10-15','nanjing-road-shanghai':'2026-10-15','shanghai-circus-world-era-show':'2026-10-15','the-bund-shanghai-at-night':'2026-10-15','china-dos-and-donts':'2026-10-16','china-travel-apps':'2026-10-16','china-visa-free-30-days':'2026-10-17'}  # first commit date of each page in git = go-live date
 GUIDELIST=[]
-def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None,lift=None,head="",published=None,og_alt=None):
+def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None,lift=None,head="",published=None,og_alt=None,shotnote=None):
     assert slug in globals().get("CARD_SLUGS",set()), f"guide {slug!r} is not in CARDS (src/content.py): add it so it shows on the home page, /china/, the menu and the footer"
     published=published or PUBDATES.get(slug)
     path=f"/guides/{slug}/"
@@ -133,7 +133,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,
     GUIDELIST.append((slug,title,desc,published,checked))
     def _figs(keys):
         if not keys: return ""
-        return '<div class="shots">'+"".join(f'<figure><a href="/img/{k}.jpg"><img src="/img/{k}.jpg" alt=""></a><figcaption>{html.escape(IMGREG[k+".jpg"]["cap"])}</figcaption></figure>' for k in keys)+'</div><p class="shotnote">Screenshots from my own phone. The app is in Chinese, the English labels are mine. Tap a picture to open it larger.</p>'
+        return '<div class="shots">'+"".join(f'<figure><a href="/img/{k}.jpg"><img src="/img/{k}.jpg" alt=""></a><figcaption>{html.escape(IMGREG[k+".jpg"]["cap"])}</figcaption></figure>' for k in keys)+'</div><p class="shotnote">'+(shotnote or 'Screenshots from my own phone. The app is in Chinese, the English labels are mine. Tap a picture to open it larger.')+'</p>'
     steps_html="".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p>{_figs(s[2] if len(s)>2 else None)}</div></li>' for i,s in enumerate(steps))
     faq_html="".join(f'<details{" open" if i==0 else ""}><summary>{html.escape(q)}</summary><p>{a}</p></details>' for i,(q,a) in enumerate(faq))
     src_html="".join(f'<li><a href="{u}" rel="noopener">{html.escape(n)}</a>{" (official)" if off else ""}</li>' for n,u,off in sources)

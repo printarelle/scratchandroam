@@ -82,6 +82,15 @@ a("top-25-china-apps-short-frame-alipay-pass-critical-gate-01.jpg","Frame from t
 a("top-25-china-apps-short-frame-amap-pass-critical-gate-05.jpg","Frame from the Short: the Amap boarding pass, gate 05, class critical, with the red stamp Wrong pins and the wrong metro exit")
 a("top-25-china-apps-short-frame-taobao-pass-handy-gate-16.jpg","Frame from the Short: the Taobao boarding pass, gate 16, class handy, 2 of 5, with the red stamp Missing the tiny prices")
 a("top-25-china-apps-short-frame-boarding-complete-checklist-of-25-apps.jpg","Frame from the Short: Boarding complete, a checklist of all 25 apps ticked, and a button reading send it to your travel buddy")
+a("alipay-metro-qr-code-china-cover-16x9.jpg","Cover: Metro QR in China with the chips Alipay, Metro and Bus, the line set it up before you travel, a phone showing the Alipay Transport screen and a China flag sticker")
+a("alipay-home-screen-with-transport-icon-and-quick-tutorial-caption.jpg","Alipay home screen on a phone with the Transport icon in the top row next to Scan, Pay/Receive and Pocket","Transport is in the top row of the Alipay home screen.")
+a("alipay-select-city-list-with-chengdu-highlighted-for-metro-qr.jpg","Alipay Select city list with the recent cities and the popular cities, including Chengdu, Xi'an and Shanghai","Pick the city you are going to.")
+a("alipay-transport-tab-tap-bus-and-metro-icon-for-xian.jpg","Alipay Transport tab for Xi'an with the BusMetro icon first in the row, next to Taxi, Fuel, 12306 and Flight","After picking the city, the BusMetro icon shows up.")
+a("alipay-obtain-metro-card-agree-and-obtain-card-button-xian.jpg","Alipay Obtain card to take Metro screen for Xi'an with the blue Agree and obtain card button and the options Swipe to ride, Free card and Travel assistant","Agree and obtain card. The card is free.")
+a("alipay-payment-password-notice-for-claiming-metro-qr-card.jpg","Black screen with a paper notice reading Enter your Alipay payment password, the one you set up for payments, above six dots","The password screen goes black on a recording, so this notice stands in for it.")
+a("alipay-metro-card-collected-successfully-use-now-button.jpg","Alipay screen reading Card collected successfully with a blue Use now button and the line Take Metro and get green energy","Card collected. Tap Use now to open your QR code.")
+a("alipay-wrong-qr-code-switch-city-top-left-notice.jpg","Alipay home screen for Xi'an with a notice reading Wrong QR code? Switch the city top left to switch your QR code","Wrong QR code? Switch the city at the top left.")
+
 OGALT={
 "china-visa-free-30-days.jpg":R["china-visa-free-30-days-departure-board-cover-16x9.jpg"]["alt"],
 "china-arrival-card-in-alipay.jpg":R["china-arrival-card-in-alipay-step-by-step.jpg"]["alt"],
@@ -96,4 +105,5 @@ OGALT={
 "huangpu-river-night-cruise.jpg":"Pudong towers lit at night seen from the Huangpu river, with the words Huangpu River night cruise",
 "top-25-china-apps.jpg":R["top-25-china-apps-boarding-pass-cover.jpg"]["alt"],
 "taobao-for-foreigners.jpg":R["how-to-order-on-taobao-step-by-step-guide-cover.jpg"]["alt"],
+"alipay-metro-qr-code-china.jpg":R["alipay-metro-qr-code-china-cover-16x9.jpg"]["alt"],
 }
