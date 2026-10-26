@@ -118,3 +118,11 @@ a("spice-tolerance-china-six-week-plan-ladder-slide.jpg","Slide 3: a six step la
 a("spice-tolerance-china-cool-it-down-foods-slide.jpg","Slide 4: six foods that cool the burn, milk, rice, lemon or lime, vinegar or pickles, honey and coconut milk, and a red box saying not water","Slide 4: cool it down, and not with water")
 a("spice-tolerance-china-order-like-a-pro-slide.jpg","Slide 5: four ways to order spice in Chinese, 不辣, 微辣, 中辣 and 鸳鸯锅, with a START MILD stamp","Slide 5: order like a pro")
 OGALT["build-spice-tolerance-before-china.jpg"]=R["build-spice-tolerance-before-china-cover-16x9.jpg"]["alt"]
+# ---- How to order food in China without speaking Chinese (SR-0046) ----
+a("order-food-in-china-without-speaking-chinese-cover-16x9.jpg","Cover: the title Order food in China, no Chinese needed, over a steamed bun stall, with the phrase 我要这个 and a China flag sticker")
+a("order-food-china-ordering-without-chinese-hook-slide.jpg","Slide 1: Order food, no Chinese needed, under the glowing neon sign of Sijing Night Market in Shanghai","Slide 1: order food, no Chinese needed")
+a("order-food-china-point-and-ask-the-price-slide.jpg","Slide 2: a steamed bun stall worker, with the phrases 我要这个 I want this one and 多少钱 how much","Slide 2: point, then ask the price")
+a("order-food-china-take-it-away-dabao-slide.jpg","Slide 3: the rainbow-lit arch at Sijing Night Market in Shanghai with the word 打包 dǎbāo, to go","Slide 3: 打包, to go")
+a("order-food-china-pay-with-qr-or-cash-slide.jpg","Slide 4: a crowded food street at night with two ways to pay, scan the stall QR code or small cash notes","Slide 4: scan or pay cash")
+a("order-food-china-scan-to-order-menus-slide.jpg","Slide 5: pan-fried buns with the phrase 扫码点餐 sǎomǎ diǎncān, scan to order, and four phrases to save","Slide 5: scan-to-order menus")
+OGALT["order-food-in-china-without-speaking-chinese.jpg"]=R["order-food-in-china-without-speaking-chinese-cover-16x9.jpg"]["alt"]
