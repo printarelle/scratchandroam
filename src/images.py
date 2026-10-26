@@ -109,3 +109,12 @@ OGALT={
 "alipay-metro-qr-code-china.jpg":R["alipay-metro-qr-code-china-cover-16x9.jpg"]["alt"],
 "china-before-you-fly-checklist.jpg":R["china-before-you-fly-10-things-cover-16x9.jpg"]["alt"],
 }
+
+# ---- Build spice tolerance before China (SR-0045) ----
+a("build-spice-tolerance-before-china-cover-16x9.jpg","Cover: the title Spice tolerance before China in white and orange on a dark ember background, a heat bar, a hot-faced emoji, a chilli, a glass of milk and a China flag sticker")
+a("spice-tolerance-china-can-you-handle-chongqing-hotpot-slide.jpg","Slide 1: Can you handle Chongqing hotpot, with a heat bar filling from mild to Chongqing and a hot-faced emoji at the end","Slide 1: can you handle Chongqing hotpot?")
+a("spice-tolerance-china-mala-two-sensations-and-three-rules-slide.jpg","Slide 2: the characters 麻 má numbing and 辣 là burning joined into 麻辣 málà, with three rules: start small, repeat often, step up slowly","Slide 2: two sensations, three rules")
+a("spice-tolerance-china-six-week-plan-ladder-slide.jpg","Slide 3: a six step ladder from W1 chilli flakes to W6 a mild mala dish, in bars that change from yellow to red","Slide 3: the six week ladder")
+a("spice-tolerance-china-cool-it-down-foods-slide.jpg","Slide 4: six foods that cool the burn, milk, rice, lemon or lime, vinegar or pickles, honey and coconut milk, and a red box saying not water","Slide 4: cool it down, and not with water")
+a("spice-tolerance-china-order-like-a-pro-slide.jpg","Slide 5: four ways to order spice in Chinese, 不辣, 微辣, 中辣 and 鸳鸯锅, with a START MILD stamp","Slide 5: order like a pro")
+OGALT["build-spice-tolerance-before-china.jpg"]=R["build-spice-tolerance-before-china-cover-16x9.jpg"]["alt"]
