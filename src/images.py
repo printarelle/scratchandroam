@@ -121,8 +121,12 @@ OGALT["build-spice-tolerance-before-china.jpg"]=R["build-spice-tolerance-before-
 # ---- How to order food in China without speaking Chinese (SR-0046) ----
 a("order-food-in-china-without-speaking-chinese-cover-16x9.jpg","Cover: the title Order food in China, no Chinese needed, over a steamed bun stall, with the phrase 我要这个 and a China flag sticker")
 a("order-food-china-ordering-without-chinese-hook-slide.jpg","Slide 1: Order food, no Chinese needed, under the glowing neon sign of Sijing Night Market in Shanghai","Slide 1: order food, no Chinese needed")
-a("order-food-china-point-and-ask-the-price-slide.jpg","Slide 2: a steamed bun stall worker, with the phrases 我要这个 I want this one and 多少钱 how much","Slide 2: point, then ask the price")
-a("order-food-china-take-it-away-dabao-slide.jpg","Slide 3: the rainbow-lit arch at Sijing Night Market in Shanghai with the word 打包 dǎbāo, to go","Slide 3: 打包, to go")
-a("order-food-china-pay-with-qr-or-cash-slide.jpg","Slide 4: a crowded food street at night with two ways to pay, scan the stall QR code or small cash notes","Slide 4: scan or pay cash")
-a("order-food-china-scan-to-order-menus-slide.jpg","Slide 5: pan-fried buns with the phrase 扫码点餐 sǎomǎ diǎncān, scan to order, and four phrases to save","Slide 5: scan-to-order menus")
+a("order-food-china-say-i-want-we-want-can-we-have-slide.jpg","Slide 2: a steamed bun stall worker, with the phrases 我要这个 I want, 我们要这个 we want and 可以给我们这个吗 can we have","Slide 2: I want, we want, can we have")
+a("order-food-china-count-one-to-five-slide.jpg","Slide 3: the neon welcome sign of Sijing Night Market above the numbers 一 二 三 四 五 and the counting phrases one of this, two of that","Slide 3: numbers one to five")
+a("order-food-china-ask-the-price-and-take-away-slide.jpg","Slide 4: the rainbow-lit arch at Sijing Night Market in Shanghai with the phrases 多少钱 how much and 打包 dǎbāo, to go","Slide 4: how much, and to go")
+a("order-food-china-say-please-and-thank-you-slide.jpg","Slide 5: neon signs at Sijing Night Market with the phrases 请 please, 谢谢 thank you and 麻烦你 a softer please","Slide 5: please and thank you")
+a("order-food-china-pay-with-qr-or-cash-slide.jpg","Slide 6: a lit shopping street at night with two ways to pay, scan the stall QR code or small cash notes","Slide 6: scan or pay cash")
+a("order-food-china-scan-to-order-menus-slide.jpg","Slide 7: pan-fried buns with the phrase 扫码点餐 sǎomǎ diǎncān, scan to order, and a note about WeChat and Alipay","Slide 7: scan-to-order menus")
+a("order-food-china-how-to-read-pinyin-and-tones-slide.jpg","Slide 8: how to read pinyin, with the letters q x zh c and the four tone marks and what they sound like","Slide 8: how to read pinyin")
+a("order-food-china-save-this-phrase-list-slide.jpg","Slide 9: Save this, a list of the Chinese phrases from the guide, from 我要这个 to 扫码点餐","Slide 9: save this phrase list")
 OGALT["order-food-in-china-without-speaking-chinese.jpg"]=R["order-food-in-china-without-speaking-chinese-cover-16x9.jpg"]["alt"]
