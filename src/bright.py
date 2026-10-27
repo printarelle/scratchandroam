@@ -185,7 +185,8 @@ def home_b(*, CARDS, SOC, n_guides):
 </main>'''
 
 # ===== affiliate / partner components =====
-AFFILIATES_LIVE=False  # flip to True once the real partner links and codes are in PARTNERS / OFFERS
+AFFILIATES_LIVE=True   # per guide: only guides listed in OFFERS show booking cards and the disclosure
+PARTNER_PAGES=False    # /klook/ etc. stay off until Natali sends codes for them
 AFF_NOTE='This page has affiliate links. If you book through one I earn a small commission at no extra cost to you. I only link what I actually used. <a href="/about/#affiliates">How this works</a>.'
 # Placeholder partner links. Replace "#TODO" with the real affiliate URLs / codes.
 PARTNERS={
@@ -194,20 +195,27 @@ PARTNERS={
  "trip":dict(name="Trip.com",code=None,url="#TODO-trip-affiliate-link",what="The easiest way to book China high-speed trains and hotels from outside China."),
 }
 OFFERS={
+ # Only things Natali actually booked. Prices only if she gives them or they are dated in the guide's sources.
  "shanghai-circus-world-era-show":[
-  dict(k="Klook",price="from €35",title="ERA: Intersection of Time, Shanghai Circus World",text="E-ticket, pick your seat zone, show the QR at the door.",url=PARTNERS["klook"]["url"],pick=True,via="Booked through Klook"),
-  dict(k="Trip.com",price="from €38",title="ERA show ticket with hotel pickup",text="Handy if your hotel is far from the metro.",url=PARTNERS["trip"]["url"],via="Booked through Trip.com"),
- ],
- "huangpu-river-night-cruise":[
-  dict(k="Klook",price="from €15",title="Huangpu River night cruise, 45 min",text="Pick the 19:00 or 20:00 sailing to catch the lights on.",url=PARTNERS["klook"]["url"],pick=True,via="Booked through Klook"),
-  dict(k="GetYourGuide",price="from €18",title="Night cruise with Bund walking tour",text="Two hours with a guide, ends at the pier.",url=PARTNERS["getyourguide"]["url"],via="Booked through GetYourGuide"),
+  dict(k="Klook",price=None,title="ERA: Intersection of Time, Shanghai Circus World",
+       text="This is where we booked our ERA tickets. You choose a zone and the date, and the ticket comes through Klook. The zones and how to pick one are explained in the steps below.",
+       url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="See ERA tickets on Klook",
+       qr="klook-era-shanghai-circus-world-tickets-qr-code"),
  ],
 }
 def offers_b(items):
     cards=""
     for o in items:
-        cards+=f'<div class="offer{" pick" if o.get("pick") else ""}">{"<span class=\"badge\">What I booked</span>" if o.get("pick") else ""}<span class="k">{html.escape(o["k"])}</span><div class="price">{html.escape(o["price"])}</div><b>{html.escape(o["title"])}</b><p>{html.escape(o["text"])}</p><a class="btn" href="{o["url"]}" rel="sponsored noopener" target="_blank">Check price on {html.escape(o["k"])}</a><span class="via">{html.escape(o.get("via",""))}</span></div>'
-    return f'<h2 id="book">Where to book</h2><p>Prices are what I saw on the day I checked. Tap through for today\'s price.</p><div class="offers">{cards}</div>'
+        price=f'<div class="price">{html.escape(o["price"])}</div>' if o.get("price") else ''
+        qr=(f'<figure class="qr"><img src="/img/{o["qr"]}.jpg" alt="QR code for the Klook ERA ticket page" width="180" height="180" loading="lazy"><figcaption>On a computer? Scan this with your phone camera to open the same page.</figcaption></figure>') if o.get("qr") else ''
+        cards+=(f'<div class="offer{" pick" if o.get("pick") else ""}{" withqr" if qr else ""}">'
+                f'{"<span class=\"badge\">"+html.escape(o.get("badge","What I booked"))+"</span>" if o.get("pick") else ""}'
+                f'<div class="otext"><span class="k">{html.escape(o["k"])}</span>{price}<b>{html.escape(o["title"])}</b><p>{html.escape(o["text"])}</p>'
+                f'<a class="btn" href="{o["url"]}" rel="sponsored noopener" target="_blank">{html.escape(o.get("cta","Check price on "+o["k"]))}</a>'
+                f'<span class="via">Affiliate link: I earn a small commission if you book, at no extra cost to you.</span></div>{qr}</div>')
+    return (f'<h2 id="book">Where we booked our tickets</h2><p>We booked ERA through Klook, and this is the link I use. '
+            f'If you book through it, I earn a small commission and you pay the same price. Ticket prices change by date and zone, so check today\'s price on the page.</p>'
+            f'<div class="offers">{cards}</div>')
 
 def partner_b(key, SOC):
     p=PARTNERS[key]; n=html.escape(p["name"])
@@ -256,7 +264,7 @@ def about_b(*, SOC, n_guides):
 <section class="sec"><div class="wrap"><div class="cols about2"><article class="art"><h2 style="margin-top:0">Making things by day, filming by night</h2><p>I have a background in graphic design and I run a small studio in Ireland. Travel is the thing I do with the time in between, and the camera comes along because I want to remember the practical bits as much as the views: which exit, which pier, what it cost.</p><p>My husband and family turn up in the videos sometimes, and so does the work on the days I am not travelling.</p><p>Nothing here is sponsored by a brand. If a rule or a price is on a page, I checked it on the date written next to it.</p>
 <h2 id="idea">Why a scratch card?</h2><p>A place stays hidden until you scratch it, and then it is all there. Every video opens that way: the name of the place under silver foil, a coin, and then the real thing. On the site a city gets scratched off once we have actually been, so the foil over Chengdu, Chongqing and Xi'an comes off in December.</p><p>It is also a reminder of how I like to travel: not knowing everything in advance, but having the practical parts sorted so the rest can be a surprise.</p>
 <h2 id="method">How a guide gets made</h2><ol class="steps">{mh}</ol>
-<h2 id="affiliates">How the affiliate links work</h2><p>Some guides link to Klook, GetYourGuide or Trip.com for tickets I actually booked. If you book through one of those links I earn a small commission and you pay the same price. Those links are marked, they never change what I recommend, and a guide with none of them says "nothing here is sponsored" at the top.</p>
+<h2 id="affiliates">How the affiliate links work</h2><p>Some guides link to booking sites, such as Klook, for tickets we actually booked. If you book through one of those links I earn a small commission and you pay the same price. Those links are marked, they never change what I recommend, and a guide with none of them says "nothing here is sponsored" at the top.</p>
 </article><aside class="side"><div class="scard me"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><h3>Say hello</h3><p>Questions about a trip, or a place you want covered? Email is best. I read everything, and the guides often start with a question someone sent.</p><p><b>scratchandroam@gmail.com</b></p><a href="/china/">Start with the guides →</a></div><div class="scard"><span class="eyebrow">Handle everywhere</span><div class="cloud">{"".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())}</div></div></aside></div></div></section>
 <section class="sec mint"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Follow along</p><h2>Same trips, different lengths</h2><p>Long videos on YouTube, the short versions on TikTok, carousels to save on Pinterest.</p></div></div><div class="gcards sm">{sh}</div></div></section>
 {band_b(SOC)}

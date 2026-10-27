@@ -435,3 +435,10 @@ p{margin:0}
 .art .story p+p{margin-top:.9em}
 
 .soc.tt .brand i{background:#111;color:#25F4EE}
+
+.offer.withqr{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:20px;align-items:center}
+.offer .otext{display:flex;flex-direction:column;gap:8px;min-width:0}
+.offer .qr{margin:0;text-align:center}
+.offer .qr img{width:180px;height:180px;margin:0 auto;border-radius:8px;border:1px solid var(--line);background:#fff;object-fit:contain}
+.offer .qr figcaption{font:400 12px/1.4 var(--b);color:var(--mute);text-align:center;margin-top:6px;font-style:normal}
+@media(max-width:640px){.offer.withqr{grid-template-columns:1fr}.offer .qr{display:none}}

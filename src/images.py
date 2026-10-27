@@ -147,3 +147,5 @@ a("huangpu-river-pudong-towers-lit-red-and-pink-at-night.jpg","Pudong towers lit
 a("huangpu-river-pudong-skyline-with-gold-reflections.jpg","The Pudong skyline across the Huangpu river with gold and pink reflections on the water")
 a("huangpu-river-lujiazui-skyline-wide-night-view.jpg","Wide night view of the Lujiazui skyline and Shanghai Tower across the Huangpu river")
 a("huangpu-river-blue-lit-towers-from-the-water.jpg","Blue and gold lit towers on the Pudong bank seen from the Huangpu river at night")
+
+a("klook-era-shanghai-circus-world-tickets-qr-code.jpg","QR code that opens the Klook page for ERA tickets at Shanghai Circus World","Scan with your phone camera to open the same Klook page")

@@ -471,6 +471,13 @@ p{margin:0}
 .art .story p+p{margin-top:.9em}
 
 .soc.tt .brand i{background:#111;color:#25F4EE}
+
+.offer.withqr{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:20px;align-items:center}
+.offer .otext{display:flex;flex-direction:column;gap:8px;min-width:0}
+.offer .qr{margin:0;text-align:center}
+.offer .qr img{width:180px;height:180px;margin:0 auto;border-radius:8px;border:1px solid var(--line);background:#fff;object-fit:contain}
+.offer .qr figcaption{font:400 12px/1.4 var(--b);color:var(--mute);text-align:center;margin-top:6px;font-style:normal}
+@media(max-width:640px){.offer.withqr{grid-template-columns:1fr}.offer .qr{display:none}}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
