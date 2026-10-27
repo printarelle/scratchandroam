@@ -18,6 +18,11 @@ def _size(p):
 TODAY="2026-10-15"
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Caveat:wght@700&family=Archivo+Black&family=Special+Elite&family=Libre+Franklin:ital,wght@0,400;0,500;0,700;1,400&display=swap">'
 CSS=open('src/site.css').read()
+BRIGHT=os.environ.get('THEME','bright')=='bright'  # set THEME=legacy for the old dark build
+if BRIGHT:
+    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE
+    CSS=open('src/bright.css').read()+open('src/legacy-boards.css').read()
+    FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">'
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
 SAMEAS=json.dumps(list(SOC.values()))
 
@@ -43,12 +48,16 @@ def FOOT_GUIDES():
     return "".join(cols)
 NAVJS='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>'
 SEARCHJS=open('src/search.js.html').read()
+SDLG='<dialog class="sdlg" id="sdlg" aria-label="Search guides"><div class="sbox"><div class="srow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sq" type="search" placeholder="Search guides, e.g. arrival card" autocomplete="off" aria-label="Search guides"><button id="sclose" type="button" aria-label="Close search">Close</button></div><div id="sres" class="sres"></div></div></dialog>'
 def footer():
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
     return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p><p class="eyebrow" style="color:#9a93a3;margin-top:22px">Follow along</p><div class="follow">{links}</div></div>{FOOT_GUIDES()}</div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer><dialog class="sdlg" id="sdlg" aria-label="Search guides"><div class="sbox"><div class="srow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sq" type="search" placeholder="Search guides, e.g. arrival card" autocomplete="off" aria-label="Search guides"><button id="sclose" type="button" aria-label="Close search">Close</button></div><div id="sres" class="sres"></div></div></dialog>{NAVJS}{SEARCHJS}'''
 
 def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False,published=None,modified=None):
     url=SITE+path
+    if BRIGHT and path=='/': body=home_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS))
+    if BRIGHT and path=='/about/': body=about_b(SOC=SOC,n_guides=len(CARDS))
+    if BRIGHT and path=='/china/': body=china_b(CARDS=CARDS,SOC=SOC,QCARDS=QCARDS,QS_CHINA=QS_CHINA,n_guides=len(CARDS))
     img=og_image or SITE+"/og/shanghai-circus-world-photo-dump.jpg"
     ART_META=(f'<meta property="article:published_time" content="{published}">\n' if published else "")+(f'<meta property="article:modified_time" content="{modified}">\n' if modified else "")
     sj="".join(f'<script type="application/ld+json">{json.dumps(s,ensure_ascii=False)}</script>' for s in (schema or []))
@@ -81,9 +90,9 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 {sj}
 </head>
 <body>
-{nav(dark)}
+{nav_b(SOC,NAV_SHOP) if BRIGHT else nav(dark)}
 {body}
-{footer()}
+{footer_b(SOC,FOOT_GROUPS,CARDS)+SDLG+NAVJS_B+COPYJS+SEARCHJS if BRIGHT else footer()}
 </body>
 </html>'''
     doc=finish_images(doc,path,img)
@@ -103,6 +112,7 @@ def finish_images(doc,path,og):
     def fix(m):
         t=m.group(0)
         src=re.search(r'src="([^"]*)"',t).group(1)
+        if src.startswith("https://i.ytimg.com/"): return t
         if not src.startswith("/img/"):
             raise SystemExit(f"{path}: image outside /img/: {src}")
         key=src[5:]; USED.add(key)
@@ -174,32 +184,53 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,
     rel2=""
     if related:
         rel2='<section class="related2"><h2>Keep going</h2><div class="rows">'+"".join(f'<a class="row" href="{u}"><img src="/img/{cl}.jpg" alt="{html.escape(n)} cover" loading="lazy"><span><span class="k">{html.escape(t)}</span><b>{html.escape(n)}</b><span class="go">Read the guide</span></span></a>' for u,cl,t,n in related)+'</div></section>'
-    body=f'''<main class="guide2">
-<section class="ghero"><div class="wrap">
-<p class="eyebrow"><a href="/">Home</a> · <a href="/china/">China guides</a> · {f"published {published} · " if published else ""}updated {checked}</p>
+    _t=lambda x: re.sub(r'<[^>]+>','',str(x))
+    hero_html=(yt(vid,title,start) if vid or not gallery else "")+(video_note or "")
+    gal2=""
+    if gallery:
+        _g=[(g[0],html.escape(IMGREG[g[0]+".jpg"]["cap"] or "")) for g in gallery]
+        hero_html=hero_html or f'<figure class="hero-fig"><img src="/img/{_g[0][0]}.jpg" alt="" data-hero><figcaption>{_g[0][1]}</figcaption></figure>'
+        rest=_g[1:] if not (vid or not gallery) else _g
+        gal2='<div class="photos">'+"".join(f'<figure><img src="/img/{k}.jpg" alt="" loading="lazy"><figcaption>{c}</figcaption></figure>' for k,c in rest)+'</div>'
+    toc=[("quick","Quick answers")]+([("steps",steps_title)] if steps else [])+[("sources","Sources")]
+    toc_html='<nav class="toc"><b>On this page</b><ol>'+"".join(f'<li><a href="#{i}">{html.escape(t)}</a></li>' for i,t in toc)+'</ol></nav>'
+    tagl='Video + steps' if vid else ('Place guide' if gallery else 'Checklist')
+    rd=max(3,round(len(_t(intro)+" ".join(_t(x[1]) for x in steps)+" ".join(_t(a) for q,a in faq))/900))
+    cat_rel=""
+    if related:
+        cat_rel='<section class="more"><h2>More guides to read next</h2><div class="mcards">'+"".join(f'<a class="mc" href="{u}"><img src="/img/{cl}.jpg" alt="{html.escape(n)} cover" loading="lazy"><span class="cat">Guide</span><b>{html.escape(n)}</b><span class="dt">{html.escape(t)}</span></a>' for u,cl,t,n in related)+'</div></section>'
+    body=f'''<main class="post">
+<header class="phead"><div class="pw">
+<nav class="crumbs"><a href="/">Home</a><i>/</i><a href="/china/">China</a><i>/</i><span>{html.escape(_t(h1).split(":")[0])}</span></nav>
+<div class="tagrow"><a href="/china/">Guide</a><a href="/china/">China</a><a href="/china/">Asia</a></div>
+<div class="metarow"><span class="rt">{rd} min read</span><a class="sh" href="#follow">Share</a><span class="kd">{tagl}</span></div>
 <h1>{h1}</h1>
 <p class="lede">{desc}</p>
-<div class="gmeta">{kind}{mins}{cityp}<span>Dated and rechecked</span></div>
-</div></section>
-<div class="wrap lift">
-{lift if lift else (yt(vid,title,start) if vid or not gallery else "")+(video_note or "")+gal}
-<div class="gridg">
-<article>
+<div class="byline"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><div><b>By Natali</b><span>A maker from Ireland who films her trips and writes down the parts nobody explains.</span><span class="dates">Last updated: {checked}{f" · Published: {published}" if published else ""}</span></div></div>
+</div></header>
+<div class="pw wide heroblk">{hero_html}</div>
+<div class="pw">
+<p class="disc">Rules change. Everything here was checked on {checked} against the sources below.</p>
+{toc_html}
+<article class="body">
 <div class="intro">{intro}</div>
-<h2>Quick answers</h2>
+{gal2}
+{ch_html}
+<h2 id="quick">Quick answers</h2>
 <div class="faq">{faq_html}</div>
-{f'<h2>{steps_title}</h2><ol class="steps">{steps_html}</ol>' if steps else ""}
+{f'<h2 id="steps">{steps_title}</h2><ol class="steps">{steps_html}</ol>' if steps else ""}
 {extra or ""}
-<p class="note">Rules change. Everything here was checked on {checked} against the sources below. Before you fly, open the official page once more.</p>
-<h2>Sources</h2><ul class="sources">{src_html}</ul>
+{short_html}
+<h2 id="sources">Sources</h2><ul class="sources">{src_html}</ul>
 </article>
-<aside>{ch_html}{short_html}<div class="sidebox" {'hidden' if shorts else ''}><h3>Watch it short</h3><p>The same guide as a vertical video on <a href="{SOC['TikTok']}" rel="noopener">TikTok</a>, <a href="{SOC['Instagram']}" rel="noopener">Instagram</a> and <a href="{SOC['Pinterest']}" rel="noopener">Pinterest</a>.</p></div>
-<div class="author"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><div><b>Written by Natali</b><p>A maker from Ireland who films her trips and writes down the parts nobody explains. <a href="/about/">About</a></p></div></div>
-<div class="sidebox"><h3>Follow along</h3><div class="share"><a href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">YouTube</a><a href="{SOC['Instagram']}" rel="noopener">Instagram</a><a href="{SOC['TikTok']}" rel="noopener">TikTok</a><a href="{SOC['Pinterest']}" rel="noopener">Pinterest</a></div></div></aside>
+<section class="acard"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><div><h2>Hi, I'm Natali</h2><p>I'm a maker from Ireland. I film my trips, then write down the parts nobody explains, with the date I checked each one.</p><a class="btn" href="/about/">More about my story</a></div></section>
 </div>
-{rel2}
+<div class="pw wide">
+{cat_rel}
+<section class="follow" id="follow"><div class="fc"><h3>Watch on YouTube</h3><p>Full video guides, with chapters, from every trip.</p><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">Subscribe</a></div><div class="fc"><h3>Follow on Instagram</h3><p>Short reels, carousels and the stories in between.</p><a class="btn" href="{SOC['Instagram']}" rel="noopener">Follow</a></div><div class="fc"><h3>Save on Pinterest</h3><p>Pin the checklists so they are there when you pack.</p><a class="btn" href="{SOC['Pinterest']}" rel="noopener">Follow</a></div></section>
 </div>
 </main>'''
+    if BRIGHT: body=guide_b(slug=slug,h1=h1,desc=desc,intro=intro,steps=steps,faq=faq,sources=sources,vid=vid,gallery=gallery,chapters=chapters,related=related,checked=checked,published=published,steps_title=steps_title,shorts=shorts,extra=extra,video_note=video_note,shotnote=shotnote,IMGREG=IMGREG,SOC=SOC,yt=yt,start=start,CARDS=CARDS,n_guides=len(CARDS),title=title)
     schema=[] if not steps else [{"@context":"https://schema.org","@type":"HowTo","name":h1,"description":desc,"url":url,"dateModified":checked,**({"datePublished":published} if published else {}),"image":og,
              "author":{"@type":"Person","name":"Natali","url":SITE+"/about/"},
              "step":[{"@type":"HowToStep","position":i+1,"name":s[0],**({"image":[SITE+f"/img/{k}.jpg" for k in s[2]]} if len(s)>2 and s[2] else {}),"text":html.unescape(re.sub(r'<[^>]+>','',re.sub(r'<span class="tag[^"]*">.*?</span>|<br>','',s[1]))),"url":f"{url}#step-{i+1}"} for i,s in enumerate(steps)]}]
@@ -219,6 +250,9 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,
     page(path,title,desc,body,schema,og,extra_head=head,dark=True,published=published,modified=checked)
 
 exec(open('src/content.py').read())
+if BRIGHT:
+    if AFFILIATES_LIVE: page('/klook/','Klook: what I book with it in China','What I booked on Klook in China, with the price I paid and the date I checked.',partner_b('klook',SOC))
+    page('/where-ive-been/',"Where I've been",'Every trip so far, the guides from each, and the videos behind them.',where_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS)))
 
 # lastmod: the home page and /china/ list every guide, so they changed when the newest guide went live
 _gd=[(pu or ck) for sl,t,d,pu,ck in GUIDELIST]
