@@ -78,7 +78,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
     out="docs"+path+("index.html" if path.endswith("/") else "")
     os.makedirs(os.path.dirname(out),exist_ok=True)
     open(out,"w").write(doc)
-    PAGES.append((path,TODAY))
+    PAGES.append((path,modified or published or TODAY))
 
 BAD_NAME=re.compile(r"^(img|image|pic|photo|dsc|screenshot|untitled|copy)[-_ ]?\d*$|^[a-z]{0,3}[-_]?\d+$|-(s\d{1,2}|slide-?\d{1,2})$|^(taobao|bund|river|nanjing|circus|dd)-\d")
 PAGEIMGS={}
@@ -205,13 +205,28 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,
 
 exec(open('src/content.py').read())
 
+# lastmod: the home page and /china/ list every guide, so they changed when the newest guide went live
+_gd=[(pu or ck) for sl,t,d,pu,ck in GUIDELIST]
+_newest=max(_gd) if _gd else TODAY
+PAGES=[(p,(_newest if p in ("/","/china/") else d)) for p,d in PAGES]
+
 # sitemap + robots
 sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+"".join(f'<url><loc>{SITE}{p}</loc><lastmod>{d}</lastmod>'+"".join(f'<image:image><image:loc>{u}</image:loc></image:image>' for u in PAGEIMGS.get(p,[]))+'</url>' for p,d in PAGES)+'</urlset>'
 open('docs/sitemap.xml','w').write(sm)
 import email.utils as _eu,datetime as _dt
 _it=''.join(f'<item><title>{html.escape(t)}</title><link>{SITE}/guides/{sl}/</link><guid isPermaLink="true">{SITE}/guides/{sl}/</guid><pubDate>{_eu.format_datetime(_dt.datetime.fromisoformat((pu or ck)+"T09:00:00+00:00"))}</pubDate><description>{html.escape(d)}</description></item>' for sl,t,d,pu,ck in sorted(GUIDELIST,key=lambda x:(x[3] or x[4]),reverse=True))
 open('docs/feed.xml','w').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Scratch &amp; Roam with Natali: China guides</title><link>{SITE}/</link><description>China first-timer guides and travel answers from Natali.</description><language>en</language>{_it}</channel></rss>')
-open('docs/robots.txt','w').write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
+_bots=["Googlebot","Bingbot","OAI-SearchBot","ChatGPT-User","PerplexityBot","Perplexity-User","Claude-SearchBot","Claude-User","ClaudeBot","Applebot","DuckDuckBot"]
+open('docs/robots.txt','w').write("User-agent: *\nAllow: /\n\n"+"".join(f"User-agent: {b}\nAllow: /\n\n" for b in _bots)+f"Sitemap: {SITE}/sitemap.xml\n")
+
+# llms.txt: short markdown map of the site for AI tools (optional convention, harmless)
+_ll=["# Scratch & Roam with Natali","","> First-timer China travel guides and videos from Natali, a maker based in Ireland. Every guide is written from first-hand experience, dated and rechecked, and pairs a YouTube video with step by step answers.","","## Main pages","",f"- [Home]({SITE}/): newest videos and the questions first-time visitors ask",f"- [China guides]({SITE}/china/): every guide, grouped by before you fly, at the border, and once you are there",f"- [About]({SITE}/about/): who Natali is and how the guides are made","","## Guides",""]
+_ll+=[f"- [{t}]({SITE}/guides/{sl}/): {d}" for sl,t,d,pu,ck in sorted(GUIDELIST,key=lambda x:x[1].lower())]
+_ll+=["","## Other","",f"- [RSS feed]({SITE}/feed.xml)",f"- [Sitemap]({SITE}/sitemap.xml)",""]
+open('docs/llms.txt','w').write("\n".join(_ll))
+
+# Cloudflare headers: keep the RSS feed out of the search index (it stays crawlable)
+open('docs/_headers','w').write(open('src/headers.txt').read())
 open('docs/favicon.svg','w').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#2F6F73"/><path d="M14 40c8-10 14-8 20-16 4-5 9-6 16-4" fill="none" stroke="#FBF7F0" stroke-width="6" stroke-linecap="round"/><circle cx="46" cy="22" r="6" fill="#E05A7A"/></svg>')
 open('docs/.nojekyll','w').write('')
 import shutil; shutil.copy('src/404.html','docs/404.html') if os.path.exists('src/404.html') else None
