@@ -116,6 +116,8 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
             if not m.group(1): ex=ex.replace(m.group(0),f'<h2 id="{idv}">{m.group(2)}</h2>',1)
         body.append(ex)
     if AFFILIATES_LIVE and slug in OFFERS: body.append(offers_b(OFFERS[slug],slug)); toc.append(("book",OFFER_HEAD.get(slug,("Where to book",))[0]))
+    if slug in GUIDE_DEALS:
+        body.append(guide_deals_b(slug)); toc.append(("links","Links for this guide"))
     if slug in GYG_WIDGET_SLUGS:
         body.append('<h2 id="more-shanghai">More things to do in Shanghai</h2><p>A live list of Shanghai tours and tickets from GetYourGuide. These are affiliate links: if you book through one, I earn a small commission and you pay the same price. I have not done every one of these, so read the details before you book.</p><div class="gygw">'+GYG_SHANGHAI_WIDGET+'</div>'); toc.append(("more-shanghai","More things to do in Shanghai"))
     body.append(callout("tip",f'Rules change. Everything on this page was checked on {checked} against the sources below. Before you fly, open the official page once more.'))
@@ -148,7 +150,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 </div>
 <figure class="polaroid"><img src="/img/{hero_img}.jpg" alt="" data-hero{"" if (gallery and slug not in TEXT_GALLERIES) else " class=\"cover\""}><figcaption>{html.escape(hero_cap)[:60]}</figcaption></figure>
 </div></section>
-<p class="strip">Every price and rule on this page was checked on {checked}.{(" "+AFF_NOTE) if (AFFILIATES_LIVE and (slug in OFFERS or slug in AFF_INLINE)) else " Nothing here is sponsored."}</p>
+<p class="strip">Every price and rule on this page was checked on {checked}.{(" "+AFF_NOTE) if (AFFILIATES_LIVE and (slug in OFFERS or slug in AFF_INLINE or slug in GUIDE_DEALS)) else " Nothing here is sponsored."}</p>
 <div class="wrap cols">
 <aside><nav class="toc" id="toc"><b>On this page</b>{toc_html}</nav></aside>
 <article class="art"><details class="mtoc"><summary>On this page</summary>{toc_html}</details>{_stack_tables("".join(body))}</article>
@@ -369,3 +371,25 @@ def deals_b(SOC):
 {band_b(SOC)}
 </main>
 <script>(function(){{var b=document.querySelectorAll(".chips .chip"),c=document.querySelectorAll(".deal");b.forEach(function(x){{x.addEventListener("click",function(){{b.forEach(function(y){{y.classList.toggle("on",y===x)}});var f=x.getAttribute("data-f");c.forEach(function(d){{d.hidden=!(f==="all"||d.getAttribute("data-cat")===f)}})}})}})}})();</script>'''
+
+
+# ===== "Links for this guide" boxes (partner links that fit the guide's topic) =====
+GUIDE_DEALS={
+ "china-travel-apps":(["Firsty","Airalo","Yesim","Saily"],"eSIMs for step 8. Whichever you pick, read the plan description first: for China you want one that routes data outside China, so Google and WhatsApp keep working."),
+ "top-25-china-apps":(["Firsty","Airalo","Yesim","Saily"],"eSIMs for pass number 4. For China, read the plan description first: you want one that routes data outside China."),
+ "first-time-in-china":(["Firsty","Airalo","Kiwi.com","Welcome Pickups","GetTransfer"],"An eSIM for the internet on landing, flights, and a transfer from the airport so the first hour is easy."),
+ "china-before-you-fly-checklist":(["Firsty","Airalo","Welcome Pickups","GetTransfer"],"An eSIM for step 4, and an airport transfer for step 10, so your first day stays simple."),
+ "china-visa-free-30-days":(["Kiwi.com"],"Flights for a trip that fits inside the 30 days and before 31 December 2026."),
+}
+def guide_deals_b(slug):
+    names,note=GUIDE_DEALS[slug]
+    by={d["name"]:d for d in DEALS}
+    cards=""
+    for n in names:
+        d=by[n]
+        badge='<span class="dbadge booked">I use this</span>' if d.get("used") else ('<span class="dbadge booked">We booked here</span>' if d.get("booked") else '<span class="dbadge">Link only</span>')
+        code=(f'<div class="dcode has"><span>Code</span><b>{html.escape(d["code"])}</b><button type="button" data-copy="{html.escape(d["code"])}">Copy</button></div><small class="dcn">{html.escape(d.get("codenote",""))}</small>') if d.get("code") else ''
+        rel="noopener" if d.get("code") and "tpm.li" not in d["url"] else "sponsored noopener"
+        cards+=f'<div class="gdeal"><div class="gdh"><span class="dcat">{html.escape(d["cat"])}</span><b>{html.escape(d["name"])}</b>{badge}</div><p>{html.escape(d["text"])}</p>{code}<a class="btn" href="{d["url"]}" rel="{rel}" target="_blank">Open {html.escape(d["name"])}</a></div>'
+    return (f'<h2 id="links">Links for this guide</h2><p>{html.escape(note)} These are my partner links: if you book through one, I earn a small commission and you pay the same price. '
+            f'All of them are on my <a href="/travel-deals/">Travel deals</a> page.</p><div class="gdeals">{cards}</div>')
