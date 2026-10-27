@@ -526,3 +526,16 @@ p{margin:0}
 .pk b{display:block;font:400 22px var(--d)}
 .pk span{font:500 13px var(--b);color:var(--ink2)}
 .cc .noimg span,.cc .noimg small{display:none}
+/* guide group map */
+.clus{border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;margin:22px 0;background:#fff}
+.clus .ck{font:800 11px var(--b);letter-spacing:.12em;text-transform:uppercase;color:var(--coral);margin:0 0 10px}
+.clus ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.clus li a,.clus li.here{display:block;padding:10px 12px;border-radius:10px;background:var(--mint);text-decoration:none;color:var(--ink);height:100%}
+.clus li.here{background:var(--navy);color:#fff}
+.clus b{display:block;font:700 14px/1.3 var(--b)}
+.clus span{display:block;font:400 12px/1.4 var(--b);color:var(--ink2);margin-top:2px}
+.clus li.here span{color:#fff;opacity:.8}
+.clus .cnext{display:inline-block;margin-top:12px;font:700 14px var(--b);color:var(--blue)}
+.clus li.here b{color:#fff}
+@media(max-width:600px){.clus ol{grid-template-columns:1fr 1fr}.clus li:not(.here) span{display:none}.clus li a,.clus li.here{padding:9px 10px}}
+.clus ol>li{min-width:0}.clus b{overflow-wrap:anywhere}@media(max-width:600px){.clus ol{grid-template-columns:repeat(2,minmax(0,1fr))}}

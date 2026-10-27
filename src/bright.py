@@ -72,6 +72,39 @@ def _stack_tables(h):
     h=re.sub(r'(?<!sp-tw">)(<table class="stack[^"]*">.*?</table>)',r'<div class="tablewrap">\1</div>',h,flags=re.S)
     return h
 
+# ===== Guide groups: each guide has one job, a "You are here" map and a next step =====
+CLUSTERS=[
+ ("plan","Plan your first China trip",[
+   ("first-time-in-china","The full plan, in order","Start here: every step from entry rules to packing"),
+   ("china-visa-free-30-days","Do you need a visa?","Visa-free entry and the 30-day rule"),
+   ("china-arrival-card-pc","Arrival card on a computer","The form, step by step"),
+   ("china-arrival-card-alipay","Arrival card on your phone","The same form inside Alipay"),
+   ("china-before-you-fly-checklist","Safety and backups","Insurance, documents, emergency numbers, plan B"),
+   ("china-dos-and-donts","Do's and don'ts","The small rules that save you trouble"),
+ ]),
+ ("apps","Apps and paying in China",[
+   ("china-travel-apps","Set up the must-have apps","Start here: the 12 to set up at home, with the steps"),
+   ("top-25-china-apps","All 25 apps, ranked","The full list from critical to optional, to choose extras"),
+   ("alipay-metro-qr-code-china","The metro with Alipay","Ride with the QR code"),
+   ("how-to-order-food-in-china-without-speaking-chinese","Order food","Menus, QR codes and delivery"),
+   ("taobao-for-foreigners","Shop on Taobao","Order to your hotel"),
+ ]),
+ ("shanghai","Shanghai, what to book and see",[
+   ("the-bund-shanghai-at-night","The Bund at night","Start here: when to go and where to stand"),
+   ("nanjing-road-shanghai","Nanjing Road","The walk from the Bund"),
+   ("huangpu-river-night-cruise","Huangpu River night cruise","Which pier, which cruise, how to book"),
+   ("shanghai-circus-world-era-show","ERA show tickets","Where we booked and how to get there"),
+ ]),
+]
+CLUSTER_OF={g[0]:c for c in CLUSTERS for g in c[2]}
+def cluster_b(slug):
+    key,title,items=CLUSTER_OF[slug]
+    i=[g[0] for g in items].index(slug)
+    lis="".join(f'<li{" class=\"here\"" if g[0]==slug else ""}>'+(f'<b>{html.escape(g[1])}</b><span>You are here</span>' if g[0]==slug else f'<a href="/guides/{g[0]}/"><b>{html.escape(g[1])}</b><span>{html.escape(g[2])}</span></a>')+'</li>' for g in items)
+    nxt=items[i+1] if i+1<len(items) else items[0]
+    return (f'<nav class="clus" aria-label="{html.escape(title)}"><p class="ck">Part of: {html.escape(title)}</p><ol>{lis}</ol>'
+            f'<a class="cnext" href="/guides/{nxt[0]}/">Next: {html.escape(nxt[1])} →</a></nav>')
+
 def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapters, related, checked, published, steps_title, shorts, extra, video_note, shotnote, IMGREG, SOC, yt, start, CARDS, n_guides, title):
     def figs(keys):
         if not keys: return ""
@@ -88,6 +121,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     toc=[]
     body=[]
     body.append(f'<div class="intro">{intro}</div>')
+    if slug in CLUSTER_OF: body.append(cluster_b(slug))
     if slug in STORIES:
         st_t,st_h=STORIES[slug]
         body.append(f'<h2 id="our-trip">{html.escape(st_t)}</h2><div class="story">{st_h}</div>'); toc.append(("our-trip",st_t))
