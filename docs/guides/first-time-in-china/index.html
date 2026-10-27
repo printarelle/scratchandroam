@@ -578,6 +578,17 @@ p{margin:0}
 .clus li.here b{color:#fff}
 @media(max-width:600px){.clus ol{grid-template-columns:1fr 1fr}.clus li:not(.here) span{display:none}.clus li a,.clus li.here{padding:9px 10px}}
 .clus ol>li{min-width:0}.clus b{overflow-wrap:anywhere}@media(max-width:600px){.clus ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* scratch to reveal tip */
+.scr{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;background:var(--mint);border-radius:18px;padding:28px}
+.scr-copy h2{font-size:clamp(26px,3vw,36px);margin:6px 0 10px}
+.scr-copy p{font:400 15px/1.55 var(--b);color:var(--ink2);margin:0 0 16px}
+.scr-card{position:relative;min-height:190px;border-radius:14px;background:#fff;border:2px dashed var(--coral);overflow:hidden}
+.scr-tip{padding:22px 24px;display:flex;flex-direction:column;gap:8px}
+.scr-tip b{font:400 24px/1.2 var(--d);color:var(--navy)}
+.scr-tip span{font:400 14px/1.5 var(--b);color:var(--ink2)}
+.scr-tip a{font:700 14px var(--b);color:var(--blue)}
+.scr-card canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
+@media(max-width:700px){.scr{grid-template-columns:1fr;padding:20px}}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
