@@ -31,7 +31,7 @@ def footer_b(SOC, FOOT_GROUPS, CARDS):
         sl=[x for x in l if x in by]
         cols+=f'<div><h3>{html.escape(h)}</h3><nav>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</nav></div>'
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
-    return f'''<footer class="ft"><div class="wrap"><div class="grid"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Real first-timer China. Real screenshots. Real prices, with the date I checked them.</p><h3 style="margin-top:22px">Follow along</h3><nav>{links}</nav></div>{cols}<div class="stamp">Scratch to reveal<span>Roam</span>to discover</div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span><a href="/about/">About</a> · <a href="/travel-deals/">Travel deals</a> · <a href="/klook/">Klook</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/feed.xml">RSS</a> · scratchandroam@gmail.com</span></div></div></footer>'''
+    return f'''<footer class="ft"><div class="wrap"><div class="grid"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Real first-timer China. Real screenshots. Real prices, with the date I checked them.</p><h3 style="margin-top:22px">Follow along</h3><nav>{links}</nav></div>{cols}<div class="stamp">Scratch to reveal<span>Roam</span>to discover</div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland. As an Amazon Associate I earn from qualifying purchases.</span><span><a href="/about/">About</a> · <a href="/travel-deals/">Travel deals</a> · <a href="/klook/">Klook</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/feed.xml">RSS</a> · scratchandroam@gmail.com</span></div></div></footer>'''
 
 NAVJS_B='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(b){b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});}var L=[].slice.call(document.querySelectorAll(".toc a[href^=\\"#\\"]"));if(L.length&&"IntersectionObserver" in window){var map={};L.forEach(function(a){map[a.getAttribute("href").slice(1)]=a;});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){L.forEach(function(a){a.classList.remove("on")});var a=map[e.target.id];if(a)a.classList.add("on");}});},{rootMargin:"-20% 0px -70% 0px"});Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});L[0].classList.add("on");}})();</script>'
 
@@ -116,6 +116,8 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
             if not m.group(1): ex=ex.replace(m.group(0),f'<h2 id="{idv}">{m.group(2)}</h2>',1)
         body.append(ex)
     if AFFILIATES_LIVE and slug in OFFERS: body.append(offers_b(OFFERS[slug],slug)); toc.append(("book",OFFER_HEAD.get(slug,("Where to book",))[0]))
+    if slug in AMAZON:
+        body.append(amazon_b(slug)); toc.append(("amazon",AMAZON[slug][0]))
     if slug in GUIDE_DEALS:
         body.append(guide_deals_b(slug)); toc.append(("links","Links for this guide"))
     if slug in GYG_WIDGET_SLUGS:
@@ -150,7 +152,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 </div>
 <figure class="polaroid"><img src="/img/{hero_img}.jpg" alt="" data-hero{"" if (gallery and slug not in TEXT_GALLERIES) else " class=\"cover\""}><figcaption>{html.escape(hero_cap)[:60]}</figcaption></figure>
 </div></section>
-<p class="strip">Every price and rule on this page was checked on {checked}.{(" "+AFF_NOTE) if (AFFILIATES_LIVE and (slug in OFFERS or slug in AFF_INLINE or slug in GUIDE_DEALS)) else " Nothing here is sponsored."}</p>
+<p class="strip">Every price and rule on this page was checked on {checked}.{(" "+AFF_NOTE) if (AFFILIATES_LIVE and (slug in OFFERS or slug in AFF_INLINE or slug in GUIDE_DEALS or slug in AMAZON)) else " Nothing here is sponsored."}</p>
 <div class="wrap cols">
 <aside><nav class="toc" id="toc"><b>On this page</b>{toc_html}</nav></aside>
 <article class="art"><details class="mtoc"><summary>On this page</summary>{toc_html}</details>{_stack_tables("".join(body))}</article>
@@ -264,7 +266,7 @@ def disclosure_b(SOC):
 <section class="sec" style="padding-top:10px"><div class="wrap"><article class="art" style="max-width:720px">
 <h2 style="margin-top:0">What an affiliate link is</h2><p>When you book through one of my affiliate links, the booking site pays me a small commission. You pay the same price as you would going to the site yourself. It is one of the ways I keep the guides free to read.</p>
 <h2>Which links are affiliate links</h2><p>Links to Klook, GetYourGuide, Tiqets, Airalo, Yesim, Saily, Welcome Pickups, GetTransfer and Kiwi.com on this site are affiliate links.</p><p>On the Travel deals page, a card marked "I use this" is something I use myself, and "We booked here" means we booked through it. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p><p>Some Shanghai guides also show a box of Shanghai tours from GetYourGuide. Those are affiliate links too, and I have not done every tour in that box, so read the details before you book.</p>
-<h2>Referral codes</h2><p>Some cards on the Travel deals page have a referral code instead of an affiliate link. With the Firsty code, for example, you get €3 off your first purchase over €4 and I get €3 credit in my app.</p>
+<h2>Amazon</h2><p>As an Amazon Associate I earn from qualifying purchases. Some guides link to Amazon.ie for things the guide tells you to pack.</p>\n<h2>Referral codes</h2><p>Some cards on the Travel deals page have a referral code instead of an affiliate link. With the Firsty code, for example, you get €3 off your first purchase over €4 and I get €3 credit in my app.</p>
 <h2>What we booked ourselves</h2><p>When we booked something ourselves, the card says so, for example "Where we booked" on the ERA show tickets. When a card does not say that, it is an option I am sharing, not something we have tried.</p>
 <h2>What it does not change</h2><p>No company pays me to write a guide or to say good things. The steps, the prices and the rules in each guide come from our own trips and from the sources listed at the bottom of each page, with the date I checked them.</p>
 <h2>Tracking</h2><p>To count bookings that come from my links, pages on this site load small scripts from GetYourGuide and Travelpayouts (the network that runs most of my partner links). They are used to match a booking to my link.</p>
@@ -343,6 +345,8 @@ DEALS=[
       text="eSIM data plans for travel, for one country or a region."),
  dict(cat="eSIM and data",name="Saily",url="https://saily.tpm.li/r3wbWW2R",
       text="eSIM data plans for travel, from Nord Security, the company behind NordVPN."),
+ dict(cat="Packing and gear",name="Amazon.ie",url="https://www.amazon.ie/?tag=scratchandroa-21",
+      text="Travel adapters, packing cubes, carry-on bags and the other things my guides tell you to pack. As an Amazon Associate I earn from qualifying purchases."),
  dict(cat="Airport transfers",name="Welcome Pickups",url="https://tpm.li/IwbyltvW",qr="welcome-pickups-travel-deal-link-qr-code",
       text="Pre-booked airport and city transfers with a driver who meets you on arrival."),
  dict(cat="Airport transfers",name="GetTransfer",url="https://gettransfer.tpm.li/G1nHwTwh",
@@ -393,3 +397,26 @@ def guide_deals_b(slug):
         cards+=f'<div class="gdeal"><div class="gdh"><span class="dcat">{html.escape(d["cat"])}</span><b>{html.escape(d["name"])}</b>{badge}</div><p>{html.escape(d["text"])}</p>{code}<a class="btn" href="{d["url"]}" rel="{rel}" target="_blank">Open {html.escape(d["name"])}</a></div>'
     return (f'<h2 id="links">Links for this guide</h2><p>{html.escape(note)} These are my partner links: if you book through one, I earn a small commission and you pay the same price. '
             f'All of them are on my <a href="/travel-deals/">Travel deals</a> page.</p><div class="gdeals">{cards}</div>')
+
+
+# ===== Amazon (Amazon.ie Associates, tracking id scratchandroa-21) =====
+AMZ_TAG="scratchandroa-21"
+AMZ_LINE="As an Amazon Associate I earn from qualifying purchases."
+def amz(q): return "https://www.amazon.ie/s?k="+q.replace(" ","+")+"&tag="+AMZ_TAG
+# Only items the guide itself tells people to pack or use. Search links, so readers pick the product.
+AMAZON={
+ "china-dos-and-donts":("Things from this list to pack",[("Travel plug adapter for China","Number 12. A UK to China adapter, or a universal one that covers Type A and Type I sockets.","uk to china travel adapter"),
+   ("Travel hand sanitiser","Number 14. Many public toilets have no soap.","travel hand sanitiser"),
+   ("Travel-size toiletries","Number 13. Your own deodorant and SPF in travel sizes.","travel size toiletries bottles")]),
+ "china-before-you-fly-checklist":("Things from this checklist to pack",[("Travel first aid kit","Step 8: a tiny medical kit with plasters and the basics. Add your own medicines.","travel first aid kit small"),
+   ("Passport and document holder","Step 6: keep your passport and copies together.","passport holder travel wallet")]),
+ "first-time-in-china":("Packing light",[("Carry-on backpack","Step 13: one bag you can lift makes stations and metros easier.","carry on travel backpack"),
+   ("Packing cubes","Keeps one bag tidy on a trip with lots of hotel changes.","packing cubes")]),
+ "build-spice-tolerance-before-china":("Things for the 6 week plan",[("Sriracha","Week 3: a sriracha-level sauce on whole meals.","sriracha sauce"),
+   ("Chilli crisp","Week 4: heat that comes in oil, closer to Sichuan food.","chilli crisp"),
+   ("Sichuan peppercorns","Week 5: the numbing half of mala. Start with a tiny pinch.","sichuan peppercorns")]),
+}
+def amazon_b(slug):
+    title,items=AMAZON[slug]
+    cards="".join(f'<div class="amz"><b>{html.escape(n)}</b><p>{html.escape(t)}</p><a class="btn alt2" href="{amz(q)}" rel="sponsored noopener" target="_blank">See on Amazon.ie</a></div>' for n,t,q in items)
+    return f'<h2 id="amazon">{html.escape(title)}</h2><p>These open a search on Amazon.ie, so you can pick the one that suits you. {AMZ_LINE}</p><div class="amzs">{cards}</div>'
