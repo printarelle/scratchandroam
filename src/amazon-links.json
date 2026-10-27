@@ -1,0 +1,4 @@
+{
+  "_how": "Short links at scratchandroam.com/go/<name>. ie = Amazon.ie product id (ASIN) for Irish readers, com = Amazon.com ASIN for everyone else (OneLink sends them to their own store). q = search used if a store has no ASIN.",
+  "example-packing-cubes": { "ie": "", "com": "", "q": "packing cubes" }
+}
