@@ -202,7 +202,7 @@ OFFERS={
        url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="See ERA tickets on Klook",
        qr="klook-era-shanghai-circus-world-tickets-qr-code"),
   dict(k="GetYourGuide",price=None,title="Shanghai: ERA Circus Show Ticket",
-       text="The same show on GetYourGuide. Handy if you already book your tours there. Compare the zone and the price with Klook for your date before you pay.",
+       text="ERA tickets on GetYourGuide. Pick your date and zone, and check the price for your date before you pay. The zones and how to pick one are explained in the steps below.",
        url="https://gyg.me/kRBIqnuP",cta="See ERA tickets on GetYourGuide"),
  ],
 }
