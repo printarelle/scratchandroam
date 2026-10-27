@@ -53,6 +53,16 @@ def footer():
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
     return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p><p class="eyebrow" style="color:#9a93a3;margin-top:22px">Follow along</p><div class="follow">{links}</div></div>{FOOT_GUIDES()}</div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer><dialog class="sdlg" id="sdlg" aria-label="Search guides"><div class="sbox"><div class="srow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sq" type="search" placeholder="Search guides, e.g. arrival card" autocomplete="off" aria-label="Search guides"><button id="sclose" type="button" aria-label="Close search">Close</button></div><div id="sres" class="sres"></div></div></dialog>{NAVJS}{SEARCHJS}'''
 
+TPDRIVE="""<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
+(function () {
+    var script = document.createElement("script");
+    script.async = 1;
+    script.setAttribute("data-cmp-ab","2");
+    script.src = 'https://tpembars.com/NTkxODEx.js?t=591811';
+    document.head.appendChild(script);
+})();
+</script>"""
+
 def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False,published=None,modified=None):
     url=SITE+path
     if BRIGHT and path=='/': body=home_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS))
@@ -86,6 +96,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 {FONTS}
 {extra_head}
+{TPDRIVE}
 <style>{CSS}</style>
 {sj}
 </head>
