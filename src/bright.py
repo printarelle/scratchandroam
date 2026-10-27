@@ -1,5 +1,6 @@
 # Bright edition templates: header, footer, guide page, home page.
 import re, html
+from voice import STORIES
 
 IC = {
  "clock": '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
@@ -38,7 +39,7 @@ def callout(kind, text):
     return f'<div class="callout {kind}">{IC["bulb" if kind=="tip" else "warn"]}<div>{text}</div></div>'
 
 def stats_b(n_guides, title="A bit about my trips to China."):
-    S=[("plane","1","Trip so far"),("cal","8","Days in Shanghai"),("pin","1","City, more in December"),("book",str(n_guides),"Dated guides"),("heart","Dec 2026","Chengdu, Chongqing, Xi'an")]
+    S=[("plane","2","Trips to China"),("cal","Dec 2025","First trip, Christmas"),("pin","Apr 2026","Second trip, Easter"),("book",str(n_guides),"Dated guides"),("heart","Dec 2026","Next: Chengdu, Chongqing, Xi'an")]
     return f'<section class="stats"><div class="wrap"><h2>{html.escape(title)}</h2><div class="row">'+"".join(f'<div class="stat">{IC[i]}<b>{v}</b><span>{l}</span></div>' for i,v,l in S)+'</div></div></section>'
 
 def band_b(SOC):
@@ -87,6 +88,9 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     toc=[]
     body=[]
     body.append(f'<div class="intro">{intro}</div>')
+    if slug in STORIES:
+        st_t,st_h=STORIES[slug]
+        body.append(f'<h2 id="our-trip">{html.escape(st_t)}</h2><div class="story">{st_h}</div>'); toc.append(("our-trip",st_t))
     if vid:
         body.append(f'<h2 id="video">Watch the video</h2>'); toc.append(("video","Watch the video"))
         body.append(yt(vid,title,start).replace('class="video"','class="video"'))
@@ -163,7 +167,7 @@ def home_b(*, CARDS, SOC, n_guides):
     start=[by[s] for s in ("china-arrival-card-pc","first-time-in-china","china-travel-apps")]
     before=[c for c in CARDS if c["sec"] in ("before","shop") and c not in start]
     places=[c for c in CARDS if c["sec"]=="place"]
-    dests=f'''<a class="dest" href="/china/"><img src="/img/the-bund-pink-lit-pearl-tower-over-the-crowd.jpg" alt=""><div class="in"><h3>Shanghai</h3><small>{n_guides} guides</small><p>Eight days as a first-timer: arrival card, Alipay, the metro QR, the Bund at night, the river cruise and the ERA show.</p></div></a>
+    dests=f'''<a class="dest" href="/china/"><img src="/img/the-bund-pink-lit-pearl-tower-over-the-crowd.jpg" alt=""><div class="in"><h3>Shanghai</h3><small>{n_guides} guides</small><p>Two trips: Christmas 2025 and Easter 2026. The arrival card, Alipay, the metro QR, the Bund at night, the river cruise and the ERA show.</p></div></a>
 <a class="dest soon" href="/#december"><img src="/img/huangpu-river-pudong-skyline-with-gold-reflections.jpg" alt=""><div class="in"><h3>Chengdu, Chongqing, Xi'an</h3><small>December 2026, filming</small><p>Trains between the three, the metro cards, and the first pandas. Guides go up as I check each one.</p></div></a>
 <a class="dest soon" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener"><img src="/img/the-bund-peace-hotel-green-roofs-lit-at-night.jpg" alt=""><div class="in"><h3>Japan</h3><small>Next trip</small><p>The next country on the list. Subscribe and the first guide lands in your feed.</p></div></a>'''
     return f'''<main>
@@ -226,11 +230,11 @@ def where_b(*, CARDS, SOC, n_guides):
     def visit(i,l,v): return f'<div>{IC[i]}<span><small>{l}</small>{v}</span></div>'
     def cc(img,flag,name,trips,days,desc,explore,count,first,last,soon=False):
         return f'''<article class="cc{" soon" if soon else ""}"><div class="top"><img src="/img/{img}.jpg" alt=""><span class="flag">{flag}</span><h2>{name}</h2><div class="pills"><span>{IC["plane"]}{trips}</span><span>{IC["pin"]}{days}</span></div></div><div class="body"><p>{desc}</p><a class="explore" href="{explore[1]}">{IC["book"]} {explore[0]} <span>→</span></a><div class="count"><b>{count[0]}</b>{count[1]}</div></div><div class="visits">{visit("cal","First visit",first)}{visit("plane","Last visit",last)}</div></article>'''
-    cards=cc("the-bund-pink-lit-pearl-tower-over-the-crowd","🇨🇳","China","1 trip","8 days","Eight days in Shanghai as a complete first-timer: the arrival card, Alipay, the metro QR, the Bund at night, the river and the ERA show. Every guide on this site so far comes from that week.",("Explore China","/china/"),(str(n_guides),"guides"),"Oct 2026","Oct 2026")
+    cards=cc("the-bund-pink-lit-pearl-tower-over-the-crowd","🇨🇳","China","2 trips","Christmas + Easter","Our first trip was Christmas 2025 in Shanghai, with Disneyland, then New Year on the Bund. We went back for Easter 2026, fully prepared this time. Every guide on this site so far comes from those two trips.",("Explore China","/china/"),(str(n_guides),"guides"),"Dec 2025","Apr 2026")
     cards+=cc("huangpu-river-pudong-skyline-with-gold-reflections","🇨🇳","Chengdu, Chongqing, Xi'an","Trip 2","Dec 2026","The next trip: three cities by high-speed train, the metro cards in each, the pandas, and the food. Guides go up as I check each one.",("Follow the trip",SOC["YouTube"]),("0","guides yet"),"Dec 2026","Coming",True)
     cards+=cc("the-bund-peace-hotel-green-roofs-lit-at-night","🇯🇵","Japan","Next","Planning","Japan is the next country on the list. Subscribe and the first guide lands in your feed.",("Subscribe",SOC["YouTube"]+"?sub_confirmation=1"),("0","guides yet"),"Soon","Soon",True)
     return f'''<main>
-<section class="whero"><img src="/img/the-bund-pudong-skyline-and-shanghai-tower-at-night.jpg" alt=""><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Where I've been</span></nav><p class="eyebrow">Where I've been</p><h1>Where I've been</h1><p class="lede">One country so far, two more cities in December, and the list grows from there.</p></div></section>
+<section class="whero"><img src="/img/the-bund-pudong-skyline-and-shanghai-tower-at-night.jpg" alt=""><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Where I've been</span></nav><p class="eyebrow">Where I've been</p><h1>Where I've been</h1><p class="lede">Two trips to China so far, three new cities in December, and the list grows from there.</p></div></section>
 <section class="sec"><div class="wrap"><div class="countries">{cards}</div></div></section>
 <section class="sec mint"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Watch</p><h2>The videos behind the guides</h2><p>Each video has a written guide with the same steps and the screenshots, so you can follow along without pausing.</p></div><a class="more" href="{SOC['YouTube']}" rel="noopener">All videos →</a></div><div class="vids">{vids}</div></div></section>
 <section class="sec"><div class="wrap"><div class="sechead left"><div><h2>Watch it in the page</h2><p>Option two: the video plays right here. The thumbnail loads first, the player only when you tap it, so the page stays fast.</p></div></div><div class="lite" data-id="33pgztdZT8Q" role="button" tabindex="0" aria-label="Play: China arrival card on a PC"><img src="https://i.ytimg.com/vi/33pgztdZT8Q/maxresdefault.jpg" alt=""><div class="play"><span>&#9654;</span></div></div></div></section>
