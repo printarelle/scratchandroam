@@ -208,7 +208,7 @@ ABOUT = '''<main>
     <div class="cta"><a class="btn pri" href="/china/">Read the China guides</a><a class="btn light" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div>
   </div>
   <div class="stack" aria-hidden="true">
-    <div class="ph p1"><img src="/img/the-bund-shanghai-mix-of-architecture-styles-slide.jpg" alt=""><div class="cap">the Bund, late</div></div>
+    <div class="ph p1"><img src="/img/the-bund-gold-lit-historic-buildings-at-night.jpg" alt=""><div class="cap">the Bund, late</div></div>
     <div class="ph p2"><img src="/img/shanghai-circus-world-act-2-hand-balance.jpg" alt=""><div class="cap">Shanghai Circus World</div></div>
     <div class="ph p3"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><div class="cap">me, in the studio</div></div>
   </div>
@@ -224,7 +224,7 @@ ABOUT = '''<main>
 </div></section>
 
 <section class="sec alt"><div class="wrap story">
-  <div class="pic"><img src="/img/nanjing-road-day-mood-night-mood-slide.jpg" alt="Nanjing Road in Shanghai at night" loading="lazy"><div class="sm"><img src="/img/huangpu-river-light-show-times-slide.jpg" alt="Pudong towers from the Huangpu river" loading="lazy"><img src="/img/the-bund-save-it-for-your-trip-slide.jpg" alt="Pudong skyline from the Bund" loading="lazy"></div></div>
+  <div class="pic"><img src="/img/nanjing-road-curved-corner-building-neon-lights.jpg" alt="Nanjing Road in Shanghai at night" loading="lazy"><div class="sm"><img src="/img/huangpu-river-pudong-skyline-with-gold-reflections.jpg" alt="Pudong towers from the Huangpu river" loading="lazy"><img src="/img/the-bund-pink-lit-pearl-tower-over-the-crowd.jpg" alt="Pudong skyline from the Bund" loading="lazy"></div></div>
   <div>
     <p class="eyebrow">The person</p>
     <h2>Making things by day, filming by night</h2>
@@ -497,7 +497,7 @@ guide("the-bund-shanghai-at-night","The Bund Shanghai at night: how to get there
       [("Wander in China: The Bund guide (updated 21 July 2026)","https://www.wanderinchina.com/destinations/shanghai/the-bund/",False)],
       SITE+"/og/the-bund-shanghai-at-night.jpg",
       related=[("/guides/nanjing-road-shanghai/","nanjing-road-shanghai-neon-shop-fronts-cover-4x5","SHANGHAI","Nanjing Road: how to walk it and when the neon is on"),("/guides/huangpu-river-night-cruise/","huangpu-river-night-cruise-from-the-water-cover-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
-      gallery=[("the-bund-shanghai-after-dark-cover-4x5","The Bund after dark, gold lit bank buildings"),("the-bund-shanghai-52-historic-buildings-slide","Bund buildings lit at night"),("the-bund-shanghai-mix-of-architecture-styles-slide","The Bund promenade at night"),("pudong-oriental-pearl-tower-468-metres-slide","Bund facade detail at night"),("the-bund-save-it-for-your-trip-slide","Pudong skyline from the Bund")],
+      gallery=[("the-bund-peace-hotel-green-roofs-lit-at-night","The Bund after dark, gold lit bank buildings"),("the-bund-gold-lit-historic-buildings-at-night","Gold lit buildings on the Bund"),("the-bund-oriental-pearl-tower-from-the-promenade","The Oriental Pearl Tower from the promenade"),("the-bund-pudong-skyline-and-shanghai-tower-at-night","Pudong skyline from the Bund"),("the-bund-pink-lit-pearl-tower-over-the-crowd","The Pearl Tower lit pink")],
       place={"name":"The Bund","city":"Shanghai","free":True},steps_title="How to do the Bund in one evening",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
@@ -518,7 +518,7 @@ guide("nanjing-road-shanghai","Nanjing Road Shanghai: metro exit, neon times and
       [("Wander in China: Nanjing East Road guide (updated 8 June 2026)","https://wanderinchina.com/destinations/shanghai/nanjing-east-road/",False)],
       SITE+"/og/nanjing-road-shanghai.jpg",
       related=[("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/huangpu-river-night-cruise/","huangpu-river-night-cruise-from-the-water-cover-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
-      gallery=[("nanjing-road-shanghai-neon-shop-fronts-cover-4x5","Nanjing Road neon shop fronts"),("nanjing-road-day-mood-night-mood-slide","Nanjing Road at night"),("nanjing-road-1-2-km-pedestrian-street-slide","Shops on Nanjing Road"),("nanjing-road-cute-stop-shanghai-in-chocolate-slide","Nanjing Road crowd and lights"),("nanjing-road-come-roam-with-me-slide","Nanjing Road by day")],
+      gallery=[("nanjing-road-curved-corner-building-neon-lights","Nanjing Road neon corner building"),("nanjing-road-pedestrian-street-gold-lit-facades","Nanjing Road pedestrian street at night"),("nanjing-road-clock-tower-and-neon-at-night","Nanjing Road clock tower and neon"),("nanjing-road-red-traffic-lights-and-shoppers-at-night","Nanjing Road crowd and lights"),("nanjing-road-shopping-street-at-dusk-with-big-screen","Nanjing Road at dusk")],
       place={"name":"Nanjing Road Pedestrian Street","city":"Shanghai","free":True},steps_title="How to walk Nanjing Road",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
@@ -539,7 +539,7 @@ guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: pier, t
       [("Trip.com: Huangpu River cruise guide (10 August 2026)","https://www.trip.com/guide/attraction/huangpu-river-cruise.html",False)],
       SITE+"/og/huangpu-river-night-cruise.jpg",
       related=[("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/shanghai-circus-world-era-show/","shanghai-circus-world-act-1-aerial-silks","SHANGHAI","Shanghai Circus World ERA show: tickets and how to get there")],
-      gallery=[("huangpu-river-night-cruise-from-the-water-cover-4x5","Shanghai skyline from the Huangpu river at night"),("huangpu-river-light-show-times-slide","Pudong towers from the water"),("huangpu-river-same-river-new-angle-slide","Bund buildings from the cruise"),("huangpu-river-bund-side-and-pudong-side-slide","Lujiazui lit up from the river"),("huangpu-river-take-the-cruise-slide","The Oriental Pearl tower from the water")],
+      gallery=[("huangpu-river-shanghai-tower-reflected-in-the-water","Shanghai skyline from the Huangpu river at night"),("huangpu-river-pudong-towers-lit-red-and-pink-at-night","Pudong towers from the water"),("huangpu-river-pudong-skyline-with-gold-reflections","Pudong skyline and gold reflections"),("huangpu-river-lujiazui-skyline-wide-night-view","Lujiazui lit up from the river"),("huangpu-river-blue-lit-towers-from-the-water","Blue lit towers from the river")],
       place={"name":"Huangpu River Cruise","city":"Shanghai","free":False},steps_title="How to book and board",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
