@@ -31,6 +31,15 @@ STORIES = {
    '<p>One thing I learned: I do not order to a hotel when I am staying only one to three days. '
    'Delivery can take up to three days, and the parcel arrives after you leave.</p>'
    '<p>I have also used Pinduoduo. To me it is a cheaper version of Taobao.</p>'),  # told 17 and 19 Oct 2026
+ "taobao-11-11-singles-day-for-foreigners": ("How I send parcels to hotels",
+   '<p>I have ordered tens of parcels to hotels in China and not one was lost. '
+   'Before anything arrives, I message the hotel by email or WeChat with my name, my booking number and my dates. '
+   'I ask for their exact address in Chinese and the reception phone number. '
+   'On the order I put my English name and my own phone number with the country code, '
+   'because staff match parcels by the last 4 digits.</p>'
+   '<p>One thing I learned: I do not order to a hotel when I am staying only one to three days. '
+   'Delivery can take up to three days, and the parcel arrives after you leave.</p>'
+   '<p>I have also used Pinduoduo. To me it is a cheaper version of Taobao.</p>'),  # told 17 and 19 Oct 2026, same story as the Taobao guide
  "the-bund-shanghai-at-night": ("New Year on the Bund",
    '<p>Our first China trip was Christmas 2025. We spent Christmas at Shanghai Disneyland, and then New Year and the day after on the Bund and Nanjing Road. '
    'Honestly, it was the best decision we made on that trip. '

@@ -130,6 +130,15 @@ a("order-food-china-scan-to-order-menus-slide.jpg","Slide 7: pan-fried buns with
 a("order-food-china-how-to-read-pinyin-and-tones-slide.jpg","Slide 8: how to read pinyin, with the letters q x zh c and the four tone marks and what they sound like","Slide 8: how to read pinyin")
 a("order-food-china-save-this-phrase-list-slide.jpg","Slide 9: Save this, a list of the Chinese phrases from the guide, from 我要这个 to 扫码点餐","Slide 9: save this phrase list")
 OGALT["order-food-in-china-without-speaking-chinese.jpg"]=R["order-food-in-china-without-speaking-chinese-cover-16x9.jpg"]["alt"]
+# ---- Taobao 11.11 for foreigners (27 Oct 2026) ----
+a("singles-day-sale-guide-for-foreigners-cover-16x9.jpg","Cover: the title 11.11 sale on Taobao with the chips Alipay, Presale and Hotel, a lit shopping street on Nanjing Road in Shanghai and a China flag sticker")
+OGALT["taobao-11-11-singles-day-for-foreigners.jpg"]=R["singles-day-sale-guide-for-foreigners-cover-16x9.jpg"]["alt"]
+# Screenshots from Natali's phone, 27 Oct 2026 (19:24 to 19:26). The apps are in Chinese, the English labels were added by Natali.
+a("taobao-app-home-with-11-11-tab-and-overseas-shipping-icon.jpg","Taobao home screen on 27 October 2026 with English labels on the 11.11 tab (双11) and the overseas shipping icon (海外集运), above sale tiles for live-stream deals and subsidies","Taobao home: the 双11 tab and the 海外集运 (overseas shipping) icon.")
+a("jd-app-sale-listing-with-8-90-price-and-final-price-11-13.jpg","JD screen with a canvas tote listed at ¥8.90 and a smaller final price (到手价) of ¥11.13 beside it, labelled in English, under 11.11 sale tiles with ¥0.01 new-user deals","A JD listing: ¥8.90 in big type, and a 到手价 (final price) of ¥11.13.")
+a("pinduoduo-app-11-11-early-price-cuts-tab-and-sale-listings.jpg","Pinduoduo screen with an English label on the 11.11提前降价 tab, early price cuts, above listings tagged 先用后付 and 只换不修 with prices after coupons","Pinduoduo: the 11.11提前降价 tab (early price cuts) and tags such as 只换不修 (exchange only, no repair).")
+a("ten-billion-subsidy-page-with-up-to-200-yuan-coupons-and-sale-listings.jpg","A 百亿补贴 ten billion subsidy page with an English label on coupons worth up to ¥200 off phones and appliances, above subsidised listings tagged 先用后付 and 假一赔十","A 百亿补贴 (ten billion subsidy) page with coupons worth up to ¥200 off.")
+a("mother-and-baby-11-11-sale-page-with-countdown-timer.jpg","A mother and baby 11.11 sale page with an English label on a countdown timer reading 20:33:50, above coupons of ¥5, ¥10 and ¥20","A 母婴11.11大促 (mother and baby 11.11 sale) page with a countdown to the end of the promotion.")
 
 # clean photos from the China folder, no text on them (27 Oct 2026)
 a("the-bund-peace-hotel-green-roofs-lit-at-night.jpg","The green-roofed Peace Hotel and the tower beside it on the Bund in Shanghai, lit gold at night with a crowd below")
