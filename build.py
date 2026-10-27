@@ -26,14 +26,25 @@ def nav(dark=False):
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
 <div class="links" id="menu"><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>'''
 def NAV_SHOP():
-    # "Shopping" menu link appears automatically once any guide is registered with sec="shop"
-    return '<a href="/china/#shopping">Shopping</a>' if any(c["sec"]=="shop" for c in globals().get("CARDS",[])) else ''
+    # "Shopping" menu link appears only once there are 3 or more guides with sec="shop"; one guide does not need its own menu item
+    return '<a href="/china/#shopping">Shopping</a>' if sum(1 for c in globals().get("CARDS",[]) if c["sec"]=="shop")>=3 else ''
+FOOT_GROUPS=[("Before you fly",["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc","china-arrival-card-alipay","china-dos-and-donts","build-spice-tolerance-before-china"]),
+ ("Apps and on the ground",["china-travel-apps","top-25-china-apps","alipay-metro-qr-code-china","taobao-for-foreigners","how-to-order-food-in-china-without-speaking-chinese"]),
+ ("Shanghai",["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show"])]
 def FOOT_GUIDES():
-    return "".join(f'<a href="/guides/{c["slug"]}/">{html.escape(c["short"])}</a>' for c in globals().get("CARDS",[]))
+    # grouped columns; a guide not named above falls into a group by its section so new guides still show up
+    cards=globals().get("CARDS",[]); by={c["slug"]:c for c in cards}
+    named={sl for _,l in FOOT_GROUPS for sl in l}
+    fallback={"before":0,"shop":1,"place":2}
+    cols=[]
+    for i,(h,l) in enumerate(FOOT_GROUPS):
+        sl=[x for x in l if x in by]+[c["slug"] for c in cards if c["slug"] not in named and fallback.get(c["sec"],0)==i]
+        if sl: cols.append(f'<div class="fgc"><p class="eyebrow" style="color:#9a93a3">{h}</p><div class="fg">'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</div></div>')
+    return "".join(cols)
 NAVJS='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>'
 def footer():
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
-    return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p></div><div><p class="eyebrow" style="color:#9a93a3">Guides</p><div class="fg">{FOOT_GUIDES()}</div></div><div><p class="eyebrow" style="color:#9a93a3">Follow along</p><div class="follow">{links}</div></div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer>{NAVJS}'''
+    return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p><p class="eyebrow" style="color:#9a93a3;margin-top:22px">Follow along</p><div class="follow">{links}</div></div>{FOOT_GUIDES()}</div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer>{NAVJS}'''
 
 def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False,published=None,modified=None):
     url=SITE+path
