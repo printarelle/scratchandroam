@@ -201,6 +201,9 @@ OFFERS={
        text="This is where we booked our ERA tickets. You choose a zone and the date, and the ticket comes through Klook. The zones and how to pick one are explained in the steps below.",
        url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="See ERA tickets on Klook",
        qr="klook-era-shanghai-circus-world-tickets-qr-code"),
+  dict(k="GetYourGuide",price=None,title="Shanghai: ERA Circus Show Ticket",
+       text="The same show on GetYourGuide. Handy if you already book your tours there. Compare the zone and the price with Klook for your date before you pay.",
+       url="https://gyg.me/kRBIqnuP",cta="See ERA tickets on GetYourGuide"),
  ],
 }
 def offers_b(items):
@@ -213,8 +216,8 @@ def offers_b(items):
                 f'<div class="otext"><span class="k">{html.escape(o["k"])}</span>{price}<b>{html.escape(o["title"])}</b><p>{html.escape(o["text"])}</p>'
                 f'<a class="btn" href="{o["url"]}" rel="sponsored noopener" target="_blank">{html.escape(o.get("cta","Check price on "+o["k"]))}</a>'
                 f'<span class="via">Affiliate link: I earn a small commission if you book, at no extra cost to you.</span></div>{qr}</div>')
-    return (f'<h2 id="book">Where we booked our tickets</h2><p>We booked ERA through Klook, and this is the link I use. '
-            f'If you book through it, I earn a small commission and you pay the same price. Ticket prices change by date and zone, so check today\'s price on the page.</p>'
+    return (f'<h2 id="book">Where we booked our tickets</h2><p>We booked ERA through Klook, and this is the link I use. The same show is on GetYourGuide too. '
+            f'Both are affiliate links: if you book through one, I earn a small commission and you pay the same price. Ticket prices change by date and zone, so check today\'s price on the page.</p>'
             f'<div class="offers">{cards}</div>')
 
 def partner_b(key, SOC):

@@ -442,3 +442,9 @@ p{margin:0}
 .offer .qr img{width:180px;height:180px;margin:0 auto;border-radius:8px;border:1px solid var(--line);background:#fff;object-fit:contain}
 .offer .qr figcaption{font:400 12px/1.4 var(--b);color:var(--mute);text-align:center;margin-top:6px;font-style:normal}
 @media(max-width:640px){.offer.withqr{grid-template-columns:1fr}.offer .qr{display:none}}
+
+.offer.withqr{grid-column:1/-1}
+
+.offers:has(.withqr){grid-template-columns:1fr}
+.offer:not(.pick) .btn{background:#fff;color:var(--ink)!important;border:1.5px solid var(--ink)}
+.offer:not(.pick) .btn:hover{background:var(--mint2)}

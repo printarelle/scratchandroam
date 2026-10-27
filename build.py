@@ -97,6 +97,8 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 {FONTS}
 {extra_head}
 {TPDRIVE}
+<!-- GetYourGuide Analytics -->
+<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="BKZ1KWD"></script>
 <style>{CSS}</style>
 {sj}
 </head>
