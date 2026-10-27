@@ -1,0 +1,11 @@
+<script>(function(){var btn=document.getElementById("sbtn"),dlg=document.getElementById("sdlg");if(!btn||!dlg)return;var inp=document.getElementById("sq"),out=document.getElementById("sres"),data=null,loading=false;
+function norm(x){return (x||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")}
+function load(cb){if(data)return cb();if(loading)return;loading=true;fetch("/search.json").then(function(r){return r.json()}).then(function(j){data=j.map(function(g){g.n=norm(g.t);g.m=norm(g.d+" "+g.k);return g});cb()}).catch(function(){out.innerHTML='<p class="snone">Search could not load. Try the <a href="/china/">China guides</a> page.</p>'})}
+function esc(x){return x.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function render(){var q=norm(inp.value).trim();if(!q){out.innerHTML='<p class="shint">Try: arrival card, Alipay, visa free, Taobao, Bund, spice.</p>';return}
+var w=q.split(/\s+/).filter(Boolean),res=[];data.forEach(function(g){var sc=0,ok=true;w.forEach(function(t){var a=g.n.indexOf(t)>-1,b=g.m.indexOf(t)>-1;if(!a&&!b)ok=false;sc+=(a?3:0)+(b?1:0)});if(ok)res.push([sc,g])});res.sort(function(a,b){return b[0]-a[0]});
+out.innerHTML=res.length?res.slice(0,8).map(function(r){return '<a class="sitem" href="'+r[1].u+'"><b>'+esc(r[1].t)+'</b><span>'+esc(r[1].d)+'</span></a>'}).join(""):'<p class="snone">No guide matches &ldquo;'+esc(inp.value)+'&rdquo; yet. Browse all <a href="/china/">China guides</a>.</p>'}
+function open(){if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute("open","")}btn.setAttribute("aria-expanded","true");load(render);setTimeout(function(){inp.focus()},30);var m=document.getElementById("menu");if(m)m.classList.remove("open")}
+function close(){if(dlg.close){dlg.close()}else{dlg.removeAttribute("open")}}
+btn.addEventListener("click",open);document.getElementById("sclose").addEventListener("click",close);dlg.addEventListener("click",function(e){if(e.target===dlg)close()});inp.addEventListener("input",function(){load(render)});
+document.addEventListener("keydown",function(e){if(e.key==="/"&&!/INPUT|TEXTAREA/.test((document.activeElement||{}).tagName||"")&&!dlg.open){e.preventDefault();open()}});})();</script>

@@ -24,7 +24,7 @@ SAMEAS=json.dumps(list(SOC.values()))
 def nav(dark=False):
     return f'''<header class="hdr{' dark' if dark else ''}"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
-<div class="links" id="menu"><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><a class="yt" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>'''
+<div class="links" id="menu"><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><button class="sbtn" id="sbtn" type="button" aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Search</span></button><a class="yt" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>'''
 def NAV_SHOP():
     # "Shopping" menu link appears only once there are 3 or more guides with sec="shop"; one guide does not need its own menu item
     return '<a href="/china/#shopping">Shopping</a>' if sum(1 for c in globals().get("CARDS",[]) if c["sec"]=="shop")>=3 else ''
@@ -42,9 +42,10 @@ def FOOT_GUIDES():
         if sl: cols.append(f'<div class="fgc"><p class="eyebrow" style="color:#9a93a3">{h}</p><div class="fg">'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</div></div>')
     return "".join(cols)
 NAVJS='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>'
+SEARCHJS=open('src/search.js.html').read()
 def footer():
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
-    return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p><p class="eyebrow" style="color:#9a93a3;margin-top:22px">Follow along</p><div class="follow">{links}</div></div>{FOOT_GUIDES()}</div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer>{NAVJS}'''
+    return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p><p class="eyebrow" style="color:#9a93a3;margin-top:22px">Follow along</p><div class="follow">{links}</div></div>{FOOT_GUIDES()}</div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer><dialog class="sdlg" id="sdlg" aria-label="Search guides"><div class="sbox"><div class="srow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sq" type="search" placeholder="Search guides, e.g. arrival card" autocomplete="off" aria-label="Search guides"><button id="sclose" type="button" aria-label="Close search">Close</button></div><div id="sres" class="sres"></div></div></dialog>{NAVJS}{SEARCHJS}'''
 
 def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False,published=None,modified=None):
     url=SITE+path
@@ -136,12 +137,15 @@ def yt(vid,title,start=None):
 
 PUBDATES={'china-arrival-card-alipay':'2026-10-15','china-arrival-card-pc':'2026-10-15','first-time-in-china':'2026-10-15','huangpu-river-night-cruise':'2026-10-15','nanjing-road-shanghai':'2026-10-15','shanghai-circus-world-era-show':'2026-10-15','the-bund-shanghai-at-night':'2026-10-15','china-dos-and-donts':'2026-10-16','china-travel-apps':'2026-10-16','china-visa-free-30-days':'2026-10-17'}  # first commit date of each page in git = go-live date
 GUIDELIST=[]
+SEARCH=[]
 def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None,lift=None,head="",published=None,og_alt=None,shotnote=None):
     assert slug in globals().get("CARD_SLUGS",set()), f"guide {slug!r} is not in CARDS (src/content.py): add it so it shows on the home page, /china/, the menu and the footer"
     published=published or PUBDATES.get(slug)
     path=f"/guides/{slug}/"
     url=SITE+path
     GUIDELIST.append((slug,title,desc,published,checked))
+    _strip=lambda x: re.sub(r'<[^>]+>',' ',html.unescape(str(x)))
+    SEARCH.append({"u":f"/guides/{slug}/","t":title,"d":desc,"k":" ".join([h1,keyword or ""]+[_strip(st[0]) for st in steps]+[_strip(q) for q,a in faq])})
     def _figs(keys):
         if not keys: return ""
         return '<div class="shots">'+"".join(f'<figure><a href="/img/{k}.jpg"><img src="/img/{k}.jpg" alt=""></a><figcaption>{html.escape(IMGREG[k+".jpg"]["cap"])}</figcaption></figure>' for k in keys)+'</div><p class="shotnote">'+(shotnote or 'Screenshots from my own phone. The app is in Chinese, the English labels are mine. Tap a picture to open it larger.')+'</p>'
@@ -220,6 +224,9 @@ exec(open('src/content.py').read())
 _gd=[(pu or ck) for sl,t,d,pu,ck in GUIDELIST]
 _newest=max(_gd) if _gd else TODAY
 PAGES=[(p,(_newest if p in ("/","/china/") else d)) for p,d in PAGES]
+
+# search index for the menu search box
+open('docs/search.json','w').write(json.dumps(sorted(SEARCH,key=lambda x:x['t']),ensure_ascii=False,separators=(',',':')))
 
 # sitemap + robots
 sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+"".join(f'<url><loc>{SITE}{p}</loc><lastmod>{d}</lastmod>'+"".join(f'<image:image><image:loc>{u}</image:loc></image:image>' for u in PAGEIMGS.get(p,[]))+'</url>' for p,d in PAGES)+'</urlset>'
