@@ -484,8 +484,11 @@ p{margin:0}
 .offer.withqr{grid-column:1/-1}
 
 .offers:has(.withqr){grid-template-columns:1fr}
-.offer:not(.pick) .btn{background:#fff;color:var(--ink)!important;border:1.5px solid var(--ink)}
-.offer:not(.pick) .btn:hover{background:var(--mint2)}
+.offer.alt .btn{background:#fff;color:var(--ink)!important;border:1.5px solid var(--ink)}
+.offer.alt .btn:hover{background:var(--mint2)}
+
+.art .gygw{min-height:200px;margin:1.2em 0}
+.art .gygw iframe{max-width:100%;border:0}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}

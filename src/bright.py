@@ -115,7 +115,9 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
             toc.append((idv,_t(m.group(2))))
             if not m.group(1): ex=ex.replace(m.group(0),f'<h2 id="{idv}">{m.group(2)}</h2>',1)
         body.append(ex)
-    if AFFILIATES_LIVE and slug in OFFERS: body.append(offers_b(OFFERS[slug])); toc.append(("book","Where to book"))
+    if AFFILIATES_LIVE and slug in OFFERS: body.append(offers_b(OFFERS[slug],slug)); toc.append(("book",OFFER_HEAD.get(slug,("Where to book",))[0]))
+    if slug in GYG_WIDGET_SLUGS:
+        body.append('<h2 id="more-shanghai">More things to do in Shanghai</h2><p>A live list of Shanghai tours and tickets from GetYourGuide. These are affiliate links: if you book through one, I earn a small commission and you pay the same price. I have not done every one of these, so read the details before you book.</p><div class="gygw">'+GYG_SHANGHAI_WIDGET+'</div>'); toc.append(("more-shanghai","More things to do in Shanghai"))
     body.append(callout("tip",f'Rules change. Everything on this page was checked on {checked} against the sources below. Before you fly, open the official page once more.'))
     body.append('<h2 id="sources">Sources</h2>'); toc.append(("sources","Sources"))
     body.append('<ul class="sources">'+"".join(f'<li><a href="{u}" rel="noopener">{html.escape(n)}</a>{" (official)" if off else ""}</li>' for n,u,off in sources)+'</ul>')
@@ -146,7 +148,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 </div>
 <figure class="polaroid"><img src="/img/{hero_img}.jpg" alt="" data-hero{"" if (gallery and slug not in TEXT_GALLERIES) else " class=\"cover\""}><figcaption>{html.escape(hero_cap)[:60]}</figcaption></figure>
 </div></section>
-<p class="strip">Every price and rule on this page was checked on {checked}.{(" "+AFF_NOTE) if (AFFILIATES_LIVE and slug in OFFERS) else " Nothing here is sponsored."}</p>
+<p class="strip">Every price and rule on this page was checked on {checked}.{(" "+AFF_NOTE) if (AFFILIATES_LIVE and (slug in OFFERS or slug in AFF_INLINE)) else " Nothing here is sponsored."}</p>
 <div class="wrap cols">
 <aside><nav class="toc" id="toc"><b>On this page</b>{toc_html}</nav></aside>
 <article class="art"><details class="mtoc"><summary>On this page</summary>{toc_html}</details>{_stack_tables("".join(body))}</article>
@@ -194,31 +196,53 @@ PARTNERS={
  "getyourguide":dict(name="GetYourGuide",code=None,url="#TODO-getyourguide-affiliate-link",what="Guided tours and skip-the-line entries, with free cancellation on most of them."),
  "trip":dict(name="Trip.com",code=None,url="#TODO-trip-affiliate-link",what="The easiest way to book China high-speed trains and hotels from outside China."),
 }
+KLOOK_CRUISE="https://klook.tpm.li/Gt6dONHf"
+GYG_CRUISE="https://gyg.me/3PFkogxt"
 OFFERS={
- # Only things Natali actually booked. Prices only if she gives them or they are dated in the guide's sources.
+ # Only links Natali gave. "pick"/badge only where she says she booked it. Prices only if she gives them.
  "shanghai-circus-world-era-show":[
   dict(k="Klook",price=None,title="ERA: Intersection of Time, Shanghai Circus World",
        text="This is where we booked our ERA tickets. You choose a zone and the date, and the ticket comes through Klook. The zones and how to pick one are explained in the steps below.",
        url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="See ERA tickets on Klook",
-       qr="klook-era-shanghai-circus-world-tickets-qr-code"),
+       qr="klook-era-shanghai-circus-world-tickets-qr-code",qralt="QR code for the Klook ERA ticket page"),
   dict(k="GetYourGuide",price=None,title="Shanghai: ERA Circus Show Ticket",
        text="ERA tickets on GetYourGuide. Pick your date and zone, and check the price for your date before you pay. The zones and how to pick one are explained in the steps below.",
-       url="https://gyg.me/kRBIqnuP",cta="See ERA tickets on GetYourGuide"),
+       url="https://gyg.me/kRBIqnuP",cta="See ERA tickets on GetYourGuide",alt=True),
+ ],
+ "huangpu-river-night-cruise":[
+  dict(k="Klook",price=None,title="Huangpu River Night Cruise Experience",
+       text="The night cruise on Klook. Check which pier the ticket is for before you book, because a ticket only works at its own pier (step 1 below).",
+       url=KLOOK_CRUISE,cta="See the night cruise on Klook",
+       qr="klook-huangpu-river-night-cruise-qr-code",qralt="QR code for the Klook Huangpu River night cruise page"),
+  dict(k="GetYourGuide",price=None,title="Shanghai: night experience with city views and buffet dining",
+       text="A Shanghai night out with city views and a buffet dinner, on GetYourGuide. Read what is included, the meeting point and the time for your date before you pay.",
+       url=GYG_CRUISE,cta="See it on GetYourGuide",alt=True,
+       qr="getyourguide-shanghai-night-buffet-dining-qr-code",qralt="QR code for the GetYourGuide Shanghai night experience page"),
  ],
 }
-def offers_b(items):
+OFFER_HEAD={
+ "shanghai-circus-world-era-show":("Where we booked our tickets",
+   "We booked ERA through Klook, and this is the link I use. The same show is on GetYourGuide too. Both are affiliate links: if you book through one, I earn a small commission and you pay the same price. Ticket prices change by date and zone, so check today's price on the page."),
+ "huangpu-river-night-cruise":("Where to book the cruise",
+   "Two places to book. Both are affiliate links: if you book through one, I earn a small commission and you pay the same price. Prices change by date and boat, so check today's price on the page."),
+}
+# guides that mention the cruise in passing and carry the same links inline (they show the affiliate note too)
+AFF_INLINE={"the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show"}
+# GetYourGuide city widget (Shanghai = location 178), shown on the Shanghai guides. Script is in every page head (build.py).
+GYG_WIDGET_SLUGS={"the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show"}
+GYG_SHANGHAI_WIDGET='<div data-gyg-href="https://widget.getyourguide.com/default/city.frame" data-gyg-location-id="178" data-gyg-locale-code="en-US" data-gyg-widget="city" data-gyg-partner-id="BKZ1KWD"></div>'
+def offers_b(items, slug=None):
     cards=""
     for o in items:
         price=f'<div class="price">{html.escape(o["price"])}</div>' if o.get("price") else ''
-        qr=(f'<figure class="qr"><img src="/img/{o["qr"]}.jpg" alt="QR code for the Klook ERA ticket page" width="180" height="180" loading="lazy"><figcaption>On a computer? Scan this with your phone camera to open the same page.</figcaption></figure>') if o.get("qr") else ''
-        cards+=(f'<div class="offer{" pick" if o.get("pick") else ""}{" withqr" if qr else ""}">'
+        qr=(f'<figure class="qr"><img src="/img/{o["qr"]}.jpg" alt="{html.escape(o.get("qralt","QR code"))}" width="180" height="180" loading="lazy"><figcaption>On a computer? Scan this with your phone camera to open the same page.</figcaption></figure>') if o.get("qr") else ''
+        cards+=(f'<div class="offer{" pick" if o.get("pick") else ""}{" alt" if o.get("alt") else ""}{" withqr" if qr else ""}">'
                 f'{"<span class=\"badge\">"+html.escape(o.get("badge","What I booked"))+"</span>" if o.get("pick") else ""}'
                 f'<div class="otext"><span class="k">{html.escape(o["k"])}</span>{price}<b>{html.escape(o["title"])}</b><p>{html.escape(o["text"])}</p>'
                 f'<a class="btn" href="{o["url"]}" rel="sponsored noopener" target="_blank">{html.escape(o.get("cta","Check price on "+o["k"]))}</a>'
                 f'<span class="via">Affiliate link: I earn a small commission if you book, at no extra cost to you.</span></div>{qr}</div>')
-    return (f'<h2 id="book">Where we booked our tickets</h2><p>We booked ERA through Klook, and this is the link I use. The same show is on GetYourGuide too. '
-            f'Both are affiliate links: if you book through one, I earn a small commission and you pay the same price. Ticket prices change by date and zone, so check today\'s price on the page.</p>'
-            f'<div class="offers">{cards}</div>')
+    h,t=OFFER_HEAD.get(slug,("Where to book","These are affiliate links: if you book through one, I earn a small commission and you pay the same price."))
+    return f'<h2 id="book">{html.escape(h)}</h2><p>{html.escape(t)}</p><div class="offers">{cards}</div>'
 
 def partner_b(key, SOC):
     p=PARTNERS[key]; n=html.escape(p["name"])

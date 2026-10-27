@@ -149,3 +149,5 @@ a("huangpu-river-lujiazui-skyline-wide-night-view.jpg","Wide night view of the L
 a("huangpu-river-blue-lit-towers-from-the-water.jpg","Blue and gold lit towers on the Pudong bank seen from the Huangpu river at night")
 
 a("klook-era-shanghai-circus-world-tickets-qr-code.jpg","QR code that opens the Klook page for ERA tickets at Shanghai Circus World","Scan with your phone camera to open the same Klook page")
+a("klook-huangpu-river-night-cruise-qr-code.jpg","QR code that opens the Klook page for the Huangpu River night cruise","Scan with your phone camera to open the same Klook page")
+a("getyourguide-shanghai-night-buffet-dining-qr-code.jpg","QR code that opens the GetYourGuide page for a Shanghai night experience with city views and buffet dining","Scan with your phone camera to open the same GetYourGuide page")
