@@ -21,7 +21,7 @@ def _t(x): return re.sub(r'<[^>]+>','',html.unescape(str(x)))
 
 def nav_b(SOC, NAV_SHOP):
     return f'''<header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/#december">December trip</a><a href="/about/">About</a></nav>
+<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/#december">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog">{IC["search"]}</button><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu">{IC["menu"]}</button></div></div></header>'''
 
 def footer_b(SOC, FOOT_GROUPS, CARDS):
@@ -31,7 +31,7 @@ def footer_b(SOC, FOOT_GROUPS, CARDS):
         sl=[x for x in l if x in by]
         cols+=f'<div><h3>{html.escape(h)}</h3><nav>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</nav></div>'
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
-    return f'''<footer class="ft"><div class="wrap"><div class="grid"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Real first-timer China. Real screenshots. Real prices, with the date I checked them.</p><h3 style="margin-top:22px">Follow along</h3><nav>{links}</nav></div>{cols}<div class="stamp">Scratch to reveal<span>Roam</span>to discover</div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span><a href="/about/">About</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/klook/">Klook</a> · <a href="/feed.xml">RSS</a> · scratchandroam@gmail.com</span></div></div></footer>'''
+    return f'''<footer class="ft"><div class="wrap"><div class="grid"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Real first-timer China. Real screenshots. Real prices, with the date I checked them.</p><h3 style="margin-top:22px">Follow along</h3><nav>{links}</nav></div>{cols}<div class="stamp">Scratch to reveal<span>Roam</span>to discover</div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span><a href="/about/">About</a> · <a href="/travel-deals/">Travel deals</a> · <a href="/klook/">Klook</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/feed.xml">RSS</a> · scratchandroam@gmail.com</span></div></div></footer>'''
 
 NAVJS_B='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(b){b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});}var L=[].slice.call(document.querySelectorAll(".toc a[href^=\\"#\\"]"));if(L.length&&"IntersectionObserver" in window){var map={};L.forEach(function(a){map[a.getAttribute("href").slice(1)]=a;});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){L.forEach(function(a){a.classList.remove("on")});var a=map[e.target.id];if(a)a.classList.add("on");}});},{rootMargin:"-20% 0px -70% 0px"});Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});L[0].classList.add("on");}})();</script>'
 
@@ -261,11 +261,11 @@ def disclosure_b(SOC):
 <section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Affiliate disclosure</span></nav><p class="eyebrow">Affiliate disclosure</p><h1>How affiliate links work on this site</h1><p class="lede">Some links on Scratch &amp; Roam are affiliate links. Here is what that means for you, in plain words.</p></div></section>
 <section class="sec" style="padding-top:10px"><div class="wrap"><article class="art" style="max-width:720px">
 <h2 style="margin-top:0">What an affiliate link is</h2><p>When you book through one of my affiliate links, the booking site pays me a small commission. You pay the same price as you would going to the site yourself. It is one of the ways I keep the guides free to read.</p>
-<h2>Which links are affiliate links</h2><p>Links to Klook and GetYourGuide on this site are affiliate links. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p><p>Some Shanghai guides also show a box of Shanghai tours from GetYourGuide. Those are affiliate links too, and I have not done every tour in that box, so read the details before you book.</p>
+<h2>Which links are affiliate links</h2><p>Links to Klook, GetYourGuide, Tiqets, Airalo, Yesim, Saily, Welcome Pickups, GetTransfer and Kiwi.com on this site are affiliate links. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p><p>Some Shanghai guides also show a box of Shanghai tours from GetYourGuide. Those are affiliate links too, and I have not done every tour in that box, so read the details before you book.</p>
 <h2>What we booked ourselves</h2><p>When we booked something ourselves, the card says so, for example "Where we booked" on the ERA show tickets. When a card does not say that, it is an option I am sharing, not something we have tried.</p>
 <h2>What it does not change</h2><p>No company pays me to write a guide or to say good things. The steps, the prices and the rules in each guide come from our own trips and from the sources listed at the bottom of each page, with the date I checked them.</p>
-<h2>Tracking</h2><p>To count bookings that come from my links, pages on this site load small scripts from GetYourGuide and Travelpayouts (the network that runs my Klook links). They are used to match a booking to my link.</p>
-<h2>Questions</h2><p>Email me at <b>scratchandroam@gmail.com</b>. My Klook link and what we booked there is on the <a href="/klook/">Klook page</a>.</p>
+<h2>Tracking</h2><p>To count bookings that come from my links, pages on this site load small scripts from GetYourGuide and Travelpayouts (the network that runs most of my partner links). They are used to match a booking to my link.</p>
+<h2>Questions</h2><p>Email me at <b>scratchandroam@gmail.com</b>. All my partner links are on the <a href="/travel-deals/">Travel deals</a> page, and what we booked on Klook is on the <a href="/klook/">Klook page</a>.</p>
 </article></div></section>
 </main>'''
 
@@ -324,3 +324,45 @@ def china_b(*, CARDS, SOC, QCARDS, QS_CHINA, n_guides):
 <section class="sec" id="december"><div class="wrap"><div class="sechead"><p class="eyebrow">Still under the foil</p><h2>December: Chengdu, Chongqing, Xi'an</h2><p>Pandas, hotpot, a metro that runs through a building, and the Terracotta Army. The guides from this trip land here first, then the videos.</p><a class="btn" style="margin-top:18px" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">Subscribe to catch them</a></div></div></section>
 {band_b(SOC)}
 </main>'''
+
+# ===== travel deals (all partner links in one place) =====
+# Only links Natali gave. Descriptions say what the company does; "booked" only where she said she booked.
+DEALS=[
+ dict(cat="Tours and tickets",name="Klook",url="https://klook.tpm.li/jfysgwVe",qr="klook-scratch-and-roam-link-qr-code",booked=True,
+      text="Tickets for attractions, shows, tours and day trips, with a lot of choice in Asia. We booked our ERA show tickets in Shanghai here.",more=("/klook/","What we booked on Klook")),
+ dict(cat="Tours and tickets",name="Tiqets",url="https://tiqets.tpm.li/nIjCsWXe",qr="tiqets-travel-deal-link-qr-code",
+      text="Tickets for museums and attractions. The link opens Tiqets on a city page; switch the city at the top of their site."),
+ dict(cat="eSIM and data",name="Airalo",url="https://airalo.tpm.li/2QR6sBuX",qr="airalo-travel-deal-link-qr-code",
+      text="eSIM data plans for travel, bought and installed in an app. The link opens the Airalo app in the App Store."),
+ dict(cat="eSIM and data",name="Yesim",url="https://yesim.tpm.li/AfoDqUbw",qr="yesim-travel-deal-link-qr-code",
+      text="eSIM data plans for travel, for one country or a region."),
+ dict(cat="eSIM and data",name="Saily",url="https://saily.tpm.li/r3wbWW2R",
+      text="eSIM data plans for travel, from Nord Security, the company behind NordVPN."),
+ dict(cat="Airport transfers",name="Welcome Pickups",url="https://tpm.li/IwbyltvW",qr="welcome-pickups-travel-deal-link-qr-code",
+      text="Pre-booked airport and city transfers with a driver who meets you on arrival."),
+ dict(cat="Airport transfers",name="GetTransfer",url="https://gettransfer.tpm.li/G1nHwTwh",
+      text="Book a transfer or ride by entering your route, then pick from the offers drivers and companies send you."),
+ dict(cat="Flights",name="Kiwi.com",url="https://kiwi.tpm.li/hGsxQiah",qr="kiwi-travel-deal-link-qr-code",
+      text="Flight search and booking, including routes that combine different airlines. The link opens a sample route page; type your own route."),
+]
+def deals_b(SOC):
+    cats=[]
+    for d in DEALS:
+        if d["cat"] not in cats: cats.append(d["cat"])
+    chips='<button type="button" class="chip on" data-f="all">All</button>'+"".join(f'<button type="button" class="chip" data-f="{html.escape(c)}">{html.escape(c)}</button>' for c in cats)
+    cards=""
+    for d in DEALS:
+        qr=f'<img class="dqr" src="/img/{d["qr"]}.jpg" alt="QR code for {html.escape(d["name"])}" width="110" height="110" loading="lazy">' if d.get("qr") else ''
+        badge='<span class="dbadge booked">We booked here</span>' if d.get("booked") else '<span class="dbadge">Link only</span>'
+        more=f'<a class="dmore" href="{d["more"][0]}">{html.escape(d["more"][1])} →</a>' if d.get("more") else ''
+        cards+=f'''<article class="deal" data-cat="{html.escape(d["cat"])}"><div class="dtop"><div><span class="dcat">{html.escape(d["cat"])}</span><h3>{html.escape(d["name"])}</h3>{badge}</div>{qr}</div><p>{html.escape(d["text"])}</p><div class="dcode"><span>Code</span><b>No code needed</b></div><div class="dact"><a class="btn" href="{d["url"]}" rel="sponsored noopener" target="_blank">Open {html.escape(d["name"])}</a>{more}</div></article>'''
+    return f'''<main>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Travel deals</span></nav><p class="eyebrow">Travel deals</p><h1>My travel links, all in one place</h1><p class="lede">Tickets, eSIMs, airport transfers and flights. These are my partner links: if you book through one, I earn a small commission and you pay the same price. Each card says whether we booked there ourselves.</p></div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+<div class="dnote"><b>Before you click</b><p>None of these have a discount code yet. When I get one, it goes on the card. For China, read my <a href="/guides/china-travel-apps/">China travel apps guide</a> before you buy an eSIM: check that the plan routes data outside China, or Google and WhatsApp will not work. <a href="/affiliate-disclosure/">How affiliate links work on this site</a>.</p></div>
+<div class="chips" role="group" aria-label="Filter by category">{chips}</div>
+<div class="deals" id="deals">{cards}</div>
+</div></section>
+{band_b(SOC)}
+</main>
+<script>(function(){{var b=document.querySelectorAll(".chips .chip"),c=document.querySelectorAll(".deal");b.forEach(function(x){{x.addEventListener("click",function(){{b.forEach(function(y){{y.classList.toggle("on",y===x)}});var f=x.getAttribute("data-f");c.forEach(function(d){{d.hidden=!(f==="all"||d.getAttribute("data-cat")===f)}})}})}})}})();</script>'''

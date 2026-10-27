@@ -20,7 +20,7 @@ FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="sty
 CSS=open('src/site.css').read()
 BRIGHT=os.environ.get('THEME','bright')=='bright'  # set THEME=legacy for the old dark build
 if BRIGHT:
-    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b
+    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b
     CSS=open('src/bright.css').read()+open('src/legacy-boards.css').read()
     FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">'
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
@@ -265,6 +265,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,
 exec(open('src/content.py').read())
 if BRIGHT:
     if PARTNER_PAGES: page('/klook/','Klook link: what we booked in China','My Klook link, and the China tickets on this site you can book there, including the ERA show we booked in Shanghai.',partner_b('klook',SOC))
+    page('/travel-deals/','Travel deals: my partner links','My travel partner links in one place: tickets, eSIMs, airport transfers and flights, and which ones we booked ourselves.',deals_b(SOC))
     page('/affiliate-disclosure/','Affiliate disclosure','How affiliate links work on Scratch & Roam: which links earn a commission, what we booked ourselves, and what it does not change.',disclosure_b(SOC))
     page('/where-ive-been/',"Where I've been",'Every trip so far, the guides from each, and the videos behind them.',where_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS)))
 
