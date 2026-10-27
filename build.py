@@ -92,6 +92,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 <meta name="twitter:image" content="{img}">
 <meta name="twitter:image:alt" content="{html.escape(OGALT.get(img.rsplit('/',1)[-1],title))}">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name='impact-site-verification' value='7fbe3561-f8fe-44da-8eab-3d96083e40e2'>
 <link rel="alternate" type="application/rss+xml" title="Scratch &amp; Roam guides" href="/feed.xml">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 {FONTS}
