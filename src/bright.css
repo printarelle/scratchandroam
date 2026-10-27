@@ -451,3 +451,11 @@ p{margin:0}
 
 .art .gygw{min-height:200px;margin:1.2em 0}
 .art .gygw iframe{max-width:100%;border:0}
+
+.plink{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:32px;align-items:center;text-align:left;background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:var(--sh)}
+.plink .acts{justify-content:flex-start}
+.plink small{margin:0}
+.pqr{margin:0;text-align:center}
+.pqr img{width:200px;height:200px;margin:0 auto;border:1px solid var(--line);border-radius:10px;object-fit:contain}
+.pqr figcaption{font:400 12px/1.4 var(--b);color:var(--mute);margin-top:6px}
+@media(max-width:700px){.plink{grid-template-columns:1fr;padding:22px}.pqr{display:none}}
