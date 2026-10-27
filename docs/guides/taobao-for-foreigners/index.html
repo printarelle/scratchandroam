@@ -251,7 +251,7 @@ p{margin:0}
 /* home */
 .hhero{padding:56px 0 48px}
 .hhero .wrap{display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:40px;align-items:center}
-.hhero h1{font-size:clamp(40px,5.4vw,66px);color:var(--navy);line-height:1;margin:18px 0 22px}
+.hhero h1{font-size:clamp(34px,4.3vw,52px);color:var(--navy);line-height:1;margin:18px 0 22px}
 .hhero .lede{font:400 17px/1.65 var(--b);color:var(--ink2);max-width:46ch;margin-bottom:28px}
 .hhero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
 .hhero .small{font:400 13px var(--b);color:var(--blue);display:inline-flex;gap:8px;align-items:center;text-decoration:none}
@@ -542,6 +542,29 @@ p{margin:0}
 .amz p{font-size:14px!important;line-height:1.5;color:var(--ink2)}
 .amz .btn{margin-top:auto;align-self:flex-start;padding:9px 14px;font-size:11px;background:#fff;color:var(--ink)!important;border:1.5px solid var(--ink)}
 .amz .btn:hover{background:var(--mint2)}
+/* #Ad label (CCPC/ASAI influencer guidance: affiliate content labelled #Ad) */
+.adl{display:inline-block;font:800 11px var(--b);letter-spacing:.06em;background:var(--coral);color:#fff;padding:3px 8px;border-radius:6px;margin-right:6px;vertical-align:1px;text-transform:none}
+/* tiles for places with no photos yet (never show a photo from another place) */
+.noimg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:repeating-linear-gradient(135deg,var(--mint) 0 14px,#fff 14px 28px)}
+.dest .noimg{position:relative;aspect-ratio:3/4}
+.noimg span{font-size:64px;line-height:1}
+.noimg small{font:700 11px var(--b);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.dest .noimg small{color:var(--ink2);margin:0}
+.cc .top:has(.noimg) h2{color:var(--navy);text-shadow:none}
+/* compact pick inside a step */
+.spick{display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding:14px 16px;border:1.5px solid var(--coral);border-radius:12px;background:#fff}
+.spick>div{min-width:0;flex:1}
+.spick p{margin:6px 0 10px;font:400 14px/1.5 var(--b)}
+.spick .dcode{margin:0 0 4px}
+.spick .btn{margin-top:8px}
+.spick .smore{font:700 13px var(--b);color:var(--blue);margin-left:10px;white-space:nowrap}
+/* travel deals: what I actually use */
+.pkh{font-size:26px;margin:6px 0 14px}
+.pks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:30px}
+.pk{display:block;text-decoration:none;color:var(--ink);background:#fff;border:2px solid var(--blue);border-radius:12px;padding:14px 16px}
+.pk b{display:block;font:400 22px var(--d)}
+.pk span{font:500 13px var(--b);color:var(--ink2)}
+.cc .noimg span,.cc .noimg small{display:none}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
@@ -665,7 +688,7 @@ p{margin:0}
 <div class="author"><img src="/img/natali-portrait-at-her-desk.jpg" alt="Natali, the author, taking a selfie at her desk with shelves, plants and a printer behind her" width="900" height="900" loading="lazy" decoding="async"><div><b>By Natali</b><p>A maker from Ireland who films her trips and writes down the parts nobody explains. First-timer China, with the screenshots to prove it.</p></div></div>
 <p class="dates">Last updated: 2026-10-17<br>Published: 2026-10-17</p>
 </div>
-<figure class="polaroid"><img src="/img/the-bund-oriental-pearl-tower-from-the-promenade.jpg" class="cover" alt="The Oriental Pearl Tower lit up across the Huangpu river, seen from the Bund promenade at night" width="1050" height="1400" fetchpriority="high" decoding="async"><figcaption>Shanghai, October 2026</figcaption></figure>
+<figure class="polaroid"><img src="/img/the-bund-oriental-pearl-tower-from-the-promenade.jpg" class="cover" alt="The Oriental Pearl Tower lit up across the Huangpu river, seen from the Bund promenade at night" width="1050" height="1400" fetchpriority="high" decoding="async"><figcaption>Shanghai, our own photo</figcaption></figure>
 </div></section>
 <p class="strip">Every price and rule on this page was checked on 2026-10-17. Nothing here is sponsored.</p>
 <div class="wrap cols">

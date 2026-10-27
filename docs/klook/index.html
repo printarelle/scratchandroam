@@ -249,7 +249,7 @@ p{margin:0}
 /* home */
 .hhero{padding:56px 0 48px}
 .hhero .wrap{display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:40px;align-items:center}
-.hhero h1{font-size:clamp(40px,5.4vw,66px);color:var(--navy);line-height:1;margin:18px 0 22px}
+.hhero h1{font-size:clamp(34px,4.3vw,52px);color:var(--navy);line-height:1;margin:18px 0 22px}
 .hhero .lede{font:400 17px/1.65 var(--b);color:var(--ink2);max-width:46ch;margin-bottom:28px}
 .hhero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
 .hhero .small{font:400 13px var(--b);color:var(--blue);display:inline-flex;gap:8px;align-items:center;text-decoration:none}
@@ -540,6 +540,29 @@ p{margin:0}
 .amz p{font-size:14px!important;line-height:1.5;color:var(--ink2)}
 .amz .btn{margin-top:auto;align-self:flex-start;padding:9px 14px;font-size:11px;background:#fff;color:var(--ink)!important;border:1.5px solid var(--ink)}
 .amz .btn:hover{background:var(--mint2)}
+/* #Ad label (CCPC/ASAI influencer guidance: affiliate content labelled #Ad) */
+.adl{display:inline-block;font:800 11px var(--b);letter-spacing:.06em;background:var(--coral);color:#fff;padding:3px 8px;border-radius:6px;margin-right:6px;vertical-align:1px;text-transform:none}
+/* tiles for places with no photos yet (never show a photo from another place) */
+.noimg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:repeating-linear-gradient(135deg,var(--mint) 0 14px,#fff 14px 28px)}
+.dest .noimg{position:relative;aspect-ratio:3/4}
+.noimg span{font-size:64px;line-height:1}
+.noimg small{font:700 11px var(--b);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.dest .noimg small{color:var(--ink2);margin:0}
+.cc .top:has(.noimg) h2{color:var(--navy);text-shadow:none}
+/* compact pick inside a step */
+.spick{display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding:14px 16px;border:1.5px solid var(--coral);border-radius:12px;background:#fff}
+.spick>div{min-width:0;flex:1}
+.spick p{margin:6px 0 10px;font:400 14px/1.5 var(--b)}
+.spick .dcode{margin:0 0 4px}
+.spick .btn{margin-top:8px}
+.spick .smore{font:700 13px var(--b);color:var(--blue);margin-left:10px;white-space:nowrap}
+/* travel deals: what I actually use */
+.pkh{font-size:26px;margin:6px 0 14px}
+.pks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:30px}
+.pk{display:block;text-decoration:none;color:var(--ink);background:#fff;border:2px solid var(--blue);border-radius:12px;padding:14px 16px}
+.pk b{display:block;font:400 22px var(--d)}
+.pk span{font:500 13px var(--b);color:var(--ink2)}
+.cc .noimg span,.cc .noimg small{display:none}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
@@ -653,7 +676,7 @@ p{margin:0}
 <nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/where-ive-been/">Where I've been</a><a href="/#december">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button><a class="btn" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></div></header>
 <main>
-<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Klook</span></nav><p class="eyebrow">Travel deals</p><h1>Klook: my link, and what we booked</h1><p class="lede">We booked our ERA show tickets in Shanghai on Klook. This page has my Klook link, and the things on this site you can book there, each with the guide that explains it.</p></div></section>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Klook</span></nav><p class="eyebrow"><span class="adl">#Ad</span> Travel deals</p><h1>Klook: my link, and what we booked</h1><p class="lede">We booked our ERA show tickets in Shanghai on Klook. This page has my Klook link, and the things on this site you can book there, each with the guide that explains it.</p></div></section>
 <section class="pcode"><div class="wrap"><div class="plink"><div><h2>Open Klook with my link</h2><p>It opens the normal Klook site. If you book through it, I earn a small commission and you pay the same price.</p><div class="acts"><a class="btn" href="https://klook.tpm.li/jfysgwVe" rel="sponsored noopener" target="_blank">Open Klook</a><a class="btn ghost" href="/china/">See the China guides</a></div><small>Affiliate link. <a href="/affiliate-disclosure/">How affiliate links work on this site</a>.</small></div><figure class="pqr"><img src="/img/klook-scratch-and-roam-link-qr-code.jpg" width="200" height="200" alt="QR code that opens Klook through the Scratch and Roam link" loading="lazy" decoding="async"><figcaption>On a computer? Scan with your phone camera.</figcaption></figure></div></div></section>
 <section class="sec mint"><div class="wrap"><div class="sechead left"><div><h2>On Klook, from my guides</h2><p>Each card says whether we booked it ourselves. Read the guide first: it has the pier, the zone, the times and the things to check.</p></div></div><div class="offers"><div class="offer pick"><span class="badge">Where we booked</span><div class="otext"><span class="k">Shanghai Circus World ERA show</span><b>ERA: Intersection of Time, Shanghai Circus World</b><p>This is where we booked our ERA tickets. You choose a zone and the date, and the ticket comes through Klook. The zones and how to pick one are explained in my guide.</p><a class="btn" href="https://klook.tpm.li/YtyjQpDu" rel="sponsored noopener" target="_blank">See ERA tickets on Klook</a><span class="via"><a href="/guides/shanghai-circus-world-era-show/">Read my guide first</a></span></div></div><div class="offer"><div class="otext"><span class="k">Huangpu River night cruise</span><b>Huangpu River Night Cruise Experience</b><p>The night cruise on Klook. Check which pier the ticket is for before you book, because a ticket only works at its own pier (my guide explains the piers).</p><a class="btn" href="https://klook.tpm.li/Gt6dONHf" rel="sponsored noopener" target="_blank">See the night cruise on Klook</a><span class="via"><a href="/guides/huangpu-river-night-cruise/">Read my guide first</a></span></div></div></div></div></section>
 <section class="band"><div class="wrap"><div class="bcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><h2>Planning a China trip? Start with the arrival card.</h2><p>Every guide here is dated and rechecked against the official source. Start with the two things that catch first-timers out: the arrival card and Alipay. Save the checklists on Pinterest so they are there when you pack.</p><div class="acts"><a class="btn" href="/guides/china-arrival-card-pc/">Arrival card, step by step</a><a class="btn ghost" href="/guides/first-time-in-china/">13 things before you fly</a></div><small>No sign-up, no newsletter. Just the guides.</small></div></div></section>

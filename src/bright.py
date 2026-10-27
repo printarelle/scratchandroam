@@ -83,7 +83,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     cover=by[slug]["img"]
     CLEAN=["the-bund-pudong-skyline-and-shanghai-tower-at-night","nanjing-road-curved-corner-building-neon-lights","huangpu-river-pudong-skyline-with-gold-reflections","the-bund-peace-hotel-green-roofs-lit-at-night","the-bund-pink-lit-pearl-tower-over-the-crowd","the-bund-oriental-pearl-tower-from-the-promenade"]
     hero_img=gallery[0][0] if gallery else CLEAN[sum(map(ord,slug))%len(CLEAN)]
-    hero_cap=(IMGREG.get(hero_img+".jpg",{}).get("cap") or "") if gallery else "Shanghai, October 2026"
+    hero_cap=(IMGREG.get(hero_img+".jpg",{}).get("cap") or "") if gallery else "Shanghai, our own photo"
     # body pieces
     toc=[]
     body=[]
@@ -105,8 +105,9 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
         body.append('<h2 id="quick">Quick answers</h2>'); toc.append(("quick","Quick answers"))
         body.append('<div class="faq">'+"".join(f'<div><h3>{html.escape(q)}</h3><p>{a}</p></div>' for q,a in faq)+'</div>')
     if steps:
+        _pk=STEP_PICKS.get(slug,{}) if AFFILIATES_LIVE else {}
         body.append(f'<h2 id="steps">{html.escape(steps_title)}</h2>'); toc.append(("steps",steps_title))
-        body.append('<ol class="steps">'+"".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p>{figs(s[2] if len(s)>2 else None)}</div></li>' for i,s in enumerate(steps))+'</ol>')
+        body.append('<ol class="steps">'+"".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p>{figs(s[2] if len(s)>2 else None)}{_pk.get(i+1,"")}</div></li>' for i,s in enumerate(steps))+'</ol>')
     if extra:
         # lift h2 ids out of extra for the toc
         ex=extra
@@ -175,8 +176,8 @@ def home_b(*, CARDS, SOC, n_guides):
     before=[c for c in CARDS if c["sec"] in ("before","shop") and c not in start]
     places=[c for c in CARDS if c["sec"]=="place"]
     dests=f'''<a class="dest" href="/china/"><img src="/img/the-bund-pink-lit-pearl-tower-over-the-crowd.jpg" alt=""><div class="in"><h3>Shanghai</h3><small>{n_guides} guides</small><p>Two trips: Christmas 2025 and Easter 2026. The arrival card, Alipay, the metro QR, the Bund at night, the river cruise and the ERA show.</p></div></a>
-<a class="dest soon" href="/#december"><img src="/img/huangpu-river-pudong-skyline-with-gold-reflections.jpg" alt=""><div class="in"><h3>Chengdu, Chongqing, Xi'an</h3><small>December 2026, filming</small><p>Trains between the three, the metro cards, and the first pandas. Guides go up as I check each one.</p></div></a>
-<a class="dest soon" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener"><img src="/img/the-bund-peace-hotel-green-roofs-lit-at-night.jpg" alt=""><div class="in"><h3>Japan</h3><small>Next trip</small><p>The next country on the list. Subscribe and the first guide lands in your feed.</p></div></a>'''
+<a class="dest soon" href="/#december"><div class="noimg"><span>🇨🇳</span><small>Photos in December</small></div><div class="in"><h3>Chengdu, Chongqing, Xi'an</h3><small>December 2026, filming</small><p>Trains between the three, the metro cards, and the first pandas. Guides go up as I check each one.</p></div></a>
+<a class="dest soon" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener"><div class="noimg"><span>🇯🇵</span><small>Photos coming</small></div><div class="in"><h3>Japan</h3><small>Been there, guides coming</small><p>I have been to Japan too. Those guides come after the China ones. Subscribe and they land in your feed.</p></div></a>'''
     return f'''<main>
 <section class="hhero"><div class="wrap"><div><p class="eyebrow">Real first-timer China. Real screenshots.</p><h1>China travel guides, step by step, from someone who just did it</h1><p class="lede">I'm Natali, a maker from Ireland. I filmed my first trip to China and wrote down every form, app and queue that nobody explains, with the date I checked each one.</p><div class="acts"><a class="btn" href="/guides/china-arrival-card-pc/">Start with the arrival card</a><a class="btn ghost" href="/china/">{IC["pin"]} Browse China guides</a></div><a class="small" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">{IC["mail"]} Watch the videos behind the guides</a></div>
 <div class="collage"><figure><img src="/img/the-bund-gold-lit-historic-buildings-at-night.jpg" alt=""><figcaption>The Bund</figcaption></figure><figure><img src="/img/nanjing-road-curved-corner-building-neon-lights.jpg" alt=""><figcaption>Nanjing Road</figcaption></figure></div></div></section>
@@ -193,7 +194,7 @@ def home_b(*, CARDS, SOC, n_guides):
 # ===== affiliate / partner components =====
 AFFILIATES_LIVE=True   # per guide: only guides listed in OFFERS show booking cards and the disclosure
 PARTNER_PAGES=True     # /klook/ live (her general Klook link); add more partner pages to PARTNERS when she sends links
-AFF_NOTE='This page has affiliate links. If you book through one I earn a small commission at no extra cost to you. I always say which ones we booked ourselves. <a href="/affiliate-disclosure/">Affiliate disclosure</a>.'
+AFF_NOTE='<b class="adl">#Ad</b> This page has affiliate links. If you book through one I earn a small commission at no extra cost to you. I always say which ones we booked ourselves. <a href="/affiliate-disclosure/">Affiliate disclosure</a>.'
 # Placeholder partner links. Replace "#TODO" with the real affiliate URLs / codes.
 PARTNERS={
  "klook":dict(name="Klook",code=None,url="https://klook.tpm.li/jfysgwVe",qr="klook-scratch-and-roam-link-qr-code"),
@@ -254,7 +255,7 @@ def partner_b(key, SOC):
     titles={"shanghai-circus-world-era-show":"Shanghai Circus World ERA show","huangpu-river-night-cruise":"Huangpu River night cruise"}
     cards="".join(f'<div class="offer{" pick" if o.get("pick") else ""}">{"<span class=\"badge\">"+html.escape(o.get("badge",""))+"</span>" if o.get("pick") else ""}<div class="otext"><span class="k">{html.escape(titles.get(s_,s_))}</span><b>{html.escape(o["title"])}</b><p>{html.escape(o["text"].replace(" in the steps below"," in my guide").replace(" (step 1 below)"," (my guide explains the piers)"))}</p><a class="btn" href="{o["url"]}" rel="sponsored noopener" target="_blank">{html.escape(o.get("cta","See it on "+n))}</a><span class="via"><a href="/guides/{s_}/">Read my guide first</a></span></div></div>' for s_,o in items)
     return f'''<main>
-<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>{n}</span></nav><p class="eyebrow">Travel deals</p><h1>{n}: my link, and what we booked</h1><p class="lede">We booked our ERA show tickets in Shanghai on {n}. This page has my {n} link, and the things on this site you can book there, each with the guide that explains it.</p></div></section>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>{n}</span></nav><p class="eyebrow"><span class="adl">#Ad</span> Travel deals</p><h1>{n}: my link, and what we booked</h1><p class="lede">We booked our ERA show tickets in Shanghai on {n}. This page has my {n} link, and the things on this site you can book there, each with the guide that explains it.</p></div></section>
 <section class="pcode"><div class="wrap"><div class="plink"><div><h2>Open {n} with my link</h2><p>It opens the normal {n} site. If you book through it, I earn a small commission and you pay the same price.</p>{code}<div class="acts"><a class="btn" href="{p["url"]}" rel="sponsored noopener" target="_blank">Open {n}</a><a class="btn ghost" href="/china/">See the China guides</a></div><small>Affiliate link. <a href="/affiliate-disclosure/">How affiliate links work on this site</a>.</small></div>{qr}</div></div></section>
 <section class="sec mint"><div class="wrap"><div class="sechead left"><div><h2>On {n}, from my guides</h2><p>Each card says whether we booked it ourselves. Read the guide first: it has the pier, the zone, the times and the things to check.</p></div></div><div class="offers">{cards}</div></div></section>
 {band_b(SOC)}
@@ -282,10 +283,11 @@ def where_b(*, CARDS, SOC, n_guides):
     vids="".join(f'<a class="vid" href="https://www.youtube.com/watch?v={v}" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/{v}/hqdefault.jpg" alt="" loading="lazy"><div class="play"><span>&#9654;</span></div></div><div class="in"><span class="k">YouTube</span><h3>{html.escape(t)}</h3><small>{m}</small></div></a>' for v,t,m in VIDEOS)
     def visit(i,l,v): return f'<div>{IC[i]}<span><small>{l}</small>{v}</span></div>'
     def cc(img,flag,name,trips,days,desc,explore,count,first,last,soon=False):
-        return f'''<article class="cc{" soon" if soon else ""}"><div class="top"><img src="/img/{img}.jpg" alt=""><span class="flag">{flag}</span><h2>{name}</h2><div class="pills"><span>{IC["plane"]}{trips}</span><span>{IC["pin"]}{days}</span></div></div><div class="body"><p>{desc}</p><a class="explore" href="{explore[1]}">{IC["book"]} {explore[0]} <span>→</span></a><div class="count"><b>{count[0]}</b>{count[1]}</div></div><div class="visits">{visit("cal","First visit",first)}{visit("plane","Last visit",last)}</div></article>'''
+        pic=f'<img src="/img/{img}.jpg" alt="">' if img else f'<div class="noimg"><span>{flag}</span><small>Photos coming</small></div>'
+        return f'''<article class="cc{" soon" if soon else ""}"><div class="top">{pic}<span class="flag">{flag}</span><h2>{name}</h2><div class="pills"><span>{IC["plane"]}{trips}</span><span>{IC["pin"]}{days}</span></div></div><div class="body"><p>{desc}</p><a class="explore" href="{explore[1]}">{IC["book"]} {explore[0]} <span>→</span></a><div class="count"><b>{count[0]}</b>{count[1]}</div></div><div class="visits">{visit("cal","First visit",first)}{visit("plane","Last visit",last)}</div></article>'''
     cards=cc("the-bund-pink-lit-pearl-tower-over-the-crowd","🇨🇳","China","2 trips","Christmas + Easter","Our first trip was Christmas 2025 in Shanghai, with Disneyland, then New Year on the Bund. We went back for Easter 2026, fully prepared this time. Every guide on this site so far comes from those two trips.",("Explore China","/china/"),(str(n_guides),"guides"),"Dec 2025","Apr 2026")
-    cards+=cc("huangpu-river-pudong-skyline-with-gold-reflections","🇨🇳","Chengdu, Chongqing, Xi'an","Trip 2","Dec 2026","The next trip: three cities by high-speed train, the metro cards in each, the pandas, and the food. Guides go up as I check each one.",("Follow the trip",SOC["YouTube"]),("0","guides yet"),"Dec 2026","Coming",True)
-    cards+=cc("the-bund-peace-hotel-green-roofs-lit-at-night","🇯🇵","Japan","Next","Planning","Japan is the next country on the list. Subscribe and the first guide lands in your feed.",("Subscribe",SOC["YouTube"]+"?sub_confirmation=1"),("0","guides yet"),"Soon","Soon",True)
+    cards+=cc(None,"🇨🇳","Chengdu, Chongqing, Xi'an","Trip 3","Dec 2026","The next trip: three cities by high-speed train, the metro cards in each, the pandas, and the food. Guides go up as I check each one.",("Follow the trip",SOC["YouTube"]),("0","guides yet"),"Dec 2026","Coming",True)
+    cards+=cc(None,"🇯🇵","Japan","Been there","Guides coming","I have been to Japan too, and I have the footage. The Japan guides come after the China ones. Subscribe and they land in your feed.",("Subscribe",SOC["YouTube"]+"?sub_confirmation=1"),("0","guides yet"),"Footage filmed","Guides soon",True)
     return f'''<main>
 <section class="whero"><img src="/img/the-bund-pudong-skyline-and-shanghai-tower-at-night.jpg" alt=""><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Where I've been</span></nav><p class="eyebrow">Where I've been</p><h1>Where I've been</h1><p class="lede">Two trips to China so far, three new cities in December, and the list grows from there.</p></div></section>
 <section class="sec"><div class="wrap"><div class="countries">{cards}</div></div></section>
@@ -362,22 +364,34 @@ def deals_b(SOC):
         if d["cat"] not in cats: cats.append(d["cat"])
     chips='<button type="button" class="chip on" data-f="all">All</button>'+"".join(f'<button type="button" class="chip" data-f="{html.escape(c)}">{html.escape(c)}</button>' for c in cats)
     cards=""
-    for d in DEALS:
+    picks=[d for d in DEALS if d.get("booked") or d.get("used")]
+    pk="".join(f'<a class="pk" href="#d-{re.sub("[^a-z0-9]+","-",d["name"].lower())}"><b>{html.escape(d["name"])}</b><span>{"We booked our ERA show tickets here" if d.get("booked") else "The eSIM I use"}{" · code "+html.escape(d["code"]) if d.get("code") else ""}</span></a>' for d in picks)
+    for d in sorted(DEALS,key=lambda d:0 if (d.get("booked") or d.get("used")) else 1):
         qr=f'<img class="dqr" src="/img/{d["qr"]}.jpg" alt="QR code for {html.escape(d["name"])}" width="110" height="110" loading="lazy">' if d.get("qr") else ''
         badge='<span class="dbadge booked">We booked here</span>' if d.get("booked") else ('<span class="dbadge booked">I use this</span>' if d.get("used") else '<span class="dbadge">Link only</span>')
         more=f'<a class="dmore" href="{d["more"][0]}">{html.escape(d["more"][1])} →</a>' if d.get("more") else ''
-        cards+=f'''<article class="deal" data-cat="{html.escape(d["cat"])}"><div class="dtop"><div><span class="dcat">{html.escape(d["cat"])}</span><h3>{html.escape(d["name"])}</h3>{badge}</div>{qr}</div><p>{html.escape(d["text"])}</p>{('<div class="dcode has"><span>Code</span><b>'+html.escape(d["code"])+'</b><button type="button" data-copy="'+html.escape(d["code"])+'">Copy</button></div><small class="dcn">'+html.escape(d.get("codenote",""))+'</small>') if d.get("code") else '<div class="dcode"><span>Code</span><b>No code needed</b></div>'}<div class="dact"><a class="btn" href="{d["url"]}" rel="{"noopener" if d.get("code") and "tpm.li" not in d["url"] else "sponsored noopener"}" target="_blank">Open {html.escape(d["name"])}</a>{more}</div></article>'''
+        cards+=f'''<article class="deal" id="d-{re.sub("[^a-z0-9]+","-",d["name"].lower())}" data-cat="{html.escape(d["cat"])}"><div class="dtop"><div><span class="dcat">{html.escape(d["cat"])}</span><h3>{html.escape(d["name"])}</h3>{badge}</div>{qr}</div><p>{html.escape(d["text"])}</p>{('<div class="dcode has"><span>Code</span><b>'+html.escape(d["code"])+'</b><button type="button" data-copy="'+html.escape(d["code"])+'">Copy</button></div><small class="dcn">'+html.escape(d.get("codenote",""))+'</small>') if d.get("code") else '<div class="dcode"><span>Code</span><b>No code needed</b></div>'}<div class="dact"><a class="btn" href="{d["url"]}" rel="{"noopener" if d.get("code") and "tpm.li" not in d["url"] else "sponsored noopener"}" target="_blank">Open {html.escape(d["name"])}</a>{more}</div></article>'''
     return f'''<main>
-<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Travel deals</span></nav><p class="eyebrow">Travel deals</p><h1>My travel links, all in one place</h1><p class="lede">Tickets, eSIMs, airport transfers and flights. These are my partner links: if you book through one, I earn a small commission and you pay the same price. Each card says whether we booked there or I use it myself.</p></div></section>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Travel deals</span></nav><p class="eyebrow"><span class="adl">#Ad</span> Travel deals</p><h1>My travel links, all in one place</h1><p class="lede">Tickets, eSIMs, airport transfers and flights. These are my partner links: if you book through one, I earn a small commission and you pay the same price. Each card says whether we booked there or I use it myself.</p></div></section>
 <section class="sec" style="padding-top:8px"><div class="wrap">
 <div class="dnote"><b>Before you click</b><p>Where I have a code, it is on the card with a Copy button. For China, read my <a href="/guides/china-travel-apps/">China travel apps guide</a> before you buy an eSIM: check that the plan routes data outside China, or Google and WhatsApp will not work. <a href="/affiliate-disclosure/">How affiliate links work on this site</a>.</p></div>
-<div class="chips" role="group" aria-label="Filter by category">{chips}</div>
+<h2 class="pkh">What I actually use</h2><div class="pks">{pk}</div>
+<h2 class="pkh">Every link</h2><div class="chips" role="group" aria-label="Filter by category">{chips}</div>
 <div class="deals" id="deals">{cards}</div>
 </div></section>
 {band_b(SOC)}
 </main>
 <script>(function(){{var b=document.querySelectorAll(".chips .chip"),c=document.querySelectorAll(".deal");b.forEach(function(x){{x.addEventListener("click",function(){{b.forEach(function(y){{y.classList.toggle("on",y===x)}});var f=x.getAttribute("data-f");c.forEach(function(d){{d.hidden=!(f==="all"||d.getAttribute("data-cat")===f)}})}})}})}})();</script>'''
 
+
+# ===== Compact pick inside the step where the reader decides =====
+def _pick_firsty(more="#links"):
+    return ('<div class="spick"><span class="adl">#Ad</span><div><b>My pick: Firsty</b> <span class="dbadge booked">I use this</span>'
+            '<p>The eSIM I used in Japan and Saudi Arabia. For China, check in the app how it handles Google and WhatsApp before you buy.</p>'
+            '<div class="dcode has"><span>Code</span><b>6TKZ-8RGM</b><button type="button" data-copy="6TKZ-8RGM">Copy</button></div>'
+            '<small class="dcn">You get €3 off your first purchase over €4, and I get €3 credit.</small>'
+            f'<a class="btn" href="https://www.firsty.app/" rel="noopener" target="_blank">Open Firsty</a> <a class="smore" href="{more}">Other eSIMs →</a></div></div>')
+STEP_PICKS={"china-travel-apps":{8:_pick_firsty()},"china-before-you-fly-checklist":{4:_pick_firsty()}}
 
 # ===== "Links for this guide" boxes (partner links that fit the guide's topic) =====
 GUIDE_DEALS={
