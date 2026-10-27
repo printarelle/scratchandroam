@@ -266,7 +266,7 @@ def disclosure_b(SOC):
 <section class="sec" style="padding-top:10px"><div class="wrap"><article class="art" style="max-width:720px">
 <h2 style="margin-top:0">What an affiliate link is</h2><p>When you book through one of my affiliate links, the booking site pays me a small commission. You pay the same price as you would going to the site yourself. It is one of the ways I keep the guides free to read.</p>
 <h2>Which links are affiliate links</h2><p>Links to Klook, GetYourGuide, Tiqets, Airalo, Yesim, Saily, Welcome Pickups, GetTransfer and Kiwi.com on this site are affiliate links.</p><p>On the Travel deals page, a card marked "I use this" is something I use myself, and "We booked here" means we booked through it. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p><p>Some Shanghai guides also show a box of Shanghai tours from GetYourGuide. Those are affiliate links too, and I have not done every tour in that box, so read the details before you book.</p>
-<h2>Amazon</h2><p>As an Amazon Associate I earn from qualifying purchases. Some guides link to Amazon.ie for things the guide tells you to pack.</p>\n<h2>Referral codes</h2><p>Some cards on the Travel deals page have a referral code instead of an affiliate link. With the Firsty code, for example, you get €3 off your first purchase over €4 and I get €3 credit in my app.</p>
+<h2>Amazon</h2><p>As an Amazon Associate I earn from qualifying purchases. Some guides link to Amazon for things the guide tells you to pack. In Ireland the links open Amazon.ie. Everywhere else they open Amazon.com, which sends you on to your own country's Amazon store if there is one.</p>\n<h2>Referral codes</h2><p>Some cards on the Travel deals page have a referral code instead of an affiliate link. With the Firsty code, for example, you get €3 off your first purchase over €4 and I get €3 credit in my app.</p>
 <h2>What we booked ourselves</h2><p>When we booked something ourselves, the card says so, for example "Where we booked" on the ERA show tickets. When a card does not say that, it is an option I am sharing, not something we have tried.</p>
 <h2>What it does not change</h2><p>No company pays me to write a guide or to say good things. The steps, the prices and the rules in each guide come from our own trips and from the sources listed at the bottom of each page, with the date I checked them.</p>
 <h2>Tracking</h2><p>To count bookings that come from my links, pages on this site load small scripts from GetYourGuide and Travelpayouts (the network that runs most of my partner links). They are used to match a booking to my link.</p>
@@ -345,7 +345,7 @@ DEALS=[
       text="eSIM data plans for travel, for one country or a region."),
  dict(cat="eSIM and data",name="Saily",url="https://saily.tpm.li/r3wbWW2R",
       text="eSIM data plans for travel, from Nord Security, the company behind NordVPN."),
- dict(cat="Packing and gear",name="Amazon.ie",url="https://www.amazon.ie/?tag=scratchandroa-21",
+ dict(cat="Packing and gear",name="Amazon",url="/go/amazon",
       text="Travel adapters, packing cubes, carry-on bags and the other things my guides tell you to pack. As an Amazon Associate I earn from qualifying purchases."),
  dict(cat="Airport transfers",name="Welcome Pickups",url="https://tpm.li/IwbyltvW",qr="welcome-pickups-travel-deal-link-qr-code",
       text="Pre-booked airport and city transfers with a driver who meets you on arrival."),
@@ -402,7 +402,7 @@ def guide_deals_b(slug):
 # ===== Amazon (Amazon.ie Associates, tracking id scratchandroa-21) =====
 AMZ_TAG="scratchandroa-21"
 AMZ_LINE="As an Amazon Associate I earn from qualifying purchases."
-def amz(q): return "https://www.amazon.ie/s?k="+q.replace(" ","+")+"&tag="+AMZ_TAG
+def amz(q): return "/go/amazon?k="+q.replace(" ","+")  # src/worker.js: IE -> amazon.ie -21, others -> amazon.com -20 + OneLink
 # Only items the guide itself tells people to pack or use. Search links, so readers pick the product.
 AMAZON={
  "china-dos-and-donts":("Things from this list to pack",[("Travel plug adapter for China","Number 12. A UK to China adapter, or a universal one that covers Type A and Type I sockets.","uk to china travel adapter"),
@@ -418,5 +418,5 @@ AMAZON={
 }
 def amazon_b(slug):
     title,items=AMAZON[slug]
-    cards="".join(f'<div class="amz"><b>{html.escape(n)}</b><p>{html.escape(t)}</p><a class="btn alt2" href="{amz(q)}" rel="sponsored noopener" target="_blank">See on Amazon.ie</a></div>' for n,t,q in items)
-    return f'<h2 id="amazon">{html.escape(title)}</h2><p>These open a search on Amazon.ie, so you can pick the one that suits you. {AMZ_LINE}</p><div class="amzs">{cards}</div>'
+    cards="".join(f'<div class="amz"><b>{html.escape(n)}</b><p>{html.escape(t)}</p><a class="btn alt2" href="{amz(q)}" rel="sponsored nofollow noopener" target="_blank">See on Amazon</a></div>' for n,t,q in items)
+    return f'<h2 id="amazon">{html.escape(title)}</h2><p>These open a search on Amazon in your country, so you can pick the one that suits you. {AMZ_LINE}</p><div class="amzs">{cards}</div>'
