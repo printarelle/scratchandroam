@@ -278,6 +278,27 @@ PAGES=[(p,(_newest if p in ("/","/china/") else d)) for p,d in PAGES]
 # search index for the menu search box
 open('docs/search.json','w').write(json.dumps(sorted(SEARCH,key=lambda x:x['t']),ensure_ascii=False,separators=(',',':')))
 
+# lastmod from real content changes (Bing and Google: lastmod = when the page content last changed, ISO 8601 with time).
+# Hash only the <main> of each page, so site-wide header/footer edits do not bump every page.
+import hashlib as _hl
+_LM='src/lastmod.json'
+_lm=json.load(open(_LM)) if os.path.exists(_LM) else {}
+_now=datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
+def _mainhash(path):
+    f='docs'+path+('index.html' if path.endswith('/') else '')
+    try: h=open(f,encoding='utf-8').read()
+    except FileNotFoundError: return None
+    m=re.search(r'<main.*?</main>',h,re.S); body=m.group(0) if m else h
+    body=re.sub(r'<script.*?</script>','',body,flags=re.S)
+    return _hl.sha1(body.encode()).hexdigest()
+_PAGES2=[]
+for _p,_d in PAGES:
+    _h=_mainhash(_p); _e=_lm.get(_p)
+    if _h and (not _e or _e['h']!=_h): _lm[_p]={'h':_h,'d':_now}
+    _PAGES2.append((_p,_lm.get(_p,{}).get('d') or _d))
+PAGES=_PAGES2
+json.dump(_lm,open(_LM,'w'),indent=1,sort_keys=True)
+
 # sitemap + robots
 sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+"".join(f'<url><loc>{SITE}{p}</loc><lastmod>{d}</lastmod>'+"".join(f'<image:image><image:loc>{u}</image:loc></image:image>' for u in PAGEIMGS.get(p,[]))+'</url>' for p,d in PAGES)+'</urlset>'
 open('docs/sitemap.xml','w').write(sm)
@@ -297,6 +318,8 @@ open('docs/llms.txt','w').write("\n".join(_ll))
 open('docs/_headers','w').write(open('src/headers.txt').read())
 open('docs/favicon.svg','w').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#2F6F73"/><path d="M14 40c8-10 14-8 20-16 4-5 9-6 16-4" fill="none" stroke="#FBF7F0" stroke-width="6" stroke-linecap="round"/><circle cx="46" cy="22" r="6" fill="#E05A7A"/></svg>')
 open('docs/.nojekyll','w').write('')
+# IndexNow key file (Bing, Yandex and others): https://scratchandroam.com/<key>.txt
+_ik=open('src/indexnow-key.txt').read().strip(); open(f'docs/{_ik}.txt','w').write(_ik)
 import shutil; shutil.copy('src/404.html','docs/404.html') if os.path.exists('src/404.html') else None
 open('docs/_redirects','w').write(open('src/redirects.txt').read())
 import glob as _g
