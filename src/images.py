@@ -178,3 +178,4 @@ a("voco-shanghai-hongqiao-lounge-window-view-of-the-river.jpg","A calm river wit
 a("hangzhou-civic-center-dome-at-night-in-the-rain.jpg","Hangzhou at night through rain-streaked glass, a dome building lit blue and gold below and lit towers behind it","Hangzhou from above, on a rainy night")
 a("hangzhou-lit-towers-across-the-water-at-night.jpg","Lit towers on the far side of the water in Hangzhou at night, with glowing outlines and a crowd along the front","The towers lit up at night, 4 April")
 a("hangzhou-light-show-pagoda-pattern-on-the-towers.jpg","Hangzhou towers covered by a light show of pagoda roofs and pink and green patterns on their glass sides","Pagoda shapes in the light show")
+a("intercontinental-hangzhou-icc-golden-globe-hotel-at-night.jpg","The golden globe shaped InterContinental Hangzhou ICC lit at dusk, seen from above with the river and the city towers behind it","The golden globe, InterContinental Hangzhou ICC")
