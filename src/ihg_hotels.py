@@ -108,7 +108,7 @@ _EXTRA='''
 
 <h2 id="hangzhou">InterContinental Hangzhou ICC: five stars from us</h2>
 '''+_gl("",[("Stayed:","3 to 5 April 2026, 2 nights"),("Room:","no upgrade, because it was a one night booking"),("Area:","next to the metro, with the golden globe building"),("Breakfast:","free"),("Our verdict:","5 stars for us")])+'''
-'''+_row("intercontinental-hangzhou-icc-golden-globe-hotel-at-night")+'''
+'''+_row("intercontinental-hangzhou-icc-golden-globe-at-night-from-the-promenade","intercontinental-hangzhou-icc-golden-globe-with-light-show-on-the-towers")+'''
 <p>We booked one night, and it rained. The hotel was so good that we extended for one more night with points, so we stayed 2 nights in all. The second night cost 51,000 points on our account, which is more than the first (34,850), so it is worth knowing that extending can cost more.</p>
 '''+_row("hangzhou-civic-center-dome-at-night-in-the-rain")+'''
 <p>Check-in was great, and they recognised our Diamond status. There was no upgrade, because it was a one night booking when we arrived. Breakfast was free, the service was great and the view was great. At night there is a light show.</p>
