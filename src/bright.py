@@ -87,6 +87,7 @@ CLUSTERS=[
    ("top-25-china-apps","All 25 apps, ranked","The full list from critical to optional, to choose extras"),
    ("alipay-metro-qr-code-china","The metro with Alipay","Ride with the QR code"),
    ("how-to-order-food-in-china-without-speaking-chinese","Order food","Menus, QR codes and delivery"),
+   ("food-delivery-in-china-for-foreigners-meituan","Food delivery","Meituan in WeChat, to your hotel"),
    ("taobao-for-foreigners","Shop on Taobao","Order to your hotel"),
  ]),
  ("shanghai","Shanghai, what to book and see",[
@@ -431,6 +432,7 @@ GUIDE_DEALS={
  "top-25-china-apps":(["Firsty","Airalo","Yesim","Saily","NordVPN"],"eSIMs for pass number 4, and the VPN I had. For China, read the plan description first: you want one that routes data outside China."),
  "first-time-in-china":(["Firsty","Airalo","Kiwi.com","Welcome Pickups","GetTransfer"],"An eSIM for the internet on landing, flights, and a transfer from the airport so the first hour is easy."),
  "china-before-you-fly-checklist":(["Firsty","Airalo","NordVPN","Welcome Pickups","GetTransfer"],"An eSIM and the VPN I had for step 4, and an airport transfer for step 10, so your first day stays simple."),
+ "food-delivery-in-china-for-foreigners-meituan":(["Firsty","Airalo"],"You need mobile data to order, chat with the rider and pay, so sort your eSIM before you fly."),
  "china-visa-free-30-days":(["Kiwi.com"],"Flights for a trip that fits inside the 30 days and before 31 December 2026."),
 }
 def guide_deals_b(slug):

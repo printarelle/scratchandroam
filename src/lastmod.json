@@ -1,91 +1,95 @@
 {
  "/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "12c6e9fc6e4de533b138a99ee75e94784055d7db"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "17954b6ac368478e67cfa4a157f7f491329867e7"
  },
  "/about/": {
-  "d": "2026-10-28T08:12:19+00:00",
-  "h": "6c5eed18b51bc1df8381f89fedf8df96ca845e9b"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "bd1399db5161faac3c35d7067d649041574bba9d"
  },
  "/affiliate-disclosure/": {
   "d": "2026-10-28T08:45:21+00:00",
   "h": "69b56a1dbce3265e159898afed2722a6fd0e41d3"
  },
  "/china/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "f01475d6a9b627ac24a0aace94e14c31d803a576"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "681dfacbeb11d9614a050cdd79f01c4a10a1415d"
  },
  "/guides/alipay-metro-qr-code-china/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "82184d833e060ebe0f7327e49b1f5b833a21b6f1"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "b506f95503a19a5b32c956d5919b0da5b3241c03"
  },
  "/guides/build-spice-tolerance-before-china/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "1bf3bb78c24c8d4e5652629ea89bf20a6e06fbe2"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "3f905954d26751659478f60cee0bfb92b8a96a4a"
  },
  "/guides/china-arrival-card-alipay/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "77c2a2bd6c8dbe407a67b9bf83a8d56318cbe2b9"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "ae1a3e510fa054a82ef1d0fb8efd2446834ed776"
  },
  "/guides/china-arrival-card-pc/": {
-  "d": "2026-10-28T11:59:28+00:00",
-  "h": "01caba726d81bec82fae19edfbb2c0c7073dc1f9"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "9eeeefaf6e4de14061d595d45068975432944b5d"
  },
  "/guides/china-before-you-fly-checklist/": {
-  "d": "2026-10-28T08:45:21+00:00",
-  "h": "98ab5bfa8e60947411400ec8d1f697eeb2bd3788"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "b18fb2c48361f3c3062b22406719749312d5e5d5"
  },
  "/guides/china-dos-and-donts/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "b17ebec19a7fa0f5db67460c7e8e8d20ab73dfe5"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "4e1e0bb6e2c5bcd1e9d2cd93a13e18afb6161db3"
  },
  "/guides/china-travel-apps/": {
-  "d": "2026-10-28T08:45:21+00:00",
-  "h": "7ac476183e6794b5d82f3979ce70510935febb89"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "0ac460bc395c66c7c53350040fd691983fa2d03f"
  },
  "/guides/china-visa-free-30-days/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "e4b956d11f3e7cd96322e7eb4f04ce400d68cb68"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "099b8baa5c2d5bfd02ab774a01187d10ed6fad87"
  },
  "/guides/first-time-in-china/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "d5f5540a11c7cc170b170d24b5cf7a42587e6478"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "ecd0aed4fab0ced84db1a40569a688337ad1d444"
+ },
+ "/guides/food-delivery-in-china-for-foreigners-meituan/": {
+  "d": "2026-10-28T12:30:23+00:00",
+  "h": "a98109549c0631ad8ba8e5ba5eff42777f1d3a5c"
  },
  "/guides/how-to-order-food-in-china-without-speaking-chinese/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "3df24b95fd6cdc6f76a16f4714a5e2822aa4c25e"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "1b4ac05cedece7f4f4b1422e3bd55576b814ada6"
  },
  "/guides/huangpu-river-night-cruise/": {
-  "d": "2026-10-28T08:12:19+00:00",
-  "h": "c81efd09fcc15a4a05194a6ae30e935424dfd21f"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "f221b80706fa117500f7e0e823edc2071b511c9d"
  },
  "/guides/ihg-hotels-china-shanghai-hangzhou-review/": {
-  "d": "2026-10-28T07:54:52+00:00",
-  "h": "dae9d0ec7de2219e6545e55741fbdaa52ca6b4f3"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "820eb9efc47ab3ad92de4851c7a94280b800df28"
  },
  "/guides/nanjing-road-shanghai/": {
-  "d": "2026-10-28T08:12:19+00:00",
-  "h": "6923fbaf5d81c5172ae3daa2dfe478b400c3bcec"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "26c15ffaa0414f1263574120883ee96509a40dba"
  },
  "/guides/shanghai-circus-world-era-show/": {
-  "d": "2026-10-28T08:12:19+00:00",
-  "h": "e56decbea74f2a06c8feaf20e8e5e008633b9cd5"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "843ad36548eaf87d98122c173519caa90a788479"
  },
  "/guides/taobao-11-11-singles-day-for-foreigners/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "e31cc8788a3bf69801c16f5b0ffd7e8c679a348a"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "db292a94772f68a5c3a9037e1d6287bc386aca52"
  },
  "/guides/taobao-for-foreigners/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "490dfb1292966e2a5001c9ea785a829fd9d53774"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "694a120eb8bcd8dd8337306fa08ef7ccad31341c"
  },
  "/guides/the-bund-shanghai-at-night/": {
-  "d": "2026-10-28T08:12:19+00:00",
-  "h": "32e4c9b65ed3615136cb204a6e3f5e70b029365a"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "0051ea438924617e513c315f29f57a523ea6f48d"
  },
  "/guides/top-25-china-apps/": {
-  "d": "2026-10-28T08:45:21+00:00",
-  "h": "38f3b261de7a88ad583d059b0d11c630b1850d4a"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "fc463fb6717aa45c5468b7d5f8ef12020ee7f0c1"
  },
  "/klook/": {
   "d": "2026-10-28T06:05:45+00:00",
@@ -96,7 +100,7 @@
   "h": "8341341712a48dc9d092a3f87dcd7d0a4f3341c0"
  },
  "/where-ive-been/": {
-  "d": "2026-10-28T07:20:24+00:00",
-  "h": "fffda7e4c7070d231d121f348c04190efb4d1f34"
+  "d": "2026-10-28T12:28:28+00:00",
+  "h": "2e4034f720b53819b10539bdecfa0ddb30e51867"
  }
 }
