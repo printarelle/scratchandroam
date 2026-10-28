@@ -591,6 +591,16 @@ p{margin:0}
 .gc img,.gcards.sm .gc img,.mlist img{aspect-ratio:auto;height:auto;object-fit:initial;background:none}
 .gc>img{display:block;width:calc(100% - 20px);margin:10px 10px 0;border-radius:4px;box-shadow:0 1px 4px rgba(27,42,65,.18)}
 .gc{background:#fff}
+/* blog-style mixed sizes: grids with 4+ guides become masonry (no empty space under short cards);
+   grids with 5+ guides open with one big featured card across the top */
+.gcards:not(.sm):has(>.gc:nth-child(4)){display:block;columns:4 250px;column-gap:20px}
+.gcards:not(.sm):has(>.gc:nth-child(4))>.gc{break-inside:avoid;margin:0 0 20px;display:flex}
+.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child{column-span:all;flex-direction:row;align-items:center}
+.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child>img{width:58%;margin:12px;flex:none}
+.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child .in{padding:20px 28px 20px 12px}
+.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child h3{font-size:clamp(22px,2.4vw,32px)}
+.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child p{font-size:16px}
+@media(max-width:760px){.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child{flex-direction:column;align-items:stretch}.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child>img{width:calc(100% - 20px);margin:10px 10px 0}.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child .in{padding:16px 18px 18px}}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
