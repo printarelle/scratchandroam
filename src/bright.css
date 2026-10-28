@@ -564,3 +564,50 @@ p{margin:0}
 .gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child h3{font-size:clamp(22px,2.4vw,32px)}
 .gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child p{font-size:16px}
 @media(max-width:760px){.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child{flex-direction:column;align-items:stretch}.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child>img{width:calc(100% - 20px);margin:10px 10px 0}.gcards:not(.sm):has(>.gc:nth-child(5))>.gc:first-child .in{padding:16px 18px 18px}}
+
+/* tick-off steps */
+.tickbar{background:var(--mint2);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 18px;position:sticky;top:84px;z-index:6;box-shadow:var(--sh)}
+.tickbar .tk-top b{font:400 19px var(--d);color:var(--ink);display:block}
+.tickbar .tk-top span{font:600 13px/1.4 var(--b);color:var(--mute)}
+.tk-prog{display:flex;justify-content:space-between;align-items:center;margin:8px 0 6px;font:700 12px var(--b);color:var(--ink)}
+.tk-reset{background:none;border:0;color:var(--mute);font:600 12px var(--b);text-decoration:underline;cursor:pointer;padding:4px 0}
+.tk-bar{height:8px;border-radius:9px;background:var(--line);overflow:hidden}.tk-bar i{display:block;height:100%;width:0;background:var(--blue);border-radius:9px;transition:width .3s}
+.art .steps .n.tick{border:0;cursor:pointer;position:relative;padding:0;transition:background .15s,transform .15s;-webkit-tap-highlight-color:transparent}
+.art .steps .n.tick:active{transform:scale(.92)}
+.art .steps .n.tick:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.art .steps .n.tick[aria-pressed=true]{background:var(--blue);font-size:0}
+.art .steps .n.tick[aria-pressed=true]::before{content:"";position:absolute;left:50%;top:50%;width:11px;height:20px;border:solid #fff;border-width:0 4px 4px 0;transform:translate(-50%,-62%) rotate(45deg)}
+.art .steps li.ticked h3{color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(111,122,138,.6)}
+.art .steps li.ticked>div:last-child p{opacity:.7}
+.art .steps.ticking li{padding-bottom:10px}
+.tkdone{background:var(--mint);border-radius:14px;padding:14px 16px;font:600 15px var(--b);color:var(--ink);margin-top:14px}
+.tkdone[hidden]{display:none}
+@media(max-width:900px){.tickbar{top:72px}}
+
+/* quick answer box */
+.qbox{margin-top:20px!important;background:#fff;border:2px solid var(--ink);border-radius:18px;padding:18px 20px;margin:0 0 24px;box-shadow:6px 6px 0 var(--coral)}
+.qbox .ck{font:700 12px var(--b);letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin:0 0 10px}
+.qbox dl{margin:0 0 14px;display:grid;gap:10px}.qbox dt{font:700 14px var(--b);color:var(--ink)}.qbox dd{margin:2px 0 0;font:400 15px/1.5 var(--b);color:var(--ink2)}
+
+/* homepage topic shortcuts */
+.help{padding:34px 0 8px}
+.help h2{font-size:clamp(24px,3vw,32px);text-align:center;margin-bottom:18px}
+.hgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hgrid a{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
+.hgrid a:hover{transform:translateY(-2px);box-shadow:var(--sh)}
+.hgrid b{display:block;font:700 15px var(--b)}.hgrid span{display:block;font:400 13px/1.4 var(--b);color:var(--mute);margin-top:2px}
+@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* phone tab bar */
+.tabs{display:none}
+@media(max-width:700px){
+ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+ .tabs{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 20px rgba(27,42,65,.08)}
+ .tabs a,.tabs button{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;text-decoration:none;color:var(--mute);font:700 11px/1.2 var(--b);padding:4px 0;border-radius:10px;cursor:pointer}
+ .tabs a.on{color:var(--coral)}
+ .tabs svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+}
+
+.tickbar.started .tk-top span{display:none}.tickbar.started{padding:10px 14px}.tickbar.started .tk-prog{margin-top:4px}
+.art .intro.nodrop>p:first-child::first-letter{font:inherit;color:inherit;float:none;margin:0}
+@media(max-width:700px){.tickbar{padding:12px 14px}.tickbar .tk-top b{font-size:17px}}

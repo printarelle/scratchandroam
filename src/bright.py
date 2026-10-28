@@ -33,7 +33,51 @@ def footer_b(SOC, FOOT_GROUPS, CARDS):
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
     return f'''<footer class="ft"><div class="wrap"><div class="grid"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Real first-timer China. Real screenshots. Real prices, with the date I checked them.</p><h3 style="margin-top:22px">Follow along</h3><nav>{links}</nav></div>{cols}<div class="stamp">Scratch to reveal<span>Roam</span>to discover</div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland. As an Amazon Associate I earn from qualifying purchases.</span><span><a href="/about/">About</a> · <a href="/travel-deals/">Travel deals</a> · <a href="/klook/">Klook</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/feed.xml">RSS</a> · scratchandroam@gmail.com</span></div></div></footer>'''
 
-NAVJS_B='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(b){b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});}var L=[].slice.call(document.querySelectorAll(".toc a[href^=\\"#\\"]"));if(L.length&&"IntersectionObserver" in window){var map={};L.forEach(function(a){map[a.getAttribute("href").slice(1)]=a;});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){L.forEach(function(a){a.classList.remove("on")});var a=map[e.target.id];if(a)a.classList.add("on");}});},{rootMargin:"-20% 0px -70% 0px"});Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});L[0].classList.add("on");}})();</script>'
+NAVJS_B='<script>(function(){var tm=document.getElementById("tabMenu");if(tm){tm.addEventListener("click",function(){var mb=document.getElementById("menuBtn");if(mb){mb.click();window.scrollTo({top:0,behavior:"smooth"})}})}var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(b){b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});}var L=[].slice.call(document.querySelectorAll(".toc a[href^=\\"#\\"]"));if(L.length&&"IntersectionObserver" in window){var map={};L.forEach(function(a){map[a.getAttribute("href").slice(1)]=a;});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){L.forEach(function(a){a.classList.remove("on")});var a=map[e.target.id];if(a)a.classList.add("on");}});},{rootMargin:"-20% 0px -70% 0px"});Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});L[0].classList.add("on");}})();</script>'
+
+
+# ===== tick-off steps, quick answers, topic shortcuts, phone tab bar =====
+TICK_GUIDES={"first-time-in-china","china-before-you-fly-checklist","china-arrival-card-pc","china-arrival-card-alipay","china-travel-apps","china-dos-and-donts","china-visa-free-30-days","alipay-metro-qr-code-china","taobao-for-foreigners","taobao-11-11-singles-day-for-foreigners","food-delivery-in-china-for-foreigners-meituan","how-to-order-food-in-china-without-speaking-chinese","build-spice-tolerance-before-china"}
+TICKJS=r"""(function(){var bar=document.getElementById("tickbar");if(!bar)return;var key="sr-tick:"+bar.getAttribute("data-key"),bs=[].slice.call(document.querySelectorAll(".steps .tick")),saved=[];try{saved=JSON.parse(localStorage.getItem(key)||"[]")}catch(e){}
+function paint(){var n=0;bs.forEach(function(b){var on=b.getAttribute("aria-pressed")==="true";if(on)n++;b.parentNode.classList.toggle("ticked",on)});bar.classList.toggle("started",n>0);document.getElementById("tkcnt").textContent=n+" of "+bs.length+" done";document.getElementById("tkfill").style.width=Math.round(n/bs.length*100)+"%";document.getElementById("tkdone").hidden=n!==bs.length;try{localStorage.setItem(key,JSON.stringify(bs.map(function(b){return b.getAttribute("aria-pressed")==="true"})))}catch(e){}}
+bs.forEach(function(b,i){if(saved[i])b.setAttribute("aria-pressed","true");b.addEventListener("click",function(){b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");paint()})});
+document.getElementById("tkreset").addEventListener("click",function(){bs.forEach(function(b){b.setAttribute("aria-pressed","false")});paint()});paint()})();"""
+
+QUICK={
+ "taobao-11-11-singles-day-for-foreigners":("Quick answer",[
+  ("When is the sale?","Deposits opened 15 October. The main sale began 20 October at 8 pm China time. The big day is Wednesday 11 November."),
+  ("Can foreigners join?","Yes, for physical goods, paying through Alipay with your own bank card."),
+  ("Do foreign cards work?","Linked cards work for normal orders. I could not confirm presale deposits, so pay a small in-stock order first."),
+  ("Hotel delivery?","Yes if the hotel agrees. Not worth it for a stay of one to three days, because delivery can take up to three days."),
+ ],("Taobao setup guide, step by step","/guides/taobao-for-foreigners/")),
+}
+def quick_b(slug):
+    t,rows,(lt,lu)=QUICK[slug]
+    return (f'<aside class="qbox" aria-label="{html.escape(t)}"><p class="ck">{html.escape(t)}</p><dl>'+"".join(f'<div><dt>{html.escape(a)}</dt><dd>{html.escape(b)}</dd></div>' for a,b in rows)+f'</dl><a class="btn" href="{lu}">{html.escape(lt)}</a></aside>')
+
+HELP=[("Entry and visas","Visa-free rules","/guides/china-visa-free-30-days/"),
+ ("Arrival card","Fill it in before you fly","/guides/china-arrival-card-pc/"),
+ ("Paying in China","Alipay and WeChat","/guides/china-travel-apps/"),
+ ("Travel apps","The 25 I used","/guides/top-25-china-apps/"),
+ ("Trains and metro","Metro QR code","/guides/alipay-metro-qr-code-china/"),
+ ("Shopping","Taobao, 11.11","/guides/taobao-for-foreigners/"),
+ ("Food","Order without Chinese","/guides/how-to-order-food-in-china-without-speaking-chinese/"),
+ ("Shanghai","Bund, Nanjing Road, shows","/#shanghai")]
+def help_b():
+    return ('<section class="help"><div class="wrap"><h2>What do you need help with?</h2><div class="hgrid">'
+      +"".join(f'<a href="{u}"><b>{html.escape(a)}</b><span>{html.escape(b)}</span></a>' for a,b,u in HELP)+'</div></div></section>')
+
+def tabbar_b(path):
+    ic=lambda d:f'<svg viewBox="0 0 24 24" aria-hidden="true">{d}</svg>'
+    BEFORE={"/guides/first-time-in-china/","/guides/china-before-you-fly-checklist/","/guides/china-visa-free-30-days/","/guides/china-arrival-card-pc/","/guides/china-arrival-card-alipay/","/guides/china-dos-and-donts/","/guides/build-spice-tolerance-before-china/"}
+    APPS=lambda p:p.startswith("/guides/") and any(k in p for k in ("apps","metro","taobao","food","order"))
+    cur="before" if path in BEFORE else ("apps" if APPS(path) else ("shanghai" if path.startswith("/guides/") else ""))
+    def a(k,href,label,d): return f'<a href="{href}"{" class=\"on\" aria-current=\"page\"" if cur==k else ""}>{ic(d)}{label}</a>'
+    return ('<nav class="tabs" aria-label="Quick links">'
+      +a("before","/guides/first-time-in-china/","Before you fly",'<path d="M4 12.5l4.5 4.5L20 6"/>')
+      +a("apps","/guides/china-travel-apps/","Apps",'<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/>')
+      +a("shanghai","/#shanghai","Shanghai",'<path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>')
+      +f'<button type="button" id="tabMenu">{ic("<path d=\"M4 7h16M4 12h16M4 17h16\"/>")}Menu</button></nav>')
 
 def callout(kind, text):
     return f'<div class="callout {kind}">{IC["bulb" if kind=="tip" else "warn"]}<div>{text}</div></div>'
@@ -121,7 +165,8 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     # body pieces
     toc=[]
     body=[]
-    body.append(f'<div class="intro">{intro}</div>')
+    body.append(f'<div class="intro{" nodrop" if _t(intro)[:1].isdigit() else ""}">{intro}</div>')
+    if slug in QUICK: body.append(quick_b(slug))
     if slug in CLUSTER_OF: body.append(cluster_b(slug))
     if slug in STORIES:
         st_t,st_h=STORIES[slug]
@@ -142,7 +187,12 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     if steps:
         _pk=STEP_PICKS.get(slug,{}) if AFFILIATES_LIVE else {}
         body.append(f'<h2 id="steps">{html.escape(steps_title)}</h2>'); toc.append(("steps",steps_title))
-        body.append('<ol class="steps">'+"".join(f'<li id="step-{i+1}"><div class="n">{i+1}</div><div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p>{figs(s[2] if len(s)>2 else None)}{_pk.get(i+1,"")}</div></li>' for i,s in enumerate(steps))+'</ol>')
+        _tick = slug in TICK_GUIDES
+        if _tick:
+            body.append(f'<div class="tickbar" id="tickbar" data-key="{slug}"><div class="tk-top"><b>Tick-off checklist</b><span>Tap a step number to tick it off. Your ticks stay on this phone.</span></div><div class="tk-prog"><span id="tkcnt">0 of {len(steps)} done</span><button type="button" class="tk-reset" id="tkreset">Reset</button></div><div class="tk-bar"><i id="tkfill"></i></div></div>')
+        _nb = (lambda i: f'<button type="button" class="n tick" aria-pressed="false" aria-label="Tick off step {i}">{i}</button>') if _tick else (lambda i: f'<div class="n">{i}</div>')
+        body.append('<ol class="steps'+(' ticking' if _tick else '')+'">'+"".join(f'<li id="step-{i+1}">{_nb(i+1)}<div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p>{figs(s[2] if len(s)>2 else None)}{_pk.get(i+1,"")}</div></li>' for i,s in enumerate(steps))+'</ol>')
+        if _tick: body.append('<div class="tkdone" id="tkdone" hidden><b>All done.</b> Safe travels. <a href="/china/">More China guides →</a></div><script>'+TICKJS+'</script>')
     if extra:
         # lift h2 ids out of extra for the toc
         ex=extra
@@ -173,11 +223,14 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     more_html="".join(f'<a href="{u}"><img src="/img/{cl}.jpg" alt="" loading="lazy"><span><span class="cat">Guide</span><b>{html.escape(n)}</b><small>{html.escape(t)}</small></span></a>' for u,cl,t,n in more)
     cloud="".join(f'<a href="{u}">{n}</a>' for n,u in [("China","/china/"),("Shanghai","/#shanghai"),("Arrival card","/guides/china-arrival-card-pc/"),("Alipay","/guides/china-travel-apps/"),("Visa free","/guides/china-visa-free-30-days/"),("Metro","/guides/alipay-metro-qr-code-china/"),("Taobao","/guides/taobao-for-foreigners/"),("Food","/guides/how-to-order-food-in-china-without-speaking-chinese/")])
     crumb_last=html.escape(_t(h1).split(":")[0])
+    _sec=by[slug].get("sec")
+    topic_pill={'place':'<a class="pill mint" href="/#shanghai">Shanghai</a>','before':'<a class="pill mint" href="/china/">Before you fly</a>','shop':'<a class="pill mint" href="/china/">China shopping</a>'}.get(_sec,'')
+    if slug in TICK_GUIDES: topic_pill+='<span class="pill coral">Tick-off steps</span>'
     return f'''<main>
 <section class="ghero"><div class="wrap">
 <div class="hcard">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/china/">Asia</a><span>/</span><a href="/china/">China</a><span>/</span><span>{crumb_last}</span></nav>
-<div class="tags"><a class="pill mint" href="/china/">Guide</a><a class="pill mint" href="/china/">China</a><a class="pill mint" href="/#shanghai">Shanghai</a><span class="pill mint">{kind}</span></div>
+<div class="tags"><a class="pill mint" href="/china/">Guide</a><a class="pill mint" href="/china/">China</a>{topic_pill}<span class="pill mint">{kind}</span></div>
 <div class="meta"><span class="pill coral">{IC["clock"]}{rd} min read</span><a class="pill blue" href="#share">{IC["share"]}Share</a></div>
 <h1>{h1}</h1>
 <p class="lede">{desc}</p>
@@ -193,10 +246,8 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <aside class="side" id="share">
 <div class="scard me"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><h3>Hi, I'm Natali</h3><p>I'm a maker from Ireland. I film my trips, then write down the parts nobody explains, with the date I checked each one.</p><a href="/about/">More about my story →</a></div>
 <div class="scard"><span class="eyebrow">More guides</span><div class="mlist">{more_html}</div></div>
-<div class="scard"><span class="eyebrow">Popular topics</span><div class="cloud">{cloud}</div></div>
 </aside>
 </div>
-{stats_b(n_guides)}
 {band_b(SOC)}
 {social_b(SOC,"the-bund-pudong-skyline-and-shanghai-tower-at-night","nanjing-road-curved-corner-building-neon-lights")}
 </main>'''
@@ -216,6 +267,7 @@ def home_b(*, CARDS, SOC, n_guides):
     return f'''<main>
 <section class="hhero"><div class="wrap"><div><p class="eyebrow">Real first-timer China. Real screenshots.</p><h1>China travel guides, step by step, from someone who just did it</h1><p class="lede">I'm Natali, a maker from Ireland. I filmed my first trip to China and wrote down every form, app and queue that nobody explains, with the date I checked each one.</p><div class="acts"><a class="btn" href="/guides/china-arrival-card-pc/">Start with the arrival card</a><a class="btn ghost" href="/china/">{IC["pin"]} Browse China guides</a></div><a class="small" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">{IC["mail"]} Watch the videos behind the guides</a></div>
 <div class="collage"><figure><img src="/img/the-bund-gold-lit-historic-buildings-at-night.jpg" alt=""><figcaption>The Bund</figcaption></figure><figure><img src="/img/nanjing-road-curved-corner-building-neon-lights.jpg" alt=""><figcaption>Nanjing Road</figcaption></figure></div></div></section>
+{help_b()}
 {stats_b(n_guides,"A bit about my travels.")}
 <section class="sec"><div class="wrap"><div class="sechead"><p class="eyebrow">Where I've been</p><h2>Where I've been. Where I can help.</h2><p>First-timer guides from the trips I've actually taken, with the screenshots from my own phone and the prices I actually paid.</p></div><div class="dests">{dests}</div></div></section>
 {SCRATCH_HTML}
@@ -253,9 +305,9 @@ OFFERS={
 }
 OFFER_HEAD={
  "shanghai-circus-world-era-show":("Where we booked our tickets",
-   "We booked ERA through Klook, and this is the link I use. It is an affiliate link: if you book through it, I earn a small commission and you pay the same price. Ticket prices change by date and zone, so check today's price on the page."),
+   "We booked ERA through Klook, and this is the link I use. It is an affiliate link: if you book through it, I may earn a small commission at no extra cost to you. Ticket prices change by date and zone, so check today's price on the page."),
  "huangpu-river-night-cruise":("Where to book the cruise",
-   "The cruise on Klook. It is an affiliate link: if you book through it, I earn a small commission and you pay the same price. Prices change by date and boat, so check today's price on the page."),
+   "The cruise on Klook. It is an affiliate link: if you book through it, I may earn a small commission at no extra cost to you. Prices change by date and boat, so check today's price on the page."),
 }
 # guides that mention the cruise in passing and carry the same links inline (they show the affiliate note too)
 AFF_INLINE={"the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show"}
@@ -269,7 +321,7 @@ def offers_b(items, slug=None):
                 f'<div class="otext"><span class="k">{html.escape(o["k"])}</span>{price}<b>{html.escape(o["title"])}</b><p>{html.escape(o["text"])}</p>'
                 f'<a class="btn" href="{o["url"]}" rel="sponsored noopener" target="_blank">{html.escape(o.get("cta","Check price on "+o["k"]))}</a>'
                 f'<span class="via">Affiliate link: I earn a small commission if you book, at no extra cost to you.</span></div>{qr}</div>')
-    h,t=OFFER_HEAD.get(slug,("Where to book","These are affiliate links: if you book through one, I earn a small commission and you pay the same price."))
+    h,t=OFFER_HEAD.get(slug,("Where to book","These are affiliate links: if you book through one, I may earn a small commission at no extra cost to you."))
     return f'<h2 id="book">{html.escape(h)}</h2><p>{html.escape(t)}</p><div class="offers">{cards}</div>'
 
 def partner_b(key, SOC):
@@ -281,7 +333,7 @@ def partner_b(key, SOC):
     cards="".join(f'<div class="offer{" pick" if o.get("pick") else ""}">{"<span class=\"badge\">"+html.escape(o.get("badge",""))+"</span>" if o.get("pick") else ""}<div class="otext"><span class="k">{html.escape(titles.get(s_,s_))}</span><b>{html.escape(o["title"])}</b><p>{html.escape(o["text"].replace(" in the steps below"," in my guide").replace(" (step 1 below)"," (my guide explains the piers)"))}</p><a class="btn" href="{o["url"]}" rel="sponsored noopener" target="_blank">{html.escape(o.get("cta","See it on "+n))}</a><span class="via"><a href="/guides/{s_}/">Read my guide first</a></span></div></div>' for s_,o in items)
     return f'''<main>
 <section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>{n}</span></nav><p class="eyebrow"><span class="adl">#Ad</span> Travel deals</p><h1>{n}: my link, and what we booked</h1><p class="lede">We booked our ERA show tickets in Shanghai on {n}. This page has my {n} link, and the things on this site you can book there, each with the guide that explains it.</p></div></section>
-<section class="pcode"><div class="wrap"><div class="plink"><div><h2>Open {n} with my link</h2><p>It opens the normal {n} site. If you book through it, I earn a small commission and you pay the same price.</p>{code}<div class="acts"><a class="btn" href="{p["url"]}" rel="sponsored noopener" target="_blank">Open {n}</a><a class="btn ghost" href="/china/">See the China guides</a></div><small>Affiliate link. <a href="/affiliate-disclosure/">How affiliate links work on this site</a>.</small></div>{qr}</div></div></section>
+<section class="pcode"><div class="wrap"><div class="plink"><div><h2>Open {n} with my link</h2><p>It opens the normal {n} site. If you book through it, I may earn a small commission at no extra cost to you.</p>{code}<div class="acts"><a class="btn" href="{p["url"]}" rel="sponsored noopener" target="_blank">Open {n}</a><a class="btn ghost" href="/china/">See the China guides</a></div><small>Affiliate link. <a href="/affiliate-disclosure/">How affiliate links work on this site</a>.</small></div>{qr}</div></div></section>
 <section class="sec mint"><div class="wrap"><div class="sechead left"><div><h2>On {n}, from my guides</h2><p>Each card says whether we booked it ourselves. Read the guide first: it has the pier, the zone, the times and the things to check.</p></div></div><div class="offers">{cards}</div></div></section>
 {band_b(SOC)}
 </main>'''
@@ -290,7 +342,7 @@ def disclosure_b(SOC):
     return f'''<main>
 <section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Affiliate disclosure</span></nav><p class="eyebrow">Affiliate disclosure</p><h1>How affiliate links work on this site</h1><p class="lede">Some links on Scratch &amp; Roam are affiliate links. Here is what that means for you, in plain words.</p></div></section>
 <section class="sec" style="padding-top:10px"><div class="wrap"><article class="art" style="max-width:720px">
-<h2 style="margin-top:0">What an affiliate link is</h2><p>When you book through one of my affiliate links, the booking site pays me a small commission. You pay the same price as you would going to the site yourself. It is one of the ways I keep the guides free to read.</p>
+<h2 style="margin-top:0">What an affiliate link is</h2><p>When you book through one of my affiliate links, the booking site pays me a small commission. It costs you nothing extra. It is one of the ways I keep the guides free to read.</p>
 <h2>Which links are affiliate links</h2><p>Links to Klook, Viator, NordVPN, ExpressVPN, NordPass, Tiqets, Airalo, Yesim, Saily, Welcome Pickups, GetTransfer and Kiwi.com on this site are affiliate links.</p><p>On the Travel deals page, a card marked "I use this" is something I use myself, and "We booked here" means we booked through it. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p>
 <h2>Amazon</h2><p>As an Amazon Associate I earn from qualifying purchases. Some guides link to Amazon for things the guide tells you to pack. In Ireland the links open Amazon.ie. Everywhere else they open Amazon.com, which sends you on to your own country's Amazon store if there is one.</p>\n<h2>Referral codes</h2><p>Some cards on the Travel deals page have a referral code instead of an affiliate link. With the Firsty code, for example, you get €3 off your first purchase over €4 and I get €3 credit in my app.</p>
 <h2>What we booked ourselves</h2><p>When we booked something ourselves, the card says so, for example "Where we booked" on the ERA show tickets. When a card does not say that, it is an option I am sharing, not something we have tried.</p>
@@ -335,7 +387,7 @@ def about_b(*, SOC, n_guides):
 <section class="sec"><div class="wrap"><div class="cols about2"><article class="art"><h2 style="margin-top:0">Making things by day, filming by night</h2><p>I have a background in graphic design and I run a small studio in Ireland. Travel is the thing I do with the time in between, and the camera comes along because I want to remember the practical bits as much as the views: which exit, which pier, what it cost.</p><p>My husband and family turn up in the videos sometimes, and so does the work on the days I am not travelling.</p><p>Nothing here is sponsored by a brand. If a rule or a price is on a page, I checked it on the date written next to it.</p>
 <h2 id="idea">Why a scratch card?</h2><p>A place stays hidden until you scratch it, and then it is all there. Every video opens that way: the name of the place under silver foil, a coin, and then the real thing. On the site a city gets scratched off once we have actually been, so the foil over Chengdu, Chongqing and Xi'an comes off in December.</p><p>It is also a reminder of how I like to travel: not knowing everything in advance, but having the practical parts sorted so the rest can be a surprise.</p>
 <h2 id="method">How a guide gets made</h2><ol class="steps">{mh}</ol>
-<h2 id="affiliates">How the affiliate links work</h2><p>Some guides link to booking sites such as Klook and Viator. If you book through one of those links I earn a small commission and you pay the same price. Those links are marked, they never change what I recommend, and a guide with none of them says "nothing here is sponsored" at the top.</p>
+<h2 id="affiliates">How the affiliate links work</h2><p>Some guides link to booking sites such as Klook and Viator. If you book through one of those links I may earn a small commission at no extra cost to you. Those links are marked, they never change what I recommend, and a guide with none of them says "nothing here is sponsored" at the top.</p>
 </article><aside class="side"><div class="scard me"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><h3>Say hello</h3><p>Questions about a trip, or a place you want covered? Email is best. I read everything, and the guides often start with a question someone sent.</p><p><b>scratchandroam@gmail.com</b></p><a href="/china/">Start with the guides →</a></div><div class="scard"><span class="eyebrow">Handle everywhere</span><div class="cloud">{"".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())}</div></div></aside></div></div></section>
 <section class="sec mint"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Follow along</p><h2>Same trips, different lengths</h2><p>Long videos on YouTube, the short versions on TikTok, carousels to save on Pinterest.</p></div></div><div class="gcards sm">{sh}</div></div></section>
 {band_b(SOC)}
@@ -403,7 +455,7 @@ def deals_b(SOC):
         more=f'<a class="dmore" href="{d["more"][0]}">{html.escape(d["more"][1])} →</a>' if d.get("more") else ''
         cards+=f'''<article class="deal" id="d-{re.sub("[^a-z0-9]+","-",d["name"].lower())}" data-cat="{html.escape(d["cat"])}"><div class="dtop"><div><span class="dcat">{html.escape(d["cat"])}</span><h3>{html.escape(d["name"])}</h3>{badge}</div>{qr}</div><p>{html.escape(d["text"])}</p>{('<div class="dcode has"><span>Code</span><b>'+html.escape(d["code"])+'</b><button type="button" data-copy="'+html.escape(d["code"])+'">Copy</button></div><small class="dcn">'+html.escape(d.get("codenote",""))+'</small>') if d.get("code") else '<div class="dcode"><span>Code</span><b>No code needed</b></div>'}<div class="dact"><a class="btn" href="{d["url"]}" rel="{"noopener" if d.get("code") and "tpm.li" not in d["url"] else "sponsored noopener"}" target="_blank">Open {html.escape(d["name"])}</a>{more}</div></article>'''
     return f'''<main>
-<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Travel deals</span></nav><p class="eyebrow"><span class="adl">#Ad</span> Travel deals</p><h1>My travel links, all in one place</h1><p class="lede">Tickets, eSIMs, airport transfers and flights. These are my partner links: if you book through one, I earn a small commission and you pay the same price. Each card says whether we booked there or I use it myself.</p></div></section>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Travel deals</span></nav><p class="eyebrow"><span class="adl">#Ad</span> Travel deals</p><h1>My travel links, all in one place</h1><p class="lede">Tickets, eSIMs, airport transfers and flights. These are my partner links: if you book through one, I may earn a small commission at no extra cost to you. Each card says whether we booked there or I use it myself.</p></div></section>
 <section class="sec" style="padding-top:8px"><div class="wrap">
 <div class="dnote"><b>Before you click</b><p>Where I have a code, it is on the card with a Copy button. For China, read my <a href="/guides/china-travel-apps/">China travel apps guide</a> before you buy an eSIM: check that the plan routes data outside China, or Google and WhatsApp will not work. <a href="/affiliate-disclosure/">How affiliate links work on this site</a>.</p></div>
 <h2 class="pkh">What I actually use</h2><div class="pks">{pk}</div>
@@ -447,7 +499,7 @@ def guide_deals_b(slug):
         code=(f'<div class="dcode has"><span>Code</span><b>{html.escape(d["code"])}</b><button type="button" data-copy="{html.escape(d["code"])}">Copy</button></div><small class="dcn">{html.escape(d.get("codenote",""))}</small>') if d.get("code") else ''
         rel="noopener" if d.get("code") and "tpm.li" not in d["url"] else "sponsored noopener"
         cards+=f'<div class="gdeal"><div class="gdh"><span class="dcat">{html.escape(d["cat"])}</span><b>{html.escape(d["name"])}</b>{badge}</div><p>{html.escape(d["text"])}</p>{code}<a class="btn" href="{d["url"]}" rel="{rel}" target="_blank">Open {html.escape(d["name"])}</a></div>'
-    return (f'<h2 id="links">Links for this guide</h2><p>{html.escape(note)} These are my partner links: if you book through one, I earn a small commission and you pay the same price. '
+    return (f'<h2 id="links">Links for this guide</h2><p>{html.escape(note)} These are my partner links: if you book through one, I may earn a small commission at no extra cost to you. '
             f'All of them are on my <a href="/travel-deals/">Travel deals</a> page.</p><div class="gdeals">{cards}</div>')
 
 

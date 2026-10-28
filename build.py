@@ -20,7 +20,7 @@ FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="sty
 CSS=open('src/site.css').read()
 BRIGHT=os.environ.get('THEME','bright')=='bright'  # set THEME=legacy for the old dark build
 if BRIGHT:
-    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b
+    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b
     CSS=open('src/bright.css').read()+open('src/legacy-boards.css').read()
     FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">'
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
@@ -105,7 +105,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 <body>
 {nav_b(SOC,NAV_SHOP) if BRIGHT else nav(dark)}
 {body}
-{footer_b(SOC,FOOT_GROUPS,CARDS)+SDLG+NAVJS_B+COPYJS+SEARCHJS if BRIGHT else footer()}
+{footer_b(SOC,FOOT_GROUPS,CARDS)+(tabbar_b(path) if BRIGHT else '')+SDLG+NAVJS_B+COPYJS+SEARCHJS if BRIGHT else footer()}
 </body>
 </html>'''
     doc=finish_images(doc,path,img)
@@ -248,8 +248,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,
              "author":{"@type":"Person","name":"Natali","url":SITE+"/about/"},
              "step":[{"@type":"HowToStep","position":i+1,"name":s[0],**({"image":[SITE+f"/img/{k}.jpg" for k in s[2]]} if len(s)>2 and s[2] else {}),"text":html.unescape(re.sub(r'<[^>]+>','',re.sub(r'<span class="tag[^"]*">.*?</span>|<br>','',s[1]))),"url":f"{url}#step-{i+1}"} for i,s in enumerate(steps)]}]
     schema.append({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]})
-    if not steps:
-        schema.append({"@context":"https://schema.org","@type":"Article","headline":h1,"description":desc,"url":url,"dateModified":checked,**({"datePublished":published} if published else {}),"image":og,"author":{"@type":"Person","name":"Natali","url":SITE+"/about/"}})
+    schema.append({"@context":"https://schema.org","@type":"BlogPosting","headline":h1[:110],"description":desc,"mainEntityOfPage":url,"url":url,"dateModified":checked,"datePublished":published or checked,"image":[og],"author":{"@type":"Person","name":"Natali","url":SITE+"/about/"},"publisher":{"@type":"Organization","name":"Scratch & Roam with Natali","url":SITE+"/"}})
     if vid and vschema:
         up=(upload or checked)
         if len(up)==10: up=up+"T17:00:00+01:00"
