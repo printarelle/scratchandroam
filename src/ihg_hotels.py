@@ -97,7 +97,7 @@ _EXTRA='''
 <li><b>The review.</b> I left a negative review on the IHG site and nobody contacted us.</li>
 </ul>
 '''+_row("voco-shanghai-hongqiao-lounge-window-view-of-the-river")+'''
-<p>Breakfast was very limited and mostly for Chinese guests. There was no lounge, so we used no IHG perks here. The dessert plate and the water view are from the voco lounge area.</p>
+<p>Breakfast was very limited and mostly for Chinese guests. We did use the lounge. It was ok, but nothing special: a few drinks, some fruit and pastries, and a view over the water. The dessert plate and the view in the pictures are from there.</p>
 <h3>Getting there</h3>
 <ul>
 <li><b>The area:</b> it is outside the centre. There is little to see around the hotel, so plan on using the metro.</li>
