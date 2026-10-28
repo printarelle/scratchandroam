@@ -21,7 +21,7 @@ def _t(x): return re.sub(r'<[^>]+>','',html.unescape(str(x)))
 
 def nav_b(SOC, NAV_SHOP):
     return f'''<header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/#december">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a></nav>
+<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog">{IC["search"]}</button><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu">{IC["menu"]}</button></div></div></header>'''
 
 def footer_b(SOC, FOOT_GROUPS, CARDS):
@@ -78,6 +78,23 @@ def tabbar_b(path):
       +a("apps","/guides/china-travel-apps/","Apps",'<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/>')
       +a("shanghai","/#shanghai","Shanghai",'<path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>')
       +f'<button type="button" id="tabMenu">{ic("<path d=\"M4 7h16M4 12h16M4 17h16\"/>")}Menu</button></nav>')
+
+STOPS=[("Chengdu","6 to 9 Dec","We land on Sunday 6 December and settle into an apartment near Taikoo Li, which is our base for the whole trip.","Pandas, hotpot, the metro and Taikoo Li.",None),
+ ("Chongqing","9 to 13 Dec","Hotel Indigo Chongqing Chaotianmen for four nights, with the drone show on Saturday 12 December.","Hotpot, the cableway, Liziba and the old town at night.",None),
+ ("Xi'an","14 to 18 Dec","Han Tang House for four nights. The Muslim Quarter, the Bell and Drum Towers, the Great Mosque and the Terracotta Warriors.","The food streets and the city wall.",None),
+ ("Chengdu again","18 to 29 Dec","Back to the apartment, with Christmas at the InterContinental Chengdu Global Center on 24 and 25 December.","Hotel review, the Global Center and a proper rest.",None)]
+def december_b(SOC, CARDS):
+    cards="".join(f'<article class="dstop"><span class="dd">{d}</span><h3>{html.escape(c)}</h3><p>{t}</p><small>{html.escape(w)}</small></article>' for c,d,t,w,_ in STOPS)
+    by={c["slug"]:c for c in CARDS}
+    guides=[("first-time-in-china","Before you fly"),("china-travel-apps","Apps to install"),("china-arrival-card-pc","Arrival card"),("alipay-metro-qr-code-china","Metro QR code"),("ihg-hotels-china-shanghai-hangzhou-review","IHG hotels in China")]
+    gl="".join(f'<a href="/guides/{g}/"><b>{html.escape(l)}</b><span>{html.escape(by[g]["short"])}</span></a>' for g,l in guides if g in by)
+    return f'''<main>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>December trip</span></nav><p class="eyebrow">Trip 3 · December 2026</p><h1>China in December: Chengdu, Chongqing and Xi'an</h1><p class="lede">Our third China trip. Three cities, high-speed trains between them, and a Christmas in Chengdu. This page is the plan, and it fills in with videos and guides as I film them.</p></div></section>
+<section class="sec"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">The route</p><h2>Chengdu, Chongqing, Xi'an, back to Chengdu</h2><p>We fly from Ireland on 5 December and come home on 29 December. Chengdu is our base the whole time, and we take the side trips from there.</p></div></div><div class="dstops">{cards}</div><p class="dnote">Train tickets between the cities are not booked yet. When they are, the guide for that route goes up with the screenshots.</p></div></section>
+<section class="sec mint"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Planned films</p><h2>What I will film and write up</h2></div></div><ul class="dlist"><li><b>Hotel reviews</b> for the stays above, including what the IHG status actually gave us.</li><li><b>Xi'an</b> and the Terracotta Warriors, step by step.</li><li><b>Chongqing after dark</b>, the drone show and the hotpot.</li><li><b>Trains and metro</b> between the three cities, with the tickets and the apps.</li></ul><p class="dnote">The plan can change. I only write a guide after I have done the thing.</p></div></section>
+<section class="sec"><div class="wrap"><div class="sechead left"><div><h2>Read these first</h2><p>The guides that make any China trip easier, from the first two trips.</p></div></div><div class="hgrid dg">{gl}</div></div></section>
+<section class="band"><div class="wrap"><div class="bcard"><h2>Follow the trip</h2><p>Videos land on YouTube first. Short clips go on TikTok and Instagram while we are there.</p><div class="acts"><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a><a class="btn ghost" href="/china/">All China guides</a></div></div></div></section>
+</main>'''
 
 def callout(kind, text):
     return f'<div class="callout {kind}">{IC["bulb" if kind=="tip" else "warn"]}<div>{text}</div></div>'
@@ -262,7 +279,7 @@ def home_b(*, CARDS, SOC, n_guides):
     before=[c for c in CARDS if c["sec"] in ("before","shop") and c not in start]
     places=[c for c in CARDS if c["sec"]=="place"]
     dests=f'''<a class="dest" href="/china/"><img src="/img/the-bund-pink-lit-pearl-tower-over-the-crowd.jpg" alt=""><div class="in"><h3>Shanghai</h3><small>{n_guides} guides</small><p>Two trips: Christmas 2025 and Easter 2026. The arrival card, Alipay, the metro QR, the Bund at night, the river cruise and the ERA show.</p></div></a>
-<a class="dest soon" href="/#december"><div class="noimg"><span>🇨🇳</span><small>Photos in December</small></div><div class="in"><h3>Chengdu, Chongqing, Xi'an</h3><small>December 2026, filming</small><p>Trains between the three, the metro cards, and the first pandas. Guides go up as I check each one.</p></div></a>
+<a class="dest soon" href="/december-trip/"><div class="noimg"><span>🇨🇳</span><small>Photos in December</small></div><div class="in"><h3>Chengdu, Chongqing, Xi'an</h3><small>December 2026, filming</small><p>Trains between the three, the metro cards, and the first pandas. Guides go up as I check each one.</p></div></a>
 <a class="dest soon" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener"><div class="noimg"><span>🇯🇵</span><small>Photos coming</small></div><div class="in"><h3>Japan</h3><small>Been there, guides coming</small><p>I have been to Japan too. Those guides come after the China ones. Subscribe and they land in your feed.</p></div></a>'''
     return f'''<main>
 <section class="hhero"><div class="wrap"><div><p class="eyebrow">Real first-timer China. Real screenshots.</p><h1>China travel guides, step by step, from someone who just did it</h1><p class="lede">I'm Natali, a maker from Ireland. I filmed my first trip to China and wrote down every form, app and queue that nobody explains, with the date I checked each one.</p><div class="acts"><a class="btn" href="/guides/china-arrival-card-pc/">Start with the arrival card</a><a class="btn ghost" href="/china/">{IC["pin"]} Browse China guides</a></div><a class="small" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">{IC["mail"]} Watch the videos behind the guides</a></div>

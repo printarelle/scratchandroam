@@ -20,7 +20,7 @@ FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="sty
 CSS=open('src/site.css').read()
 BRIGHT=os.environ.get('THEME','bright')=='bright'  # set THEME=legacy for the old dark build
 if BRIGHT:
-    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b
+    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b, december_b
     CSS=open('src/bright.css').read()+open('src/legacy-boards.css').read()
     FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">'
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
@@ -29,7 +29,7 @@ SAMEAS=json.dumps(list(SOC.values()))
 def nav(dark=False):
     return f'''<header class="hdr{' dark' if dark else ''}"><nav class="nav wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
-<div class="links" id="menu"><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/#shanghai">Shanghai</a><a href="/#december">December trip</a><a href="/about/">About</a><button class="sbtn" id="sbtn" type="button" aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Search</span></button><a class="yt" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>'''
+<div class="links" id="menu"><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/#shanghai">Shanghai</a><a href="/december-trip/">December trip</a><a href="/about/">About</a><button class="sbtn" id="sbtn" type="button" aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Search</span></button><a class="yt" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a></div></nav></header>'''
 def NAV_SHOP():
     # "Shopping" menu link appears only once there are 3 or more guides with sec="shop"; one guide does not need its own menu item
     return '<a href="/china/#shopping">Shopping</a>' if sum(1 for c in globals().get("CARDS",[]) if c["sec"]=="shop")>=3 else ''
@@ -266,6 +266,7 @@ if BRIGHT:
     if PARTNER_PAGES: page('/klook/','Klook link: what we booked in China','My Klook link, and the China tickets on this site you can book there, including the ERA show we booked in Shanghai.',partner_b('klook',SOC))
     page('/travel-deals/','Travel deals: my partner links','My travel partner links in one place: tickets, eSIMs, airport transfers and flights, and which ones we booked ourselves.',deals_b(SOC))
     page('/affiliate-disclosure/','Affiliate disclosure','How affiliate links work on Scratch & Roam: which links earn a commission, what we booked ourselves, and what it does not change.',disclosure_b(SOC))
+    page('/december-trip/',"China in December 2026: Chengdu, Chongqing, Xi'an","Our December 2026 China trip: Chengdu, Chongqing and Xi'an by high-speed train, the stays, the plan and the guides to read first.",december_b(SOC=SOC,CARDS=CARDS))
     page('/where-ive-been/',"Where I've been","Every trip so far: two trips to China, Japan, and Chengdu, Chongqing and Xi'an in December, with the guides and videos from each.",where_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS)))
 
 # lastmod: the home page and /china/ list every guide, so they changed when the newest guide went live
