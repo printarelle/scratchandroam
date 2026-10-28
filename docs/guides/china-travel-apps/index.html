@@ -589,6 +589,10 @@ p{margin:0}
 .scr-tip a{font:700 14px var(--b);color:var(--blue)}
 .scr-card canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
 @media(max-width:700px){.scr{grid-template-columns:1fr;padding:20px}}
+/* guide cards: whole image at its own shape, polaroid frame, no cream bars (never crop covers with text) */
+.gc img,.gcards.sm .gc img,.mlist img{aspect-ratio:auto;height:auto;object-fit:initial;background:none}
+.gc>img{display:block;width:calc(100% - 20px);margin:10px 10px 0;border-radius:4px;box-shadow:0 1px 4px rgba(27,42,65,.18)}
+.gc{background:#fff}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
