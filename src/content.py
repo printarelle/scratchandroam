@@ -29,6 +29,7 @@ CARDS=[
  dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-road-shanghai-neon-shop-fronts-cover-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
  dict(slug="huangpu-river-night-cruise",sec="place",img="huangpu-river-night-cruise-from-the-water-cover-4x5",alt="Shanghai skyline from the Huangpu river at night",row_k="River cruise",row_q="Which pier, which ticket, and is the night cruise worth it?",short="Huangpu River night cruise"),
  dict(slug="shanghai-circus-world-era-show",sec="place",img="shanghai-circus-world-full-show-cover",alt="Shanghai Circus World stage with aerial silks",row_k="ERA show",row_q="Where do I book ERA circus tickets and how do I get there?",short="Shanghai Circus World ERA show"),
+ dict(slug="ihg-hotels-china-shanghai-hangzhou-review",sec="place",img="intercontinental-shanghai-pudong-diplomatic-suite-living-area",alt="The Diplomatic Suite living room at InterContinental Shanghai Pudong",row_k="IHG hotels",row_q="Which IHG hotels did we stay at in Shanghai and Hangzhou, and which would we skip?",short="IHG hotels in China"),
 ]
 CARD_SLUGS={c["slug"] for c in CARDS}
 QCARDS={
@@ -952,3 +953,5 @@ guide("china-before-you-fly-checklist","China first trip checklist: safety and b
 
 exec(open('src/spice.py').read())
 exec(open('src/order.py').read())
+
+exec(open('src/ihg_hotels.py').read())

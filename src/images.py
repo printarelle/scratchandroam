@@ -166,3 +166,15 @@ a("yesim-travel-deal-link-qr-code.jpg","QR code that opens Yesim through the Scr
 a("kiwi-travel-deal-link-qr-code.jpg","QR code that opens Kiwi.com through the Scratch and Roam link","Scan with your phone camera")
 a("airalo-travel-deal-link-qr-code.jpg","QR code that opens Airalo through the Scratch and Roam link","Scan with your phone camera")
 a("tiqets-travel-deal-link-qr-code.jpg","QR code that opens Tiqets through the Scratch and Roam link","Scan with your phone camera")
+
+# IHG hotels in China page (28 Oct 2026). Hangzhou, Crowne Plaza and voco photos are Natali's own; the Pudong suite and voco room pictures were sent by her as hotel room pictures.
+a("intercontinental-shanghai-pudong-diplomatic-suite-living-area.jpg","Living room of the Diplomatic Suite at InterContinental Shanghai Pudong with a desk, a pink chair and curved windows over the city","The Diplomatic Suite living room, Pudong")
+a("intercontinental-shanghai-pudong-diplomatic-suite-sofa-and-city-view.jpg","Sitting area of the Diplomatic Suite at InterContinental Shanghai Pudong with a pink sofa, a grey sofa and rooftops through the window","The suite sitting area and the view")
+a("intercontinental-shanghai-pudong-diplomatic-suite-king-bedroom.jpg","Bedroom of the Diplomatic Suite at InterContinental Shanghai Pudong with a king bed beside a curved glass wall over the city","The king bed, separate from the living room")
+a("crowne-plaza-shanghai-nanjing-road-lobby-christmas-tree.jpg","A tall Christmas tree with red and gold baubles in the marble lobby of Crowne Plaza Shanghai Nanjing Road, seen from above","The lobby at Christmas")
+a("voco-shanghai-hongqiao-room-living-area.jpg","Living area of the room at voco Shanghai Hongqiao Hub with a white sofa, round tables, a big window and the bed through an opening","Our big room at voco Hongqiao")
+a("voco-shanghai-hongqiao-lounge-dessert-plate-with-view.jpg","A plate of layered cake squares with blueberries, dragon fruit and watermelon in the voco Shanghai Hongqiao Hub lounge, green city view behind","A plate in the voco lounge area")
+a("voco-shanghai-hongqiao-lounge-window-view-of-the-river.jpg","A calm river with a stone bridge, trees and a paved terrace seen from the voco Shanghai Hongqiao Hub lounge window","The view of the water from the voco lounge")
+a("hangzhou-civic-center-dome-at-night-in-the-rain.jpg","Hangzhou at night through rain-streaked glass, a dome building lit blue and gold below and lit towers behind it","Hangzhou from above, on a rainy night")
+a("hangzhou-lit-towers-across-the-water-at-night.jpg","Lit towers on the far side of the water in Hangzhou at night, with glowing outlines and a crowd along the front","The towers lit up at night, 4 April")
+a("hangzhou-light-show-pagoda-pattern-on-the-towers.jpg","Hangzhou towers covered by a light show of pagoda roofs and pink and green patterns on their glass sides","Pagoda shapes in the light show")
