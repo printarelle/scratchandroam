@@ -451,8 +451,6 @@ p{margin:0}
 .offer.alt .btn{background:#fff;color:var(--ink)!important;border:1.5px solid var(--ink)}
 .offer.alt .btn:hover{background:var(--mint2)}
 
-.art .gygw{min-height:200px;margin:1.2em 0}
-.art .gygw iframe{max-width:100%;border:0}
 
 .plink{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:32px;align-items:center;text-align:left;background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:var(--sh)}
 .plink .acts{justify-content:flex-start}

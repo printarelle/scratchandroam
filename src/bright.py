@@ -155,8 +155,6 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
         body.append(amazon_b(slug)); toc.append(("amazon",AMAZON[slug][0]))
     if slug in GUIDE_DEALS:
         body.append(guide_deals_b(slug)); toc.append(("links","Links for this guide"))
-    if slug in GYG_WIDGET_SLUGS:
-        body.append('<h2 id="more-shanghai">More things to do in Shanghai</h2><p>A live list of Shanghai tours and tickets from GetYourGuide. These are affiliate links: if you book through one, I earn a small commission and you pay the same price. I have not done every one of these, so read the details before you book.</p><div class="gygw">'+GYG_SHANGHAI_WIDGET+'</div>'); toc.append(("more-shanghai","More things to do in Shanghai"))
     body.append(callout("tip",f'Rules change. Everything on this page was checked on {checked} against the sources below. Before you fly, open the official page once more.'))
     body.append('<h2 id="sources">Sources</h2>'); toc.append(("sources","Sources"))
     body.append('<ul class="sources">'+"".join(f'<li><a href="{u}" rel="noopener">{html.escape(n)}</a>{" (official)" if off else ""}</li>' for n,u,off in sources)+'</ul>')
@@ -237,7 +235,6 @@ PARTNERS={
  "klook":dict(name="Klook",code=None,url="https://klook.tpm.li/jfysgwVe",qr="klook-scratch-and-roam-link-qr-code"),
 }
 KLOOK_CRUISE="https://klook.tpm.li/Gt6dONHf"
-GYG_CRUISE="https://gyg.me/3PFkogxt"
 OFFERS={
  # Only links Natali gave. "pick"/badge only where she says she booked it. Prices only if she gives them.
  "shanghai-circus-world-era-show":[
@@ -245,32 +242,22 @@ OFFERS={
        text="This is where we booked our ERA tickets. You choose a zone and the date, and the ticket comes through Klook. The zones and how to pick one are explained in the steps below.",
        url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="See ERA tickets on Klook",
        qr="klook-era-shanghai-circus-world-tickets-qr-code",qralt="QR code for the Klook ERA ticket page"),
-  dict(k="GetYourGuide",price=None,title="Shanghai: ERA Circus Show Ticket",
-       text="ERA tickets on GetYourGuide. Pick your date and zone, and check the price for your date before you pay. The zones and how to pick one are explained in the steps below.",
-       url="https://gyg.me/kRBIqnuP",cta="See ERA tickets on GetYourGuide",alt=True),
  ],
  "huangpu-river-night-cruise":[
   dict(k="Klook",price=None,title="Huangpu River Night Cruise Experience",
        text="The night cruise on Klook. Check which pier the ticket is for before you book, because a ticket only works at its own pier (step 1 below).",
        url=KLOOK_CRUISE,cta="See the night cruise on Klook",
        qr="klook-huangpu-river-night-cruise-qr-code",qralt="QR code for the Klook Huangpu River night cruise page"),
-  dict(k="GetYourGuide",price=None,title="Shanghai: night experience with city views and buffet dining",
-       text="A Shanghai night out with city views and a buffet dinner, on GetYourGuide. Read what is included, the meeting point and the time for your date before you pay.",
-       url=GYG_CRUISE,cta="See it on GetYourGuide",alt=True,
-       qr="getyourguide-shanghai-night-buffet-dining-qr-code",qralt="QR code for the GetYourGuide Shanghai night experience page"),
  ],
 }
 OFFER_HEAD={
  "shanghai-circus-world-era-show":("Where we booked our tickets",
-   "We booked ERA through Klook, and this is the link I use. The same show is on GetYourGuide too. Both are affiliate links: if you book through one, I earn a small commission and you pay the same price. Ticket prices change by date and zone, so check today's price on the page."),
+   "We booked ERA through Klook, and this is the link I use. It is an affiliate link: if you book through it, I earn a small commission and you pay the same price. Ticket prices change by date and zone, so check today's price on the page."),
  "huangpu-river-night-cruise":("Where to book the cruise",
-   "Two places to book. Both are affiliate links: if you book through one, I earn a small commission and you pay the same price. Prices change by date and boat, so check today's price on the page."),
+   "The cruise on Klook. It is an affiliate link: if you book through it, I earn a small commission and you pay the same price. Prices change by date and boat, so check today's price on the page."),
 }
 # guides that mention the cruise in passing and carry the same links inline (they show the affiliate note too)
 AFF_INLINE={"the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show"}
-# GetYourGuide city widget (Shanghai = location 178), shown on the Shanghai guides. Script is in every page head (build.py).
-GYG_WIDGET_SLUGS={"the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show"}
-GYG_SHANGHAI_WIDGET='<div data-gyg-href="https://widget.getyourguide.com/default/city.frame" data-gyg-location-id="178" data-gyg-locale-code="en-US" data-gyg-widget="city" data-gyg-partner-id="BKZ1KWD"></div>'
 def offers_b(items, slug=None):
     cards=""
     for o in items:
@@ -303,11 +290,11 @@ def disclosure_b(SOC):
 <section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Affiliate disclosure</span></nav><p class="eyebrow">Affiliate disclosure</p><h1>How affiliate links work on this site</h1><p class="lede">Some links on Scratch &amp; Roam are affiliate links. Here is what that means for you, in plain words.</p></div></section>
 <section class="sec" style="padding-top:10px"><div class="wrap"><article class="art" style="max-width:720px">
 <h2 style="margin-top:0">What an affiliate link is</h2><p>When you book through one of my affiliate links, the booking site pays me a small commission. You pay the same price as you would going to the site yourself. It is one of the ways I keep the guides free to read.</p>
-<h2>Which links are affiliate links</h2><p>Links to Klook, GetYourGuide, Viator, Tiqets, Airalo, Yesim, Saily, Welcome Pickups, GetTransfer and Kiwi.com on this site are affiliate links.</p><p>On the Travel deals page, a card marked "I use this" is something I use myself, and "We booked here" means we booked through it. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p><p>Some Shanghai guides also show a box of Shanghai tours from GetYourGuide. Those are affiliate links too, and I have not done every tour in that box, so read the details before you book.</p>
+<h2>Which links are affiliate links</h2><p>Links to Klook, Viator, Tiqets, Airalo, Yesim, Saily, Welcome Pickups, GetTransfer and Kiwi.com on this site are affiliate links.</p><p>On the Travel deals page, a card marked "I use this" is something I use myself, and "We booked here" means we booked through it. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p>
 <h2>Amazon</h2><p>As an Amazon Associate I earn from qualifying purchases. Some guides link to Amazon for things the guide tells you to pack. In Ireland the links open Amazon.ie. Everywhere else they open Amazon.com, which sends you on to your own country's Amazon store if there is one.</p>\n<h2>Referral codes</h2><p>Some cards on the Travel deals page have a referral code instead of an affiliate link. With the Firsty code, for example, you get €3 off your first purchase over €4 and I get €3 credit in my app.</p>
 <h2>What we booked ourselves</h2><p>When we booked something ourselves, the card says so, for example "Where we booked" on the ERA show tickets. When a card does not say that, it is an option I am sharing, not something we have tried.</p>
 <h2>What it does not change</h2><p>No company pays me to write a guide or to say good things. The steps, the prices and the rules in each guide come from our own trips and from the sources listed at the bottom of each page, with the date I checked them.</p>
-<h2>Tracking</h2><p>To count bookings that come from my links, pages on this site load small scripts from GetYourGuide and Travelpayouts (the network that runs most of my partner links). They are used to match a booking to my link.</p>
+<h2>Tracking</h2><p>To count bookings that come from my links, pages on this site load a small script from Travelpayouts (the network that runs most of my partner links). They are used to match a booking to my link.</p>
 <h2>Questions</h2><p>Email me at <b>scratchandroam@gmail.com</b>. All my partner links are on the <a href="/travel-deals/">Travel deals</a> page, and what we booked on Klook is on the <a href="/klook/">Klook page</a>.</p>
 </article></div></section>
 </main>'''
@@ -347,7 +334,7 @@ def about_b(*, SOC, n_guides):
 <section class="sec"><div class="wrap"><div class="cols about2"><article class="art"><h2 style="margin-top:0">Making things by day, filming by night</h2><p>I have a background in graphic design and I run a small studio in Ireland. Travel is the thing I do with the time in between, and the camera comes along because I want to remember the practical bits as much as the views: which exit, which pier, what it cost.</p><p>My husband and family turn up in the videos sometimes, and so does the work on the days I am not travelling.</p><p>Nothing here is sponsored by a brand. If a rule or a price is on a page, I checked it on the date written next to it.</p>
 <h2 id="idea">Why a scratch card?</h2><p>A place stays hidden until you scratch it, and then it is all there. Every video opens that way: the name of the place under silver foil, a coin, and then the real thing. On the site a city gets scratched off once we have actually been, so the foil over Chengdu, Chongqing and Xi'an comes off in December.</p><p>It is also a reminder of how I like to travel: not knowing everything in advance, but having the practical parts sorted so the rest can be a surprise.</p>
 <h2 id="method">How a guide gets made</h2><ol class="steps">{mh}</ol>
-<h2 id="affiliates">How the affiliate links work</h2><p>Some guides link to booking sites such as Klook and GetYourGuide. If you book through one of those links I earn a small commission and you pay the same price. Those links are marked, they never change what I recommend, and a guide with none of them says "nothing here is sponsored" at the top.</p>
+<h2 id="affiliates">How the affiliate links work</h2><p>Some guides link to booking sites such as Klook and Viator. If you book through one of those links I earn a small commission and you pay the same price. Those links are marked, they never change what I recommend, and a guide with none of them says "nothing here is sponsored" at the top.</p>
 </article><aside class="side"><div class="scard me"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><h3>Say hello</h3><p>Questions about a trip, or a place you want covered? Email is best. I read everything, and the guides often start with a question someone sent.</p><p><b>scratchandroam@gmail.com</b></p><a href="/china/">Start with the guides →</a></div><div class="scard"><span class="eyebrow">Handle everywhere</span><div class="cloud">{"".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())}</div></div></aside></div></div></section>
 <section class="sec mint"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Follow along</p><h2>Same trips, different lengths</h2><p>Long videos on YouTube, the short versions on TikTok, carousels to save on Pinterest.</p></div></div><div class="gcards sm">{sh}</div></div></section>
 {band_b(SOC)}
