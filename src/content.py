@@ -141,7 +141,7 @@ HOME = '''<main>
 
 HOME=HOME.replace('@@QS_HOME@@',qs_html(QS_HOME)).replace('@@TK_HOME@@',tickets_html(home_tickets())).replace('@@ROWS@@',rows_html())
 page("/","Scratch & Roam: China first-timer guides and travel videos",
-     "Travel guides and videos from Natali, a maker from Ireland. First-timer China guides: arrival card, Alipay, visa-free rules. Scratch to reveal. Roam to discover.",
+     "Travel guides and videos from Natali, a maker from Ireland. First-timer China guides: the arrival card, Alipay, apps and visa-free rules.",
      HOME,
      [{"@context":"https://schema.org","@type":"WebSite","name":"Scratch & Roam with Natali","url":SITE,"inLanguage":"en","publisher":{"@type":"Person","name":"Natali","url":SITE+"/about/","sameAs":json.loads(SAMEAS)}},
       {"@context":"https://schema.org","@type":"Person","name":"Natali","url":SITE+"/about/","jobTitle":"Travel creator and maker","homeLocation":{"@type":"Place","name":"Ireland"},"sameAs":json.loads(SAMEAS)}],
@@ -195,7 +195,7 @@ CHINA = '''<main>
 </main>'''
 CHINA=CHINA.replace('@@QS_CHINA@@',qs_html(QS_CHINA)).replace('@@TK_BEFORE@@',tickets_html(cards_in('before'))).replace('@@TK_SHOP@@',tickets_html(cards_in('shop'))).replace('@@ROWS@@',rows_html())
 page("/china/","China guides for first-timers: entry, payments, trains",
-     "Practical China guides from Scratch & Roam: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.",
+     "Practical China guides: the arrival card, Alipay and WeChat setup, visa-free rules, trains and getting around, each with a video and written steps.",
      CHINA,[{"@context":"https://schema.org","@type":"CollectionPage","name":"China guides for first-timers","url":SITE+"/china/","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":SITE+"/guides/"+c["slug"]+"/","name":c["short"]} for i,c in enumerate(CARDS)]}}],
      og_image=SITE+"/og/first-time-in-china-13-things.jpg", dark=True)
 
@@ -295,7 +295,7 @@ PC_STEPS=[
  ("Save the QR code as a PDF and email","The site offers a QR code, a PDF download and an email copy. Take all three. Keep the PDF on your phone, because you do not want to depend on signal at the airport."),
 ]
 guide("china-arrival-card-pc","China arrival card on a PC: step by step guide","China arrival card online on a PC, step by step",
-      "Filling in the China arrival card online on a computer? Here is the whole form step by step, with the real form enlarged. Upload your passport and most of the details fill in for you.",
+      "The China arrival card online on a computer, step by step, with the real form enlarged. Upload your passport and most of it fills in for you.",
       "China arrival card online","33pgztdZT8Q",
       "<p>Every visitor fills in the arrival card before landing in China. It is free, it is online, and on a computer it takes a few minutes. You upload your passport page, it fills in most of the form for you, and at the end you get a QR code.</p><p>In the video I go through the whole form on the computer, field by field. Nobody at the border asked us to show the QR code, but I still saved it, and I would do the same again. Prefer your phone? There is an <a href='/guides/china-arrival-card-alipay/'>Alipay version</a> of this guide.</p>",
       PC_STEPS,COMMON_FAQ,
@@ -317,7 +317,7 @@ AP_STEPS=[
  ("Save the QR code as a PDF and email","Save the QR code, download the PDF and send it to your email, so it is on your phone even without signal."),
 ]
 guide("china-arrival-card-alipay","China arrival card in Alipay: step by step guide","China arrival card in Alipay on your phone, step by step",
-      "Filling in the China arrival card online with Alipay on your phone? Here is the whole form step by step. Upload your passport and most of the details fill in for you.",
+      "The China arrival card in Alipay on your phone, step by step. Upload your passport and most of the form fills in for you.",
       "China arrival card Alipay","YDdwz1ChMFE",
       "<p>If Alipay is already on your phone for paying in China, the arrival card is inside it too, as a mini program. In the video I fill it in on my own phone. You take a photo of your passport page, it fills in most of the form, you check it, and you save the QR code at the end.</p><p>Nobody at the border asked us to show it, but keep it saved anyway. Prefer a bigger screen? There is a <a href='/guides/china-arrival-card-pc/'>computer version</a> too.</p>",
       AP_STEPS,COMMON_FAQ,
@@ -343,7 +343,7 @@ FT_STEPS=[
  ("Pack light","Trains and metros mean stairs and gates. One bag you can lift makes every station day easier."),
 ]
 guide("first-time-in-china","First time in China: 13 things to set up before you fly","First time in China: 13 things to set up before you fly",
-      "Going to China for the first time? The 13 things we set up before flying: entry rules, the arrival card, Alipay and WeChat, cards, cash, flights, trains, maps and packing.",
+      "First time in China? The 13 things we set up before flying: entry rules, the arrival card, Alipay and WeChat, cash, flights, trains, maps and packing.",
       "first time in China","TuP9NS00Ugg",
       "<p>Our first trip to China was Christmas 2025, and I thought I had prepared everything. Then we landed with no internet on my phone. What happened is just below.</p><p>This page is the setup list I wish I had before that trip. No sights, only the things that make the first day easy: entry rules, the arrival card, apps, paying, flights, trains, maps and packing. The video goes through the same 13 things. The facts were checked on 15 October 2026 against the sources at the bottom.</p>",
       FT_STEPS,
@@ -482,7 +482,7 @@ SH=dict(city="Shanghai")
 CHECK='<p>Prices and times here are from the sources at the bottom, checked on 15 October 2026. They move. Treat the numbers as a guide and check the official page or Trip.com on the day.</p>'
 
 guide("the-bund-shanghai-at-night","The Bund Shanghai at night: how to get there and when to go","The Bund in Shanghai at night: how to get there, where to start, when the lights go off",
-      "How to get to the Bund by metro (East Nanjing Road, exit 2 or 7), the best time for the lights, when they switch off, and a simple route along the river. Free, no ticket.",
+      "How to get to the Bund by metro (East Nanjing Road, exit 2 or 7), the best time for the lights, when they switch off, and a simple river route.",
       "the Bund Shanghai at night",None,
       "<p>The Bund is the river promenade in Shanghai, with the old bank buildings on one side and the Pudong towers across the water. It is free and it is open all the time. We were there at night, and for me the gold-lit buildings are the reason to go.</p><p>The one thing you can get wrong is the timing, because the lights switch off at 22:00. Below is how to get there, where to start walking, and when to arrive.</p>"+CHECK,
       [("Take the metro to East Nanjing Road and use exit 2 or 7","East Nanjing Road station is on Lines 2 and 10. From exit 2 you are on the pedestrian street; walk east, towards the river, about 10 to 15 minutes. Taxis cannot drop you on the promenade itself."),
@@ -503,7 +503,7 @@ guide("the-bund-shanghai-at-night","The Bund Shanghai at night: how to get there
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
 guide("nanjing-road-shanghai","Nanjing Road Shanghai: metro exit, neon times and the walk","Nanjing Road in Shanghai: how to walk it, which metro exit, when the neon comes on",
-      "Nanjing Road pedestrian street: 1.6 km from People's Square to the Bund, metro exits at each end, neon on from 18:00 or 19:00 until 22:00, and the walk that ends at the river.",
+      "Nanjing Road: 1.6 km from People's Square to the Bund, the metro exits at each end, when the neon is on, and the walk that ends at the river.",
       "Nanjing Road Shanghai",None,
       "<p>Nanjing Road is the long pedestrian shopping street from People's Square to the Bund. It is loud, bright and busy, especially in the evening.</p><p>My advice is simple: walk it one way, from People's Square towards the river, starting when the neon comes on. Then the walk ends at the Bund with everything lit.</p>"+CHECK,
       [("Start at People's Square","People's Square station is on Lines 1, 2 and 8. Exit 19 brings you straight into the New World City basement; come up and you are at the west end of the street."),
@@ -524,7 +524,7 @@ guide("nanjing-road-shanghai","Nanjing Road Shanghai: metro exit, neon times and
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
 guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: pier, ticket, time","Huangpu River night cruise in Shanghai: which pier, which ticket, and which side to stand on",
-      "Three piers, three cruise lengths, about 120 to 150 RMB for the standard night cruise. How to book as a foreigner, why your passport matters, and which side of the boat to stand on.",
+      "Huangpu River night cruise: three piers, about 120 to 150 RMB, how to book as a foreigner, why your passport matters, and which side to stand on.",
       "Huangpu River night cruise",None,
       "<p>On the night cruise you are right in the middle of the river, with both banks lit up and the boat going slowly. The photos on this page are mine, taken from the water.</p><p>The booking is the confusing part. There are three piers, your ticket only works at one of them, and an online booking is a voucher you still have to swap for a ticket with your passport. Below is how to choose the pier, the ticket and the time.</p>"+CHECK,
       [("Pick the pier before the ticket","Shiliupu pier (south end of the Bund) has the most routes. Jinling East Road pier (middle of the Bund) is best for a short ride and a 10 minute walk from East Nanjing Road station. Oriental Pearl pier is on the Pudong side. Your ticket only works at its own pier."),
@@ -545,7 +545,7 @@ guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: pier, t
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
 guide("shanghai-circus-world-era-show","Shanghai Circus World ERA show: tickets and how to get there","Shanghai Circus World ERA show: how to book tickets, where to sit, how to get there",
-      "ERA at Shanghai Circus World: metro Line 1 to Shanghai Circus World station exit 3, shows at 19:30 Tuesday to Sunday, ticket zones from about 280 to 880 RMB, and where foreigners can book.",
+      "ERA at Shanghai Circus World: metro Line 1, exit 3, shows at 19:30 Tuesday to Sunday, ticket zones and prices, and where foreigners can book.",
       "Shanghai Circus World ERA tickets",None,
       "<p>We saw ERA, the acrobatics show at Shanghai Circus World, on a weeknight, and I filmed five of the acts. The long video is on YouTube. The show is excellent.</p><p>Getting there and booking is less obvious, because the venue is not in the centre and tickets are sold by zone, not by seat. This page covers where to buy, which zone to pick and how to get there by metro. We booked our tickets on Klook, and the link is in the <a href='#book'>booking section</a> below.</p>"+CHECK,
       [("Get there on Line 1","Shanghai Circus World has its own metro station on Line 1 (上海马戏城). Take exit 3 and the venue is about 3 minutes on foot. Evening traffic makes taxis slower than the metro."),
@@ -728,7 +728,7 @@ VF_STEPS=[
 ]
 
 guide("china-visa-free-30-days","China Visa Free 30 Days: Irish, UK and EU Passports","China visa free 30 days: Irish, UK and EU passports",
-      "Who gets 30 days visa free in China right now, until when, what to show at the border, and whether you can extend or leave and come back. Checked 17 October 2026.",
+      "Who gets 30 days visa free in China, until when, what to show at the border, and whether you can extend or leave and come back.",
       "china visa free 30 days","",
       "<p>If you hold an Irish, UK or EU passport, you can currently enter China without a visa for up to 30 days. The catch is the date: the policy runs until 24:00 on 31 December 2026, Beijing time, and nothing has been announced for 2027. We are flying in December ourselves, so that date matters to us too. This page answers the questions people ask most, with the source for each, checked on 17 October 2026.</p><p>It is a guide, not legal advice. The embassy and your own government's travel page are the final word, so open them once more before you fly.</p>",
       VF_STEPS,
@@ -844,7 +844,7 @@ def _bp_extra():
     shots="".join(f'<figure><img src="/img/top-25-china-apps-short-frame-{k}.jpg" alt="" width="540" height="960"><figcaption>{c}</figcaption></figure>' for k,c in _BP_FRAMES)
     return bp_board()+f'<h2>The same list as a Short</h2><p>I made this list as a vertical video in the same boarding pass style, one pass per app, counting down in order of importance. It is going up on YouTube Shorts, TikTok and Instagram. A few frames:</p><div class="bp-shots">{shots}</div>'
 guide("top-25-china-apps","Top 25 China apps for tourists, ranked (2026)","Top 25 apps to have in China, ranked like a boarding pass",
-      "The 25 apps worth having for a trip to China, ranked from critical to optional: what each does, how to set it up, what you lose without it. Checked October 2026.",
+      "The 25 apps worth having for a trip to China, ranked from critical to optional: what each does, how to set it up, and what you lose without it.",
       "top 25 china apps",None,
       "<p>On our first trip I learned which apps matter the hard way. This list is what I would put on a phone now, ranked by how much it hurts to land without it. Each one gets a boarding pass: what it is for, how to set it up, why it ranks where it does, and what happens if you land without it. The first five are critical, the last five are optional, and two of those come with a warning.</p><p>It is the written version of my Scratch &amp; Roam Short, in the same order. The pass rows are my words from the video; the fine print on each pass was checked on 18 October 2026 against the sources at the bottom. Where I could not confirm something, the pass says so. For the full setup of the first dozen apps, use my <a href=\"/guides/china-travel-apps/\">China travel apps guide</a>.</p>",
       [],
@@ -935,7 +935,7 @@ CB_STEPS=[
   "Get to the hotel, check your payments and your data, take a slow walk around the block, eat something easy and rest. Most mistakes happen when we land exhausted and try to do too much."),
 ]
 guide("china-before-you-fly-checklist","China first trip checklist: safety and backups (2026)","China first trip checklist: 10 safety and backup things to sort before you fly",
-      "The safety and backup side of a first China trip: insurance, your hotel in Chinese, emergency numbers, phone and data, payments, document copies, scams, a medical kit, maps and day one.",
+      "The safety and backup side of a first China trip: insurance, your hotel in Chinese, emergency numbers, data, payments, copies, scams and a medical kit.",
       "china first trip checklist",None,
       "<p>This is my China first trip checklist: the ten things I would sort if I were packing for my first China trip all over again. It is not about being afraid. Staying safe in China is about gently removing the small problems before they happen.</p><p>It comes from our two trips to China, at Christmas 2025 and Easter 2026. The advice is first-hand, and the emergency numbers are checked against the UK government's travel advice (official). Checked on 20 October 2026. My video of this checklist is coming to the Scratch &amp; Roam YouTube channel.</p>",
       CB_STEPS,
