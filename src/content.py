@@ -427,7 +427,7 @@ APP_EXTRA='''
 <li><b>Lookalike 12306 apps.</b> Only 铁路12306 from China Railway is official.</li>
 </ul>'''
 guide("china-travel-apps","China travel apps: 12 to set up before you go (2026)","Apps to download before you go to China: the full list",
-      "The China travel apps to set up before you fly: paying, maps, taxis and trains, what must be done at home, the extras already inside Alipay, and what to skip.",
+      "The China travel apps to set up before you fly: paying, maps, taxis and trains, what to do at home, the extras inside Alipay, and what to skip.",
       "china travel apps","TuP9NS00Ugg",
       "<p>On our first trip to China I got the apps wrong, and you can read what happened just below. By our second trip, at Easter 2026, everything was set up at home before we left.</p><p>This is the list I use now: 12 apps, in the order to set them up, which ones must be done at home, the useful extras already inside Alipay, and the ones you can skip. A lot changed in 2026, so every fact was checked on 16 October 2026 against the sources at the bottom.</p>",
       APP_STEPS,
@@ -638,7 +638,7 @@ def _dd_board():
     return out
 
 guide("china-dos-and-donts","China do's and don'ts: 15 rules before you fly (2026)","China do's and don'ts: what not to bring, and what not to do",
-      "China do's and don'ts for first-timers: what customs and airport security take off you, the table manners that get stares, and what to pack or just buy there.",
+      "China do's and don'ts for first-timers: what customs and security take off you, table manners that get stares, and what to pack or buy there.",
       "china do's and don'ts",None,
       "<p>Most China packing lists stop at a VPN. This one is about the other things: what customs and airport security will take off you, the table habits that get stares, and what to pack or just buy when you land.</p><p>It is the written version of my Scratch &amp; Roam short, in the same order. Three tips are mine from our trips and are marked Natali's tip. Everything else was checked on 16 October 2026 against the sources at the bottom.</p>",
       [],
@@ -749,7 +749,7 @@ guide("china-visa-free-30-days","China Visa Free 30 Days: Irish, UK and EU Passp
       related=[("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China")])
 
 guide("taobao-for-foreigners","How to order on Taobao as a foreigner: step by step guide","How to order on Taobao as a foreigner, step by step",
-      "How to order on Taobao without speaking Chinese: language and currency settings, searching in English, hotel delivery, the Chinese note, and paying with Alipay.",
+      "How to order on Taobao without speaking Chinese: language and currency settings, searching in English, hotel delivery and paying with Alipay.",
       "how to order on taobao","",
       "<p>Taobao has almost everything, and on my account the whole app is in Chinese. It still works for a visitor, and I have used it a lot. This guide walks through one real order on my own phone, from Ireland: what I could and could not change in Settings, how to search without Chinese, how to send a parcel to a hotel without losing it, and where to find your order afterwards.</p><p>Shopping the 11.11 sale? My <a href=\"/guides/taobao-11-11-singles-day-for-foreigners/\">Taobao 11.11 guide</a> has the 2026 dates and what to check before you order.</p><p>Where something comes from my own account I say so. Where it comes from someone else's guide I say that too, and a few things I could not confirm are marked as such.</p>",
       TB_STEPS,

@@ -64,7 +64,7 @@ TPDRIVE="""<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-
 </script>"""
 
 def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False,published=None,modified=None):
-    assert 50<=len(desc)<=160, f'meta description for {path} is {len(desc)} characters; Bing wants 25 to 160 (aim 120 to 155)'
+    assert 50<=len(desc)<=155, f'meta description for {path} is {len(desc)} characters; keep it 50 to 155 (Bing flags over 160)'
     url=SITE+path
     if BRIGHT and path=='/': body=home_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS))
     if BRIGHT and path=='/about/': body=about_b(SOC=SOC,n_guides=len(CARDS))
@@ -269,7 +269,7 @@ if BRIGHT:
     if PARTNER_PAGES: page('/klook/','Klook link: what we booked in China','My Klook link, and the China tickets on this site you can book there, including the ERA show we booked in Shanghai.',partner_b('klook',SOC))
     page('/travel-deals/','Travel deals: my partner links','My travel partner links in one place: tickets, eSIMs, airport transfers and flights, and which ones we booked ourselves.',deals_b(SOC))
     page('/affiliate-disclosure/','Affiliate disclosure','How affiliate links work on Scratch & Roam: which links earn a commission, what we booked ourselves, and what it does not change.',disclosure_b(SOC))
-    page('/where-ive-been/',"Where I've been",'Every trip so far: two trips to China, Japan, and Chengdu, Chongqing and Xi'an in December, with the guides and videos from each.',where_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS)))
+    page('/where-ive-been/',"Where I've been","Every trip so far: two trips to China, Japan, and Chengdu, Chongqing and Xi'an in December, with the guides and videos from each.",where_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS)))
 
 # lastmod: the home page and /china/ list every guide, so they changed when the newest guide went live
 _gd=[(pu or ck) for sl,t,d,pu,ck in GUIDELIST]
