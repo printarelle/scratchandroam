@@ -279,6 +279,8 @@ p{margin:0}
 .gal2 figure{margin:0}
 .gal2 img{aspect-ratio:4/5;object-fit:cover;border-radius:8px}
 .gal2 figcaption{font-size:13px}
+.gal2.wide{grid-template-columns:1fr}
+.gal2.wide img{aspect-ratio:4/3;object-position:90% 50%;width:100%}
 @media(max-width:520px){.gal2{grid-template-columns:1fr}}
 
 /* ===== image rule: designed covers and screenshots are never cropped ===== */
