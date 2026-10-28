@@ -80,7 +80,7 @@ def tabbar_b(path):
       +f'<button type="button" id="tabMenu">{ic("<path d=\"M4 7h16M4 12h16M4 17h16\"/>")}Menu</button></nav>')
 
 STOPS=[("Chengdu","6 to 9 Dec","We land on Sunday 6 December and settle into an apartment near Taikoo Li, which is our base for the whole trip.","Pandas, hotpot, the metro and Taikoo Li.",None),
- ("Chongqing","9 to 13 Dec","Hotel Indigo Chongqing Chaotianmen for four nights, with the drone show on Saturday 12 December.","Hotpot, the cableway, Liziba and the old town at night.",None),
+ ("Chongqing","9 to 14 Dec","Hotel Indigo Chongqing Chaotianmen for five nights, with the drone show on Saturday 12 December.","Hotpot, the cableway, Liziba and the old town at night.",None),
  ("Xi'an","14 to 18 Dec","Han Tang House for four nights. The Muslim Quarter, the Bell and Drum Towers, the Great Mosque and the Terracotta Warriors.","The food streets and the city wall.",None),
  ("Chengdu again","18 to 29 Dec","Back to the apartment, with Christmas at the InterContinental Chengdu Global Center on 24 and 25 December.","Hotel review, the Global Center and a proper rest.",None)]
 def december_b(SOC, CARDS):
