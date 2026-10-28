@@ -290,7 +290,7 @@ def disclosure_b(SOC):
 <section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Affiliate disclosure</span></nav><p class="eyebrow">Affiliate disclosure</p><h1>How affiliate links work on this site</h1><p class="lede">Some links on Scratch &amp; Roam are affiliate links. Here is what that means for you, in plain words.</p></div></section>
 <section class="sec" style="padding-top:10px"><div class="wrap"><article class="art" style="max-width:720px">
 <h2 style="margin-top:0">What an affiliate link is</h2><p>When you book through one of my affiliate links, the booking site pays me a small commission. You pay the same price as you would going to the site yourself. It is one of the ways I keep the guides free to read.</p>
-<h2>Which links are affiliate links</h2><p>Links to Klook, Viator, Tiqets, Airalo, Yesim, Saily, Welcome Pickups, GetTransfer and Kiwi.com on this site are affiliate links.</p><p>On the Travel deals page, a card marked "I use this" is something I use myself, and "We booked here" means we booked through it. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p>
+<h2>Which links are affiliate links</h2><p>Links to Klook, Viator, NordVPN, NordPass, Tiqets, Airalo, Yesim, Saily, Welcome Pickups, GetTransfer and Kiwi.com on this site are affiliate links.</p><p>On the Travel deals page, a card marked "I use this" is something I use myself, and "We booked here" means we booked through it. Every guide that has them says so at the top, next to the date it was checked, and again next to the links. Guides with no affiliate links say "Nothing here is sponsored".</p>
 <h2>Amazon</h2><p>As an Amazon Associate I earn from qualifying purchases. Some guides link to Amazon for things the guide tells you to pack. In Ireland the links open Amazon.ie. Everywhere else they open Amazon.com, which sends you on to your own country's Amazon store if there is one.</p>\n<h2>Referral codes</h2><p>Some cards on the Travel deals page have a referral code instead of an affiliate link. With the Firsty code, for example, you get €3 off your first purchase over €4 and I get €3 credit in my app.</p>
 <h2>What we booked ourselves</h2><p>When we booked something ourselves, the card says so, for example "Where we booked" on the ERA show tickets. When a card does not say that, it is an option I am sharing, not something we have tried.</p>
 <h2>What it does not change</h2><p>No company pays me to write a guide or to say good things. The steps, the prices and the rules in each guide come from our own trips and from the sources listed at the bottom of each page, with the date I checked them.</p>
@@ -365,7 +365,7 @@ DEALS=[
       text="Tickets for museums and attractions. The link opens Tiqets on a city page; switch the city at the top of their site."),
  dict(cat="Tours and tickets",name="Viator",url="https://www.viator.com/?pid=P00328482&mcid=42383&medium=link&campaign=scratchandroam",
       text="Tours, day trips and activities around the world, from the Tripadvisor company. The link opens the Viator home page; search for your city."),
- dict(cat="eSIM and data",name="Firsty",url="https://www.firsty.app/",used=True,code="6TKZ-8RGM",codenote="Referral code: you get €3 off your first purchase over €4, and I get €3 credit.",
+ dict(cat="eSIM and data",name="Firsty",url="https://www.firsty.app/",used=True,picktext="The eSIM I use",code="6TKZ-8RGM",codenote="Referral code: you get €3 off your first purchase over €4, and I get €3 credit.",
       text="The eSIM I use myself. I used Firsty in Japan and in Saudi Arabia with no problems, and I plan to use it in China too. Before China, check in the app how it handles Google and WhatsApp there."),
  dict(cat="eSIM and data",name="Airalo",url="https://airalo.tpm.li/2QR6sBuX",qr="airalo-travel-deal-link-qr-code",
       text="eSIM data plans for travel, bought and installed in an app. The link opens the Airalo app in the App Store."),
@@ -373,6 +373,10 @@ DEALS=[
       text="eSIM data plans for travel, for one country or a region."),
  dict(cat="eSIM and data",name="Saily",url="https://saily.tpm.li/r3wbWW2R",
       text="eSIM data plans for travel, from Nord Security, the company behind NordVPN."),
+ dict(cat="VPN and security",name="NordVPN",url="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=159585&url_id=902",used=True,picktext="The VPN I had on our first China trip",
+      text="The VPN I had on our first China trip. It needed Wi-Fi to activate again after we landed, so install it, log in and test it at home, and keep a second VPN as a backup. Using a VPN in China sits in a legal grey area."),
+ dict(cat="VPN and security",name="NordPass",url="https://go.nordpass.io/aff_c?offer_id=488&aff_id=159585&url_id=9356",
+      text="A password manager from the same company as NordVPN, for keeping your logins in one place when you travel."),
  dict(cat="Packing and gear",name="Amazon",url="/go/amazon",
       text="Travel adapters, packing cubes, carry-on bags and the other things my guides tell you to pack. As an Amazon Associate I earn from qualifying purchases."),
  dict(cat="Airport transfers",name="Welcome Pickups",url="https://tpm.li/IwbyltvW",qr="welcome-pickups-travel-deal-link-qr-code",
@@ -389,7 +393,7 @@ def deals_b(SOC):
     chips='<button type="button" class="chip on" data-f="all">All</button>'+"".join(f'<button type="button" class="chip" data-f="{html.escape(c)}">{html.escape(c)}</button>' for c in cats)
     cards=""
     picks=[d for d in DEALS if d.get("booked") or d.get("used")]
-    pk="".join(f'<a class="pk" href="#d-{re.sub("[^a-z0-9]+","-",d["name"].lower())}"><b>{html.escape(d["name"])}</b><span>{"We booked our ERA show tickets here" if d.get("booked") else "The eSIM I use"}{" · code "+html.escape(d["code"]) if d.get("code") else ""}</span></a>' for d in picks)
+    pk="".join(f'<a class="pk" href="#d-{re.sub("[^a-z0-9]+","-",d["name"].lower())}"><b>{html.escape(d["name"])}</b><span>{html.escape(d.get("picktext") or ("We booked our ERA show tickets here" if d.get("booked") else "I use this"))}{" · code "+html.escape(d["code"]) if d.get("code") else ""}</span></a>' for d in picks)
     for d in sorted(DEALS,key=lambda d:0 if (d.get("booked") or d.get("used")) else 1):
         qr=f'<img class="dqr" src="/img/{d["qr"]}.jpg" alt="QR code for {html.escape(d["name"])}" width="110" height="110" loading="lazy">' if d.get("qr") else ''
         badge='<span class="dbadge booked">We booked here</span>' if d.get("booked") else ('<span class="dbadge booked">I use this</span>' if d.get("used") else '<span class="dbadge">Link only</span>')
@@ -415,14 +419,18 @@ def _pick_firsty(more="#links"):
             '<div class="dcode has"><span>Code</span><b>6TKZ-8RGM</b><button type="button" data-copy="6TKZ-8RGM">Copy</button></div>'
             '<small class="dcn">You get €3 off your first purchase over €4, and I get €3 credit.</small>'
             f'<a class="btn" href="https://www.firsty.app/" rel="noopener" target="_blank">Open Firsty</a> <a class="smore" href="{more}">Other eSIMs →</a></div></div>')
-STEP_PICKS={"china-travel-apps":{8:_pick_firsty()},"china-before-you-fly-checklist":{4:_pick_firsty()}}
+def _pick_nordvpn():
+    return ('<div class="spick"><span class="adl">#Ad</span><div><b>The VPN I had: NordVPN</b> <span class="dbadge booked">I use this</span>'
+            '<p>On our first trip it needed Wi-Fi to activate again after we landed. Install it, log in and test it at home, and keep a second VPN as a backup.</p>'
+            '<a class="btn" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=159585&url_id=902" rel="sponsored noopener" target="_blank">Open NordVPN</a> <a class="smore" href="/travel-deals/">All my links →</a></div></div>')
+STEP_PICKS={"china-travel-apps":{8:_pick_firsty(),9:_pick_nordvpn()},"china-before-you-fly-checklist":{4:_pick_firsty()}}
 
 # ===== "Links for this guide" boxes (partner links that fit the guide's topic) =====
 GUIDE_DEALS={
- "china-travel-apps":(["Firsty","Airalo","Yesim","Saily"],"eSIMs for step 8. Whichever you pick, read the plan description first: for China you want one that routes data outside China, so Google and WhatsApp keep working."),
- "top-25-china-apps":(["Firsty","Airalo","Yesim","Saily"],"eSIMs for pass number 4. For China, read the plan description first: you want one that routes data outside China."),
+ "china-travel-apps":(["Firsty","Airalo","Yesim","Saily","NordVPN"],"eSIMs for step 8, and the VPN I had for step 9. Whichever you pick, read the plan description first: for China you want one that routes data outside China, so Google and WhatsApp keep working."),
+ "top-25-china-apps":(["Firsty","Airalo","Yesim","Saily","NordVPN"],"eSIMs for pass number 4, and the VPN I had. For China, read the plan description first: you want one that routes data outside China."),
  "first-time-in-china":(["Firsty","Airalo","Kiwi.com","Welcome Pickups","GetTransfer"],"An eSIM for the internet on landing, flights, and a transfer from the airport so the first hour is easy."),
- "china-before-you-fly-checklist":(["Firsty","Airalo","Welcome Pickups","GetTransfer"],"An eSIM for step 4, and an airport transfer for step 10, so your first day stays simple."),
+ "china-before-you-fly-checklist":(["Firsty","Airalo","NordVPN","Welcome Pickups","GetTransfer"],"An eSIM and the VPN I had for step 4, and an airport transfer for step 10, so your first day stays simple."),
  "china-visa-free-30-days":(["Kiwi.com"],"Flights for a trip that fits inside the 30 days and before 31 December 2026."),
 }
 def guide_deals_b(slug):
