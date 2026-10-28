@@ -295,7 +295,7 @@ PC_STEPS=[
  ("Sign and confirm the card","Sign on the screen and confirm. Read the summary once more before you submit."),
  ("Save the QR code as a PDF and email","The site offers a QR code, a PDF download and an email copy. Take all three. Keep the PDF on your phone, because you do not want to depend on signal at the airport."),
 ]
-guide("china-arrival-card-pc","China arrival card on a PC: step by step guide","China arrival card online on a PC, step by step",
+guide("china-arrival-card-pc","China arrival card online: step by step on a PC (2026)","China arrival card online on a PC, step by step",
       "The China arrival card online on a computer, step by step, with the real form enlarged. Upload your passport and most of it fills in for you.",
       "China arrival card online","33pgztdZT8Q",
       "<p>Every visitor fills in the arrival card before landing in China. It is free, it is online, and on a computer it takes a few minutes. You upload your passport page, it fills in most of the form for you, and at the end you get a QR code.</p><p>In the video I go through the whole form on the computer, field by field. Nobody at the border asked us to show the QR code, but I still saved it, and I would do the same again. Prefer your phone? There is an <a href='/guides/china-arrival-card-alipay/'>Alipay version</a> of this guide.</p>",
@@ -545,7 +545,7 @@ guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: pier, t
       place={"name":"Huangpu River Cruise","city":"Shanghai","free":False},steps_title="How to book and board",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
-guide("shanghai-circus-world-era-show","Shanghai Circus World ERA show: tickets and how to get there","Shanghai Circus World ERA show: how to book tickets, where to sit, how to get there",
+guide("shanghai-circus-world-era-show","Shanghai Circus World tickets: ERA show guide (2026)","Shanghai Circus World ERA show: how to book tickets, where to sit, how to get there",
       "ERA at Shanghai Circus World: metro Line 1, exit 3, shows at 19:30 Tuesday to Sunday, ticket zones and prices, and where foreigners can book.",
       "Shanghai Circus World ERA tickets",None,
       "<p>We saw ERA, the acrobatics show at Shanghai Circus World, on a weeknight, and I filmed five of the acts. The long video is on YouTube. The show is excellent.</p><p>Getting there and booking is less obvious, because the venue is not in the centre and tickets are sold by zone, not by seat. This page covers where to buy, which zone to pick and how to get there by metro. We booked our tickets on Klook, and the link is in the <a href='#book'>booking section</a> below.</p>"+CHECK,

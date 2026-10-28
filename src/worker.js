@@ -18,6 +18,13 @@ const product = ([h, t], asin) => `https://${h}/dp/${asin}?tag=${t}`;
 export default {
   async fetch(req, env) {
     const u = new URL(req.url);
+    // One address for every page: https://scratchandroam.com (Google indexed www. and http:// copies)
+    if (u.hostname !== "scratchandroam.com" || u.protocol === "http:") {
+      if (u.hostname.endsWith("scratchandroam.com")) {
+        u.hostname = "scratchandroam.com"; u.protocol = "https:"; u.port = "";
+        return Response.redirect(u.toString(), 301);
+      }
+    }
     const m = u.pathname.match(/^\/go\/([a-z0-9-]+)\/?$/);
     if (m) {
       const ie = ((req.cf && req.cf.country) || "") === "IE";
