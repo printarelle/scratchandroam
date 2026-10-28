@@ -28,7 +28,7 @@ HOTELS = [
       extra_checks=["Police registration for foreigners staying in an apartment: where, how long it took, what they asked for",
                     "Kitchen, washing machine, how check-in and keys worked, who to message"]),
  dict(slug="hotel-indigo-chongqing-chaotianmen-review", city="Chongqing", name="Hotel Indigo Chongqing Chaotianmen",
-      kind="hotel", dates="9 to 13 Dec 2026", stayed=False,
+      kind="hotel", dates="9 to 14 Dec 2026", stayed=False,
       extra_checks=["View of the rivers and the drone show (Saturday 12 Dec)", "How new the hotel is and anything still being finished"]),
  dict(slug="han-tang-house-xian-review", city="Xi'an", name="Han Tang House (Guardian Han Tang)",
       kind="hotel", dates="14 to 18 Dec 2026", stayed=False,
