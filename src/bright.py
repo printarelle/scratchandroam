@@ -29,7 +29,7 @@ def footer_b(SOC, FOOT_GROUPS, CARDS):
     cols=""
     for h,l in FOOT_GROUPS:
         sl=[x for x in l if x in by]
-        extra=('<a href="/guides/china-travel-faq/">Questions answered</a>' if h=="Before you fly" else "")
+        extra=('<a href="/guides/china-travel-faq/">Questions answered</a><a href="/china/tools/">Money and size tools</a>' if h=="Before you fly" else "")
         cols+=f'<div><h3>{html.escape(h)}</h3><nav>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+extra+'</nav></div>'
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
     return f'''<footer class="ft"><div class="wrap"><div class="grid"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Real first-timer China. Real screenshots. Real prices, with the date I checked them.</p><h3 style="margin-top:22px">Follow along</h3><nav>{links}</nav></div>{cols}<div class="stamp">Scratch to reveal<span>Roam</span>to discover</div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland. As an Amazon Associate I earn from qualifying purchases.</span><span><a href="/about/">About</a> · <a href="/travel-deals/">Travel deals</a> · <a href="/klook/">Klook</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/feed.xml">RSS</a> · scratchandroam@gmail.com</span></div></div></footer>'''
@@ -289,7 +289,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <aside class="side" id="share">
 <div class="scard me"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><h3>Hi, I'm Natali</h3><p>I'm a maker from Ireland. I film my trips, then write down the parts nobody explains, with the date I checked each one.</p><a href="/about/">More about my story →</a></div>
 <div class="scard"><span class="eyebrow">More guides</span><div class="mlist">{more_html}</div></div>
-<div class="scard"><span class="eyebrow">Quick answers</span><p>Short, dated answers to the China questions first-timers ask.</p><a href="/guides/china-travel-faq/">Search the questions →</a></div>
+<div class="scard"><span class="eyebrow">Quick answers</span><p>Short, dated answers to the China questions first-timers ask.</p><a href="/guides/china-travel-faq/">Search the questions →</a><p style="margin-top:10px"><a href="/china/tools/">Yuan and clothing size tools →</a></p></div>
 </aside>
 </div>
 {band_b(SOC)}
@@ -610,6 +610,7 @@ def faq_b(SOC):
 <div class="chips" role="group" aria-label="Filter by stage">{chips}</div>
 <p class="fqcount" id="fqcount" aria-live="polite"></p>
 <div id="fqlist">{secs}</div>
+<p class="tmeta">Also useful: the <a href="/china/tools/">yuan converter and Chinese clothing size finder</a>.</p>
 <p class="fqnone" id="fqnone" hidden>No answer matches that yet. Try fewer words, or check the <a href="/china/">China guides</a>.</p>
 </div></section>
 {band_b(SOC)}
@@ -617,3 +618,76 @@ def faq_b(SOC):
 <script>(function(){{var q=document.getElementById("fqq"),chips=[].slice.call(document.querySelectorAll(".chips .chip")),items=[].slice.call(document.querySelectorAll(".fq")),secs=[].slice.call(document.querySelectorAll(".fqsec")),cnt=document.getElementById("fqcount"),none=document.getElementById("fqnone"),g="all";function run(){{var t=q.value.toLowerCase().trim().split(/\\s+/).filter(Boolean),n=0;items.forEach(function(d){{var ok=(g==="all"||d.getAttribute("data-g")===g),k=d.getAttribute("data-k");t.forEach(function(w){{if(k.indexOf(w)<0)ok=false}});d.hidden=!ok;if(ok)n++}});secs.forEach(function(s){{s.hidden=!s.querySelector(".fq:not([hidden])")}});none.hidden=n>0;cnt.textContent=(t.length||g!=="all")?n+(n===1?" answer":" answers"):""}}q.addEventListener("input",run);chips.forEach(function(c){{c.addEventListener("click",function(){{chips.forEach(function(y){{y.classList.toggle("on",y===c)}});g=c.getAttribute("data-f");run()}})}});if(location.hash){{var e=document.getElementById(location.hash.slice(1));if(e&&e.tagName==="DETAILS")e.open=true}}window.addEventListener("hashchange",function(){{var e=document.getElementById(location.hash.slice(1));if(e&&e.tagName==="DETAILS")e.open=true}})}})();</script>'''
 def faq_schema(SITE):
     return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":r["q"],"acceptedAnswer":{"@type":"Answer","text":r["a"]}} for r in faq_data()]}
+
+# ===== China tools: money, units, clothing sizes =====
+TOOLS_RATE_FALLBACK={"base":"EUR","cny":7.4343,"date":"27 October 2026"}
+_TOOLS_HTML='''<main>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><a href="/china/">China</a><span>/</span><span>Tools</span></nav><p class="eyebrow">China Travel Companion</p><h1>China money, units and clothing size tools</h1><p class="lede">Three small tools for shopping and paying in China. They run in your browser, so they also work once the page has loaded and your signal drops.</p></div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+<div class="dnote"><b>Read this first</b><p>Rates change daily and your bank adds its own fee. Use these numbers to judge a price, not to budget to the cent. For sizes, the seller's own size chart always wins.</p></div>
+<div class="tool" id="money"><h2>Yuan (RMB) and your currency</h2>
+<div class="trow"><label>Amount<input id="mAmt" type="number" inputmode="decimal" value="100" min="0"></label>
+<label>From<select id="mFrom"><option value="CNY">Chinese yuan (CNY)</option><option value="EUR">Euro (EUR)</option><option value="USD">US dollar (USD)</option><option value="GBP">Pound (GBP)</option></select></label>
+<label>To<select id="mTo"><option value="EUR">Euro (EUR)</option><option value="USD">US dollar (USD)</option><option value="GBP">Pound (GBP)</option><option value="CNY">Chinese yuan (CNY)</option></select></label></div>
+<p class="tres" id="mOut" aria-live="polite"></p><p class="tmeta" id="mMeta"></p>
+<div class="ttab" id="mTab"></div>
+<p class="tmeta">Live rate: <a href="https://frankfurter.dev" rel="noopener" target="_blank">Frankfurter</a>, which publishes European Central Bank reference rates. If it cannot load, the page uses the last ECB euro rate I saved ({FBDATE}) and only converts euro and yuan.</p></div>
+<div class="tool" id="units"><h2>Units and temperature</h2>
+<div class="trow"><label>Kilometres<input class="u" data-k="km" type="number" inputmode="decimal" placeholder="km"></label><label>Miles<input class="u" data-k="mi" type="number" inputmode="decimal" placeholder="miles"></label></div>
+<div class="trow"><label>Celsius<input class="u" data-k="c" type="number" inputmode="decimal" placeholder="°C"></label><label>Fahrenheit<input class="u" data-k="f" type="number" inputmode="decimal" placeholder="°F"></label></div>
+<div class="trow"><label>Kilograms<input class="u" data-k="kg" type="number" inputmode="decimal" placeholder="kg"></label><label>Pounds<input class="u" data-k="lb" type="number" inputmode="decimal" placeholder="lb"></label></div>
+<div class="trow"><label>Centimetres<input class="u" data-k="cm" type="number" inputmode="decimal" placeholder="cm"></label><label>Inches<input class="u" data-k="in" type="number" inputmode="decimal" placeholder="inches"></label></div>
+<p class="tmeta">China uses metric. Type in either box and the other fills in. Chinese shops often sell by the <i>jin</i> (斤): 1 jin is 500 g.</p></div>
+<div class="tool" id="sizes"><h2>Clothing size finder</h2>
+<p>Chinese clothing labels follow the national standard GB/T 1335 and look like <b>170/88A</b>: <b>170</b> is the height in cm the garment is cut for, <b>88</b> is the chest or bust in cm, and the letter is the fit. <b>A</b> is regular, <b>Y</b> is slimmer and <b>B</b> is fuller.</p>
+<div class="trow"><label>Height (cm)<input id="sH" type="number" inputmode="decimal" placeholder="168"></label><label>Chest or bust (cm)<input id="sC" type="number" inputmode="decimal" placeholder="90"></label><label>Fit<select id="sF"><option value="A">A, regular</option><option value="Y">Y, slimmer</option><option value="B">B, fuller</option></select></label></div>
+<p class="tres" id="sOut" aria-live="polite">Fill in height and chest to see your label.</p>
+<h3>Women's tops, roughly</h3>
+<div class="twrap"><table class="tt"><thead><tr><th>China label</th><th>Letter</th><th>Bust cm</th><th>EU</th><th>UK</th><th>US</th></tr></thead><tbody>
+<tr><td>155/80A</td><td>XS</td><td>80-83</td><td>32-34</td><td>4-6</td><td>0-2</td></tr>
+<tr><td>160/84A</td><td>S</td><td>84-87</td><td>36-38</td><td>8-10</td><td>4-6</td></tr>
+<tr><td>165/88A</td><td>M</td><td>88-91</td><td>40-42</td><td>12-14</td><td>8-10</td></tr>
+<tr><td>168/92A</td><td>L</td><td>92-96</td><td>42-44</td><td>16-18</td><td>12-14</td></tr>
+<tr><td>170/96A</td><td>XL</td><td>96-100</td><td>44-46</td><td>20</td><td>16</td></tr>
+<tr><td>172/100A</td><td>XXL</td><td>100-104</td><td>46-48</td><td>22</td><td>18</td></tr>
+</tbody></table></div>
+<h3>Men's jackets and tops, roughly</h3>
+<div class="twrap"><table class="tt"><thead><tr><th>China label</th><th>Letter</th><th>Chest cm</th><th>Height cm</th><th>EU</th></tr></thead><tbody>
+<tr><td>165/84A</td><td>S</td><td>84-87</td><td>163-167</td><td>44</td></tr>
+<tr><td>170/88A</td><td>M</td><td>88-91</td><td>168-172</td><td>46</td></tr>
+<tr><td>175/92A</td><td>L</td><td>92-95</td><td>173-177</td><td>48</td></tr>
+<tr><td>180/96A</td><td>XL</td><td>96-99</td><td>178-182</td><td>50</td></tr>
+<tr><td>185/100A</td><td>XXL</td><td>100-103</td><td>183-187</td><td>52</td></tr>
+<tr><td>190/104A</td><td>3XL</td><td>104-107</td><td>188-192</td><td>54</td></tr>
+</tbody></table></div>
+<p class="tmeta">Source: the label structure and the size tables come from <a href="https://www.travelofchina.com/size-chart-for-china-clothes/" rel="noopener" target="_blank">Travel of China's size chart guide</a>, which cites GB/T 1335. Checked 29 October 2026. I have not tested these against garments myself. Trust the centimetre columns over the letter and country sizes, and measure your own chest. Taobao sellers usually post their own chart, and many brands cut smaller than the standard, so between two sizes I would go up. Shoes and trousers are not covered yet.</p></div>
+</div></section>
+{BAND}
+</main>
+<script>(function(){
+var FB={FBJSON};var R=null,live=false;
+var money=["CNY","EUR","USD","GBP"];
+function fmt(n,c){try{return new Intl.NumberFormat("en-IE",{style:"currency",currency:c,maximumFractionDigits:2}).format(n)}catch(e){return n.toFixed(2)+" "+c}}
+function rate(a,b){if(a===b)return 1;if(!R||!R[a]||!R[b])return null;return R[b]/R[a]}
+function setFallback(){R={EUR:1,CNY:FB.cny};live=false}
+function money_run(){var amt=parseFloat(document.getElementById("mAmt").value),a=document.getElementById("mFrom").value,b=document.getElementById("mTo").value,out=document.getElementById("mOut"),tab=document.getElementById("mTab");
+var r=rate(a,b);if(isNaN(amt)||amt<0){out.textContent="Type an amount.";tab.innerHTML="";return}
+if(r===null){out.textContent="Offline: I can only convert euro and yuan right now.";tab.innerHTML="";return}
+out.textContent=fmt(amt,a)+" is about "+fmt(amt*r,b);
+var rows="";[10,50,100,200,500,1000].forEach(function(x){rows+="<tr><td>"+fmt(x,a)+"</td><td>"+fmt(x*r,b)+"</td></tr>"});
+tab.innerHTML='<table class="tt"><thead><tr><th>'+a+'</th><th>'+b+'</th></tr></thead><tbody>'+rows+'</tbody></table>'}
+function meta(d){document.getElementById("mMeta").textContent=live?("Live ECB-based rate for "+d+". Your bank or card will add a fee, so expect a little less."):("Saved ECB rate from "+FB.date+" (euro and yuan only). Rates change, so check your bank.")}
+setFallback();meta();money_run();
+try{fetch("https://api.frankfurter.dev/v1/latest?base=CNY&symbols=EUR,USD,GBP").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){if(!j||!j.rates||!j.rates.EUR||!j.rates.USD||!j.rates.GBP)throw 0;R={CNY:1,EUR:j.rates.EUR,USD:j.rates.USD,GBP:j.rates.GBP};live=true;meta(j.date);money_run()}).catch(function(){})}catch(e){}
+["mAmt","mFrom","mTo"].forEach(function(i){document.getElementById(i).addEventListener("input",money_run)});
+var U={km:["mi",function(v){return v*0.621371},function(v){return v/0.621371}],c:["f",function(v){return v*9/5+32},function(v){return (v-32)*5/9}],kg:["lb",function(v){return v*2.204623},function(v){return v/2.204623}],cm:["in",function(v){return v/2.54},function(v){return v*2.54}]};
+var inp={};[].forEach.call(document.querySelectorAll(".u"),function(e){inp[e.getAttribute("data-k")]=e});
+Object.keys(U).forEach(function(k){var o=U[k][0];inp[k].addEventListener("input",function(){var v=parseFloat(inp[k].value);inp[o].value=isNaN(v)?"":Math.round(U[k][1](v)*100)/100});inp[o].addEventListener("input",function(){var v=parseFloat(inp[o].value);inp[k].value=isNaN(v)?"":Math.round(U[k][2](v)*100)/100})});
+function size_run(){var h=parseFloat(document.getElementById("sH").value),c=parseFloat(document.getElementById("sC").value),f=document.getElementById("sF").value,o=document.getElementById("sOut");
+if(isNaN(h)||isNaN(c)){o.textContent="Fill in height and chest to see your label.";return}
+if(h<120||h>210||c<60||c>140){o.textContent="Check the numbers: height and chest are both in centimetres.";return}
+var H=Math.round(h/5)*5,C=Math.round(c/4)*4;o.innerHTML="Your label is about <b>"+H+"/"+C+f+"</b>. Heights step in 5 cm and chests in 4 cm. If you sit between two sizes, go up one.<br>If the shop only lists letters, use the tables below and match on centimetres."}
+["sH","sC","sF"].forEach(function(i){document.getElementById(i).addEventListener("input",size_run)});
+})();</script>'''
+def tools_b(SOC):
+    return (_TOOLS_HTML.replace('{FBJSON}',_json.dumps(TOOLS_RATE_FALLBACK)).replace('{FBDATE}',TOOLS_RATE_FALLBACK["date"]).replace('{BAND}',band_b(SOC)))

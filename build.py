@@ -20,7 +20,7 @@ FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="sty
 CSS=open('src/site.css').read()
 BRIGHT=os.environ.get('THEME','bright')=='bright'  # set THEME=legacy for the old dark build
 if BRIGHT:
-    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b, december_b, faq_b, faq_schema, faq_checked
+    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b, december_b, faq_b, faq_schema, faq_checked, tools_b
     CSS=open('src/bright.css').read()+open('src/legacy-boards.css').read()
     FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">'
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
@@ -264,6 +264,8 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,
 exec(open('src/content.py').read())
 if BRIGHT:
     if PARTNER_PAGES: page('/klook/','Klook link: what we booked in China','My Klook link, and the China tickets on this site you can book there, including the ERA show we booked in Shanghai.',partner_b('klook',SOC))
+    page('/china/tools/','China money, units and clothing size tools','Convert yuan to euro, dollars or pounds, switch km, miles and degrees, and turn your height and chest into a Chinese clothing label.',tools_b(SOC),[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"China guides","item":SITE+"/china/"},{"@type":"ListItem","position":3,"name":"China tools","item":SITE+"/china/tools/"}]}],modified="2026-10-29")
+    SEARCH.append({"u":"/china/tools/","t":"China money, units and clothing size tools","d":"Yuan converter, units and a Chinese clothing size finder.","k":"currency exchange rate yuan rmb cny convert size converter clothing 170/88A taobao units km miles celsius jin"})
     page('/guides/china-travel-faq/','China travel questions answered for first-timers','Short, dated answers to the China questions first-timers ask: visa, arrival card, paying, eSIM, VPN, trains, Shanghai. Each links to the full guide.',faq_b(SOC),[faq_schema(SITE),{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"China guides","item":SITE+"/china/"},{"@type":"ListItem","position":3,"name":"China travel questions answered","item":SITE+"/guides/china-travel-faq/"}]}],modified=faq_checked())
     SEARCH.append({"u":"/guides/china-travel-faq/","t":"China travel questions answered for first-timers","d":"Short, dated answers to the China questions first-timers ask.","k":" ".join(" ".join([r["q"]]+r["alts"]) for r in json.load(open('src/china-answers.json',encoding='utf-8'))["records"])})
     page('/travel-deals/','Travel deals: my partner links','My travel partner links in one place: tickets, eSIMs, airport transfers and flights, and which ones we booked ourselves.',deals_b(SOC))
