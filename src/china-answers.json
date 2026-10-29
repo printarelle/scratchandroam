@@ -15,16 +15,26 @@
     "do eu citizens need a visa for china",
     "until when is china visa free"
    ],
-   "a": "It depends on your passport. At the last check, ordinary passport holders from Ireland, the UK and most EU countries could enter for up to 30 days for tourism, business, family visits or transit, with no visa. The visa-free policy runs until 24:00 Beijing time on 31 December 2026, and 2027 has not been announced. You need a passport valid for at least 6 months with 2 blank pages, plus the free arrival card. You cannot extend the 30 days. Rules change, so check the official page for your own country before you book.",
+   "a": "It depends on your passport. The Chinese embassy in Ireland lists Ireland among 38 countries whose ordinary passport holders can enter without a visa for up to 30 days, for tourism, business, family or friend visits, exchange or transit. The visa centre site gives 31 December 2026 as the end of the 30-day policy, while the embassy page gives no end date, so check the date close to departure. Bring a passport valid for your whole stay. The embassy recommends carrying an onward ticket, hotel booking or invitation. No limit on entries is stated, and staying past 30 days needs a visa or stay permit. Rules change.",
    "slug": "china-visa-free-30-days",
    "yt": "",
    "rel": [
     "arrival-card-pc",
     "first-trip-checklist"
    ],
-   "src": "Embassy and official guidance as summarised on the guide page; official page check still needed",
-   "chk": "2026-10-17",
-   "st": "needs official check"
+   "src": "Chinese Embassy in Ireland, page dated 4 Dec 2024 (official); Chinese Visa Application Service Center common questions (official)",
+   "chk": "2026-10-29",
+   "st": "needs official check",
+   "links": [
+    [
+     "Chinese Embassy in Ireland: visa-free entry (official)",
+     "https://ie.china-embassy.gov.cn/eng/qzfw/202412/t20241219_11506444.htm"
+    ],
+    [
+     "Chinese Visa Application Service Center: common questions (official)",
+     "https://www.visaforchina.cn/SGP3_EN/qianzhengyewu/jichuzhishi/changjianwenti/220323827614355469.html"
+    ]
+   ]
   },
   {
    "id": "arrival-card-pc",
