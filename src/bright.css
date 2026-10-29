@@ -650,9 +650,9 @@ p{margin:0}
 .whero p.eyebrow{color:#FF8B66}
 
 /* equal, spaced quick cards */
-.gcards.sm{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;grid-auto-rows:1fr}
-.gcards.sm .gc{height:100%}
-.gcards.sm .gc .in{flex:1}
+.gcards.sm{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+@media(min-width:700px){.gcards.sm:not(:has(img)){grid-auto-rows:1fr}}
+.gcards.sm:not(:has(img)) .gc .in{flex:1}
 .gcards.sm .gc .cat{white-space:nowrap;letter-spacing:.06em}
 
 /* homepage help tiles: colour change, arrow and lift on hover */
