@@ -1,0 +1,609 @@
+{
+ "generated": "2026-10-29",
+ "records": [
+  {
+   "id": "visa-free-30-days",
+   "pins": [
+    1
+   ],
+   "group": "Before I fly",
+   "q": "Do I need a visa for China, and how long can I stay visa free?",
+   "alts": [
+    "china visa free 30 days",
+    "irish passport china visa",
+    "uk passport china visa free",
+    "do eu citizens need a visa for china",
+    "until when is china visa free"
+   ],
+   "a": "It depends on your passport. At the last check, ordinary passport holders from Ireland, the UK and most EU countries could enter for up to 30 days for tourism, business, family visits or transit, with no visa. The visa-free policy runs until 24:00 Beijing time on 31 December 2026, and 2027 has not been announced. You need a passport valid for at least 6 months with 2 blank pages, plus the free arrival card. You cannot extend the 30 days. Rules change, so check the official page for your own country before you book.",
+   "slug": "china-visa-free-30-days",
+   "yt": "",
+   "rel": [
+    "arrival-card-pc",
+    "first-trip-checklist"
+   ],
+   "src": "Embassy and official guidance as summarised on the guide page; official page check still needed",
+   "chk": "2026-10-17",
+   "st": "needs official check"
+  },
+  {
+   "id": "arrival-card-pc",
+   "pins": [
+    3
+   ],
+   "group": "Before I fly",
+   "q": "How do I fill in the China arrival card online on a computer?",
+   "alts": [
+    "china arrival card",
+    "china entry card online",
+    "national immigration administration arrival card",
+    "china arrival card qr code"
+   ],
+   "a": "Use the free official card on the National Immigration Administration site. Have your passport, flight number, where you will stay in China and the reason for the trip ready. The passport page fills most of the form for you. Save the QR code as a PDF and email it to yourself. Nobody asked us to show it at the border, but it is better to have it. If a site asks you to pay, it is not the official one. The guide has the step by step screens.",
+   "slug": "china-arrival-card-pc",
+   "yt": "33pgztdZT8Q",
+   "rel": [
+    "arrival-card-alipay",
+    "visa-free-30-days"
+   ],
+   "src": "Natali's own experience; National Immigration Administration (official)",
+   "chk": "2026-10-15",
+   "st": "verified"
+  },
+  {
+   "id": "arrival-card-alipay",
+   "pins": [
+    2
+   ],
+   "group": "Before I fly",
+   "q": "Can I do the China arrival card on my phone in Alipay?",
+   "alts": [
+    "china arrival card alipay",
+    "arrival card mini program",
+    "china arrival card on phone"
+   ],
+   "a": "Yes. The same free arrival card is inside Alipay as a mini program, so you can do it on your phone instead of a computer. Have your passport, flight number, hotel details and reason for the trip ready. The passport page fills most of the form. Save the QR code as a PDF and send it to your email so it is on your phone either way. The card costs nothing, so close any site that asks for payment. There is a separate step by step guide and video for this version.",
+   "slug": "china-arrival-card-alipay",
+   "yt": "YDdwz1ChMFE",
+   "rel": [
+    "arrival-card-pc",
+    "travel-apps"
+   ],
+   "src": "Natali's own experience; National Immigration Administration (official)",
+   "chk": "2026-10-15",
+   "st": "verified"
+  },
+  {
+   "id": "first-trip-checklist",
+   "pins": [
+    11
+   ],
+   "group": "Before I fly",
+   "q": "What should I do before my first trip to China?",
+   "alts": [
+    "china first trip checklist",
+    "china travel checklist",
+    "china trip preparation",
+    "what to do before going to china"
+   ],
+   "a": "Sort ten small things: travel insurance, your hotel name and address in Chinese, the emergency numbers, your phone and data with a backup, a main and a backup way to pay, copies of your documents, a plan to pause around scams, a tiny medical kit, a translation app with saved places, and a simple first day. On my first trip my eSIM was ready but I forgot to switch it on before landing, so the backup plan mattered. Keep the first day simple: hotel, check payments and data, slow walk, easy food, rest.",
+   "slug": "china-before-you-fly-checklist",
+   "yt": "",
+   "rel": [
+    "travel-apps",
+    "lost-phone-or-passport"
+   ],
+   "src": "Natali's own experience",
+   "chk": "2026-10-20",
+   "st": "verified"
+  },
+  {
+   "id": "travel-apps",
+   "pins": [
+    4
+   ],
+   "group": "Phone and internet",
+   "q": "Which apps do I need for China, and which do I set up before I fly?",
+   "alts": [
+    "china travel apps",
+    "apps to download before china",
+    "best apps for china tourists",
+    "do i need a vpn with an esim in china"
+   ],
+   "a": "Alipay and WeChat for paying, AMap Global for maps, DiDi inside Alipay or AMap's ride-hailing for taxis, and Railway 12306 or Trip.com for trains. Set up at home anything that needs a passport check, a text code or a store that is blocked in China: Alipay, WeChat, 12306, Trip.com, AMap, your eSIM and any VPN. Passport checks can take days. You can skip Google Maps, Uber and any 12306 lookalike. A VPN is usually not needed on eSIM mobile data, but it helps on hotel Wi-Fi.",
+   "slug": "china-travel-apps",
+   "yt": "TuP9NS00Ugg",
+   "rel": [
+    "top-25-apps",
+    "google-in-china",
+    "metro-qr"
+   ],
+   "src": "Natali's own experience; app and eSIM provider pages as listed in the guide",
+   "chk": "2026-10-16",
+   "st": "verified"
+  },
+  {
+   "id": "top-25-apps",
+   "pins": [
+    16
+   ],
+   "group": "Phone and internet",
+   "q": "What are the most important apps to have in China?",
+   "alts": [
+    "top china apps",
+    "china apps for tourists ranked",
+    "which translator app for china",
+    "apps to skip in china"
+   ],
+   "a": "Alipay and WeChat for paying and messaging, a travel eSIM or VPN for Google and WhatsApp, and AMap for maps. Those are the first priorities and all need setting up at home. Add Railway 12306 or Trip.com for trains and download the Chinese pack in Google Translate or Microsoft Translator before you fly. Skip Waygo (not updated since 2017) and Kuli Kuli (a paywall). Ele.me is now called Taobao Flash Sale. The guide ranks all 25 apps with notes on what to set up first.",
+   "slug": "top-25-china-apps",
+   "yt": "",
+   "rel": [
+    "travel-apps",
+    "google-in-china"
+   ],
+   "src": "Natali's own experience; app store listings as cited in the guide",
+   "chk": "2026-10-18",
+   "st": "verified"
+  },
+  {
+   "id": "google-in-china",
+   "pins": [
+    12
+   ],
+   "group": "Phone and internet",
+   "q": "Does Google work in China, and do I need a VPN if I have an eSIM?",
+   "alts": [
+    "google maps china",
+    "does google maps work in china",
+    "vpn china esim",
+    "whatsapp in china"
+   ],
+   "a": "Google services are blocked on a Chinese network. Travel eSIM plans for China usually route your mobile data abroad, so Google and WhatsApp often work on mobile data without a VPN. Hotel Wi-Fi, laptops and Chinese SIM cards do not get that routing, so a VPN still helps there. Install and test it before you fly, because VPN sites do not open once you land, and carry a second one as a backup. For maps, use AMap or Apple Maps and save your hotel name in Chinese offline.",
+   "slug": "china-travel-apps",
+   "yt": "TuP9NS00Ugg",
+   "rel": [
+    "travel-apps",
+    "top-25-apps"
+   ],
+   "src": "Natali's own experience; eSIM provider notes as cited in the guides",
+   "chk": "2026-10-18",
+   "st": "verified"
+  },
+  {
+   "id": "metro-qr",
+   "pins": [
+    20
+   ],
+   "group": "Getting around",
+   "q": "How do I add the metro QR code in Alipay?",
+   "alts": [
+    "alipay metro qr code",
+    "alipay transport bus and metro",
+    "china metro qr wrong city",
+    "how to ride the metro in china"
+   ],
+   "a": "Open Alipay, tap Transport, pick your city, tap Bus & Metro, tap Agree and obtain card, then enter your Alipay payment password. When you see Card collected successfully, tap Use now to open the QR code. Each city needs its own card. If the gate does not open, check the city selected at the top left and that you are using the Transport code, not the shop payment code. Fallback: buy a single-journey ticket at the machine, which accepts Alipay. Test it at home, but have a plan for when you land.",
+   "slug": "alipay-metro-qr-code-china",
+   "yt": "",
+   "rel": [
+    "travel-apps"
+   ],
+   "src": "Natali's own screen recording; Alipay+ documentation (official)",
+   "chk": "2026-10-18",
+   "st": "verified"
+  },
+  {
+   "id": "order-food",
+   "pins": [
+    29
+   ],
+   "group": "In the city",
+   "q": "How do I order food in China without speaking Chinese?",
+   "alts": [
+    "order food in china",
+    "china restaurant ordering tips",
+    "scan to order china",
+    "say no spice in chinese"
+   ],
+   "a": "Point at the dish, or at someone else's, and say 我要这个 (wǒ yào zhège), I want this one. Show numbers with fingers, use a translator camera on menus, and pay with an Alipay or WeChat Pay QR code or small cash. Many restaurants use scan-to-order menus that need WeChat or Alipay. Do not count on a foreign card at street stalls. For takeaway say 打包 (dǎbāo), and for no spice say 不要辣 (bù yào là). Check any phrase in a translator app before you rely on it.",
+   "slug": "how-to-order-food-in-china-without-speaking-chinese",
+   "yt": "",
+   "rel": [
+    "food-delivery",
+    "spice-tolerance"
+   ],
+   "src": "Natali's experience; China Navigators and The China Project as cited in the guide",
+   "chk": "2026-10-26",
+   "st": "needs review (Chinese phrases need a native speaker check)"
+  },
+  {
+   "id": "food-delivery",
+   "pins": [
+    30
+   ],
+   "group": "In the city",
+   "q": "Can foreigners use food delivery apps like Meituan in China?",
+   "alts": [
+    "meituan for foreigners",
+    "food delivery china hotel",
+    "do i need a chinese number for meituan",
+    "taobao instant ele.me"
+   ],
+   "a": "Yes. I used the Meituan mini program inside WeChat with a Chinese phone number and switched on WeChat's translation. Without a Chinese number, the Meituan mini program inside Alipay is reported to work on your Alipay account, and Taobao Instant (formerly Ele.me) works as an Alipay mini program. Standalone apps usually want a Chinese number. In the note, ask the rider to message, not call, and say whether to leave it at reception. On our order the delivery and packing fee was ¥3; fees are often ¥3 to ¥6.",
+   "slug": "food-delivery-in-china-for-foreigners-meituan",
+   "yt": "",
+   "rel": [
+    "order-food",
+    "travel-apps"
+   ],
+   "src": "Natali's own order; Hidden China Travel and Travel to China as cited in the guide",
+   "chk": "2026-10-28",
+   "st": "needs review (mini program details change)"
+  },
+  {
+   "id": "taobao",
+   "pins": [
+    34
+   ],
+   "group": "Money",
+   "q": "How do I order on Taobao as a foreigner?",
+   "alts": [
+    "taobao for foreigners",
+    "taobao in english",
+    "taobao foreign card",
+    "taobao hotel delivery"
+   ],
+   "a": "Set up Alipay at home and link your own bank card, because that is how you pay with a foreign card. Third-party sources report a 3% fee on payments over ¥200. Search in English; it worked for me, and Live Text on iPhone or Circle to Search on Android translates anything else. English availability depends on your account region, so check Settings in your own app. If you send a parcel to a hotel, ask the hotel first and read the delivery estimate before paying, since delivery can take up to three days.",
+   "slug": "taobao-for-foreigners",
+   "yt": "",
+   "rel": [
+    "travel-apps",
+    "hotel-parcels"
+   ],
+   "src": "Natali's own orders; third-party reports as cited in the guide",
+   "chk": "2026-10-17",
+   "st": "needs review (fee is third-party)"
+  },
+  {
+   "id": "hotel-parcels",
+   "pins": [
+    28
+   ],
+   "group": "In the city",
+   "q": "Which hotels worked for us in China, and do hotels accept parcels?",
+   "alts": [
+    "ihg hotels china review",
+    "intercontinental shanghai pudong review",
+    "chinese hotels accept taobao parcels",
+    "foreigners hotels china"
+   ],
+   "a": "We stayed at four IHG hotels: InterContinental Shanghai Pudong, Crowne Plaza Shanghai Nanjing Road, voco Shanghai Hongqiao Hub and InterContinental Hangzhou ICC. All four accepted my Taobao parcels, but write to the hotel before you arrive. Our favourite was InterContinental Hangzhou ICC. We would not stay at the voco Hongqiao Hub again because of a constant sulfur smell. If you stay anywhere, ask for another room on the first day if something is wrong. This is our own experience at these four hotels, not a rule for all of China.",
+   "slug": "ihg-hotels-china-shanghai-hangzhou-review",
+   "yt": "",
+   "rel": [
+    "taobao"
+   ],
+   "src": "Natali's own stays, Dec 2025 to Apr 2026",
+   "chk": "2026-10-28",
+   "st": "verified"
+  },
+  {
+   "id": "bund",
+   "pins": [
+    24
+   ],
+   "group": "In the city",
+   "q": "How do I visit the Bund in Shanghai at night?",
+   "alts": [
+    "the bund shanghai at night",
+    "bund lights time",
+    "metro exit for the bund",
+    "is the bund free"
+   ],
+   "a": "The Bund promenade is free. Take Lines 2 or 10 to East Nanjing Road station, exit 2 or 7, and walk east along Nanjing East Road to the river. The lights usually go off at 22:00 on both banks and come on around 18:00 in winter and 19:30 in summer. Arrive 45 to 60 minutes before sunset to see both day and night views. Weekday mornings are the quiet time for photos. Only cruises, observation decks and the sightseeing tunnel cost money.",
+   "slug": "the-bund-shanghai-at-night",
+   "yt": "",
+   "rel": [
+    "huangpu-cruise",
+    "nanjing-road"
+   ],
+   "src": "Natali's own visit; Shanghai tourism sources as cited in the guide",
+   "chk": "2026-10-15",
+   "st": "verified"
+  },
+  {
+   "id": "nanjing-road",
+   "pins": [
+    35
+   ],
+   "group": "In the city",
+   "q": "How do I get to Nanjing Road in Shanghai, and when do the lights come on?",
+   "alts": [
+    "nanjing road shanghai",
+    "nanjing road pedestrian street metro",
+    "nanjing road neon"
+   ],
+   "a": "Nanjing Road pedestrian street is about 1.6 km, from People's Square to the Bund, and takes around an hour to walk with stops. Use People's Square station (Lines 1, 2, 8) for the west end or East Nanjing Road (Lines 2, 10) for the east end near the Bund. The lights come on at 18:00 from October to May and 19:00 from June to September, and go off at 22:00. Walking east, the street ends near the Peace Hotel on the Bund, about 500 m further.",
+   "slug": "nanjing-road-shanghai",
+   "yt": "",
+   "rel": [
+    "bund"
+   ],
+   "src": "Natali's own visit; city sources as cited in the guide",
+   "chk": "2026-10-15",
+   "st": "verified"
+  },
+  {
+   "id": "huangpu-cruise",
+   "pins": [
+    27
+   ],
+   "group": "In the city",
+   "q": "How much is the Huangpu River night cruise, and which pier should I use?",
+   "alts": [
+    "huangpu river cruise shanghai",
+    "shanghai night cruise ticket",
+    "best pier for huangpu cruise"
+   ],
+   "a": "A standard 45 to 60 minute sightseeing cruise is about 120 to 150 RMB, and a 30 minute express is about 80 to 100 RMB, based on a Trip.com guide from August 2026. Dinner and VIP decks cost more. Shiliupu has the most routes, Jinling East Road is a short ride near the Bund, and Oriental Pearl suits Pudong stays. Tickets are tied to one pier. Bring your original passport, because online bookings are exchanged at the pier window. Go between 19:00 and 21:00 when both banks are lit.",
+   "slug": "huangpu-river-night-cruise",
+   "yt": "",
+   "rel": [
+    "bund"
+   ],
+   "src": "Trip.com guide, Aug 2026, as cited in the guide; prices change",
+   "chk": "2026-10-15",
+   "st": "needs review (prices)"
+  },
+  {
+   "id": "circus-era",
+   "pins": [
+    26,
+    32
+   ],
+   "group": "In the city",
+   "q": "How do I get tickets and get to the ERA show at Shanghai Circus World?",
+   "alts": [
+    "shanghai circus world era tickets",
+    "era intersection of time tickets",
+    "how to book attraction tickets in china",
+    "where to buy era tickets foreigners"
+   ],
+   "a": "We booked on Klook. You can also use the official site shcircusworld.com, Trip.com with QR code entry, or the box office from about 09:30. Prices run roughly 280 to 880 RMB depending on zone, per a 2026 guide, so check the date you want. The show is at 19:30 Tuesday to Sunday, plus 14:00 on Saturday and Sunday, and Monday is usually a rest day. Take Metro Line 1 to Shanghai Circus World station, exit 3, then walk about 3 minutes.",
+   "slug": "shanghai-circus-world-era-show",
+   "yt": "",
+   "rel": [
+    "huangpu-cruise",
+    "bund"
+   ],
+   "src": "Natali's own booking; official site and 2026 guide as cited in the guide; prices change",
+   "chk": "2026-10-15",
+   "st": "needs review (prices and times)"
+  },
+  {
+   "id": "lost-phone-or-passport",
+   "pins": [
+    37
+   ],
+   "group": "Problems",
+   "q": "What do I do if I lose my phone or passport in China?",
+   "alts": [
+    "lost passport china",
+    "lost phone china",
+    "china emergency numbers",
+    "what if my phone dies in china"
+   ],
+   "a": "The only part I have verified is the emergency numbers: police 110, ambulance 120 and fire 119, per the UK government's China travel advice. Before you fly, keep copies of your documents, save your hotel name and address in Chinese, and set up a backup for your phone and data and a second way to pay, so one slip does not leave you without a map or wallet. For a lost passport, contact your own embassy in China. I have not yet written a step by step guide for this.",
+   "slug": "china-before-you-fly-checklist",
+   "yt": "",
+   "rel": [
+    "first-trip-checklist"
+   ],
+   "src": "UK government China travel advice (official); Natali's checklist. Lost passport procedure not covered by the guide",
+   "chk": "2026-10-20",
+   "st": "needs review (partial answer)"
+  },
+  {
+   "id": "foreign-card-payments",
+   "pins": [],
+   "group": "Money",
+   "q": "Can I use Alipay or WeChat Pay with a foreign bank card, and can I test it before I fly?",
+   "alts": [
+    "alipay foreign card",
+    "alipay without chinese bank account",
+    "wechat pay foreign card",
+    "alipay fees foreign card",
+    "revolut wise alipay"
+   ],
+   "a": "Yes, both let you link a foreign card, and no Chinese bank account is needed. Set up at home, because setup can need a passport check and a text code. WeChat Pay waived foreign card fees for 90 days on new accounts, up to ¥1,000 a day, per Tencent's May 2026 announcement. Third-party sources report a 3% Alipay fee above ¥200. At home you can check registration, verification and card linking, but a real shop payment is only proven after you land, so carry cash and a second card. Whether Revolut or Wise cards link depends on the card.",
+   "slug": "china-travel-apps",
+   "yt": "",
+   "rel": [
+    "travel-apps",
+    "metro-qr",
+    "taobao"
+   ],
+   "src": "Tencent newsroom, 27 May 2026 (official); Alipay fee is third-party; Revolut and Wise not tested by us",
+   "chk": "2026-10-16",
+   "st": "needs review (fees change; add Natali's own card screenshots)"
+  },
+  {
+   "id": "esim-or-sim",
+   "pins": [],
+   "group": "Phone and internet",
+   "q": "Should I get an eSIM or a Chinese SIM card?",
+   "alts": [
+    "esim china",
+    "china sim card tourist",
+    "airalo holafly nomad china",
+    "trip.com esim china"
+   ],
+   "a": "A travel eSIM is the easier default: install it before you fly, switch it on and turn roaming on when you land, and Google and WhatsApp usually work on mobile data because the data is routed abroad. In 37 Reddit threads reporting first-hand, Trip.com eSIMs worked in 49 reports, patchily in 10 and failed in 2. A Chinese SIM is worth it only if you need a real +86 number for SMS codes or public Wi-Fi logins. Buy it at the airport counter with your original passport and a face scan. Check your phone supports eSIM first.",
+   "slug": "",
+   "yt": "",
+   "rel": [
+    "vpn",
+    "chinese-phone-number",
+    "google-in-china"
+   ],
+   "src": "Reddit tally (37 threads, to 15 Oct 2026); Airalo and Nomad blogs; official China tourism site, Mar 2026; prices change",
+   "chk": "2026-10-17",
+   "st": "needs review (no guide yet; prices change)"
+  },
+  {
+   "id": "vpn",
+   "pins": [],
+   "group": "Phone and internet",
+   "q": "Which VPN works in China?",
+   "alts": [
+    "best vpn for china",
+    "does astrill work in china",
+    "letsvpn china",
+    "do i need a vpn in china"
+   ],
+   "a": "No VPN is guaranteed, so install two before you fly. In Reddit reports, Astrill worked most often (9 worked, 7 patchy, 6 failed, all 6 failures from the last two months). LetsVPN announced the end of its mainland China service on 28 April 2026. Install, pay for and log in on every device at home, because VPN websites are blocked once you land. A VPN mainly matters for hotel Wi-Fi and laptops, since an eSIM already routes your phone data abroad. Keep offline maps and translations as a backup.",
+   "slug": "",
+   "yt": "",
+   "rel": [
+    "esim-or-sim",
+    "google-in-china"
+   ],
+   "src": "Reddit tally (37 threads, to 15 Oct 2026); LetsVPN in-app notice via ermao.net, 29 Apr 2026",
+   "chk": "2026-10-17",
+   "st": "needs review (VPN results change fast)"
+  },
+  {
+   "id": "chinese-phone-number",
+   "pins": [],
+   "group": "Phone and internet",
+   "q": "Do I need a Chinese phone number?",
+   "alts": [
+    "chinese sim number tourist",
+    "+86 number",
+    "meituan phone number foreigner"
+   ],
+   "a": "Not for most tourist tasks. Foreign numbers are mostly accepted by WeChat, Alipay, DiDi, Trip.com and 12306. A +86 number helps with SMS codes, public Wi-Fi logins and drivers who call you. The delivery apps are the common sticking point: the Meituan phone field only takes mainland numbers, but the Meituan mini program inside WeChat or Alipay works around it. Start from the services you plan to use, test them with your own number, and get a Chinese SIM only if one of them fails.",
+   "slug": "food-delivery-in-china-for-foreigners-meituan",
+   "yt": "",
+   "rel": [
+    "esim-or-sim",
+    "food-delivery"
+   ],
+   "src": "China Guidelines, Feb and Jun 2026; official China tourism site, Mar 2026; Natali's experience",
+   "chk": "2026-10-17",
+   "st": "needs review (add services Natali tested)"
+  },
+  {
+   "id": "didi",
+   "pins": [],
+   "group": "Getting around",
+   "q": "How do I use DiDi in China?",
+   "alts": [
+    "didi alipay",
+    "didi for foreigners",
+    "taxi app china",
+    "amap taxi english"
+   ],
+   "a": "You do not need to download DiDi: it is already inside Alipay under Transport, then Taxi. AMap Global also has an English taxi button that asks several companies at once. At arrivals, ignore strangers offering a ride or claiming DiDi is not working, and only get in the car your app booked, after checking the plate and driver against the app. Enter the destination carefully, check the pickup point, and save the address in Chinese for the driver.",
+   "slug": "china-travel-apps",
+   "yt": "",
+   "rel": [
+    "travel-apps",
+    "metro-qr"
+   ],
+   "src": "Ministry of Culture and Tourism, travelchina.org.cn, Mar 2026 (official); Natali's tips",
+   "chk": "2026-10-16",
+   "st": "needs review (add a real ride walkthrough)"
+  },
+  {
+   "id": "trains",
+   "pins": [],
+   "group": "Getting around",
+   "q": "How do foreigners book trains in China, and can I skip 12306?",
+   "alts": [
+    "12306 foreigners",
+    "trip.com train china",
+    "book high speed train china",
+    "fake 12306 app"
+   ],
+   "a": "Use the real Railway 12306 app (铁路12306), because lookalike apps exist. Tickets go on sale about 15 days before travel, so book busy routes as soon as they open. Registration can be the sticking point: I could not register through the Alipay version, so I booked on Trip.com for a small fee. You can skip 12306 that way. Compare the fee and the confirmation before paying. Set up your account at home, since it can need a passport check.",
+   "slug": "first-time-in-china",
+   "yt": "TuP9NS00Ugg",
+   "rel": [
+    "travel-apps"
+   ],
+   "src": "Natali's own booking experience; first-time guide",
+   "chk": "2026-10-16",
+   "st": "needs review (no dedicated guide; add booking screenshots)"
+  }
+ ],
+ "pending_topics": [
+  {
+   "topic": "Itinerary pacing",
+   "working_question": "How many cities can I do in two weeks in China?",
+   "board": "Itineraries and Cities",
+   "note": "59 Reddit threads, largest topic"
+  },
+  {
+   "topic": "Station tips",
+   "working_question": "How do I get through a Chinese train station?",
+   "board": "Trains and Getting Around",
+   "note": "needs first-hand notes"
+  },
+  {
+   "topic": "Chongqing vs Chengdu",
+   "working_question": "Chongqing vs Chengdu, how many days in each?",
+   "board": "Itineraries and Cities",
+   "note": "after the December trip"
+  },
+  {
+   "topic": "Budget",
+   "working_question": "How much does a China trip cost per day?",
+   "board": "Before You Go",
+   "note": "needs December receipts"
+  },
+  {
+   "topic": "Toilets",
+   "working_question": "What are public toilets like in China?",
+   "board": "Before You Go",
+   "note": "needs first-hand notes"
+  },
+  {
+   "topic": "Tax refund",
+   "working_question": "How does the tourist tax refund work in China?",
+   "board": "Shopping",
+   "note": "needs official source"
+  },
+  {
+   "topic": "Shopping cheaper",
+   "working_question": "How do I shop cheaper in China?",
+   "board": "Shopping",
+   "note": "needs December receipts"
+  },
+  {
+   "topic": "Cash",
+   "working_question": "Do I need cash in China?",
+   "board": "Payments and Apps",
+   "note": "from your 24-question list; needs official source or own experience"
+  },
+  {
+   "topic": "Best time to visit",
+   "working_question": "What is the best time of year to visit China?",
+   "board": "Before You Go",
+   "note": "from your 24-question list; needs source"
+  },
+  {
+   "topic": "Any hotel?",
+   "working_question": "Can foreigners stay in any hotel in China?",
+   "board": "Food and Hotels",
+   "note": "from your 24-question list; needs official source or own experience"
+  },
+  {
+   "topic": "Attractions to book ahead",
+   "working_question": "What attractions should I book in advance?",
+   "board": "Before You Go",
+   "note": "from your 24-question list; partly covered by the circus and cruise guides"
+  }
+ ]
+}

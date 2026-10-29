@@ -21,7 +21,7 @@ def _t(x): return re.sub(r'<[^>]+>','',html.unescape(str(x)))
 
 def nav_b(SOC, NAV_SHOP):
     return f'''<header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
+<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/guides/china-travel-faq/">Questions</a><a href="/#shanghai">Shanghai</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog">{IC["search"]}</button><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu">{IC["menu"]}</button></div></div></header>'''
 
 def footer_b(SOC, FOOT_GROUPS, CARDS):
@@ -566,3 +566,52 @@ def amazon_b(slug):
     title,items=AMAZON[slug]
     cards="".join(f'<div class="amz"><b>{html.escape(n)}</b><p>{html.escape(t)}</p><a class="btn alt2" href="{amz(q)}" rel="sponsored nofollow noopener" target="_blank">See on Amazon</a></div>' for n,t,q in items)
     return f'<h2 id="amazon">{html.escape(title)}</h2><p>These open a search on Amazon in your country, so you can pick the one that suits you. {AMZ_LINE}</p><div class="amzs">{cards}</div>'
+
+
+# ===== China travel questions answered (help centre, step 2) =====
+# Data: src/china-answers.json (one record per question). Short answers, last-checked date and source on each;
+# longer steps live in the guides. Records with status "needs official check" show a visible note.
+import json as _json, datetime as _dt
+FAQ_GROUPS=["Before I fly","Money","Phone and internet","Getting around","In the city","Problems"]
+FAQ_EXTRA_LINKS={"spice-tolerance":("/guides/build-spice-tolerance-before-china/","Build spice tolerance before China")}
+def faq_data():
+    return _json.load(open('src/china-answers.json',encoding='utf-8'))["records"]
+def _fmt_date(s):
+    d=_dt.date.fromisoformat(s); return f"{d.day} {d.strftime('%b %Y')}"
+def faq_checked():
+    return max(r["chk"] for r in faq_data())
+def faq_b(SOC):
+    recs=faq_data(); by={r["id"]:r for r in recs}
+    chips='<button type="button" class="chip on" data-f="all">All</button>'+"".join(f'<button type="button" class="chip" data-f="{html.escape(g)}">{html.escape(g)}</button>' for g in FAQ_GROUPS if any(r["group"]==g for r in recs))
+    secs=""
+    for g in FAQ_GROUPS:
+        rs=[r for r in recs if r["group"]==g]
+        if not rs: continue
+        items=""
+        for r in rs:
+            key=html.escape(" ".join([r["q"]]+r["alts"]+[_t(r["a"])]).lower(),quote=True)
+            links=[]
+            if r.get("slug"): links.append(f'<a class="fqg" href="/guides/{r["slug"]}/">Read the full guide →</a>')
+            if r.get("yt"): links.append(f'<a class="fqv" href="https://www.youtube.com/watch?v={r["yt"]}" rel="noopener">Watch the video</a>')
+            rel=[]
+            for x in r.get("rel",[]):
+                if x in by: rel.append(f'<a href="#q-{x}">{html.escape(by[x]["q"])}</a>')
+                elif x in FAQ_EXTRA_LINKS: rel.append(f'<a href="{FAQ_EXTRA_LINKS[x][0]}">{html.escape(FAQ_EXTRA_LINKS[x][1])}</a>')
+            warn='<p class="fqwarn"><b>Check before you rely on it.</b> Rules change. Look at the official page for your passport and your travel date.</p>' if r["st"].startswith("needs official check") else ''
+            items+=f'''<details class="fq" id="q-{r["id"]}" data-g="{html.escape(g)}" data-k="{key}"><summary>{html.escape(r["q"])}</summary><div class="fqb"><p>{html.escape(r["a"])}</p>{warn}<div class="fqact">{"".join(links)}</div>{('<p class="fqrel"><b>Related:</b> '+" · ".join(rel)+'</p>') if rel else ''}<p class="fqmeta">Checked {_fmt_date(r["chk"])}. Source: {html.escape(r["src"])}.</p></div></details>'''
+        secs+=f'<section class="fqsec" data-g="{html.escape(g)}"><h2>{html.escape(g)}</h2>{items}</section>'
+    return f'''<main>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><a href="/china/">China</a><span>/</span><span>Questions answered</span></nav><p class="eyebrow">China Travel Companion</p><h1>China travel questions answered</h1><p class="lede">Short answers to what first-timers ask before and during a China trip. Each one says when I last checked it and where it comes from, and links to the full guide when I have one.</p></div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+<div class="dnote"><b>Read this first</b><p>Rules, prices and apps change. Every answer carries its checked date, and anything about visas needs a look at the official page for your own passport. I add questions as I film and test more of China.</p></div>
+<div class="fqsearch"><label for="fqq">What do you need help with?</label><input id="fqq" type="search" placeholder="Try: arrival card, eSIM, metro, VPN" autocomplete="off"></div>
+<div class="chips" role="group" aria-label="Filter by stage">{chips}</div>
+<p class="fqcount" id="fqcount" aria-live="polite"></p>
+<div id="fqlist">{secs}</div>
+<p class="fqnone" id="fqnone" hidden>No answer matches that yet. Try fewer words, or check the <a href="/china/">China guides</a>.</p>
+</div></section>
+{band_b(SOC)}
+</main>
+<script>(function(){{var q=document.getElementById("fqq"),chips=[].slice.call(document.querySelectorAll(".chips .chip")),items=[].slice.call(document.querySelectorAll(".fq")),secs=[].slice.call(document.querySelectorAll(".fqsec")),cnt=document.getElementById("fqcount"),none=document.getElementById("fqnone"),g="all";function run(){{var t=q.value.toLowerCase().trim().split(/\\s+/).filter(Boolean),n=0;items.forEach(function(d){{var ok=(g==="all"||d.getAttribute("data-g")===g),k=d.getAttribute("data-k");t.forEach(function(w){{if(k.indexOf(w)<0)ok=false}});d.hidden=!ok;if(ok)n++}});secs.forEach(function(s){{s.hidden=!s.querySelector(".fq:not([hidden])")}});none.hidden=n>0;cnt.textContent=(t.length||g!=="all")?n+(n===1?" answer":" answers"):""}}q.addEventListener("input",run);chips.forEach(function(c){{c.addEventListener("click",function(){{chips.forEach(function(y){{y.classList.toggle("on",y===c)}});g=c.getAttribute("data-f");run()}})}});if(location.hash){{var e=document.getElementById(location.hash.slice(1));if(e&&e.tagName==="DETAILS")e.open=true}}window.addEventListener("hashchange",function(){{var e=document.getElementById(location.hash.slice(1));if(e&&e.tagName==="DETAILS")e.open=true}})}})();</script>'''
+def faq_schema(SITE):
+    return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":r["q"],"acceptedAnswer":{"@type":"Answer","text":r["a"]}} for r in faq_data()]}

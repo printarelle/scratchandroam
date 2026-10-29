@@ -710,6 +710,32 @@ p{margin:0}
 .ttv figcaption,.ttnote{font:400 13px/1.5 var(--b);color:var(--mute);margin-top:8px}
 @media(max-width:960px){.hb nav{gap:0}}
 @media(min-width:961px) and (max-width:1150px){.hb nav{gap:18px}}
+
+/* China travel questions answered */
+.fqsearch{margin:26px 0 18px}
+.fqsearch label{display:block;font:700 13px var(--b);letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+.fqsearch input{width:100%;max-width:640px;font:500 17px var(--b);padding:14px 18px;border:2px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
+.fqsearch input:focus-visible{outline:3px solid var(--coral);outline-offset:2px;border-color:var(--coral)}
+.fqcount{font:600 14px var(--b);color:var(--mute);margin:0 0 10px;min-height:20px}
+.fqsec{margin:0 0 34px}
+.fqsec h2{font-size:clamp(24px,3vw,32px);margin:0 0 14px;color:var(--navy)}
+.fq{background:#fff;border:1.5px solid var(--line);border-radius:14px;margin:0 0 10px;box-shadow:var(--sh)}
+.fq summary{cursor:pointer;list-style:none;padding:16px 48px 16px 18px;font:700 17px/1.4 var(--b);color:var(--ink);position:relative}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font:700 24px var(--b);color:var(--coral)}
+.fq[open] summary::after{content:"\2212"}
+.fq summary:focus-visible{outline:3px solid var(--coral);outline-offset:2px;border-radius:12px}
+.fqb{padding:0 18px 18px}
+.fqb p{font:400 16px/1.65 var(--b);color:var(--ink2);margin:0 0 12px}
+.fqwarn{background:var(--mint2);border-left:4px solid var(--coral);border-radius:8px;padding:10px 14px}
+.fqact{display:flex;flex-wrap:wrap;gap:10px 18px;margin:0 0 12px}
+.fqact a{font:700 14px var(--b);color:var(--coral);text-decoration:none}
+.fqact a:hover{text-decoration:underline}
+.fqb .fqrel{font-size:14px}
+.fqb .fqrel a{color:var(--blue)}
+.fqb .fqmeta{font:500 13px/1.5 var(--b);color:var(--mute);margin:0}
+.fq[hidden],.fqsec[hidden]{display:none}
+.fqnone{font:500 16px var(--b);color:var(--ink2)}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
@@ -820,7 +846,7 @@ p{margin:0}
 </head>
 <body>
 <header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a><a href="/china/#shopping">Shopping</a><a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
+<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/guides/china-travel-faq/">Questions</a><a href="/#shanghai">Shanghai</a><a href="/china/#shopping">Shopping</a><a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button><a class="btn" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></div></header>
 <main>
 <section class="hhero"><div class="wrap"><div><nav class="crumbs"><a href="/">Home</a><span>/</span><span>About</span></nav><p class="eyebrow">About</p><h1>A maker from Ireland who travels with a camera</h1><p class="lede">I am Natali. I make things for a living and film the trips in between: Shanghai so far, Chengdu, Chongqing and Xi'an in December, Japan after that. The guides on this site are the parts I wish someone had written down for me before my first trip.</p><div class="acts"><a class="btn" href="/china/">Read the China guides</a><a class="btn ghost" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a></div></div>
