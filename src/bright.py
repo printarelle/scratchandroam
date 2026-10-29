@@ -21,7 +21,7 @@ def _t(x): return re.sub(r'<[^>]+>','',html.unescape(str(x)))
 
 def nav_b(SOC, NAV_SHOP):
     return f'''<header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/guides/china-travel-faq/">Questions</a><a href="/#shanghai">Shanghai</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
+<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/guides/china-travel-faq/">Questions</a><a href="/china/tools/">Tools</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog">{IC["search"]}</button><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu">{IC["menu"]}</button></div></div></header>'''
 
 def footer_b(SOC, FOOT_GROUPS, CARDS):
@@ -82,12 +82,12 @@ def tabbar_b(path):
     ic=lambda d:f'<svg viewBox="0 0 24 24" aria-hidden="true">{d}</svg>'
     BEFORE={"/guides/first-time-in-china/","/guides/china-before-you-fly-checklist/","/guides/china-visa-free-30-days/","/guides/china-arrival-card-pc/","/guides/china-arrival-card-alipay/","/guides/china-dos-and-donts/","/guides/build-spice-tolerance-before-china/"}
     APPS=lambda p:p.startswith("/guides/") and any(k in p for k in ("apps","metro","taobao","food","order"))
-    cur="before" if path in BEFORE else ("apps" if APPS(path) else ("shanghai" if path.startswith("/guides/") else ""))
+    cur="before" if path in BEFORE else ("apps" if APPS(path) else ("tools" if path=="/china/tools/" else ""))
     def a(k,href,label,d): return f'<a href="{href}"{" class=\"on\" aria-current=\"page\"" if cur==k else ""}>{ic(d)}{label}</a>'
     return ('<nav class="tabs" aria-label="Quick links">'
       +a("before","/guides/first-time-in-china/","Before you fly",'<path d="M4 12.5l4.5 4.5L20 6"/>')
       +a("apps","/guides/china-travel-apps/","Apps",'<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/>')
-      +a("shanghai","/#shanghai","Shanghai",'<path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>')
+      +a("tools","/china/tools/","Tools",'<rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8.5 7h7M8.5 12h2M13.5 12h2M8.5 16.5h2M13.5 16.5h2"/>')
       +f'<button type="button" id="tabMenu">{ic("<path d=\"M4 7h16M4 12h16M4 17h16\"/>")}Menu</button></nav>')
 
 STOPS=[("Chengdu","6 to 9 Dec","We land on Sunday 6 December and settle into an apartment near Taikoo Li, which is our base for the whole trip.","Pandas, hotpot, the metro and Taikoo Li.",None),
