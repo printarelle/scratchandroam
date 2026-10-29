@@ -21,7 +21,7 @@ def _t(x): return re.sub(r'<[^>]+>','',html.unescape(str(x)))
 
 def nav_b(SOC, NAV_SHOP):
     return f'''<header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a></nav>
+<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog">{IC["search"]}</button><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu">{IC["menu"]}</button></div></div></header>'''
 
 def footer_b(SOC, FOOT_GROUPS, CARDS):
@@ -39,9 +39,19 @@ NAVJS_B='<script>(function(){var sb=document.getElementById("shareBtn");if(sb){s
 # ===== tick-off steps, quick answers, topic shortcuts, phone tab bar =====
 TICK_GUIDES={"first-time-in-china","china-before-you-fly-checklist","china-arrival-card-pc","china-arrival-card-alipay","china-travel-apps","china-dos-and-donts","china-visa-free-30-days","alipay-metro-qr-code-china","taobao-for-foreigners","taobao-11-11-singles-day-for-foreigners","food-delivery-in-china-for-foreigners-meituan","how-to-order-food-in-china-without-speaking-chinese","build-spice-tolerance-before-china"}
 TICKJS=r"""(function(){var bar=document.getElementById("tickbar");if(!bar)return;var key="sr-tick:"+bar.getAttribute("data-key"),bs=[].slice.call(document.querySelectorAll(".steps .tick")),saved=[];try{saved=JSON.parse(localStorage.getItem(key)||"[]")}catch(e){}
-function paint(){var n=0;bs.forEach(function(b){var on=b.getAttribute("aria-pressed")==="true";if(on)n++;b.parentNode.classList.toggle("ticked",on)});bar.classList.toggle("started",n>0);document.getElementById("tkcnt").textContent=n+" of "+bs.length+" done";document.getElementById("tkfill").style.width=Math.round(n/bs.length*100)+"%";document.getElementById("tkdone").hidden=n!==bs.length;try{localStorage.setItem(key,JSON.stringify(bs.map(function(b){return b.getAttribute("aria-pressed")==="true"})))}catch(e){}}
-bs.forEach(function(b,i){if(saved[i])b.setAttribute("aria-pressed","true");b.addEventListener("click",function(){b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");paint()})});
-document.getElementById("tkreset").addEventListener("click",function(){bs.forEach(function(b){b.setAttribute("aria-pressed","false")});paint()});paint()})();"""
+function on(b){return b.getAttribute("aria-pressed")==="true"}
+function count(){return bs.filter(on).length}
+function paint(){var n=0;bs.forEach(function(b){var o=on(b);if(o)n++;b.parentNode.classList.toggle("ticked",o)});bar.classList.toggle("started",n>0);document.getElementById("tkcnt").textContent=n+" of "+bs.length+" done";document.getElementById("tkfill").style.width=Math.round(n/bs.length*100)+"%";document.getElementById("tkdone").hidden=n!==bs.length;try{localStorage.setItem(key,JSON.stringify(bs.map(on)))}catch(e){}}
+bs.forEach(function(b,i){if(saved[i])b.setAttribute("aria-pressed","true");b.addEventListener("click",function(){b.setAttribute("aria-pressed",on(b)?"false":"true");paint()})});
+var conf=document.getElementById("tkconf");
+document.getElementById("tkreset").addEventListener("click",function(){var n=count();if(!n)return;document.getElementById("tkn").textContent=n;conf.hidden=false;document.getElementById("tkno").focus()});
+document.getElementById("tkyes").addEventListener("click",function(){bs.forEach(function(b){b.setAttribute("aria-pressed","false")});conf.hidden=true;paint()});
+document.getElementById("tkno").addEventListener("click",function(){conf.hidden=true});
+document.getElementById("tkpdf").addEventListener("click",function(){window.print()});
+var cb=document.getElementById("tkcopy");cb.addEventListener("click",function(){var left=bs.filter(function(b){return!on(b)}).map(function(b){var h=b.parentNode.querySelector("h3");return "- "+(h?h.textContent.trim():"")});var h1=document.querySelector("h1");var t=left.length?"Still to do ("+left.length+" of "+bs.length+"): "+(h1?h1.textContent.trim():"")+"\n"+left.join("\n")+"\n"+location.href.split("#")[0]:"All "+bs.length+" steps done.";var done=function(m){var o=cb.textContent;cb.textContent=m;setTimeout(function(){cb.textContent=o},2000)};
+function fb(){var ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(ta);done(ok?"Copied":"Copy failed")}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done("Copied")},fb)}else fb()});
+paint()})();"""
 
 QUICK={
  "taobao-11-11-singles-day-for-foreigners":("Quick answer",[
@@ -183,6 +193,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     toc=[]
     body=[]
     body.append(f'<div class="intro{" nodrop" if _t(intro)[:1].isdigit() else ""}">{intro}</div>')
+    if slug in TICK_GUIDES and steps: body.append(f'<p class="startck"><a class="btn" href="#steps">Start the {len(steps)}-step checklist</a></p>')
     if slug in QUICK: body.append(quick_b(slug))
     if slug in CLUSTER_OF: body.append(cluster_b(slug))
     if slug in STORIES:
@@ -206,7 +217,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
         body.append(f'<h2 id="steps">{html.escape(steps_title)}</h2>'); toc.append(("steps",steps_title))
         _tick = slug in TICK_GUIDES
         if _tick:
-            body.append(f'<div class="tickbar" id="tickbar" data-key="{slug}"><div class="tk-top"><b>Tick-off checklist</b><span>Tap a step number to tick it off. Your ticks stay on this phone.</span></div><div class="tk-prog"><span id="tkcnt">0 of {len(steps)} done</span><button type="button" class="tk-reset" id="tkreset">Reset</button></div><div class="tk-bar"><i id="tkfill"></i></div></div>')
+            body.append(f'<div class="tickbar" id="tickbar" data-key="{slug}"><div class="tk-top"><b>Tick-off checklist</b><span>Tap a step number to tick it off. Progress is saved in this browser on this device. No account needed.</span></div><div class="tk-prog"><span id="tkcnt">0 of {len(steps)} done</span></div><div class="tk-bar"><i id="tkfill"></i></div><div class="tk-acts"><button type="button" id="tkcopy">Copy what is left</button><button type="button" id="tkpdf">Save as PDF</button><button type="button" id="tkreset">Reset</button></div><div class="tk-confirm" id="tkconf" hidden role="alert"><span>Reset all <b id="tkn"></b> ticked steps?</span><button type="button" id="tkyes">Yes, reset</button><button type="button" id="tkno">Keep them</button></div></div>')
         _nb = (lambda i: f'<button type="button" class="n tick" aria-pressed="false" aria-label="Tick off step {i}">{i}</button>') if _tick else (lambda i: f'<div class="n">{i}</div>')
         body.append('<ol class="steps'+(' ticking' if _tick else '')+'">'+"".join(f'<li id="step-{i+1}">{_nb(i+1)}<div><h3>{html.escape(s[0])}</h3><p>{s[1]}</p>{figs(s[2] if len(s)>2 else None)}{_pk.get(i+1,"")}</div></li>' for i,s in enumerate(steps))+'</ol>')
         if _tick: body.append('<div class="tkdone" id="tkdone" hidden><b>All done.</b> Safe travels. <a href="/china/">More China guides →</a></div><script>'+TICKJS+'</script>')

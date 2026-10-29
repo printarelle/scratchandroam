@@ -621,3 +621,20 @@ p{margin:0}
 .dg{grid-template-columns:repeat(5,minmax(0,1fr))}
 @media(max-width:900px){.dstops{grid-template-columns:repeat(2,minmax(0,1fr))}.dg{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.dstops{grid-template-columns:1fr}}
+
+/* tick bar actions, confirm, start button, print, mobile targets */
+.tk-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tk-acts button{min-height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);font:700 13px var(--b);cursor:pointer}
+.tk-acts button#tkreset{margin-left:auto;color:var(--mute)}
+.tk-confirm{margin-top:10px;background:#fff;border:2px solid var(--coral);border-radius:12px;padding:10px 12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:600 14px var(--b);color:var(--ink)}
+.tk-confirm[hidden]{display:none}
+.tk-confirm span{flex:1 1 100%}
+.tk-confirm button{min-height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);font:700 13px var(--b);cursor:pointer}
+.tk-confirm #tkyes{background:var(--coral);border-color:var(--coral);color:#fff}
+.tickbar.started .tk-acts{margin-top:8px}
+.tk-prog{justify-content:flex-start}
+.startck{margin:0 0 18px}
+.hb nav .msub{display:none}
+@media(max-width:960px){.hb nav .msub{display:block;color:var(--coral);font-weight:700}}
+@media(max-width:600px){.art .steps.ticking li{grid-template-columns:48px minmax(0,1fr);gap:12px}.art .steps.ticking .n{width:48px;height:48px;line-height:48px;font-size:18px}}
+@media print{.hb,.tabs,.ft,.band,.side,aside,.toc,.mtoc,.tk-acts,.tk-confirm,.startck,.enjoy,.video,.strip,.polaroid,.ghero .author,.clus,.social,.stats{display:none!important}.tickbar{position:static;box-shadow:none;border:0}.art{font-size:14px}body{background:#fff}.art .steps li{break-inside:avoid}.art .steps .n.tick[aria-pressed=true]{background:#117A72!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
