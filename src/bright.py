@@ -21,7 +21,7 @@ def _t(x): return re.sub(r'<[^>]+>','',html.unescape(str(x)))
 
 def nav_b(SOC, NAV_SHOP):
     return f'''<header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
+<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog">{IC["search"]}</button><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu">{IC["menu"]}</button></div></div></header>'''
 
 def footer_b(SOC, FOOT_GROUPS, CARDS):
@@ -105,6 +105,19 @@ def december_b(SOC, CARDS):
 <section class="sec"><div class="wrap"><div class="sechead left"><div><h2>Read these first</h2><p>The guides that make any China trip easier, from the first two trips.</p></div></div><div class="hgrid dg">{gl}</div></div></section>
 <section class="band"><div class="wrap"><div class="bcard"><h2>Follow the trip</h2><p>Videos land on YouTube first. Short clips go on TikTok and Instagram while we are there.</p><div class="acts"><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a><a class="btn ghost" href="/china/">All China guides</a></div></div></div></section>
 </main>'''
+
+TIKTOKS={}   # slug -> [(tiktok video url, short caption)]. Add her real video links here and they show as tap-to-play on that guide.
+def tiktok_b(slug):
+    import re as _r
+    items=TIKTOKS.get(slug) or []
+    out=[]
+    for u,cap in items:
+        m=_r.search(r"/video/(\d+)",u)
+        if not m: continue
+        out.append(f'<figure class="ttv"><button type="button" class="ttplay" data-id="{m.group(1)}" aria-label="Play the TikTok: {html.escape(cap)}"><span class="ttbadge">TikTok</span><span class="ttcap">{html.escape(cap)}</span><span class="ttgo">&#9654; Tap to play</span></button><figcaption><a href="{u}" rel="noopener">Open on TikTok</a></figcaption></figure>')
+    if not out: return ""
+    return ('<h2 id="short">Watch it as a short</h2><div class="ttrow">'+"".join(out)+'</div><p class="ttnote">The video loads from TikTok only when you tap play. If TikTok is blocked where you are, use the link under it.</p>'
+      '<script>(function(){[].slice.call(document.querySelectorAll(".ttplay")).forEach(function(b){b.addEventListener("click",function(){var f=document.createElement("iframe");f.src="https://www.tiktok.com/embed/v2/"+b.getAttribute("data-id");f.setAttribute("allowfullscreen","");f.setAttribute("allow","encrypted-media;fullscreen");f.title="TikTok video";f.loading="lazy";f.className="ttframe";b.parentNode.replaceChild(f,b)})})})();</script>')
 
 def callout(kind, text):
     return f'<div class="callout {kind}">{IC["bulb" if kind=="tip" else "warn"]}<div>{text}</div></div>'
@@ -237,6 +250,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     body.append(callout("tip",f'Rules change. Everything on this page was checked on {checked} against the sources below. Before you fly, open the official page once more.'))
     body.append('<h2 id="sources">Sources</h2>'); toc.append(("sources","Sources"))
     body.append('<ul class="sources">'+"".join(f'<li><a href="{u}" rel="noopener">{html.escape(n)}</a>{" (official)" if off else ""}</li>' for n,u,off in sources)+'</ul>')
+    if TIKTOKS.get(slug): body.append(tiktok_b(slug)); toc.append(("short","Watch it as a short"))
     _ord=["TikTok","YouTube","Pinterest","Instagram","Facebook"]
     shorts_links=" · ".join(f'<a href="{u}" rel="noopener">{n}</a>' for n,u in sorted((shorts or {}).items(),key=lambda kv:_ord.index(kv[0]) if kv[0] in _ord else 9))
     body.append(f'<div class="enjoy"><div><b>Enjoy the guide? Watch it short.</b>The same guide as a vertical video{": "+shorts_links if shorts_links else ""}.</div><div class="row"><a href="{SOC["TikTok"]}" rel="noopener">TikTok</a><a href="{SOC["Instagram"]}" rel="noopener">Instagram</a><a href="{SOC["Pinterest"]}" rel="noopener">Pinterest</a></div></div>')

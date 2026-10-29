@@ -673,6 +673,43 @@ p{margin:0}
 @media(max-width:960px){.hb nav .msub{display:block;color:var(--coral);font-weight:700}}
 @media(max-width:600px){.art .steps.ticking li{grid-template-columns:48px minmax(0,1fr);gap:12px}.art .steps.ticking .n{width:48px;height:48px;line-height:48px;font-size:18px}}
 @media print{.hb,.tabs,.ft,.band,.side,aside,.toc,.mtoc,.tk-acts,.tk-confirm,.startck,.enjoy,.video,.strip,.polaroid,.ghero .author,.clus,.social,.stats{display:none!important}.tickbar{position:static;box-shadow:none;border:0}.art{font-size:14px}body{background:#fff}.art .steps li{break-inside:avoid}.art .steps .n.tick[aria-pressed=true]{background:#117A72!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* china hero: dark overlay so the lights stand out */
+.whero{background:#0E1626}
+.whero img{opacity:.9}
+.whero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,24,.82) 0%,rgba(8,13,24,.55) 55%,rgba(8,13,24,.30) 100%)}
+.whero .wrap{z-index:1}
+.whero h1,.whero p.lede{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+.whero p.lede{color:rgba(255,255,255,.9)}
+.whero .crumbs,.whero .crumbs a,.whero .crumbs span{color:rgba(255,255,255,.8)}
+.whero p.eyebrow{color:#FF8B66}
+
+/* equal, spaced quick cards */
+.gcards.sm{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;grid-auto-rows:1fr}
+.gcards.sm .gc{height:100%}
+.gcards.sm .gc .in{flex:1}
+.gcards.sm .gc .cat{white-space:nowrap;letter-spacing:.06em}
+
+/* homepage help tiles: colour change, arrow and lift on hover */
+.hgrid a{position:relative;overflow:hidden;padding:16px 44px 16px 18px;--hc:var(--coral);transition:transform .18s,box-shadow .18s,background .18s,color .18s,border-color .18s}
+.hgrid a:nth-child(4n+2){--hc:var(--blue)}.hgrid a:nth-child(4n+3){--hc:var(--navy)}.hgrid a:nth-child(4n+4){--hc:#C9772B}
+.hgrid a::after{content:"\2192";position:absolute;right:16px;top:50%;transform:translate(-8px,-50%);opacity:0;font:700 20px var(--b);transition:.18s}
+.hgrid a:hover,.hgrid a:focus-visible,.hgrid a:active{background:var(--hc);border-color:var(--hc);color:#fff;transform:translateY(-3px);box-shadow:0 12px 24px rgba(27,42,65,.18)}
+.hgrid a:hover span,.hgrid a:focus-visible span,.hgrid a:active span{color:rgba(255,255,255,.85)}
+.hgrid a:hover::after,.hgrid a:focus-visible::after,.hgrid a:active::after{opacity:1;transform:translate(0,-50%)}
+.hgrid a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+/* tap-to-play TikTok */
+.ttrow{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 8px}
+.ttv{margin:0;width:min(100%,325px)}
+.ttplay{width:100%;aspect-ratio:9/16;border:0;border-radius:18px;background:linear-gradient(160deg,#111 0%,#1b2a41 100%);color:#fff;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:18px;text-align:left;cursor:pointer;font-family:var(--b)}
+.ttbadge{font:700 12px var(--b);letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#111;border-radius:99px;padding:5px 10px}
+.ttcap{font:400 22px/1.2 var(--d)}
+.ttgo{font:700 14px var(--b);background:var(--coral);border-radius:99px;padding:10px 16px}
+.ttframe{width:100%;max-width:325px;height:740px;border:0;border-radius:14px;background:#000}
+.ttv figcaption,.ttnote{font:400 13px/1.5 var(--b);color:var(--mute);margin-top:8px}
+@media(max-width:960px){.hb nav{gap:0}}
+@media(min-width:961px) and (max-width:1150px){.hb nav{gap:18px}}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
@@ -783,7 +820,7 @@ p{margin:0}
 </head>
 <body>
 <header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/china/#shopping">Shopping</a><a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
+<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/#shanghai">Shanghai</a><a href="/china/#shopping">Shopping</a><a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
 <div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button><a class="btn" href="https://www.youtube.com/@scratchandroam?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></div></header>
 <main>
 <section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>Travel deals</span></nav><p class="eyebrow"><span class="adl">#Ad</span> Travel deals</p><h1>My travel links, all in one place</h1><p class="lede">Tickets, eSIMs, airport transfers and flights. These are my partner links: if you book through one, I may earn a small commission at no extra cost to you. Each card says whether we booked there or I use it myself.</p></div></section>
