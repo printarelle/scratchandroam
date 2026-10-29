@@ -29,7 +29,8 @@ def footer_b(SOC, FOOT_GROUPS, CARDS):
     cols=""
     for h,l in FOOT_GROUPS:
         sl=[x for x in l if x in by]
-        cols+=f'<div><h3>{html.escape(h)}</h3><nav>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</nav></div>'
+        extra=('<a href="/guides/china-travel-faq/">Questions answered</a>' if h=="Before you fly" else "")
+        cols+=f'<div><h3>{html.escape(h)}</h3><nav>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+extra+'</nav></div>'
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
     return f'''<footer class="ft"><div class="wrap"><div class="grid"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Real first-timer China. Real screenshots. Real prices, with the date I checked them.</p><h3 style="margin-top:22px">Follow along</h3><nav>{links}</nav></div>{cols}<div class="stamp">Scratch to reveal<span>Roam</span>to discover</div></div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland. As an Amazon Associate I earn from qualifying purchases.</span><span><a href="/about/">About</a> · <a href="/travel-deals/">Travel deals</a> · <a href="/klook/">Klook</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/feed.xml">RSS</a> · scratchandroam@gmail.com</span></div></div></footer>'''
 
@@ -75,7 +76,7 @@ HELP=[("Entry and visas","Visa-free rules","/guides/china-visa-free-30-days/"),
  ("Shanghai","Bund, Nanjing Road, shows","/#shanghai")]
 def help_b():
     return ('<section class="help"><div class="wrap"><h2>What do you need help with?</h2><div class="hgrid">'
-      +"".join(f'<a href="{u}"><b>{html.escape(a)}</b><span>{html.escape(b)}</span></a>' for a,b,u in HELP)+'</div></div></section>')
+      +"".join(f'<a href="{u}"><b>{html.escape(a)}</b><span>{html.escape(b)}</span></a>' for a,b,u in HELP)+'</div><p class="hmore"><a class="more" href="/guides/china-travel-faq/">Browse every China question answered →</a></p></div></section>')
 
 def tabbar_b(path):
     ic=lambda d:f'<svg viewBox="0 0 24 24" aria-hidden="true">{d}</svg>'
@@ -288,6 +289,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <aside class="side" id="share">
 <div class="scard me"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><h3>Hi, I'm Natali</h3><p>I'm a maker from Ireland. I film my trips, then write down the parts nobody explains, with the date I checked each one.</p><a href="/about/">More about my story →</a></div>
 <div class="scard"><span class="eyebrow">More guides</span><div class="mlist">{more_html}</div></div>
+<div class="scard"><span class="eyebrow">Quick answers</span><p>Short, dated answers to the China questions first-timers ask.</p><a href="/guides/china-travel-faq/">Search the questions →</a></div>
 </aside>
 </div>
 {band_b(SOC)}
@@ -443,7 +445,7 @@ def china_b(*, CARDS, SOC, QCARDS, QS_CHINA, n_guides):
     before=[c for c in CARDS if c["sec"]=="before"]; shop=[c for c in CARDS if c["sec"]=="shop"]; places=[c for c in CARDS if c["sec"]=="place"]
     return f'''<main>
 <section class="whero"><img src="/img/the-bund-pudong-skyline-and-shanghai-tower-at-night.jpg" alt=""><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>China</span></nav><p class="eyebrow">China guides</p><h1>China guides for first-timers: entry, paying, trains</h1><p class="lede">The practical part first, in the order you will need it: before you fly, at the border, then paying and getting around. Shanghai is filmed and written up; Chengdu, Chongqing and Xi'an land after December.</p></div></section>
-<section class="sec" style="padding-top:40px"><div class="wrap"><div class="sechead left"><div><h2>Pick the thing you need to sort out</h2></div></div><div class="gcards sm">{qs}</div></div></section>
+<section class="sec" style="padding-top:40px"><div class="wrap"><div class="sechead left"><div><h2>Pick the thing you need to sort out</h2></div><a class="more" href="/guides/china-travel-faq/">Or search every question →</a></div><div class="gcards sm">{qs}</div></div></section>
 <section class="sec mint" id="before"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Before you fly</p><h2>The setup guides</h2><p>Each one is the video plus the written steps, checked against the official page on the date shown.</p></div></div><div class="gcards">{"".join(gcard(c) for c in before)}</div></div></section>
 <section class="sec" id="shopping"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Once you are there</p><h2>Shopping, ordering and paying</h2><p>The things you do on your phone in China once the basics are set up, step by step, with the real screens.</p></div></div><div class="gcards">{"".join(gcard(c) for c in shop)}</div></div></section>
 <section class="sec mint" id="shanghai"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Shanghai, answered</p><h2>What we filmed, turned into the practical answers</h2><p>Four place guides from the trip, mostly at night: how to get there, when to go, what it costs.</p></div><a class="more" href="{SOC['YouTube']}" rel="noopener">All videos →</a></div><div class="gcards sm">{"".join(gcard(c,True) for c in places)}</div></div></section>

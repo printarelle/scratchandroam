@@ -701,3 +701,7 @@ p{margin:0}
 .fqb .fqmeta{font:500 13px/1.5 var(--b);color:var(--mute);margin:0}
 .fq[hidden],.fqsec[hidden]{display:none}
 .fqnone{font:500 16px var(--b);color:var(--ink2)}
+
+.hmore{text-align:center;margin:16px 0 0}
+.hmore .more{display:inline-block;max-width:100%;white-space:normal;font:700 15px var(--b);color:var(--coral);text-decoration:none}
+.hmore .more:hover{text-decoration:underline}
