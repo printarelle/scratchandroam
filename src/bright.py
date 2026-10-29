@@ -642,6 +642,30 @@ _TOOLS_HTML='''<main>
 <p>Chinese clothing labels follow the national standard GB/T 1335 and look like <b>170/88A</b>: <b>170</b> is the height in cm the garment is cut for, <b>88</b> is the chest or bust in cm, and the letter is the fit. <b>A</b> is regular, <b>Y</b> is slimmer and <b>B</b> is fuller.</p>
 <div class="trow"><label>Height (cm)<input id="sH" type="number" inputmode="decimal" placeholder="168"></label><label>Chest or bust (cm)<input id="sC" type="number" inputmode="decimal" placeholder="90"></label><label>Fit<select id="sF"><option value="A">A, regular</option><option value="Y">Y, slimmer</option><option value="B">B, fuller</option></select></label></div>
 <p class="tres" id="sOut" aria-live="polite">Fill in height and chest to see your label.</p>
+<h3>Reading a real Taobao size sheet</h3>
+<p>Many Taobao shirts and jackets do not use 170/88A at all. This one, a men's-style shirt sized by collar number, shows what you will see after tapping 尺码信息 (size info) on a listing. Sizes 39 to 46 are collar numbers, and the seller recommends 42.</p>
+<div class="twrap"><table class="tt"><thead><tr><th>Size</th><th>Height cm</th><th>Weight kg</th><th>Shoulder cm</th><th>Chest cm</th></tr></thead><tbody>
+<tr><td>39</td><td>158-173</td><td>50-55</td><td>42.1</td><td>96</td></tr>
+<tr><td>40</td><td>158-178</td><td>55-62.5</td><td>43.3</td><td>100</td></tr>
+<tr><td>41</td><td>158-188</td><td>62.5-70</td><td>44.5</td><td>104</td></tr>
+<tr><td><b>42</b></td><td>163-188</td><td>70-77.5</td><td>45.7</td><td>108</td></tr>
+<tr><td>43</td><td>163-188</td><td>77.5-85</td><td>46.9</td><td>112</td></tr>
+<tr><td>44</td><td>163-188</td><td>85-92.5</td><td>48.1</td><td>116</td></tr>
+<tr><td>45</td><td>168-188</td><td>92.5-100</td><td>49.3</td><td>120</td></tr>
+<tr><td>46</td><td>173-188</td><td>100-110</td><td>50.5</td><td>124</td></tr>
+</tbody></table></div>
+<p><b>Words to find on the sheet</b></p>
+<div class="twrap"><table class="tt"><thead><tr><th>Chinese</th><th>Pinyin</th><th>Means</th></tr></thead><tbody>
+<tr><td>尺码信息</td><td>chǐmǎ xìnxī</td><td>Size information</td></tr>
+<tr><td>身高体重对照表</td><td>shēngāo tǐzhòng duìzhào biǎo</td><td>Height and weight chart: find your height row and weight column, the cell is your size</td></tr>
+<tr><td>尺寸表</td><td>chǐcùn biǎo</td><td>Measurement table for each size</td></tr>
+<tr><td>身高 / 体重</td><td>shēngāo / tǐzhòng</td><td>Height / weight</td></tr>
+<tr><td>肩宽 / 胸围</td><td>jiānkuān / xiōngwéi</td><td>Shoulder width / chest</td></tr>
+<tr><td>买家尺码参考</td><td>mǎijiā chǐmǎ cānkǎo</td><td>What real buyers of this height and weight bought</td></tr>
+<tr><td>100%买家认为尺码标准</td><td></td><td>100% of buyers say the size is true to the label. The orange number is the recommended size</td></tr>
+<tr><td>DZ</td><td></td><td>Most likely 定制 (made to measure). Ask the seller before ordering</td></tr>
+</tbody></table></div>
+<p class="tmeta">How I would use it: start with the weight grid, then check the buyer reference rows for your own height and weight, then read the size note at the bottom. The sheet itself says different ways of measuring can differ by 2 to 4 cm. I have not confirmed whether the chest number is the body or the garment, so ask the seller (客服) if it matters. Sheet seen on Taobao on 29 October 2026.</p>
 <h3>Women's tops, roughly</h3>
 <div class="twrap"><table class="tt"><thead><tr><th>China label</th><th>Letter</th><th>Bust cm</th><th>EU</th><th>UK</th><th>US</th></tr></thead><tbody>
 <tr><td>155/80A</td><td>XS</td><td>80-83</td><td>32-34</td><td>4-6</td><td>0-2</td></tr>
