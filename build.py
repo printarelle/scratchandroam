@@ -20,7 +20,7 @@ FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="sty
 CSS=open('src/site.css').read()
 BRIGHT=os.environ.get('THEME','bright')=='bright'  # set THEME=legacy for the old dark build
 if BRIGHT:
-    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b, december_b, faq_b, faq_schema, faq_checked, tools_b
+    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b, december_b, faq_b, faq_schema, faq_checked, tools_b, CONSENTJS, privacy_b
     CSS=open('src/bright.css').read()+open('src/legacy-boards.css').read()
     FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">'
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
@@ -58,6 +58,8 @@ GTAG="""<!-- Google tag (gtag.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  try{ if(localStorage.getItem('sr-consent')==='granted'){ gtag('consent','update',{'analytics_storage':'granted'}); } }catch(e){}
   gtag('js', new Date());
 
   gtag('config', 'G-V7PB9WB64C');
@@ -115,7 +117,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 <body>
 {nav_b(SOC,NAV_SHOP,FOOT_GROUPS,CARDS) if BRIGHT else nav(dark)}
 {body}
-{footer_b(SOC,FOOT_GROUPS,CARDS)+(tabbar_b(path) if BRIGHT else '')+SDLG+NAVJS_B+COPYJS+SEARCHJS if BRIGHT else footer()}
+{footer_b(SOC,FOOT_GROUPS,CARDS)+(tabbar_b(path) if BRIGHT else '')+SDLG+NAVJS_B+COPYJS+SEARCHJS+CONSENTJS if BRIGHT else footer()}
 </body>
 </html>'''
     doc=finish_images(doc,path,img)
@@ -279,6 +281,7 @@ if BRIGHT:
     page('/guides/china-travel-faq/','China travel questions answered for first-timers','Short, dated answers to the China questions first-timers ask: visa, arrival card, paying, eSIM, VPN, trains, Shanghai. Each links to the full guide.',faq_b(SOC),[faq_schema(SITE),{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"China guides","item":SITE+"/china/"},{"@type":"ListItem","position":3,"name":"China travel questions answered","item":SITE+"/guides/china-travel-faq/"}]}],modified=faq_checked())
     SEARCH.append({"u":"/guides/china-travel-faq/","t":"China travel questions answered for first-timers","d":"Short, dated answers to the China questions first-timers ask.","k":" ".join(" ".join([r["q"]]+r["alts"]) for r in json.load(open('src/china-answers.json',encoding='utf-8'))["records"])})
     page('/travel-deals/','Travel deals: my partner links','My travel partner links in one place: tickets, eSIMs, airport transfers and flights, and which ones we booked ourselves.',deals_b(SOC))
+    page('/privacy/','Privacy and cookies','What this site collects, which cookies it uses, how to say no to analytics, and how to contact me about your data.',privacy_b(SOC))
     page('/affiliate-disclosure/','Affiliate disclosure','How affiliate links work on Scratch & Roam: which links earn a commission, what we booked ourselves, and what it does not change.',disclosure_b(SOC))
     page('/december-trip/',"China in December 2026: Chengdu, Chongqing, Xi'an","Our December 2026 China trip: Chengdu, Chongqing and Xi'an by high-speed train, the stays, the plan and the guides to read first.",december_b(SOC=SOC,CARDS=CARDS))
     page('/where-ive-been/',"Where I've been","Every trip so far: two trips to China, Japan, and Chengdu, Chongqing and Xi'an in December, with the guides and videos from each.",where_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS)))

@@ -758,3 +758,11 @@ p{margin:0}
  .hb .mfeat{margin-top:6px}
  .hb .ni{padding:8px 0}
 }
+/* cookie box */
+#ckb{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;max-width:440px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 14px 40px rgba(20,33,61,.22);font:400 14px/1.5 var(--b);color:var(--ink)}
+#ckb p{margin:0 0 6px}#ckb a{color:var(--coral)}
+#ckb .ckr{display:flex;gap:10px;margin-top:10px}
+#ckb button{flex:1;font:700 14px var(--b);padding:11px 12px;border-radius:10px;border:2px solid var(--coral);cursor:pointer}
+#ckn{background:#fff;color:var(--coral)}#cky{background:var(--coral);color:#fff}
+.cks{font:inherit;background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer}
+@media(min-width:700px){#ckb{left:auto;right:20px;bottom:20px}}
