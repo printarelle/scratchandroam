@@ -22,7 +22,7 @@ BRIGHT=os.environ.get('THEME','bright')=='bright'  # set THEME=legacy for the ol
 if BRIGHT:
     from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b, december_b, faq_b, faq_schema, faq_checked, tools_b, CONSENTJS, privacy_b
     CSS=open('src/bright.css').read()+open('src/legacy-boards.css').read()
-    FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">'
+    FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" onload="this.onload=null;this.rel=&quot;stylesheet&quot;"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap"></noscript>'
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
 SAMEAS=json.dumps(list(SOC.values()))
 
@@ -156,6 +156,12 @@ def finish_images(doc,path,og):
         hero="data-hero" in t
         t=t.replace(" data-hero","").replace("data-hero","")
         t=re.sub(r'\sloading="[^"]*"','',t)
+        # small WebP copies made by tools/make_variants.py (committed, because the Cloudflare build has no Pillow)
+        _b=os.path.splitext(key)[0]
+        _v=[(w,f"/img/{_b}-w{w}.webp") for w in (480,960) if os.path.exists(f"docs/img/{_b}-w{w}.webp")]
+        if _v and "srcset=" not in t:
+            _nw=_size("docs/img/"+key)[0]
+            t+=' srcset="'+", ".join(f"{u} {w}w" for w,u in _v)+f", {src} {_nw}w\" sizes=\"(max-width:700px) 100vw, 720px\""
         t+=' fetchpriority="high"' if hero else ' loading="lazy"'
         t+=' decoding="async">'
         urls.append(SITE+src)
@@ -339,6 +345,6 @@ _ik=open('src/indexnow-key.txt').read().strip(); open(f'docs/{_ik}.txt','w').wri
 import shutil; shutil.copy('src/404.html','docs/404.html') if os.path.exists('src/404.html') else None
 open('docs/_redirects','w').write(open('src/redirects.txt').read())
 import glob as _g
-_orph=[f[9:] for f in _g.glob('docs/img/**/*.*',recursive=True) if f[9:] not in USED]
+_orph=[f[9:] for f in _g.glob('docs/img/**/*.*',recursive=True) if f[9:] not in USED and not re.search(r'-w(480|960)\.webp$',f)]
 if _orph: print("WARNING unused images (not on any page):",_orph)
 print("built", len(PAGES), "pages")
