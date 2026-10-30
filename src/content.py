@@ -26,6 +26,7 @@ CARDS=[
  dict(slug="taobao-11-11-singles-day-for-foreigners",sec="shop",img="singles-day-sale-guide-for-foreigners-cover-16x9",alt="Cover: the title 11.11 sale on Taobao with the chips Alipay, Presale and Hotel, a lit shopping street on Nanjing Road in Shanghai and a China flag sticker",num="11.11",meta=("SALE GUIDE","9 STEPS"),t="Taobao 11.11 for foreigners: how to shop the Singles' Day sale",p="The 2026 dates, paying with Alipay and a foreign card, presale deposits, hotel delivery and the mistakes to avoid.",short="Taobao 11.11 for foreigners"),
  dict(slug="china-before-you-fly-checklist",sec="before",img="china-before-you-fly-10-things-cover-16x9",alt="Cover: 10 steps before China with the chips eSIM, VPN and insurance, the Shanghai skyline lit at night and a China flag sticker",num="10 THINGS",meta=("VIDEO + CHECKLIST","10 STEPS"),t="China first trip checklist: safety and backups",p="Insurance, your hotel in Chinese, emergency numbers, phone and data, payments, document copies, scams, a medical kit, maps and a simple first day.",short="China first trip checklist"),
  dict(slug="alipay-add-foreign-card-china",sec="before",img="alipay-add-foreign-card-china-cover-16x9",alt="Cover of the guide to adding a foreign card to Alipay, with the chips Visa, Mastercard and UnionPay and two Alipay phone screens",num="ALIPAY CARD",meta=("STEP BY STEP","7 STEPS"),t="How to add a foreign card to Alipay, step by step",p="Open Bank Cards, add your Visa or Mastercard, see it listed, and check your first payments in the transaction history.",short="Add a foreign card to Alipay"),
+ dict(slug="wechat-pay-add-foreign-card-china",sec="before",img="wechat-pay-add-foreign-card-china-cover-16x9",alt="Cover of the guide to adding a foreign card to WeChat Pay, with the chips Visa, Wallet and Bank Cards and two WeChat phone screens",num="WECHAT CARD",meta=("STEP BY STEP","7 STEPS"),t="How to add a foreign card to WeChat Pay, step by step",p="Me, Pay and Services, Wallet, Bank Cards: add your Visa and see it listed.",short="Add a foreign card to WeChat Pay"),
  dict(slug="alipay-metro-qr-code-china",sec="before",img="alipay-metro-qr-code-china-cover-16x9",alt="Cover of the Alipay metro QR code guide: Metro QR in China with the chips Alipay, Metro and Bus and a China flag sticker",num="METRO QR",meta=("STEP BY STEP","8 STEPS"),t="Alipay metro QR code in China: how to add it, step by step",p="Pick the city, claim the free card, enter your payment password, and switch city when the code is wrong.",short="Alipay metro QR code"),
  dict(slug="the-bund-shanghai-at-night",sec="place",img="the-bund-shanghai-after-dark-cover-4x5",alt="The Bund in Shanghai at night",row_k="The Bund",row_q="How do I get to the Bund at night, and when do the lights go off?",short="The Bund at night"),
  dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-road-shanghai-neon-shop-fronts-cover-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
@@ -943,7 +944,7 @@ AC_STEPS=[(a,b,AC_FIGS.get(i,[])) for i,(a,b) in enumerate(AC_STEPS)]
 guide("alipay-add-foreign-card-china","How to add a foreign card to Alipay for China, step by step","How to add a foreign card to Alipay for China, step by step",
       "How to add a foreign Visa or Mastercard to Alipay: open Bank Cards, tap Add Bank Card, enter the details or tap the card, and check your payments.",
       "add foreign card to alipay",None,
-      "<p>To pay in China you need a card linked to Alipay. You do not need a Chinese bank account. This guide shows how I added my own Visa card to Alipay on my phone: where Bank Cards is, which cards the screen accepts, the tap-your-card (NFC) option, typing the details, and the screen that tells you it worked. It ends with the transaction history, so you know where to check your first payments.</p><p>The screenshots are from my own phone. I have hidden my card number, expiry date, CVV2 and the last four digits, and the names of people in my payments. Checked on 30 October 2026.</p>",
+      "<p>To pay in China you need a card linked to Alipay. You do not need a Chinese bank account. This guide shows how I added my own Visa card to Alipay on my phone: where Bank Cards is, which cards the screen accepts, the tap-your-card (NFC) option, typing the details, and the screen that tells you it worked. It ends with the transaction history, so you know where to check your first payments. Using WeChat too? See <a href='/guides/wechat-pay-add-foreign-card-china/'>how to add a foreign card to WeChat Pay</a>.</p><p>The screenshots are from my own phone. I have hidden my card number, expiry date, CVV2 and the last four digits, and the names of people in my payments. Checked on 30 October 2026.</p>",
       AC_STEPS,
       [("How do I add a foreign card to Alipay?","Open Alipay, go to Bank Cards, tap Add Bank Card, type the card number, expiry date and CVV2 (or tap the card on your phone with NFC), tap Agree to Terms and Add, and look for Added successfully."),
        ("Which foreign cards does Alipay accept?","The Add Bank Card screen on my phone listed Visa, Mastercard, UnionPay, American Express, Diners Club, Discover and JCB. Alipay can change the list, so check your own screen."),
@@ -957,6 +958,48 @@ guide("alipay-add-foreign-card-china","How to add a foreign card to Alipay for C
       steps_title="The 7 steps, in order",
       shotnote="Screenshots from my own phone, with my card details hidden. Tap a picture to open it larger.",
       related=[("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/alipay-metro-qr-code-china/","alipay-metro-qr-code-china-cover-16x9","METRO QR","Alipay metro QR code in China: how to add it"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")])
+
+# ---------- Add a foreign card to WeChat Pay ----------
+WC_FIGS={0:["wechat-me-tab-with-pay-and-services-menu-personal-details-hidden"],
+ 1:["wechat-pay-and-services-page-with-money-and-wallet-buttons"],
+ 2:["wechat-wallet-page-with-bank-cards-row"],
+ 3:["wechat-bank-cards-page-with-one-visa-card-and-add-a-bank-card"],
+ 4:["wechat-add-a-bank-card-form-with-card-type-valid-date-and-cvv-code"],
+ 5:["wechat-card-added-confirmation-with-done-button"],
+ 6:["wechat-bank-cards-page-with-two-visa-cards"]}
+WC_STEPS=[
+ ("Open the Me tab and tap Pay and Services",
+  "In WeChat, tap <b>Me</b> in the bottom right corner. At the top of the list is <b>Pay and Services</b>. Tap it. I have hidden my profile photo, name and WeChat ID in the screenshot."),
+ ("Tap Wallet",
+  "The Pay and Services page has two big green buttons at the top: <b>Money</b> and <b>Wallet</b>. Tap <b>Wallet</b>. Below them are the other services, such as DiDi Ride-Hailing and Rail & Flights, which you can look at later."),
+ ("Tap Bank Cards",
+  "The Wallet page lists Balance, <b>Bank Cards</b>, Relative Cards, Weixin Pay Score, Payment Settings, ID Info and the Customer Service Center. Tap <b>Bank Cards</b>."),
+ ("Tap Add a Bank Card",
+  "My Bank Cards page already showed one Visa card. Under it is an <b>Add a Bank Card</b> row, and under that a promotion for a UnionPay <b>Tour Card</b>. The page says <i>Provided by Tenpay</i>, which is the company behind WeChat Pay. Tap <b>Add a Bank Card</b>."),
+ ("Type the card number, then the valid date and CVV code",
+  "Type the card number at the top. The <b>Card Type</b> filled in by itself as <b>VISA</b>. Then choose the <b>Valid Date</b> and type the <b>CVV Code</b>, the 3 or 4 digit security code on the back of the card. In my screenshot those two fields are still empty, and the <b>Agree and Add</b> button is greyed out: it only turns on when everything is filled in. The screen says consent is required to the <b>Terms of Service</b>, so read them first, with a translate app if they are in Chinese. I have hidden my card number."),
+ ("Tap Agree and Add, then Done",
+  "Tap <b>Agree and Add</b>. When it works you get a green tick and the word <b>Added</b>. Tap <b>Done</b>."),
+ ("Check the new card is listed",
+  "Back on the Bank Cards page there were now two Visa cards, the new one under the first. Your card is ready to pay with. A real shop payment is the only proof it works, so carry cash and a second card for your first days."),
+]
+WC_STEPS=[(a,b,WC_FIGS.get(i,[])) for i,(a,b) in enumerate(WC_STEPS)]
+guide("wechat-pay-add-foreign-card-china","How to add a foreign card to WeChat Pay for China, step by step","How to add a foreign card to WeChat Pay for China, step by step",
+      "How to add a foreign Visa or Mastercard to WeChat Pay: Me, Pay and Services, Wallet, Bank Cards, Add a Bank Card, then enter the details.",
+      "add foreign card to wechat pay",None,
+      "<p>WeChat Pay is the other app you can pay with in China, next to Alipay. You can link a foreign bank card without a Chinese bank account. This guide shows how I added my own Visa card to WeChat on my phone: the exact path from the Me tab to Bank Cards, what to type, and the screen that tells you it worked.</p><p>The screenshots are from my own phone. I have hidden my card number, the last four digits, my photo, my name, my WeChat ID and my wallet balance. Checked on 30 October 2026. If you also want Alipay, see <a href='/guides/alipay-add-foreign-card-china/'>how to add a foreign card to Alipay</a>.</p>",
+      WC_STEPS,
+      [("How do I add a foreign card to WeChat Pay?","Open WeChat, tap Me, then Pay and Services, then Wallet, then Bank Cards, then Add a Bank Card. Type the card number, choose the valid date, type the CVV code, tap Agree and Add, and look for Added."),
+       ("Do I need a Chinese bank account for WeChat Pay?","No. I added my own Visa card with its number, valid date and CVV code. Do the setup before you fly, because WeChat can ask for extra checks."),
+       ("Where is Bank Cards in WeChat?","Me, then Pay and Services, then Wallet, then Bank Cards. The names on your phone may differ a little between versions and languages."),
+       ("Is there a fee for paying with a foreign card on WeChat?","I do not give a fee here because I did not test a payment for this guide. Tencent announced in May 2026 that new accounts get a period without foreign card fees; read the <a href='/guides/china-travel-faq/#q-foreign-card-payments'>foreign card question in the FAQ</a> for the details and check that it still applies. Your own bank may add a fee."),
+       ("Which should I set up, Alipay or WeChat Pay?","I would set up both before you fly, and carry cash and a second card. Some places take only one of them.")],
+      [],
+      SITE+"/og/wechat-pay-add-foreign-card-china.jpg",checked="2026-10-30",published="2026-10-30",vschema=False,
+      lift='<div class="dd-hero"><img data-hero src="/img/wechat-pay-add-foreign-card-china-cover-16x9.jpg" alt="" width="1280" height="720"></div>',
+      steps_title="The 7 steps, in order",
+      shotnote="Screenshots from my own phone, with my personal details hidden. Tap a picture to open it larger.",
+      related=[("/guides/alipay-add-foreign-card-china/","alipay-add-foreign-card-china-cover-16x9","ALIPAY CARD","How to add a foreign card to Alipay, step by step"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")])
 
 CB_STEPS=[
  ("Have travel insurance before you fly",

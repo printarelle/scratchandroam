@@ -91,6 +91,14 @@ a("alipay-add-bank-card-number-expiry-and-cvv2-hidden.jpg","Alipay Add Bank Card
 a("alipay-visa-card-added-successfully-screen.jpg","Alipay screen reading Added successfully with the line Visa added to My Bank Cards and a Done button, last digits hidden","Added successfully. Tap Done.")
 a("alipay-bank-cards-page-with-two-visa-cards.jpg","Alipay Bank Cards page now showing 2 bank cards, both Visa, last digits hidden","Bank Cards, after: the new Visa card is listed.")
 a("alipay-add-foreign-card-china-cover-16x9.jpg","Cover: Add your foreign card to Alipay, step by step, with the chips Visa, Mastercard and UnionPay and two Alipay phone screens")
+a("wechat-me-tab-with-pay-and-services-menu-personal-details-hidden.jpg","WeChat Me tab with the Pay and Services row, Favorites, My Posts, Cards and Offers, Sticker Gallery and Settings; profile photo, name and ID hidden","The Me tab. Tap Pay and Services.")
+a("wechat-pay-and-services-page-with-money-and-wallet-buttons.jpg","WeChat Pay and Services page with green Money and Wallet buttons, then Financial Services, Daily Services and Travel and Transportation sections","Pay and Services. Tap Wallet.")
+a("wechat-wallet-page-with-bank-cards-row.jpg","WeChat Wallet page listing Balance, Bank Cards, Relative Cards, Weixin Pay Score, Payment Settings, ID Info and Customer Service Center","In the Wallet, tap Bank Cards.")
+a("wechat-bank-cards-page-with-one-visa-card-and-add-a-bank-card.jpg","WeChat Bank Cards page with one blue Visa card, last digits hidden, an Add a Bank Card row and a Get Your Tour Card promotion","Bank Cards, before: one Visa card. Tap Add a Bank Card.")
+a("wechat-add-a-bank-card-form-with-card-type-valid-date-and-cvv-code.jpg","WeChat Add a Bank Card form with the card number hidden, card type VISA, a Valid Date field, a CVV Code field and a greyed Agree and Add button","Card number hidden. Fill in the valid date and CVV code, then Agree and Add.")
+a("wechat-card-added-confirmation-with-done-button.jpg","WeChat confirmation screen with a green tick and the word Added above a Done button","Added. Tap Done.")
+a("wechat-bank-cards-page-with-two-visa-cards.jpg","WeChat Bank Cards page now showing two blue Visa cards, last digits hidden","Bank Cards, after: the new Visa card is listed.")
+a("wechat-pay-add-foreign-card-china-cover-16x9.jpg","Cover: Add your foreign card to WeChat, step by step, with the chips Visa, Wallet and Bank Cards and two WeChat phone screens")
 a("alipay-metro-qr-code-china-cover-16x9.jpg","Cover: Metro QR in China with the chips Alipay, Metro and Bus, the line set it up before you travel, a phone showing the Alipay Transport screen and a China flag sticker")
 a("alipay-home-screen-with-transport-icon-and-quick-tutorial-caption.jpg","Alipay home screen on a phone with the Transport icon in the top row next to Scan, Pay/Receive and Pocket","Transport is in the top row of the Alipay home screen.")
 a("alipay-select-city-list-with-chengdu-highlighted-for-metro-qr.jpg","Alipay Select city list with the recent cities and the popular cities, including Chengdu, Xi'an and Shanghai","Pick the city you are going to.")
@@ -115,6 +123,7 @@ OGALT={
 "top-25-china-apps.jpg":R["top-25-china-apps-boarding-pass-cover.jpg"]["alt"],
 "taobao-for-foreigners.jpg":R["how-to-order-on-taobao-step-by-step-guide-cover.jpg"]["alt"],
 "alipay-metro-qr-code-china.jpg":R["alipay-metro-qr-code-china-cover-16x9.jpg"]["alt"],
+"wechat-pay-add-foreign-card-china.jpg":R["wechat-pay-add-foreign-card-china-cover-16x9.jpg"]["alt"],
 "alipay-add-foreign-card-china.jpg":R["alipay-add-foreign-card-china-cover-16x9.jpg"]["alt"],
 "china-before-you-fly-checklist.jpg":R["china-before-you-fly-10-things-cover-16x9.jpg"]["alt"],
 }

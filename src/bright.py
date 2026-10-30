@@ -200,6 +200,7 @@ CLUSTERS=[
    ("china-travel-apps","Set up the must-have apps","Start here: the 12 to set up at home, with the steps"),
    ("top-25-china-apps","All 25 apps, ranked","The full list from critical to optional, to choose extras"),
    ("alipay-add-foreign-card-china","Add your card to Alipay","Link a Visa or Mastercard, step by step"),
+   ("wechat-pay-add-foreign-card-china","Add your card to WeChat Pay","Me, Wallet, Bank Cards, step by step"),
    ("alipay-metro-qr-code-china","The metro with Alipay","Ride with the QR code"),
    ("how-to-order-food-in-china-without-speaking-chinese","Order food","Menus, QR codes and delivery"),
    ("food-delivery-in-china-for-foreigners-meituan","Food delivery","Meituan in WeChat, to your hotel"),
@@ -874,7 +875,7 @@ def tool_page_b(SOC,key):
     g=lambda *ks:"".join(B[k] for k in ks)
     if key=="yuan-to-euro":
         main=P["money"].replace("{FBDATE}",TOOLS_RATE_FALLBACK["date"]); js=js_m
-        main+='<p>Paying with a foreign card in China? Follow <a href="/guides/alipay-add-foreign-card-china/">how to add your card to Alipay</a>, read <a href="/guides/china-travel-faq/#q-foreign-card-payments">how foreign card payments work</a> and the <a href="/guides/china-travel-apps/">China travel apps guide</a>. Your bank adds its own fee on top of any rate shown here.</p>'
+        main+='<p>Paying with a foreign card in China? Follow <a href="/guides/alipay-add-foreign-card-china/">how to add your card to Alipay</a> or <a href="/guides/wechat-pay-add-foreign-card-china/">WeChat Pay</a>, read <a href="/guides/china-travel-faq/#q-foreign-card-payments">how foreign card payments work</a> and the <a href="/guides/china-travel-apps/">China travel apps guide</a>. Your bank adds its own fee on top of any rate shown here.</p>'
     elif key=="clothing-size-converter":
         main=P["finder"]+g("Women's tops, roughly","Men's jackets and tops, roughly")+P["source"]+'<p>Shopping on Taobao? See <a href="/china/tools/taobao-size-charts/">how to read a Taobao size sheet</a> and the <a href="/china/tools/shoe-size-chart/">shoe size chart</a>.</p>'; js=js_s
     elif key=="trouser-size-chart":
