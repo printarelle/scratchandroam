@@ -145,8 +145,13 @@ def stats_b(n_guides, title="A bit about my trips to China."):
     S=[("plane","2","Trips to China"),("cal","Dec 2025","First trip, Christmas"),("pin","Apr 2026","Second trip, Easter"),("book",str(n_guides),"Dated guides"),("heart","Dec 2026","Next: Chengdu, Chongqing, Xi'an")]
     return f'<section class="stats"><div class="wrap"><h2>{html.escape(title)}</h2><div class="row">'+"".join(f'<div class="stat">{IC[i]}<b>{v}</b><span>{l}</span></div>' for i,v,l in S)+'</div></div></section>'
 
+SH_PLACES={"the-bund-shanghai-at-night":("The Bund at night","the Bund"),"nanjing-road-shanghai":("Nanjing Road","Nanjing Road"),"huangpu-river-night-cruise":("the Huangpu river night cruise","the river cruise"),"shanghai-circus-world-era-show":("the ERA show at Shanghai Circus World","the ERA show")}
+SH_NEXT={"the-bund-shanghai-at-night":("huangpu-river-night-cruise","nanjing-road-shanghai"),"nanjing-road-shanghai":("the-bund-shanghai-at-night","huangpu-river-night-cruise"),"huangpu-river-night-cruise":("the-bund-shanghai-at-night","shanghai-circus-world-era-show"),"shanghai-circus-world-era-show":("the-bund-shanghai-at-night","nanjing-road-shanghai")}
 def band_b(SOC, kind="start"):
-    if kind=="shop":
+    if kind in SH_PLACES:
+        n1,n2=SH_NEXT[kind]
+        h="Planning Shanghai after dark? See the next stop.";p="The Bund, Nanjing Road, the river cruise and the ERA show fit into one evening. Each guide gives the metro exit, the time and what it costs, checked on the date shown.";a=(f'/guides/{n1}/',"Next: "+SH_PLACES[n1][1]);b2=(f'/guides/{n2}/',"Also: "+SH_PLACES[n2][1])
+    elif kind=="shop":
         h="Shopping on Taobao? Start with the order guide.";p="Sizes, jin and prices are only half of it. The order guide shows paying with Alipay, the address and what arrives. Every guide here is dated and rechecked against the official source.";a=('/guides/taobao-for-foreigners/',"Order on Taobao, step by step");b2=('/guides/china-travel-faq/',"Browse every China question")
     elif kind=="taobao":
         h="Ordering from Taobao? Check sizes and prices first.";p="Chinese sizes run differently and weights are often in jin. The tools page converts yuan, jin and clothing and shoe sizes, and shows how to read a real size sheet. Every guide here is dated and rechecked against the official source.";a=('/china/tools/',"Yuan, jin and size tools");b2=('/guides/taobao-11-11-singles-day-for-foreigners/',"Taobao 11.11 for foreigners")
@@ -316,7 +321,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <div class="scard"><span class="eyebrow">Quick answers</span><p>Short, dated answers to the China questions first-timers ask.</p><a href="/guides/china-travel-faq/">Search the questions →</a><p style="margin-top:10px"><a href="/china/tools/">Yuan and clothing size tools →</a></p></div>
 </aside>
 </div>
-{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug=="taobao-11-11-singles-day-for-foreigners" else "start"))}
+{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug=="taobao-11-11-singles-day-for-foreigners" else (slug if slug in SH_PLACES else "start")))}
 {social_b(SOC,"the-bund-pudong-skyline-and-shanghai-tower-at-night","nanjing-road-curved-corner-building-neon-lights")}
 </main>'''
 
@@ -327,6 +332,8 @@ def home_b(*, CARDS, SOC, n_guides):
     def gcard(c,small=False):
         return f'<a class="gc" href="/guides/{c["slug"]}/"><img src="/img/{c["img"]}.jpg" alt="{html.escape(c["alt"])}" loading="lazy"><div class="in"><span class="cat">{html.escape(c["meta"][0] if c.get("meta") else "Guide")}</span><h3>{html.escape(c.get("t") or c["short"])}</h3>{"" if small else f"<p>{html.escape(c.get(chr(112),chr(32)))}</p>"}<small>{html.escape(c["meta"][1] if c.get("meta") else "Shanghai")}</small></div></a>'
     start=[by[s] for s in ("china-arrival-card-pc","first-time-in-china","china-travel-apps")]
+    pop=[by[s] for s in ("the-bund-shanghai-at-night","shanghai-circus-world-era-show","taobao-for-foreigners") if s in by]
+    pop_html='<section class="sec" style="padding-bottom:0"><div class="wrap"><div class="sechead left"><div><p class="eyebrow">Most read</p><h2>What people are reading right now</h2><p>The guides that show up most often in Google search right now.</p></div></div><div class="gcards">'+"".join(gcard(c) for c in pop)+'</div></div></section>' if pop else ""
     before=[c for c in CARDS if c["sec"] in ("before","shop") and c not in start]
     places=[c for c in CARDS if c["sec"]=="place"]
     dests=f'''<a class="dest" href="/china/"><img src="/img/the-bund-pink-lit-pearl-tower-over-the-crowd.jpg" alt=""><div class="in"><h3>Shanghai</h3><small>{n_guides} guides</small><p>Two trips: Christmas 2025 and Easter 2026. The arrival card, Alipay, the metro QR, the Bund at night, the river cruise and the ERA show.</p></div></a>
@@ -336,6 +343,7 @@ def home_b(*, CARDS, SOC, n_guides):
 <section class="hhero"><div class="wrap"><div><p class="eyebrow">Real first-timer China. Real screenshots.</p><h1>China travel guides, step by step, from someone who just did it</h1><p class="lede">I'm Natali, a maker from Ireland. I filmed my first trip to China and wrote down every form, app and queue that nobody explains, with the date I checked each one.</p><div class="acts"><a class="btn" href="/guides/china-arrival-card-pc/">Start with the arrival card</a><a class="btn ghost" href="/china/">{IC["pin"]} Browse China guides</a></div><a class="small" href="{SOC['YouTube']}?sub_confirmation=1" rel="noopener">{IC["mail"]} Watch the videos behind the guides</a></div>
 <div class="collage"><figure><img data-hero sizes="(max-width:700px) 60vw, 340px" src="/img/the-bund-gold-lit-historic-buildings-at-night.jpg" alt=""><figcaption>The Bund</figcaption></figure><figure><img sizes="(max-width:700px) 60vw, 340px" src="/img/nanjing-road-curved-corner-building-neon-lights.jpg" alt=""><figcaption>Nanjing Road</figcaption></figure></div></div></section>
 {help_b()}
+{pop_html}
 {stats_b(n_guides,"A bit about my travels.")}
 <section class="sec"><div class="wrap"><div class="sechead"><p class="eyebrow">Where I've been</p><h2>Where I've been. Where I can help.</h2><p>First-timer guides from the trips I've actually taken, with the screenshots from my own phone and the prices I actually paid.</p></div><div class="dests">{dests}</div></div></section>
 {SCRATCH_HTML}
