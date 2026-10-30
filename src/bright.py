@@ -851,7 +851,8 @@ def _tool_parts():
     jm_start=js.index('var FB='); ju=js.index('var U={'); jsz=js.index('function size_run')
     return dict(money=money,units=units,finder=finder,body=body,source=source,js_money=js[jm_start:ju],js_units=js[ju:jsz],js_size=js[jsz:].rstrip()[:-len('})();')])
 def _tools_nav(cur):
-    return '<p class="tmeta" style="margin-top:22px"><b>More tools:</b> '+" · ".join(f'<a href="/china/tools/{k}/">{html.escape(TOOL_PAGES[k]["card"])}</a>' for k in TOOL_ORDER if k!=cur)+' · <a href="/china/tools/">All tools</a></p>'
+    cards="".join(f'<a class="tcard" href="/china/tools/{k}/"><b>{html.escape(TOOL_PAGES[k]["card"])}</b><span>{html.escape(TOOL_PAGES[k]["blurb"])}</span></a>' for k in TOOL_ORDER if k!=cur)
+    return '<div class="tother"><h2>Other tools</h2><div class="tcards">'+cards+'</div><p class="tback"><a class="tbtn" href="/china/tools/">&larr; Back to all tools</a></p></div>'
 def tool_page_b(SOC,key):
     P=_tool_parts(); M=TOOL_PAGES[key]; B=P["body"]
     fb=_json.dumps(TOOLS_RATE_FALLBACK)
@@ -863,7 +864,7 @@ def tool_page_b(SOC,key):
         main=P["money"].replace("{FBDATE}",TOOLS_RATE_FALLBACK["date"]); js=js_m
         main+='<p>Paying with a foreign card in China? Read <a href="/guides/china-travel-faq/#q-foreign-card-payments">how foreign card payments work</a> and the <a href="/guides/china-travel-apps/">China travel apps guide</a>. Your bank adds its own fee on top of any rate shown here.</p>'
     elif key=="clothing-size-converter":
-        main=P["finder"]+g("Women's tops, roughly","Men's jackets and tops, roughly")+P["source"]+'<p>Shopping on Taobao? See <a href="/china/tools/taobao-size-charts/">how to read a Taobao size sheet</a> and the <a href="/china/tools/shoe-size-chart/">shoe size chart</a>.</p></div>'; js=js_s
+        main=P["finder"]+g("Women's tops, roughly","Men's jackets and tops, roughly")+P["source"]+'<p>Shopping on Taobao? See <a href="/china/tools/taobao-size-charts/">how to read a Taobao size sheet</a> and the <a href="/china/tools/shoe-size-chart/">shoe size chart</a>.</p>'; js=js_s
     elif key=="trouser-size-chart":
         main=trouser_html(); js=""
     elif key=="shoe-size-chart":
@@ -874,7 +875,7 @@ def tool_page_b(SOC,key):
         main='<div class="tool">'+g("Reading a real Taobao size sheet","Example: a bra size chart","Example: a dress with S to XL","Watch the weight unit: jin, not kilos")+'<p class="tmeta">Converting a weight in jin? Use the <a href="/china/tools/jin-to-kg/">jin to kg converter</a>.</p></div>'; js=""
     main=main.replace('<h2>','<h2>')
     return f'''<main>
-<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><a href="/china/">China</a><span>/</span><a href="/china/tools/">Tools</a><span>/</span><span>{html.escape(M["card"])}</span></nav><p class="eyebrow">China Travel Companion</p><h1>{html.escape(M["h1"])}</h1><p class="lede">{html.escape(M["lede"])}</p></div></section>
+<section class="phero"><div class="wrap"><p class="tback top"><a class="tbtn" href="/china/tools/">&larr; All tools</a></p><nav class="crumbs"><a href="/">Home</a><span>/</span><a href="/china/">China</a><span>/</span><a href="/china/tools/">Tools</a><span>/</span><span>{html.escape(M["card"])}</span></nav><p class="eyebrow">China Travel Companion</p><h1>{html.escape(M["h1"])}</h1><p class="lede">{html.escape(M["lede"])}</p></div></section>
 <section class="sec" style="padding-top:8px"><div class="wrap">
 <div class="dnote"><b>Read this first</b><p>Rates change daily, sizes differ by brand, and the seller's own chart always wins. I checked these on 29 October 2026.</p></div>
 {main}{_tools_nav(key)}
