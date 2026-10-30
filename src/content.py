@@ -347,21 +347,55 @@ FT_STEPS=[
  ("Get maps that work","Amap and Apple Maps work well in China; Google Maps does not. Save offline notes with the Chinese names of your hotel and stations."),
  ("Pack light","Trains and metros mean stairs and gates. One bag you can lift makes every station day easier."),
 ]
+def _gn(l,v): return '<div class="gl-i"><span class="gl-l">'+l+'</span><b>'+v+'</b></div>'
+FT_GLANCE=('<div class="glance"><div class="gl-h"><b>First time in China at a glance</b><span class="gl-pill">Set up at home</span></div><div class="gl-g">'
+ +_gn("Check first","Your passport's entry rules")
+ +_gn("Do 2 to 3 days ahead","The Alipay passport check")
+ +_gn("Trains","Tickets open about 15 days ahead")
+ +_gn("Maps","Amap or Apple Maps, not Google")
+ +_gn("Internet","Set up an eSIM at home")
+ +_gn("Video","The same 13 things in 5 minutes 45")
+ +'</div><p class="gl-f">The 13 steps are below. Each one links to a detailed guide further down the page.</p></div>')
+FT_EXTRA=(
+ '<h2 id="journey">Where to go next, step by step</h2>'
+ '<p>This page is the overview. Each part of the journey has its own guide with the detail.</p>'
+ '<h3>Before you fly</h3>'
+ '<ul class="stops"><li><a href="/guides/china-visa-free-30-days/">China visa free for 30 days</a>: the entry rules for Irish, UK and EU passports.</li>'
+ '<li><a href="/guides/china-before-you-fly-checklist/">China first trip checklist</a>: safety and backups.</li>'
+ '<li><a href="/guides/china-dos-and-donts/">China do\'s and don\'ts</a>: 15 rules before you fly.</li></ul>'
+ '<h3>Arrival card</h3>'
+ '<ul class="stops"><li><a href="/guides/china-arrival-card-alipay/">China arrival card in Alipay</a>, on your phone.</li>'
+ '<li><a href="/guides/china-arrival-card-pc/">China arrival card online on a PC</a>.</li></ul>'
+ '<h3>Apps and paying</h3>'
+ '<ul class="stops"><li><a href="/guides/china-travel-apps/">China travel apps</a>: the 12 to set up before you go.</li>'
+ '<li><a href="/guides/alipay-add-foreign-card-china/">Add a foreign card to Alipay</a> and <a href="/guides/wechat-pay-add-foreign-card-china/">to WeChat Pay</a>.</li>'
+ '<li><a href="/guides/alipay-vs-wechat-pay-china/">Alipay or WeChat Pay?</a> What I used for what.</li>'
+ '<li><a href="/guides/alipay-metro-qr-code-china/">Alipay metro QR code</a> for the metro.</li></ul>'
+ '<h3>Shopping online</h3>'
+ '<ul class="stops"><li><a href="/guides/taobao-for-foreigners/">How to order on Taobao as a foreigner</a>, and the <a href="/guides/taobao-11-11-singles-day-for-foreigners/">Singles\' Day 11.11 guide</a>.</li></ul>'
+ '<h3>In Shanghai</h3>'
+ '<ul class="stops"><li><a href="/guides/nanjing-road-shanghai/">Nanjing Road</a> and <a href="/guides/the-bund-shanghai-at-night/">the Bund at night</a>.</li>'
+ '<li><a href="/guides/huangpu-river-night-cruise/">Huangpu River night cruise</a> and the <a href="/guides/shanghai-circus-world-era-show/">ERA acrobatics show</a>.</li></ul>')
+
 guide("first-time-in-china","First time in China: 13 things to set up before you fly","First time in China: 13 things to set up before you fly",
       "First time in China? The 13 things we set up before flying: entry rules, the arrival card, Alipay and WeChat, cash, flights, trains, maps and packing.",
       "first time in China","TuP9NS00Ugg",
-      "<p>Our first trip to China was Christmas 2025, and I thought I had prepared everything. Then we landed with no internet on my phone. What happened is just below.</p><p>This page is the setup list I wish I had before that trip. No sights, only the things that make the first day easy: entry rules, the arrival card, apps, paying, flights, trains, maps and packing. The video goes through the same 13 things. The facts were checked on 15 October 2026 against the sources at the bottom.</p>",
+      "<p>Our first trip to China was Christmas 2025, and I thought I had prepared everything. Then we landed with no internet on my phone. What happened is just below.</p><p>This page is the setup list I wish I had before that trip. No sights, only the things that make the first day easy: entry rules, the arrival card, apps, paying, flights, trains, maps and packing. The video goes through the same 13 things. The facts were checked on 15 October 2026 against the sources at the bottom.</p>"+FT_GLANCE,
       FT_STEPS,
       [("Do I need a visa for China?","It depends on your passport. In October 2026 China listed 50 countries with visa-free entry for short stays, most of it dated to 31 December 2026. Check the official list for your own country before booking."),
        ("Which app do I need, Alipay or WeChat?","Both work for paying. Set both up at home, link a card to each, and you will not be stuck when one of them does not like your card."),
        ("Does Google Maps work in China?","No. Use Amap or Apple Maps, and keep the Chinese names of your hotel and stations saved offline."),
-       ("When should I book high-speed trains?","Tickets go on sale about 15 days before the travel date. Book as soon as they open for busy routes.")],
+       ("When should I book high-speed trains?","Tickets go on sale about 15 days before the travel date. Book as soon as they open for busy routes."),
+       ("Can I fill in the China arrival card before I land?","Yes. Since 20 November 2025 you can fill it in online before you arrive, on the official website or in the Alipay or WeChat mini-program. I have step by step guides for the <a href='/guides/china-arrival-card-alipay/'>Alipay version</a> and the <a href='/guides/china-arrival-card-pc/'>PC version</a>."),
+       ("How much does Alipay cost to use?","Payments up to 200 yuan are free. A payment over 200 yuan carries a 3% fee, so split big bills or pay those by card where you can. The apps guide has the detail."),
+       ("What if I land with no internet?","That is what happened to us on our first trip. Install an eSIM at home on Wi-Fi, keep your home SIM on for text codes, and have a backup plan. The <a href='/guides/china-travel-apps/'>China travel apps guide</a> explains the eSIM and VPN options."),
+       ("Which guides should I read first?","This page, then the <a href='/guides/china-before-you-fly-checklist/'>first trip checklist</a>, then the <a href='/guides/china-travel-apps/'>travel apps guide</a>. The list of guides by step is further down this page.")],
       [("Shanghai municipal government (English): visa-free entry policy","https://english.shanghai.gov.cn/en-Individuals-ImmigrationandVisas-Visa-freepolicies/20260709/469e8c5656534926a04b31a1084351f0.html",True),
        ("National Immigration Administration: arrival card filling page",NIA,True),
        ("China Railway 12306","https://www.12306.cn/en/",True)],
       SITE+"/og/first-time-in-china-13-things.jpg",minutes="PT5M45S",upload="2026-10-16",
       chapters=[("1","Entry rules"),("2","Arrival card"),("3","Get the apps"),("4","Pay setup"),("5","Mini-programs"),("6","The ¥200 fee"),("7","Cash"),("8","Flights"),("9","Booking"),("10","Trains"),("11","Station day"),("12","Maps"),("13","Pack light")],
-      related=[("/guides/china-arrival-card-pc/","china-arrival-card-on-a-pc-step-by-step","GUIDE 14","China arrival card online on a computer"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone")])
+      related=[("/guides/china-arrival-card-pc/","china-arrival-card-on-a-pc-step-by-step","GUIDE 14","China arrival card online on a computer"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone")],extra=FT_EXTRA)
 
 # ---------- China travel apps (every fact checked 16 Oct 2026 against the sources on the page) ----------
 H='<span class="tag h">Set up at home</span>'
