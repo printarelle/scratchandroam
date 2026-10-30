@@ -43,7 +43,12 @@ STORIES = {
  "the-bund-shanghai-at-night": ("New Year on the Bund",
    '<p>Our first China trip was Christmas 2025. We spent Christmas at Shanghai Disneyland, and then New Year and the day after on the Bund and Nanjing Road. '
    'Honestly, it was the best decision we made on that trip. '
-   'The photos on this page are mine.</p>'),  # told 21 Oct 2026
+   'The photos on this page are mine.</p>'
+   '<p>We stayed at the Crowne Plaza on Nanjing Road, so we could literally go to the Bund every day. '
+   'At night we usually went after 8pm. It was Christmas and New Year, so it was always full, and we did not want to stand in the crowd just watching the lights go up. '
+   'What we did enjoy was the light show of the city from our cruise, and walking down the Bund and having a good time.</p>'
+   '<p>The crowds are always there, because it is the most popular area, so you will see them wherever you go. '
+   'And it is really easy to get to. Ask anyone and they will tell you: all roads lead to the Bund.</p>'),  # told 21 and 30 Oct 2026
  "nanjing-road-shanghai": ("New Year on Nanjing Road",
    '<p>Our first China trip was Christmas 2025. After Christmas at Shanghai Disneyland, we spent New Year and the day after on Nanjing Road and the Bund. '
    'It was the best decision we made on that trip. The photos here are mine.</p>'),  # told 21 Oct 2026

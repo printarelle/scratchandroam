@@ -174,7 +174,7 @@ a("nanjing-road-shopping-street-at-dusk-with-big-screen.jpg","Nanjing Road shopp
 a("huangpu-river-shanghai-tower-reflected-in-the-water.jpg","Shanghai Tower and the Pudong skyline lit at night, reflected in the Huangpu river")
 a("huangpu-river-pudong-towers-lit-red-and-pink-at-night.jpg","Pudong towers lit in red and pink over the dark Huangpu river at night")
 a("huangpu-river-pudong-skyline-with-gold-reflections.jpg","The Pudong skyline across the Huangpu river with gold and pink reflections on the water")
-a("huangpu-river-lujiazui-skyline-wide-night-view.jpg","Wide night view of the Lujiazui skyline and Shanghai Tower across the Huangpu river")
+a("huangpu-river-lujiazui-skyline-wide-night-view.jpg","Wide night view of the Lujiazui skyline and Shanghai Tower across the Huangpu river","The Pudong skyline lit up across the river")
 a("huangpu-river-blue-lit-towers-from-the-water.jpg","Blue and gold lit towers on the Pudong bank seen from the Huangpu river at night")
 
 a("klook-era-shanghai-circus-world-tickets-qr-code.jpg","QR code that opens the Klook page for ERA tickets at Shanghai Circus World","Scan with your phone camera to open the same Klook page")
@@ -206,3 +206,8 @@ a("wechat-mini-program-menu-with-the-translation-button.jpg","The WeChat mini pr
 a("meituan-wechat-mini-program-home-screen-translated-to-english.jpg","The Meituan home screen in WeChat with categories translated to English: Restaurants, Desserts, Supermarket, Fresh and Medications","The Meituan home screen after translation")
 a("meituan-restaurant-menu-in-wechat-translated-to-english.jpg","A Meituan restaurant menu in WeChat translated to English, showing dishes with photos, monthly sales and prices in yuan","A menu in English, with photos and prices")
 a("meituan-orders-list-in-wechat-delivered-to-our-hotel.jpg","The Meituan orders tab in WeChat in Chinese, listing completed orders from a pot sticker shop, a tea shop and a bakery","Our past orders in the Orders tab")
+
+a("jin-mao-tower-deck-view-over-huangpu-river-to-the-bund-bank.jpg","View from the Jin Mao Tower deck over the Huangpu river with boats moored along the Bund bank and the Shanghai Tower at the left edge","The Huangpu river and the Bund bank from the Jin Mao Tower deck")
+a("jin-mao-tower-deck-wide-river-view-towards-the-bund-bank.jpg","Wide daytime view from the Jin Mao Tower deck across the Huangpu river to the Bund bank and the city beyond, in light haze","A wider view towards the Bund bank")
+a("jin-mao-tower-deck-oriental-pearl-tower-among-pudong-towers.jpg","Daytime view from the Jin Mao Tower deck of the Oriental Pearl Tower among the Pudong towers, with the Huangpu river and the Bund bank behind","The Oriental Pearl Tower among the Pudong towers")
+a("jin-mao-tower-model-on-the-observation-deck.jpg","A model of the Jin Mao Tower on a round base labelled in Chinese characters, inside the observation deck with sky and clouds behind the windows","A model of the Jin Mao Tower on the deck")

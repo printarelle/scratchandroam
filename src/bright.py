@@ -387,6 +387,20 @@ OFFERS={
        url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="See ERA tickets on Klook",
        qr="klook-era-shanghai-circus-world-tickets-qr-code",qralt="QR code for the Klook ERA ticket page"),
  ],
+ "the-bund-shanghai-at-night":[
+  dict(k="Klook",price=None,title="Jin Mao Tower Observation Deck Ticket",
+       text="This is the viewing deck we went up. Klook lists it on the 88th floor, at 340 metres, with views across the river to the Bund. We stayed about 30 minutes and had a coffee upstairs.",
+       url="https://klook.tpm.li/AXPosEZw",pick=True,badge="Where we went",cta="See Jin Mao tickets on Klook"),
+  dict(k="Klook",price=None,title="Shanghai Tower Observation Deck Ticket",
+       text="Another viewing platform in Pudong that looks back at the Bund.",
+       url="https://klook.tpm.li/fZluVTcR",cta="See Shanghai Tower tickets on Klook"),
+  dict(k="Klook",price=None,title="Oriental Pearl Tower Ticket",
+       text="The pearl tower you see in the skyline, with a viewing platform of its own.",
+       url="https://klook.tpm.li/Y95mGqZI",cta="See Pearl Tower tickets on Klook"),
+  dict(k="Klook",price=None,title="Big Bus Sightseeing Tour Shanghai",
+       text="The daytime sightseeing bus. We bought our tickets at the Pearl Tower station, and it is the same bus as this listing.",
+       url="https://klook.tpm.li/ho7P5Di3",cta="See the Big Bus on Klook"),
+ ],
  "huangpu-river-night-cruise":[
   dict(k="Klook",price=None,title="Huangpu River Night Cruise Experience",
        text="The night cruise on Klook. Check which pier the ticket is for before you book, because a ticket only works at its own pier (step 1 below).",
@@ -395,6 +409,8 @@ OFFERS={
  ],
 }
 OFFER_HEAD={
+ "the-bund-shanghai-at-night":("Where to book the viewing decks and the bus",
+   "These are affiliate links: if you book through one, I may earn a small commission at no extra cost to you. Prices change by date, so check today's price on each page."),
  "shanghai-circus-world-era-show":("Where we booked our tickets",
    "We booked ERA through Klook, and this is the link I use. It is an affiliate link: if you book through it, I may earn a small commission at no extra cost to you. Ticket prices change by date and zone, so check today's price on the page."),
  "huangpu-river-night-cruise":("Where to book the cruise",
@@ -420,7 +436,7 @@ def partner_b(key, SOC):
     qr=f'<figure class="pqr"><img src="/img/{p["qr"]}.jpg" alt="QR code that opens {n}" width="200" height="200"><figcaption>On a computer? Scan with your phone camera.</figcaption></figure>' if p.get("qr") else ''
     code=f'<span class="k">Use this code at checkout</span><div class="codebox" id="code"><span>{html.escape(p["code"])}</span><button type="button" data-copy="{html.escape(p["code"])}">Copy</button></div>' if p.get("code") else ''
     items=[(s_,o) for s_,lst in OFFERS.items() for o in lst if o["k"]==p["name"]]
-    titles={"shanghai-circus-world-era-show":"Shanghai Circus World ERA show","huangpu-river-night-cruise":"Huangpu River night cruise"}
+    titles={"the-bund-shanghai-at-night":"The Bund: viewing decks and the sightseeing bus","shanghai-circus-world-era-show":"Shanghai Circus World ERA show","huangpu-river-night-cruise":"Huangpu River night cruise"}
     cards="".join(f'<div class="offer{" pick" if o.get("pick") else ""}">{"<span class=\"badge\">"+html.escape(o.get("badge",""))+"</span>" if o.get("pick") else ""}<div class="otext"><span class="k">{html.escape(titles.get(s_,s_))}</span><b>{html.escape(o["title"])}</b><p>{html.escape(o["text"].replace(" in the steps below"," in my guide").replace(" (step 1 below)"," (my guide explains the piers)"))}</p><a class="btn" href="{o["url"]}" rel="sponsored noopener" target="_blank">{html.escape(o.get("cta","See it on "+n))}</a><span class="via"><a href="/guides/{s_}/">Read my guide first</a></span></div></div>' for s_,o in items)
     return f'''<main>
 <section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><span>{n}</span></nav><p class="eyebrow"><span class="adl">#Ad</span> Travel deals</p><h1>{n}: my link, and what we booked</h1><p class="lede">We booked our ERA show tickets in Shanghai on {n}. This page has my {n} link, and the things on this site you can book there, each with the guide that explains it.</p></div></section>

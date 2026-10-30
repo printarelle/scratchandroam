@@ -486,25 +486,56 @@ guide("china-travel-apps","China travel apps: 12 to set up before you go (2026)"
 SH=dict(city="Shanghai")
 CHECK='<p>Prices and times here are from the sources at the bottom, checked on 15 October 2026. They move. Treat the numbers as a guide and check the official page or Trip.com on the day.</p>'
 
-guide("the-bund-shanghai-at-night","The Bund Shanghai at night: how to get there and when to go","The Bund in Shanghai at night: how to get there, where to start, when the lights go off",
-      "How to get to the Bund by metro (East Nanjing Road, exit 2 or 7), the best time for the lights, when they switch off, and a simple river route.",
+BUND_CHECK='<p>Times and links here are from the sources at the bottom, checked on 30 October 2026. They move. Treat them as a guide and check the official notice or Trip.com for your date.</p>'
+BUND_GLANCE=('<div class="callout tip"><div><b>The Bund at a glance</b><ul>'
+  '<li><b>Entrance:</b> free, open all the time</li>'
+  '<li><b>Time needed:</b> about 90 minutes for the promenade, longer with a cruise</li>'
+  '<li><b>Nearest metro:</b> East Nanjing Road, Lines 2 and 10, exit 2 or 7</li>'
+  '<li><b>Best arrival:</b> before sunset, or very early in the morning for the quietest view</li>'
+  '<li><b>Lights:</b> they change by date, so check your day (step 4)</li>'
+  '<li><b>Start at:</b> the Peace Hotel, where Nanjing Road meets the river</li></ul></div></div>')
+BUND_EXTRA=(
+ '<h2 id="day-first">See it by day as well</h2>'
+ '<p>The buildings are full of history, and they look stunning in the daytime, so you do not have to see them only at night. If you have time, walk the whole Bund, look at every building and see it from all sides.</p>'
+ '<p>My tip: take the sightseeing tour bus in the daytime and explore all the Bund area, including the Pudong side across the river. Seeing the Bund from Pudong is magical. We bought our bus tickets at the Pearl Tower station, and it is the same bus as the <a href="https://klook.tpm.li/ho7P5Di3" rel="sponsored noopener" target="_blank">Big Bus tour on Klook</a> (affiliate link).</p>'
+ '<h2 id="from-above">See the Bund from above</h2>'
+ '<p>There are a lot of viewing platforms in Pudong that look back across the river at the Bund, so check the options online. You do not need to pay for an expensive one to get an amazing view.</p>'
+ '<p>We went up the <b>Jin Mao Tower</b>. Klook lists its viewing deck on the 88th floor, at 340 metres, with views across the river to the Bund. We stayed about 30 minutes, had a coffee upstairs and just enjoyed the view. It was amazing. These photos are mine, taken in the daytime.</p>'
+ '<div class="shots wideshots">'
+ '<figure><a href="/img/jin-mao-tower-deck-view-over-huangpu-river-to-the-bund-bank.jpg"><img src="/img/jin-mao-tower-deck-view-over-huangpu-river-to-the-bund-bank.jpg" alt="" loading="lazy"></a><figcaption>The Huangpu river and the Bund bank from the Jin Mao Tower deck</figcaption></figure>'
+ '<figure><a href="/img/jin-mao-tower-deck-wide-river-view-towards-the-bund-bank.jpg"><img src="/img/jin-mao-tower-deck-wide-river-view-towards-the-bund-bank.jpg" alt="" loading="lazy"></a><figcaption>A wider view towards the Bund bank</figcaption></figure>'
+ '<figure><a href="/img/jin-mao-tower-deck-oriental-pearl-tower-among-pudong-towers.jpg"><img src="/img/jin-mao-tower-deck-oriental-pearl-tower-among-pudong-towers.jpg" alt="" loading="lazy"></a><figcaption>The Oriental Pearl Tower among the Pudong towers</figcaption></figure>'
+ '<figure><a href="/img/jin-mao-tower-model-on-the-observation-deck.jpg"><img src="/img/jin-mao-tower-model-on-the-observation-deck.jpg" alt="" loading="lazy"></a><figcaption>A model of the Jin Mao Tower on the deck</figcaption></figure>'
+ '</div>'
+ '<p>The Shanghai Tower and the Oriental Pearl Tower are the other two platforms I would look at. The booking pages are in the next section.</p>')
+
+guide("the-bund-shanghai-at-night","The Bund Shanghai at Night: Lights, Views and How to Visit","The Bund Shanghai at Night: Lights, Best Views and How to Visit (2026)",
+      "How to get to the Bund by metro, when to go for the lights, why it is worth seeing by day too, and where to see it from above. From our own trips.",
       "the Bund Shanghai at night",None,
-      "<p>The Bund is the river promenade in Shanghai, with the old bank buildings on one side and the Pudong towers across the water. It is free and it is open all the time. We were there at night, and for me the gold-lit buildings are the reason to go.</p><p>The one thing you can get wrong is the timing, because the lights switch off at 22:00. Below is how to get there, where to start walking, and when to arrive.</p>"+CHECK,
+      "<p>Planning to see the Bund at night? Here is how to get there by metro, when to go, and what I would do differently. We stayed at the Crowne Plaza on Nanjing Road over Christmas and New Year, so we could walk to the Bund every day, and this is what I would tell a friend.</p><p>The Bund is the river promenade in Shanghai, with the old bank buildings on one side and the Pudong towers across the water. It is free and it is open all the time. The one thing to check is the timing, because the lights change by date.</p>"+BUND_GLANCE+BUND_CHECK,
       [("Take the metro to East Nanjing Road and use exit 2 or 7","East Nanjing Road station is on Lines 2 and 10. From exit 2 you are on the pedestrian street; walk east, towards the river, about 10 to 15 minutes. Taxis cannot drop you on the promenade itself."),
-       ("Arrive about an hour before sunset","You get the buildings in daylight, then sunset, then the lights. Coming from the north, Tiantong Road station on Lines 10 and 12 also works."),
+       ("Arrive before sunset, or very early in the morning","Before sunset you get the buildings in daylight, then sunset, then the lights. Very early morning is the quietest. It also depends on the weather: if it is smoggy or foggy, the view will not be that spectacular. Coming from the north, Tiantong Road station on Lines 10 and 12 also works."),
        ("Start at the Peace Hotel and walk south","The green-roofed Peace Hotel is where Nanjing Road meets the Bund, so it is the natural start. Walk south along the raised promenade with the old banks on your right and Pudong on your left."),
-       ("Know when the lights go off","The architectural lights on both banks usually switch off at 22:00. In winter they come on from about 18:00, in summer not until about 19:30. Do not arrive at 22:30 expecting the show."),
+       ("Check when the lights are on for your date","The city sets the lighting hours by date and holiday, so I will not give you one switch-off time. The official New Year notice for 2024 to 2025 had the Bund lit from 18:00 to 00:15 on 31 December and 18:00 to 23:00 on 1 January. For National Day 2024 the lights ran one hour longer than normal, until 22:30 or 23:00. For ordinary evenings I could not find an official time, and travel sites disagree between 22:00 and 23:00. Check the official notice or Trip.com for your date."),
        ("Skip the sightseeing tunnel unless you have kids","The Bund Sightseeing Tunnel under the river is a short light-effects ride with no river view. Fun for children, not for the skyline."),
-       ("Give it 90 minutes, or half a day with a cruise","The promenade and the main buildings take about 90 minutes. Add a river cruise from Jinling East Road pier (10 minutes south) and you have an evening. My <a href='/guides/huangpu-river-night-cruise/'>night cruise guide</a> explains the piers and tickets. You can book the cruise on <a href='https://klook.tpm.li/Gt6dONHf' rel='sponsored noopener' target='_blank'>Klook</a> (affiliate link).")],
+       ("Give it 90 minutes, or half a day with a cruise","The promenade and the main buildings take about 90 minutes. Add a river cruise from Jinling East Road pier (10 minutes south) and you have an evening. My <a href='/guides/huangpu-river-night-cruise/'>night cruise guide</a> explains the piers and tickets. You can book the cruise on <a href='https://klook.tpm.li/Gt6dONHf' rel='sponsored noopener' target='_blank'>Klook</a> (affiliate link). On another evening, the <a href='/guides/shanghai-circus-world-era-show/'>ERA show at Shanghai Circus World</a> is a good alternative, but I would not try to fit all of it into one night.")],
       [("Is the Bund free?","Yes. The promenade has no ticket. Only the cruises, observation decks and the sightseeing tunnel cost money."),
        ("Which metro exit for the Bund?","East Nanjing Road station, Lines 2 and 10, exit 2 or exit 7, then walk east along Nanjing East Road to the river."),
-       ("What time do the Bund lights turn off?","Usually 22:00 on both banks. They come on around 18:00 in winter and around 19:30 in summer."),
-       ("Is the Bund better by day or by night?","Arrive about 45 to 60 minutes before sunset and you get both. Weekday mornings are the quiet option for photos.")],
-      [("Wander in China: The Bund guide (updated 21 July 2026)","https://www.wanderinchina.com/destinations/shanghai/the-bund/",False)],
+       ("What time do the Bund lights turn on and off?","It depends on the date. In the official notices I found, the lights started at 18:00 and ran later on holidays, up to 00:15 on New Year's Eve 2024. On ordinary evenings travel sites say 22:00 or 23:00, so check your date."),
+       ("Is there a light show every night?","Not always. In the official 2024 to 2025 New Year notice the Huangpu river light and multimedia shows did not run on New Year's Eve, and no official countdown lighting event was planned. The building lights are what you can usually count on."),
+       ("Is the Bund better by day or by night?","Both. By day you see the buildings properly, and the tour bus lets you see the Bund from all sides, including from Pudong. At night you get the lights and the walk. Very early morning is the quietest."),
+       ("Where can I see the Bund from above?","From Pudong, across the river. We went up the Jin Mao Tower observation deck. Details and the booking pages are further down this page."),
+       ("Can I walk from the Bund to Nanjing Road?","Yes. Nanjing East Road ends at the Peace Hotel on the Bund. My <a href='/guides/nanjing-road-shanghai/'>Nanjing Road guide</a> has the walk."),
+       ("Is the Bund crowded?","Yes, always. It is the most popular area in Shanghai, so you will see crowds wherever you stand. At Christmas and New Year it was always full.")],
+      [("Shanghai government: lighting for New Year 2024 to 2025 (30 December 2024)","https://english.shanghai.gov.cn/en-Latest-WhatsNew/20241230/6b65ce656261432fba6a94064779e5a3.html",True),
+       ("Shanghai government: festive lighting for National Day 2024 (27 September 2024)","https://english.shanghai.gov.cn/en-Latest-WhatsNew/20240927/e8d20a21001c4b4c8d2887d4d322cb8c.html",True),
+       ("Wander in China: The Bund guide (updated 21 July 2026)","https://www.wanderinchina.com/destinations/shanghai/the-bund/",False),
+       ("Klook: Jin Mao Tower Observation Deck Ticket (deck height and view)","https://www.klook.com/en-US/activity/3972-jin-mao-tower-tickets-shanghai/",False)],
       SITE+"/og/the-bund-shanghai-at-night.jpg",
       related=[("/guides/nanjing-road-shanghai/","nanjing-road-shanghai-neon-shop-fronts-cover-4x5","SHANGHAI","Nanjing Road: how to walk it and when the neon is on"),("/guides/huangpu-river-night-cruise/","huangpu-river-night-cruise-from-the-water-cover-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
-      gallery=[("the-bund-peace-hotel-green-roofs-lit-at-night","The Bund after dark, gold lit bank buildings"),("the-bund-gold-lit-historic-buildings-at-night","Gold lit buildings on the Bund"),("the-bund-oriental-pearl-tower-from-the-promenade","The Oriental Pearl Tower from the promenade"),("the-bund-pudong-skyline-and-shanghai-tower-at-night","Pudong skyline from the Bund"),("the-bund-pink-lit-pearl-tower-over-the-crowd","The Pearl Tower lit pink")],
+      gallery=[("huangpu-river-lujiazui-skyline-wide-night-view","The Pudong skyline lit up across the river"),("the-bund-peace-hotel-green-roofs-lit-at-night","The Bund after dark, gold lit bank buildings"),("the-bund-gold-lit-historic-buildings-at-night","Gold lit buildings on the Bund"),("the-bund-oriental-pearl-tower-from-the-promenade","The Oriental Pearl Tower from the promenade"),("the-bund-pudong-skyline-and-shanghai-tower-at-night","Pudong skyline from the Bund")],
       place={"name":"The Bund","city":"Shanghai","free":True},steps_title="How to do the Bund in one evening",
+      extra=BUND_EXTRA,checked="2026-10-30",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
 guide("nanjing-road-shanghai","Nanjing Road Shanghai: metro exit, neon times and the walk","Nanjing Road in Shanghai: how to walk it, which metro exit, when the neon comes on",
