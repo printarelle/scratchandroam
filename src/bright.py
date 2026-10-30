@@ -151,6 +151,8 @@ def band_b(SOC, kind="start"):
     if kind in SH_PLACES:
         n1,n2=SH_NEXT[kind]
         h="Planning Shanghai after dark? See the next stop.";p="The Bund, Nanjing Road, the river cruise and the ERA show fit into one evening. Each guide gives the metro exit, the time and what it costs, checked on the date shown.";a=(f'/guides/{n1}/',"Next: "+SH_PLACES[n1][1]);b2=(f'/guides/{n2}/',"Also: "+SH_PLACES[n2][1])
+    elif kind in ("pay-alipay","pay-wechat"):
+        h="Setting up payments? Add both apps before you fly.";p="Alipay and WeChat Pay each take a foreign card in a few minutes. Set both up at home, then carry some cash and a second card for your first days. Every guide here is dated and rechecked, and I say what I tested myself.";a=(('/guides/wechat-pay-add-foreign-card-china/',"Next: add your card to WeChat Pay") if kind=="pay-alipay" else ('/guides/alipay-add-foreign-card-china/',"Next: add your card to Alipay"));b2=('/guides/china-travel-faq/#q-foreign-card-payments',"Foreign card questions answered")
     elif kind=="shop":
         h="Shopping on Taobao? Start with the order guide.";p="Sizes, jin and prices are only half of it. The order guide shows paying with Alipay, the address and what arrives. Every guide here is dated and rechecked against the official source.";a=('/guides/taobao-for-foreigners/',"Order on Taobao, step by step");b2=('/guides/china-travel-faq/',"Browse every China question")
     elif kind=="taobao":
@@ -222,6 +224,7 @@ def cluster_b(slug):
     return (f'<nav class="clus" aria-label="{html.escape(title)}"><p class="ck">Part of: {html.escape(title)}</p><ol>{lis}</ol>'
             f'<a class="cnext" href="/guides/{nxt[0]}/">Next: {html.escape(nxt[1])} →</a></nav>')
 
+NO_SHORT_PROMO={"alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china"}
 def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapters, related, checked, published, steps_title, shorts, extra, video_note, shotnote, IMGREG, SOC, yt, start, CARDS, n_guides, title):
     def figs(keys):
         if not keys: return ""
@@ -288,7 +291,8 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     if TIKTOKS.get(slug): body.append(tiktok_b(slug)); toc.append(("short","Watch it as a short"))
     _ord=["TikTok","YouTube","Pinterest","Instagram","Facebook"]
     shorts_links=" · ".join(f'<a href="{u}" rel="noopener">{n}</a>' for n,u in sorted((shorts or {}).items(),key=lambda kv:_ord.index(kv[0]) if kv[0] in _ord else 9))
-    body.append(f'<div class="enjoy"><div><b>Enjoy the guide? Watch it short.</b>The same guide as a vertical video{": "+shorts_links if shorts_links else ""}.</div><div class="row"><a href="{SOC["TikTok"]}" rel="noopener">TikTok</a><a href="{SOC["Instagram"]}" rel="noopener">Instagram</a><a href="{SOC["Pinterest"]}" rel="noopener">Pinterest</a></div></div>')
+    if slug not in NO_SHORT_PROMO:
+        body.append(f'<div class="enjoy"><div><b>Enjoy the guide? Watch it short.</b>The same guide as a vertical video{": "+shorts_links if shorts_links else ""}.</div><div class="row"><a href="{SOC["TikTok"]}" rel="noopener">TikTok</a><a href="{SOC["Instagram"]}" rel="noopener">Instagram</a><a href="{SOC["Pinterest"]}" rel="noopener">Pinterest</a></div></div>')
     toc_html='<ol>'+"".join(f'<li><a href="#{i}">{html.escape(t)}</a></li>' for i,t in toc)+'</ol>'
     # sidebar
     rel=related or []
@@ -326,7 +330,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <div class="scard"><span class="eyebrow">Quick answers</span><p>Short, dated answers to the China questions first-timers ask.</p><a href="/guides/china-travel-faq/">Search the questions →</a><p style="margin-top:10px"><a href="/china/tools/">Yuan and clothing size tools →</a></p></div>
 </aside>
 </div>
-{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug=="taobao-11-11-singles-day-for-foreigners" else (slug if slug in SH_PLACES else "start")))}
+{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug=="taobao-11-11-singles-day-for-foreigners" else ("pay-alipay" if slug=="alipay-add-foreign-card-china" else ("pay-wechat" if slug=="wechat-pay-add-foreign-card-china" else (slug if slug in SH_PLACES else "start")))))}
 {social_b(SOC,"the-bund-pudong-skyline-and-shanghai-tower-at-night","nanjing-road-curved-corner-building-neon-lights")}
 </main>'''
 
