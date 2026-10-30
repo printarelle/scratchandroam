@@ -23,12 +23,13 @@ def nav_b(SOC, NAV_SHOP, FOOT_GROUPS=None, CARDS=None):
     by={c["slug"]:c for c in (CARDS or [])}
     chev='<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
     cols=""
+    MEGA_PICK={"Before you fly":["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc"],"Apps and on the ground":["china-travel-apps","alipay-metro-qr-code-china","taobao-for-foreigners","how-to-order-food-in-china-without-speaking-chinese"],"Shanghai":["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise"]}
     for h,l in (FOOT_GROUPS or []):
-        sl=[x for x in l if x in by]
+        sl=[x for x in MEGA_PICK.get(h,l) if x in by]
         if sl: cols+=f'<div class="mcol"><h3>{html.escape(h)}</h3>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</div>'
     feat=('<div class="mfeat"><a class="mcard" href="/china/tools/"><span class="eyebrow">New</span><b>Money, units and size tools</b><span>Yuan converter, km and jin, and how to read a Taobao size sheet.</span></a>'
           '<a class="mcard" href="/guides/china-travel-faq/"><span class="eyebrow">Quick answers</span><b>Search every China question</b><span>Short answers with the date I checked them.</span></a>'
-          '<a class="mall" href="/china/">See all China guides →</a></div>')
+          f'<a class="mall" href="/china/">See all {len(by)} China guides →</a></div>')
     def dd(label,body,cls="",pid=""):
         return f'<div class="nd {cls}"><button type="button" class="nb" aria-expanded="false" aria-haspopup="true">{label}{chev}</button><div class="npanel">{body}</div></div>'
     china=dd("China guides",f'<div class="mgrid">{cols}{feat}</div>',"big")
