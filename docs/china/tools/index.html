@@ -750,8 +750,9 @@ p{margin:0}
 .trow label{display:flex;flex-direction:column;gap:6px;font:700 14px var(--b)}
 .trow input,.trow select{font:16px var(--b);padding:11px 12px;border:1px solid #d9cdbd;border-radius:10px;width:100%;box-sizing:border-box;background:#fff}
 .tres{font:700 20px/1.4 var(--b);margin:10px 0}.tmeta{font-size:14px;opacity:.8;margin:8px 0}
-.twrap{overflow-x:auto}.tt{border-collapse:collapse;width:100%;font-size:15px}
-.tt th,.tt td{text-align:left;padding:8px 10px;border-bottom:1px solid #eadfd2;white-space:nowrap}
+.twrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 14px}.szt{display:table;border-collapse:collapse;width:100%;font-size:15px}
+.szt th,.szt td{text-align:left;padding:9px 12px;border-bottom:1px solid #eadfd2;white-space:nowrap;vertical-align:top}
+.szt th{background:#fbf3ea;font-weight:700}
 .ttab{margin:10px 0}
 #toTop{position:fixed;right:16px;bottom:20px;z-index:45;width:46px;height:46px;border-radius:50%;border:0;background:var(--coral);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(27,42,65,.25)}
 #toTop[hidden]{display:none}
@@ -895,7 +896,7 @@ p{margin:0}
 <p class="tres" id="sOut" aria-live="polite">Fill in height and chest to see your label.</p>
 <h3>Reading a real Taobao size sheet</h3>
 <p>Many Taobao shirts and jackets do not use 170/88A at all. This one, a men's-style shirt sized by collar number, shows what you will see after tapping 尺码信息 (size info) on a listing. Sizes 39 to 46 are collar numbers, and the seller recommends 42.</p>
-<div class="twrap"><table class="tt"><thead><tr><th>Size</th><th>Height cm</th><th>Weight kg</th><th>Shoulder cm</th><th>Chest cm</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>Size</th><th>Height cm</th><th>Weight kg</th><th>Shoulder cm</th><th>Chest cm</th></tr></thead><tbody>
 <tr><td>39</td><td>158-173</td><td>50-55</td><td>42.1</td><td>96</td></tr>
 <tr><td>40</td><td>158-178</td><td>55-62.5</td><td>43.3</td><td>100</td></tr>
 <tr><td>41</td><td>158-188</td><td>62.5-70</td><td>44.5</td><td>104</td></tr>
@@ -906,7 +907,7 @@ p{margin:0}
 <tr><td>46</td><td>173-188</td><td>100-110</td><td>50.5</td><td>124</td></tr>
 </tbody></table></div>
 <p><b>Words to find on the sheet</b></p>
-<div class="twrap"><table class="tt"><thead><tr><th>Chinese</th><th>Pinyin</th><th>Means</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>Chinese</th><th>Pinyin</th><th>Means</th></tr></thead><tbody>
 <tr><td>尺码信息</td><td>chǐmǎ xìnxī</td><td>Size information</td></tr>
 <tr><td>身高体重对照表</td><td>shēngāo tǐzhòng duìzhào biǎo</td><td>Height and weight chart: find your height row and weight column, the cell is your size</td></tr>
 <tr><td>尺寸表</td><td>chǐcùn biǎo</td><td>Measurement table for each size</td></tr>
@@ -919,13 +920,13 @@ p{margin:0}
 <p class="tmeta">How I would use it: start with the weight grid, then check the buyer reference rows for your own height and weight, then read the size note at the bottom. The sheet itself says different ways of measuring can differ by 2 to 4 cm. I have not confirmed whether the chest number is the body or the garment, so ask the seller (客服) if it matters. Sheet seen on Taobao on 29 October 2026.</p>
 <h3>Example: a bra size chart</h3>
 <p>Bra sheets give two things: the underbust (下围) and the difference between bust and underbust (胸围和下围差). The band is the underbust rounded to a 5, and the cup comes from the difference. This sheet, for a wired and wire-free set, lists the brand's own sizes next to the China size.</p>
-<div class="twrap"><table class="tt"><thead><tr><th>Underbust cm</th><th>Band, brand</th><th>Band, China</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>Underbust cm</th><th>Band, brand</th><th>Band, China</th></tr></thead><tbody>
 <tr><td>63-67</td><td>30</td><td>65</td></tr><tr><td>68-72</td><td>32</td><td>70</td></tr><tr><td>73-77</td><td>34</td><td>75</td></tr><tr><td>78-82</td><td>36</td><td>80</td></tr><tr><td>83-87</td><td>38</td><td>85</td></tr></tbody></table></div>
-<div class="twrap"><table class="tt"><thead><tr><th>Bust minus underbust cm</th><th>Cup, brand</th><th>Cup, China</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>Bust minus underbust cm</th><th>Cup, brand</th><th>Cup, China</th></tr></thead><tbody>
 <tr><td>6.1-8</td><td>AA</td><td>AA</td></tr><tr><td>8.1-10.5</td><td>A</td><td>A</td></tr><tr><td>10.6-13</td><td>B</td><td>B</td></tr><tr><td>13.1-16</td><td>C</td><td>C</td></tr><tr><td>16.1-19</td><td>D</td><td>D</td></tr><tr><td>19.1-22</td><td>DD</td><td>E</td></tr><tr><td>22.1-25</td><td>DDD</td><td>F</td></tr></tbody></table></div>
 <p class="tmeta">So 32DD and 70E are the same bra, and a 75B is a 34B. Underbust and bust are measured in cm. The listing also pairs briefs with bra sizes: 32 is XS, 34 is S, 36 is M and 38 is L. Not every cup letter exists in every band on this sheet, so if your size is missing, ask the seller.</p>
 <p><b>Words on a bra listing</b></p>
-<div class="twrap"><table class="tt"><thead><tr><th>Chinese</th><th>Pinyin</th><th>Means</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>Chinese</th><th>Pinyin</th><th>Means</th></tr></thead><tbody>
 <tr><td>文胸 / 内衣</td><td>wénxiōng / nèiyī</td><td>Bra / underwear</td></tr>
 <tr><td>下围</td><td>xiàwéi</td><td>Underbust</td></tr>
 <tr><td>胸围</td><td>xiōngwéi</td><td>Bust or chest</td></tr>
@@ -938,26 +939,26 @@ p{margin:0}
 </tbody></table></div>
 <h3>Example: a dress with S to XL</h3>
 <p>Here the sizes are letters, and the cm columns are what matter: 裙长 dress length, 胸围 chest, 肩宽 shoulder, 腰围 waist, 袖长 sleeve length. This seller also shows the model: 171 cm, 50 kg, wearing M (三围, the three measurements, are bust, waist and hip: 81, 63.5 and 94).</p>
-<div class="twrap"><table class="tt"><thead><tr><th>Size</th><th>Length</th><th>Chest</th><th>Shoulder</th><th>Waist</th><th>Sleeve</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>Size</th><th>Length</th><th>Chest</th><th>Shoulder</th><th>Waist</th><th>Sleeve</th></tr></thead><tbody>
 <tr><td>S</td><td>134</td><td>72-96</td><td>33</td><td>54-76</td><td>61</td></tr><tr><td>M</td><td>135</td><td>76-100</td><td>34</td><td>58-80</td><td>62</td></tr><tr><td>L</td><td>136</td><td>80-104</td><td>35</td><td>62-84</td><td>63</td></tr><tr><td>XL</td><td>137</td><td>84-108</td><td>36</td><td>66-88</td><td>64</td></tr></tbody></table></div>
 <p class="tmeta">The chest and waist are ranges, which usually means a stretchy fabric, but the sheet does not say so. The seller notes hand measuring can be 1 to 2 cm off (手工测量可能存在1-2cm误差).</p>
 <h3>Watch the weight unit: jin, not kilos</h3>
 <p>A second dress sheet has a height and weight grid. Its weight row is labelled 体重 (斤), which is <b>jin</b>. One jin is half a kilo, so 100 jin is 50 kg. If you read 100 as kilos you will order far too big. The measurement table above it on the same sheet looks like kilos (45 for the 155 cm size), so check the unit on every grid.</p>
-<div class="twrap"><table class="tt"><thead><tr><th>Height cm</th><th>85-90 jin (42.5-45 kg)</th><th>100-105 jin (50-52.5 kg)</th><th>115-120 jin (57.5-60 kg)</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>Height cm</th><th>85-90 jin (42.5-45 kg)</th><th>100-105 jin (50-52.5 kg)</th><th>115-120 jin (57.5-60 kg)</th></tr></thead><tbody>
 <tr><td>150-155</td><td>S</td><td>M</td><td>L</td></tr><tr><td>160-165</td><td>S</td><td>S</td><td>L</td></tr><tr><td>170-175</td><td>blank</td><td>M</td><td>M</td></tr></tbody></table></div>
 <p class="tmeta">Blank cells mean the seller does not make a size for that height and weight. The note under the grid says to choose by how you like clothes to fit (MM根据穿衣习惯选择尺码, where MM is slang for a young woman). Sheets seen on Taobao on 29 October 2026. I have not ordered any of these items.</p>
 <h3>Example: shoe sizes</h3>
 <p>Chinese shoe sizes are easier than clothes. The <b>标准码</b> (standard size) is the same number as an EU size, so a 38 is a 38. The <b>国际码</b> (international code) is the foot length in millimetres, so 240 means 24.0 cm. Always compare your own foot length in cm with the seller's 脚长 column.</p>
 <p><b>标准女鞋尺寸表, standard women's shoes</b></p>
-<div class="twrap"><table class="tt"><thead><tr><th>国际码 (mm)</th><th>标准码 (EU)</th><th>脚长 foot length cm</th><th>脚宽 foot width cm</th></tr></thead><tbody><tr><td>215</td><td>33</td><td>21.0-21.4</td><td>7.5-7.9</td></tr><tr><td>220</td><td>34</td><td>21.5-22.0</td><td>8.0-8.4</td></tr><tr><td>225</td><td>35</td><td>22.1-22.5</td><td>8.5</td></tr><tr><td>230</td><td>36</td><td>22.6-23.0</td><td>8.6-9.0</td></tr><tr><td>235</td><td>37</td><td>23.1-23.5</td><td>9.1</td></tr><tr><td>240</td><td>38</td><td>23.6-24.0</td><td>9.2-9.5</td></tr><tr><td>245</td><td>39</td><td>24.1-24.5</td><td>9.6-10.0</td></tr><tr><td>250</td><td>40</td><td>24.6-25.0</td><td>10.1-10.5</td></tr></tbody></table></div>
+<div class="twrap"><table class="szt"><thead><tr><th>国际码 (mm)</th><th>标准码 (EU)</th><th>脚长 foot length cm</th><th>脚宽 foot width cm</th></tr></thead><tbody><tr><td>215</td><td>33</td><td>21.0-21.4</td><td>7.5-7.9</td></tr><tr><td>220</td><td>34</td><td>21.5-22.0</td><td>8.0-8.4</td></tr><tr><td>225</td><td>35</td><td>22.1-22.5</td><td>8.5</td></tr><tr><td>230</td><td>36</td><td>22.6-23.0</td><td>8.6-9.0</td></tr><tr><td>235</td><td>37</td><td>23.1-23.5</td><td>9.1</td></tr><tr><td>240</td><td>38</td><td>23.6-24.0</td><td>9.2-9.5</td></tr><tr><td>245</td><td>39</td><td>24.1-24.5</td><td>9.6-10.0</td></tr><tr><td>250</td><td>40</td><td>24.6-25.0</td><td>10.1-10.5</td></tr></tbody></table></div>
 <p><b>标准男鞋尺寸表, standard men's shoes</b></p>
-<div class="twrap"><table class="tt"><thead><tr><th>国际码 (mm)</th><th>标准码 (EU)</th><th>脚长 foot length cm</th><th>脚宽 foot width cm</th></tr></thead><tbody><tr><td>240</td><td>38</td><td>23.5-24</td><td>9.2-9.5</td></tr><tr><td>245</td><td>39</td><td>24-24.5</td><td>9.6-10</td></tr><tr><td>250</td><td>40</td><td>24.5-25</td><td>10.1-10.5</td></tr><tr><td>255</td><td>41</td><td>25-25.5</td><td>10.6-11</td></tr><tr><td>260</td><td>42</td><td>25.5-26</td><td>11.1-11.5</td></tr><tr><td>265</td><td>43</td><td>26-26.5</td><td>11.6-12</td></tr><tr><td>270</td><td>44</td><td>26.5-27</td><td>12.1-12.5</td></tr></tbody></table></div>
+<div class="twrap"><table class="szt"><thead><tr><th>国际码 (mm)</th><th>标准码 (EU)</th><th>脚长 foot length cm</th><th>脚宽 foot width cm</th></tr></thead><tbody><tr><td>240</td><td>38</td><td>23.5-24</td><td>9.2-9.5</td></tr><tr><td>245</td><td>39</td><td>24-24.5</td><td>9.6-10</td></tr><tr><td>250</td><td>40</td><td>24.5-25</td><td>10.1-10.5</td></tr><tr><td>255</td><td>41</td><td>25-25.5</td><td>10.6-11</td></tr><tr><td>260</td><td>42</td><td>25.5-26</td><td>11.1-11.5</td></tr><tr><td>265</td><td>43</td><td>26-26.5</td><td>11.6-12</td></tr><tr><td>270</td><td>44</td><td>26.5-27</td><td>12.1-12.5</td></tr></tbody></table></div>
 <p>A running-shoe listing from a different brand gave US, EU and cm side by side:</p>
-<div class="twrap"><table class="tt"><thead><tr><th>Men US</th><th>Men EU</th><th>Men cm</th></tr></thead><tbody><tr><td>6</td><td>38.5</td><td>24</td></tr><tr><td>6.5</td><td>39</td><td>24.5</td></tr><tr><td>7</td><td>40</td><td>25</td></tr><tr><td>7.5</td><td>40.5</td><td>25.5</td></tr><tr><td>8</td><td>41</td><td>26</td></tr><tr><td>8.5</td><td>42</td><td>26.5</td></tr><tr><td>9</td><td>42.5</td><td>27</td></tr><tr><td>9.5</td><td>43</td><td>27.5</td></tr><tr><td>10</td><td>44</td><td>28</td></tr><tr><td>10.5</td><td>44.5</td><td>28.5</td></tr><tr><td>11</td><td>45</td><td>29</td></tr><tr><td>11.5</td><td>45.5</td><td>29.5</td></tr><tr><td>12</td><td>46</td><td>30</td></tr></tbody></table></div>
-<div class="twrap"><table class="tt"><thead><tr><th>Women US</th><th>Women EU</th><th>Women cm</th></tr></thead><tbody><tr><td>5</td><td>35.5</td><td>22</td></tr><tr><td>5.5</td><td>36</td><td>22.5</td></tr><tr><td>6</td><td>36.5</td><td>23</td></tr><tr><td>6.5</td><td>37.5</td><td>23.5</td></tr><tr><td>7</td><td>38</td><td>24</td></tr><tr><td>7.5</td><td>38.5</td><td>24.5</td></tr><tr><td>8</td><td>39</td><td>25</td></tr><tr><td>8.5</td><td>40</td><td>25.5</td></tr><tr><td>9</td><td>40.5</td><td>26</td></tr></tbody></table></div>
+<div class="twrap"><table class="szt"><thead><tr><th>Men US</th><th>Men EU</th><th>Men cm</th></tr></thead><tbody><tr><td>6</td><td>38.5</td><td>24</td></tr><tr><td>6.5</td><td>39</td><td>24.5</td></tr><tr><td>7</td><td>40</td><td>25</td></tr><tr><td>7.5</td><td>40.5</td><td>25.5</td></tr><tr><td>8</td><td>41</td><td>26</td></tr><tr><td>8.5</td><td>42</td><td>26.5</td></tr><tr><td>9</td><td>42.5</td><td>27</td></tr><tr><td>9.5</td><td>43</td><td>27.5</td></tr><tr><td>10</td><td>44</td><td>28</td></tr><tr><td>10.5</td><td>44.5</td><td>28.5</td></tr><tr><td>11</td><td>45</td><td>29</td></tr><tr><td>11.5</td><td>45.5</td><td>29.5</td></tr><tr><td>12</td><td>46</td><td>30</td></tr></tbody></table></div>
+<div class="twrap"><table class="szt"><thead><tr><th>Women US</th><th>Women EU</th><th>Women cm</th></tr></thead><tbody><tr><td>5</td><td>35.5</td><td>22</td></tr><tr><td>5.5</td><td>36</td><td>22.5</td></tr><tr><td>6</td><td>36.5</td><td>23</td></tr><tr><td>6.5</td><td>37.5</td><td>23.5</td></tr><tr><td>7</td><td>38</td><td>24</td></tr><tr><td>7.5</td><td>38.5</td><td>24.5</td></tr><tr><td>8</td><td>39</td><td>25</td></tr><tr><td>8.5</td><td>40</td><td>25.5</td></tr><tr><td>9</td><td>40.5</td><td>26</td></tr></tbody></table></div>
 <p class="tmeta">The two sheets do not agree. On the first, men's EU 42 is a foot length of 25.5-26 cm. On the second, men's EU 42 is 26.5 cm. I think the first measures your foot and the second measures the shoe, but neither sheet says so. That is why the cm number matters more than the size name: measure your foot standing on paper from heel to longest toe, then use the seller's own sheet. Between two sizes, go up one. That same running-shoe seller says the shoes run true to size, and advises sizing up if your feet are wide (脚宽大建议选择大一码).</p>
 <p><b>Words on a shoe listing</b></p>
-<div class="twrap"><table class="tt"><thead><tr><th>Chinese</th><th>Pinyin</th><th>Means</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>Chinese</th><th>Pinyin</th><th>Means</th></tr></thead><tbody>
 <tr><td>尺码对照表 / 尺码参考</td><td>chǐmǎ duìzhào biǎo</td><td>Size comparison chart</td></tr>
 <tr><td>男鞋 / 女鞋</td><td>nánxié / nǚxié</td><td>Men's shoes / women's shoes</td></tr>
 <tr><td>脚长 / 脚宽</td><td>jiǎo cháng / jiǎo kuān</td><td>Foot length / foot width</td></tr>
@@ -967,7 +968,7 @@ p{margin:0}
 </tbody></table></div>
 <p class="tmeta"><b>Check returns before you buy shoes.</b> The running-shoe listing warns that shoes which are worn, washed or have the tag removed, in a way that affects resale, are not covered by the 7-day no-reason return, unless there is a quality problem. Try them on indoors on a clean floor, and ask the seller (客服) if you are unsure. Sheets seen on Taobao on 29 October 2026. The text on the second sheet is partly cut off at the edge, so I have only translated what I could read.</p>
 <h3>Women's tops, roughly</h3>
-<div class="twrap"><table class="tt"><thead><tr><th>China label</th><th>Letter</th><th>Bust cm</th><th>EU</th><th>UK</th><th>US</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>China label</th><th>Letter</th><th>Bust cm</th><th>EU</th><th>UK</th><th>US</th></tr></thead><tbody>
 <tr><td>155/80A</td><td>XS</td><td>80-83</td><td>32-34</td><td>4-6</td><td>0-2</td></tr>
 <tr><td>160/84A</td><td>S</td><td>84-87</td><td>36-38</td><td>8-10</td><td>4-6</td></tr>
 <tr><td>165/88A</td><td>M</td><td>88-91</td><td>40-42</td><td>12-14</td><td>8-10</td></tr>
@@ -976,7 +977,7 @@ p{margin:0}
 <tr><td>172/100A</td><td>XXL</td><td>100-104</td><td>46-48</td><td>22</td><td>18</td></tr>
 </tbody></table></div>
 <h3>Men's jackets and tops, roughly</h3>
-<div class="twrap"><table class="tt"><thead><tr><th>China label</th><th>Letter</th><th>Chest cm</th><th>Height cm</th><th>EU</th></tr></thead><tbody>
+<div class="twrap"><table class="szt"><thead><tr><th>China label</th><th>Letter</th><th>Chest cm</th><th>Height cm</th><th>EU</th></tr></thead><tbody>
 <tr><td>165/84A</td><td>S</td><td>84-87</td><td>163-167</td><td>44</td></tr>
 <tr><td>170/88A</td><td>M</td><td>88-91</td><td>168-172</td><td>46</td></tr>
 <tr><td>175/92A</td><td>L</td><td>92-95</td><td>173-177</td><td>48</td></tr>
@@ -999,7 +1000,7 @@ var r=rate(a,b);if(isNaN(amt)||amt<0){out.textContent="Type an amount.";tab.inne
 if(r===null){out.textContent="Offline: I can only convert euro and yuan right now.";tab.innerHTML="";return}
 out.textContent=fmt(amt,a)+" is about "+fmt(amt*r,b);
 var rows="";[10,50,100,200,500,1000].forEach(function(x){rows+="<tr><td>"+fmt(x,a)+"</td><td>"+fmt(x*r,b)+"</td></tr>"});
-tab.innerHTML='<table class="tt"><thead><tr><th>'+a+'</th><th>'+b+'</th></tr></thead><tbody>'+rows+'</tbody></table>'}
+tab.innerHTML='<table class="szt"><thead><tr><th>'+a+'</th><th>'+b+'</th></tr></thead><tbody>'+rows+'</tbody></table>'}
 function meta(d){document.getElementById("mMeta").textContent=live?("Live ECB-based rate for "+d+". Your bank or card will add a fee, so expect a little less."):("Saved ECB rate from "+FB.date+" (euro and yuan only). Rates change, so check your bank.")}
 setFallback();meta();money_run();
 try{fetch("https://api.frankfurter.dev/v1/latest?base=CNY&symbols=EUR,USD,GBP").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){if(!j||!j.rates||!j.rates.EUR||!j.rates.USD||!j.rates.GBP)throw 0;R={CNY:1,EUR:j.rates.EUR,USD:j.rates.USD,GBP:j.rates.GBP};live=true;meta(j.date);money_run()}).catch(function(){})}catch(e){}
