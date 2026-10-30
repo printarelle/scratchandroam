@@ -913,6 +913,20 @@ p{margin:0}
 .art h2+.glance,.art h2+.rmap,.art h2+table{margin-top:20px}
 .art p+ul,.art p+ol{margin-top:14px}
 .art ul.stops li{margin-bottom:12px}
+
+/* countdown checklist */
+.cdbar{display:flex;align-items:center;gap:14px;margin:20px 0 28px;font:600 14px var(--b);color:var(--ink)}
+.cdtrack{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.cdtrack span{display:block;height:100%;width:0;background:var(--blue);transition:width .2s}
+.cdg{margin:0 0 30px}
+.cdg h3{margin:0 0 4px}
+.cdsub{margin:0 0 12px;color:var(--mute);font-size:15px}
+.cdl{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cdl li{margin:0}
+.cdl label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;line-height:1.45}
+.cdl input{flex:none;width:22px;height:22px;margin-top:2px;accent-color:var(--blue)}
+.cdl em{display:block;font-style:normal;color:var(--mute);font-size:15px;margin-top:3px}
+.cdl input:checked+span{opacity:.6;text-decoration:line-through;text-decoration-color:rgba(111,122,138,.6)}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
