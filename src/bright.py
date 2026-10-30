@@ -402,8 +402,11 @@ OFFERS={
        url="https://klook.tpm.li/ho7P5Di3",cta="See the Big Bus on Klook"),
  ],
  "huangpu-river-night-cruise":[
+  dict(k="Klook",price=None,title="Huangpu River Cruise (Qingjiang Line)",
+       text="The cruise we booked, for a night sailing. The listing says it is a flexible ticket: you go to the port at the time that suits you and show your voucher to board, with morning, afternoon and evening sailings, and about one hour on the river (page seen 30 October 2026). Our booking listed Shiliupu Marina as the departure location.",
+       url="https://klook.tpm.li/W4dyROGI",pick=True,badge="What we booked",cta="See the Qingjiang Line cruise on Klook"),
   dict(k="Klook",price=None,title="Huangpu River Night Cruise Experience",
-       text="Another Klook night cruise listing, not the Qingjiang Line one we booked. Evening sailings of about 45 minutes, free cancellation up to 24 hours before, and options with or without an English, Chinese or Thai explanation (page seen 30 October 2026). Check the pier and the how to use section before you pay.",
+       text="A similar Klook night cruise, a different listing from the one we booked. Evening sailings of about 45 minutes, free cancellation up to 24 hours before, and options with or without an English, Chinese or Thai explanation (page seen 30 October 2026). Check the pier and the how to use section before you pay.",
        url=KLOOK_CRUISE,cta="See the night cruise on Klook",
        qr="klook-huangpu-river-night-cruise-qr-code",qralt="QR code for the Klook Huangpu River night cruise page"),
  ],
