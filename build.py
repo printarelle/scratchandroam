@@ -103,7 +103,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 {sj}
 </head>
 <body>
-{nav_b(SOC,NAV_SHOP) if BRIGHT else nav(dark)}
+{nav_b(SOC,NAV_SHOP,FOOT_GROUPS,CARDS) if BRIGHT else nav(dark)}
 {body}
 {footer_b(SOC,FOOT_GROUPS,CARDS)+(tabbar_b(path) if BRIGHT else '')+SDLG+NAVJS_B+COPYJS+SEARCHJS if BRIGHT else footer()}
 </body>

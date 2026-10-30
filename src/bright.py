@@ -19,10 +19,27 @@ IC = {
 
 def _t(x): return re.sub(r'<[^>]+>','',html.unescape(str(x)))
 
-def nav_b(SOC, NAV_SHOP):
+def nav_b(SOC, NAV_SHOP, FOOT_GROUPS=None, CARDS=None):
+    by={c["slug"]:c for c in (CARDS or [])}
+    chev='<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
+    cols=""
+    for h,l in (FOOT_GROUPS or []):
+        sl=[x for x in l if x in by]
+        if sl: cols+=f'<div class="mcol"><h3>{html.escape(h)}</h3>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</div>'
+    feat=('<div class="mfeat"><a class="mcard" href="/china/tools/"><span class="eyebrow">New</span><b>Money, units and size tools</b><span>Yuan converter, km and jin, and how to read a Taobao size sheet.</span></a>'
+          '<a class="mcard" href="/guides/china-travel-faq/"><span class="eyebrow">Quick answers</span><b>Search every China question</b><span>Short answers with the date I checked them.</span></a>'
+          '<a class="mall" href="/china/">See all China guides →</a></div>')
+    def dd(label,body,cls="",pid=""):
+        return f'<div class="nd {cls}"><button type="button" class="nb" aria-expanded="false" aria-haspopup="true">{label}{chev}</button><div class="npanel">{body}</div></div>'
+    china=dd("China guides",f'<div class="mgrid">{cols}{feat}</div>',"big")
+    helpd=dd("Questions &amp; tools",'<a class="ni" href="/guides/china-travel-faq/"><b>Questions answered</b><span>Visa, arrival card, paying, eSIM, trains</span></a><a class="ni" href="/china/tools/"><b>Tools</b><span>Yuan, units, clothing and shoe sizes</span></a><a class="ni" href="/guides/china-travel-faq/#q-lost-phone-or-passport"><b>Lost phone or passport</b><span>What to do first</span></a>',"sm")
+    trips=dd("My trips",'<a class="ni" href="/where-ive-been/"><b>Where I\'ve been</b><span>Every place I have filmed</span></a><a class="ni" href="/december-trip/"><b>December trip</b><span>Chengdu, Chongqing and Xi\'an</span></a><a class="ni" href="/travel-deals/"><b>Travel deals</b><span>Hotels, trains and tickets I use</span></a>',"sm")
+    js=('<script>(function(){var ds=[].slice.call(document.querySelectorAll(".hb .nd"));function close(except){ds.forEach(function(d){if(d!==except){d.classList.remove("open");d.querySelector(".nb").setAttribute("aria-expanded","false")}})}'
+        'ds.forEach(function(d){var b=d.querySelector(".nb");b.addEventListener("click",function(e){e.stopPropagation();var o=!d.classList.contains("open");close(d);d.classList.toggle("open",o);b.setAttribute("aria-expanded",o?"true":"false")})});'
+        'document.addEventListener("click",function(e){if(!e.target.closest(".nd"))close()});document.addEventListener("keydown",function(e){if(e.key==="Escape"){var o=document.querySelector(".hb .nd.open .nb");close();if(o)o.focus()}})})();</script>')
     return f'''<header class="hb"><div class="wrap"><a class="logo" href="/" aria-label="Scratch and Roam with Natali, home"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a>
-<nav id="menu"><a href="/">Home</a><a href="/china/">China guides</a><a href="/guides/china-travel-faq/">Questions</a><a href="/china/tools/">Tools</a>{NAV_SHOP()}<a href="/where-ive-been/">Where I've been</a><a href="/december-trip/">December trip</a><a href="/travel-deals/">Travel deals</a><a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
-<div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog">{IC["search"]}</button><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu">{IC["menu"]}</button></div></div></header>'''
+<nav id="menu"><a href="/">Home</a>{china}{helpd}{NAV_SHOP()}{trips}<a href="/about/">About</a><a class="msub" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">&#9654; Subscribe on YouTube</a></nav>
+<div class="right"><button class="icbtn" id="sbtn" type="button" aria-label="Search guides" aria-haspopup="dialog">{IC["search"]}</button><a class="btn" href="{SOC['YouTube']}?sub_confirmation=1" rel="me noopener">Subscribe</a><button class="icbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Menu">{IC["menu"]}</button></div></div></header>{js}'''
 
 def footer_b(SOC, FOOT_GROUPS, CARDS):
     by={c["slug"]:c for c in CARDS}
