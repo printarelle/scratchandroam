@@ -23,7 +23,7 @@ def nav_b(SOC, NAV_SHOP, FOOT_GROUPS=None, CARDS=None):
     by={c["slug"]:c for c in (CARDS or [])}
     chev='<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
     cols=""
-    MEGA_PICK={"Before you fly":["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc"],"Apps and on the ground":["china-travel-apps","alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china","alipay-metro-qr-code-china","taobao-for-foreigners","how-to-order-food-in-china-without-speaking-chinese"],"Shanghai":["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise"]}
+    MEGA_PICK={"Before you fly":["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc"],"Apps and on the ground":["china-travel-apps","alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china","alipay-vs-wechat-pay-china","alipay-metro-qr-code-china","taobao-for-foreigners"],"Shanghai":["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise"]}
     for h,l in (FOOT_GROUPS or []):
         sl=[x for x in MEGA_PICK.get(h,l) if x in by]
         if sl: cols+=f'<div class="mcol"><h3>{html.escape(h)}</h3>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</div>'
@@ -152,7 +152,9 @@ def band_b(SOC, kind="start"):
         n1,n2=SH_NEXT[kind]
         h="Planning Shanghai after dark? See the next stop.";p="The Bund, Nanjing Road, the river cruise and the ERA show fit into one evening. Each guide gives the metro exit, the time and what it costs, checked on the date shown.";a=(f'/guides/{n1}/',"Next: "+SH_PLACES[n1][1]);b2=(f'/guides/{n2}/',"Also: "+SH_PLACES[n2][1])
     elif kind in ("pay-alipay","pay-wechat"):
-        h="Setting up payments? Add both apps before you fly.";p="Alipay and WeChat Pay each take a foreign card in a few minutes. Set both up at home, then carry some cash and a second card for your first days. Every guide here is dated and rechecked, and I say what I tested myself.";a=(('/guides/wechat-pay-add-foreign-card-china/',"Next: add your card to WeChat Pay") if kind=="pay-alipay" else ('/guides/alipay-add-foreign-card-china/',"Next: add your card to Alipay"));b2=('/guides/china-travel-faq/#q-foreign-card-payments',"Foreign card questions answered")
+        h="Setting up payments? Add both apps before you fly.";p="Alipay and WeChat Pay each take a foreign card in a few minutes. Set both up at home, then carry some cash and a second card for your first days. Every guide here is dated and rechecked, and I say what I tested myself.";a=(('/guides/wechat-pay-add-foreign-card-china/',"Next: add your card to WeChat Pay") if kind=="pay-alipay" else ('/guides/alipay-add-foreign-card-china/',"Next: add your card to Alipay"));b2=('/guides/alipay-vs-wechat-pay-china/',"Which one to use, and when")
+    elif kind=="pay-both":
+        h="Ready to set them up? Start with your card.";p="Both apps take a foreign card in a few minutes, and both ask for your passport. Do it at home, then carry some cash and a second card. Every guide here is dated and rechecked, and I say what I tested myself.";a=('/guides/alipay-add-foreign-card-china/',"Add your card to Alipay");b2=('/guides/wechat-pay-add-foreign-card-china/',"Add your card to WeChat Pay")
     elif kind=="shop":
         h="Shopping on Taobao? Start with the order guide.";p="Sizes, jin and prices are only half of it. The order guide shows paying with Alipay, the address and what arrives. Every guide here is dated and rechecked against the official source.";a=('/guides/taobao-for-foreigners/',"Order on Taobao, step by step");b2=('/guides/china-travel-faq/',"Browse every China question")
     elif kind=="taobao":
@@ -203,6 +205,7 @@ CLUSTERS=[
    ("top-25-china-apps","All 25 apps, ranked","The full list from critical to optional, to choose extras"),
    ("alipay-add-foreign-card-china","Add your card to Alipay","Link a Visa or Mastercard, step by step"),
    ("wechat-pay-add-foreign-card-china","Add your card to WeChat Pay","Me, Wallet, Bank Cards, step by step"),
+   ("alipay-vs-wechat-pay-china","Alipay or WeChat Pay?","What I used for what, and why both"),
    ("alipay-metro-qr-code-china","The metro with Alipay","Ride with the QR code"),
    ("how-to-order-food-in-china-without-speaking-chinese","Order food","Menus, QR codes and delivery"),
    ("food-delivery-in-china-for-foreigners-meituan","Food delivery","Meituan in WeChat, to your hotel"),
@@ -224,8 +227,8 @@ def cluster_b(slug):
     return (f'<nav class="clus" aria-label="{html.escape(title)}"><p class="ck">Part of: {html.escape(title)}</p><ol>{lis}</ol>'
             f'<a class="cnext" href="/guides/{nxt[0]}/">Next: {html.escape(nxt[1])} →</a></nav>')
 
-HERO_OWN={"alipay-add-foreign-card-china":("alipay-add-foreign-card-china-cover-16x9","Add a card to Alipay"),"wechat-pay-add-foreign-card-china":("wechat-pay-add-foreign-card-china-cover-16x9","Add a card to WeChat Pay")}
-NO_SHORT_PROMO={"alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china"}
+HERO_OWN={"alipay-vs-wechat-pay-china":("alipay-vs-wechat-pay-china-cover-16x9","Alipay or WeChat Pay"),"alipay-add-foreign-card-china":("alipay-add-foreign-card-china-cover-16x9","Add a card to Alipay"),"wechat-pay-add-foreign-card-china":("wechat-pay-add-foreign-card-china-cover-16x9","Add a card to WeChat Pay")}
+NO_SHORT_PROMO={"alipay-vs-wechat-pay-china","alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china"}
 def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapters, related, checked, published, steps_title, shorts, extra, video_note, shotnote, IMGREG, SOC, yt, start, CARDS, n_guides, title):
     def figs(keys):
         if not keys: return ""
@@ -321,7 +324,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <div class="author"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><div><b>By Natali</b><p>A maker from Ireland who films her trips and writes down the parts nobody explains. First-timer China, with the screenshots to prove it.</p></div></div>
 <p class="dates">Last updated: {checked}{f"<br>Published: {published}" if published else ""}</p>
 </div>
-<figure class="polaroid"><img src="/img/{hero_img}.jpg" alt="" data-hero{"" if ((gallery and slug not in TEXT_GALLERIES) or slug in HERO_OWN) else " class=\"cover\""}><figcaption>{html.escape(hero_cap)[:60]}</figcaption></figure>
+<figure class="polaroid{" wide" if slug in HERO_OWN else ""}"><img src="/img/{hero_img}.jpg" alt="" data-hero{" class=\"full\"" if slug in HERO_OWN else ("" if (gallery and slug not in TEXT_GALLERIES) else " class=\"cover\"")}><figcaption>{html.escape(hero_cap)[:60]}</figcaption></figure>
 </div></section>
 <p class="strip">Every price and rule on this page was checked on {checked}.{(" "+AFF_NOTE) if (AFFILIATES_LIVE and (slug in OFFERS or slug in AFF_INLINE or slug in GUIDE_DEALS or slug in AMAZON)) else " Nothing here is sponsored."}</p>
 <div class="wrap cols">
@@ -333,7 +336,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <div class="scard"><span class="eyebrow">Quick answers</span><p>Short, dated answers to the China questions first-timers ask.</p><a href="/guides/china-travel-faq/">Search the questions →</a><p style="margin-top:10px"><a href="/china/tools/">Yuan and clothing size tools →</a></p></div>
 </aside>
 </div>
-{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug=="taobao-11-11-singles-day-for-foreigners" else ("pay-alipay" if slug=="alipay-add-foreign-card-china" else ("pay-wechat" if slug=="wechat-pay-add-foreign-card-china" else (slug if slug in SH_PLACES else "start")))))}
+{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug=="taobao-11-11-singles-day-for-foreigners" else ("pay-alipay" if slug=="alipay-add-foreign-card-china" else ("pay-both" if slug=="alipay-vs-wechat-pay-china" else ("pay-wechat" if slug=="wechat-pay-add-foreign-card-china" else (slug if slug in SH_PLACES else "start"))))))}
 {social_b(SOC,"the-bund-pudong-skyline-and-shanghai-tower-at-night","nanjing-road-curved-corner-building-neon-lights")}
 </main>'''
 

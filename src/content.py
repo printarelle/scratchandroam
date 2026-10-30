@@ -27,6 +27,7 @@ CARDS=[
  dict(slug="china-before-you-fly-checklist",sec="before",img="china-before-you-fly-10-things-cover-16x9",alt="Cover: 10 steps before China with the chips eSIM, VPN and insurance, the Shanghai skyline lit at night and a China flag sticker",num="10 THINGS",meta=("VIDEO + CHECKLIST","10 STEPS"),t="China first trip checklist: safety and backups",p="Insurance, your hotel in Chinese, emergency numbers, phone and data, payments, document copies, scams, a medical kit, maps and a simple first day.",short="China first trip checklist"),
  dict(slug="alipay-add-foreign-card-china",sec="before",img="alipay-add-foreign-card-china-cover-16x9",alt="Cover of the guide to adding a foreign card to Alipay, with the badge No Chinese bank account and two Alipay phone screens",num="ALIPAY CARD",meta=("STEP BY STEP","7 STEPS"),t="How to add a foreign card to Alipay, step by step",p="Open Bank Cards, add your Visa or Mastercard, see it listed, and check your first payments in the transaction history.",short="Add a foreign card to Alipay"),
  dict(slug="wechat-pay-add-foreign-card-china",sec="before",img="wechat-pay-add-foreign-card-china-cover-16x9",alt="Cover of the guide to adding a foreign card to WeChat Pay, with the path Me, Wallet, Bank Cards and two WeChat phone screens",num="WECHAT CARD",meta=("STEP BY STEP","7 STEPS"),t="How to add a foreign card to WeChat Pay, step by step",p="Me, Pay and Services, Wallet, Bank Cards: add your Visa and see it listed.",short="Add a foreign card to WeChat Pay"),
+ dict(slug="alipay-vs-wechat-pay-china",sec="before",img="alipay-vs-wechat-pay-china-cover-16x9",alt="Cover of the Alipay versus WeChat Pay guide, a split blue and green image with a VS circle and two phone screens",num="ALIPAY VS WECHAT",meta=("COMPARISON","7 TIPS"),t="Alipay or WeChat Pay in China? What I used for what",p="Which to use for the metro, for big purchases, for fees and for mini programs, from two trips and over 12,000 yuan of payments.",short="Alipay or WeChat Pay"),
  dict(slug="alipay-metro-qr-code-china",sec="before",img="alipay-metro-qr-code-china-cover-16x9",alt="Cover of the Alipay metro QR code guide: Metro QR in China with the chips Alipay, Metro and Bus and a China flag sticker",num="METRO QR",meta=("STEP BY STEP","8 STEPS"),t="Alipay metro QR code in China: how to add it, step by step",p="Pick the city, claim the free card, enter your payment password, and switch city when the code is wrong.",short="Alipay metro QR code"),
  dict(slug="the-bund-shanghai-at-night",sec="place",img="the-bund-shanghai-after-dark-cover-4x5",alt="The Bund in Shanghai at night",row_k="The Bund",row_q="How do I get to the Bund at night, and when do the lights go off?",short="The Bund at night"),
  dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-road-shanghai-neon-shop-fronts-cover-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
@@ -943,7 +944,7 @@ AC_STEPS=[(a,b,AC_FIGS.get(i,[])) for i,(a,b) in enumerate(AC_STEPS)]
 guide("alipay-add-foreign-card-china","How to add a foreign card to Alipay for China, step by step","How to add a foreign card to Alipay for China, step by step",
       "How to add a foreign Visa or Mastercard to Alipay: open Bank Cards, tap Add Bank Card, enter the details or tap the card, and check your payments.",
       "add foreign card to alipay",None,
-      "<p>To pay in China you need a card linked to Alipay. You do not need a Chinese bank account. This guide shows how I added my own Visa card to Alipay on my phone: where Bank Cards is, which cards the screen accepts, the tap-your-card (NFC) option that recognised my Visa, typing the details by hand, and the screen that tells you it worked. It ends with the transaction history, so you know where to check your first payments. Using WeChat too? See <a href='/guides/wechat-pay-add-foreign-card-china/'>how to add a foreign card to WeChat Pay</a>.</p><p>The screenshots are from my own phone. I have hidden my card number, expiry date, CVV2 and the last four digits, and the names of people in my payments. Checked on 30 October 2026.</p>",
+      "<p>To pay in China you need a card linked to Alipay. You do not need a Chinese bank account. This guide shows how I added my own Visa card to Alipay on my phone: where Bank Cards is, which cards the screen accepts, the tap-your-card (NFC) option that recognised my Visa, typing the details by hand, and the screen that tells you it worked. It ends with the transaction history, so you know where to check your first payments. Using WeChat too? See <a href='/guides/wechat-pay-add-foreign-card-china/'>how to add a foreign card to WeChat Pay</a>, or <a href='/guides/alipay-vs-wechat-pay-china/'>which one I used for what</a>.</p><p>The screenshots are from my own phone. I have hidden my card number, expiry date, CVV2 and the last four digits, and the names of people in my payments. Checked on 30 October 2026.</p>",
       AC_STEPS,
       [("How do I add a foreign card to Alipay?","Open Alipay, go to Bank Cards, tap Add Bank Card, type the card number, expiry date and CVV2 (or tap the card on your phone with NFC and then type the CVV), tap Agree to Terms and Add, and look for Added successfully."),
        ("Which foreign cards does Alipay accept?","The Add Bank Card screen on my phone listed Visa, Mastercard, UnionPay, American Express, Diners Club, Discover and JCB. Alipay can change the list, so check your own screen."),
@@ -990,7 +991,7 @@ WC_STEPS=[(a,b,WC_FIGS.get(i,[])) for i,(a,b) in enumerate(WC_STEPS)]
 guide("wechat-pay-add-foreign-card-china","How to add a foreign card to WeChat Pay for China, step by step","How to add a foreign card to WeChat Pay for China, step by step",
       "How to add a foreign Visa or Mastercard to WeChat Pay: Me, Pay and Services, Wallet, Bank Cards, Add a Bank Card, then enter the details.",
       "add foreign card to wechat pay",None,
-      "<p>WeChat Pay is the other app you can pay with in China, next to Alipay. You can link a foreign bank card without a Chinese bank account. This guide shows how I added my own Visa card to WeChat on my phone: the exact path from the Me tab to Bank Cards, what to type, and the screen that tells you it worked.</p><p>The screenshots are from my own phone. I have hidden my card number, the last four digits, my photo, my name, my WeChat ID and my wallet balance. Checked on 30 October 2026. If you also want Alipay, see <a href='/guides/alipay-add-foreign-card-china/'>how to add a foreign card to Alipay</a>.</p>",
+      "<p>WeChat Pay is the other app you can pay with in China, next to Alipay. You can link a foreign bank card without a Chinese bank account. This guide shows how I added my own Visa card to WeChat on my phone: the exact path from the Me tab to Bank Cards, what to type, and the screen that tells you it worked.</p><p>The screenshots are from my own phone. I have hidden my card number, the last four digits, my photo, my name, my WeChat ID and my wallet balance. Checked on 30 October 2026. If you also want Alipay, see <a href='/guides/alipay-add-foreign-card-china/'>how to add a foreign card to Alipay</a>, or read <a href='/guides/alipay-vs-wechat-pay-china/'>which one I used for what</a>.</p>",
       WC_STEPS,
       [("How do I add a foreign card to WeChat Pay?","Open WeChat, tap Me, then Pay and Services, then Wallet, then Bank Cards, then Add a Bank Card. Type the card number, choose the valid date, type the CVV code, tap Agree and Add, and look for Added."),
        ("Do I need a Chinese bank account for WeChat Pay?","No. I added my own Visa card with its number, valid date and CVV code. Do the setup before you fly, because WeChat can ask for extra checks."),
@@ -1007,6 +1008,58 @@ guide("wechat-pay-add-foreign-card-china","How to add a foreign card to WeChat P
       steps_title="The 7 steps, in order",
       shotnote="Screenshots from my own phone, with my personal details hidden. Tap a picture to open it larger.",
       related=[("/guides/alipay-add-foreign-card-china/","alipay-add-foreign-card-china-cover-16x9","ALIPAY CARD","How to add a foreign card to Alipay, step by step"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")])
+
+# ---------- Alipay vs WeChat Pay ----------
+AW_STEPS=[
+ ("Set up both before you fly",
+  "Both apps took me seconds to set up. Alipay asked for my passport to identify me, and WeChat did too. After that the card went in without trouble. I have heard that WeChat sometimes asks a new user to get a friend to scan a code for them. We were never asked, and I cannot tell you why other people are. If it happens to you, follow what your own screen says. Here are the two setup guides: <a href='/guides/alipay-add-foreign-card-china/'>Alipay</a> and <a href='/guides/wechat-pay-add-foreign-card-china/'>WeChat Pay</a>."),
+ ("Small payments, the metro and booking: use Alipay",
+  "For small payments I used Alipay every time. It is more all in one, it has the <b>Transport</b> code for the metro and buses (<a href='/guides/alipay-metro-qr-code-china/'>how I set it up</a>), and it has a <b>Translate</b> button, so the page is translated straight away. I also booked tickets in it. I looked for a transport code in WeChat and found it more complicated, so I did not use it."),
+ ("Bigger purchases in a shop: ask for WeChat",
+  "On big payments the fees decide it. Alipay charges 3% on payments above 200 yuan, as I understand it, so check the current fee in your own app. WeChat gave us <b>90 days with no foreign card fees</b>, which we used and confirmed on our own payments. So when you pay for clothes or anything bigger and the shop points at Alipay, ask: <b>可以用微信支付吗？</b> (<i>kěyǐ yòng wēixìn zhīfù ma?</i>, can I pay with WeChat?). Saying <i>WeChat</i> or <i>Weixin</i> both work, in my experience."),
+ ("Delivery, Meituan and Pinduoduo: WeChat mini programs",
+  "I used the Meituan mini program inside WeChat for food delivery and paid with WeChat, and had no problems. I also bought on Pinduoduo through its WeChat mini program and paid with WeChat. Refunds on those orders came back to my WeChat and then to my card, with no problems. On Taobao and Pinduoduo I also paid directly with my Visa credit card, and that worked too."),
+ ("Pay from your wrist if you have a China version Huawei watch",
+  "I have a Huawei Watch GT6 that I bought in China. It has Alipay and WeChat on the watch, so I raised my wrist, scanned the code and paid, without opening my phone. I can only confirm this for the China version I bought there. I cannot say how a European or global watch behaves."),
+ ("Use a credit card, and keep your own limits in mind",
+  "For our big purchases, including a phone and a watch, we used a credit card linked to Alipay and WeChat, not a debit card. Payments went through quickly. I never hit a limit, and I never had a payment refused, even on payments over 12,000 yuan. Each platform sets its own limits, so check the current ones online before a big purchase."),
+ ("If something fails, go to Alipay or WeChat first",
+  "I never had a payment fail or get blocked, so I cannot give you a fix that I tested. If yours fails, the cause is personal: maybe the card was added wrongly, or your account needs a check. Contact Alipay or WeChat support, since they are the ones who can see your account, and they should answer quite quickly. Read what other travellers say as a clue only, because their situation may not be yours. The official source comes first."),
+]
+AW_EXTRA="""
+<h2 id="side-by-side">Alipay and WeChat Pay side by side</h2>
+<p>This is from my own use on two trips, Christmas 2025 and Easter 2026, plus what the apps themselves showed me.</p>
+<table><thead><tr><th>Question</th><th>Alipay</th><th>WeChat Pay</th></tr></thead><tbody>
+<tr><td>Setup</td><td>Passport check, done in seconds</td><td>Passport check, done in seconds</td></tr>
+<tr><td>Foreign card fee</td><td>3% above 200 yuan, as I understand it. Check your app.</td><td>No fee for 90 days. We used this.</td></tr>
+<tr><td>Best for</td><td>Small payments, metro, bus, booking tickets</td><td>Bigger purchases, mini programs</td></tr>
+<tr><td>Metro and bus code</td><td>Yes, in Transport. I used it.</td><td>I found it complicated, so I did not use it</td></tr>
+<tr><td>Translation</td><td>Translate button on the page</td><td>Three dots, then translate. It did not always work.</td></tr>
+<tr><td>Mini programs I used</td><td>Transport and tickets</td><td>Meituan and Pinduoduo</td></tr>
+<tr><td>On a China version Huawei Watch GT6</td><td>Worked</td><td>Worked</td></tr>
+<tr><td>Ever refused</td><td>Never</td><td>Never</td></tr>
+<tr><td>Setup guide</td><td><a href="/guides/alipay-add-foreign-card-china/">How to add a card to Alipay</a></td><td><a href="/guides/wechat-pay-add-foreign-card-china/">How to add a card to WeChat Pay</a></td></tr>
+</tbody></table>
+<h2 id="which-first">Which one should I set up if I can only do one?</h2>
+<p>I would not pick one. Neither is better or worse, and each has its own job. Alipay is easier for me day to day, mostly because of the design, the metro code and the built in translation. WeChat is the one I reach for when the amount is big. Set up both, and carry some cash and a second card as a backup.</p>
+"""
+guide("alipay-vs-wechat-pay-china","Alipay or WeChat Pay in China? What I used for what","Alipay or WeChat Pay in China? What I used for what",
+      "Alipay or WeChat Pay for tourists in China: which I used for the metro, big purchases, fees and delivery, and why I set up both.",
+      "alipay vs wechat pay",None,
+      "<p>Should you set up Alipay or WeChat Pay before China? I used both on two trips, Christmas 2025 and Easter 2026. I paid for the metro, food delivery, clothes, a phone and a watch, and I was never refused, not even on payments over 12,000 yuan. This guide says which one I used for what, where the fees differ and why I recommend having both.</p><p>This is my own experience and not a rule: your account, card and bank are not mine. Checked on 30 October 2026.</p>",
+      AW_STEPS,
+      [("Alipay or WeChat Pay: which is better for tourists?","Neither is better. I used Alipay for small payments, the metro and booking, and WeChat Pay for bigger purchases and mini programs like Meituan and Pinduoduo. I recommend setting up both."),
+       ("Which has lower fees for a foreign card?","WeChat Pay gave us 90 days with no foreign card fees, which we used. Alipay charges 3% above 200 yuan as I understand it. Check both in your own app, because fees change. Your own bank may add a fee too."),
+       ("What do I say if a shop wants Alipay?","Ask 可以用微信支付吗？ (kěyǐ yòng wēixìn zhīfù ma?), which means can I pay with WeChat. Saying WeChat or Weixin both worked for me."),
+       ("Do I need a Chinese bank account for either?","No. I added my own foreign card to both. Alipay and WeChat each asked for my passport to identify me."),
+       ("Can I pay with my watch in China?","I used a Huawei Watch GT6 that I bought in China, with Alipay and WeChat on it, and it worked well. I can only confirm the China version, not a European or global watch."),
+       ("What if my payment fails?","I never had one fail, so I have no tested fix. Contact Alipay or WeChat support, because they can see your account. Treat other travellers' advice as a clue only."),
+       ("Is there a payment limit?","Each platform sets limits and I never hit one. For our big purchases we used a credit card. Check the current limits online before a big purchase.")],
+      [],
+      SITE+"/og/alipay-vs-wechat-pay-china.jpg",checked="2026-10-30",published="2026-10-30",vschema=False,
+      steps_title="Which one to use, and when",
+      extra=AW_EXTRA,
+      related=[("/guides/alipay-add-foreign-card-china/","alipay-add-foreign-card-china-cover-16x9","ALIPAY CARD","How to add a foreign card to Alipay, step by step"),("/guides/wechat-pay-add-foreign-card-china/","wechat-pay-add-foreign-card-china-cover-16x9","WECHAT CARD","How to add a foreign card to WeChat Pay, step by step"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China")])
 
 CB_STEPS=[
  ("Have travel insurance before you fly",

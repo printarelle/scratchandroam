@@ -430,6 +430,7 @@
    "slug": "alipay-add-foreign-card-china",
    "yt": "",
    "rel": [
+    "alipay-or-wechat",
     "alipay-add-card",
     "wechat-add-card",
     "travel-apps",
@@ -482,6 +483,29 @@
     "alipay-add-card"
    ],
    "src": "Natali's own phone, screens checked 30 October 2026",
+   "chk": "2026-10-30",
+   "st": "first-hand"
+  },
+  {
+   "id": "alipay-or-wechat",
+   "pins": [],
+   "group": "Money",
+   "q": "Should I use Alipay or WeChat Pay in China?",
+   "alts": [
+    "alipay vs wechat pay",
+    "alipay or wechat",
+    "which payment app china",
+    "wechat pay fees foreign card"
+   ],
+   "a": "Set up both. I used Alipay for small payments, the metro and booking, because of the Transport code and the built in translation. I used WeChat Pay for bigger purchases, because it gave us 90 days without foreign card fees while Alipay charges 3% above 200 yuan as I understand it. If a shop points at Alipay, ask can I pay with WeChat. I was never refused on either, even above 12,000 yuan. Check current fees in your own app.",
+   "slug": "alipay-vs-wechat-pay-china",
+   "yt": "",
+   "rel": [
+    "alipay-add-card",
+    "wechat-add-card",
+    "foreign-card-payments"
+   ],
+   "src": "Natali's own use on two trips; WeChat fee-free period per Tencent (May 2026); Alipay fee as Natali understands it, check in the app",
    "chk": "2026-10-30",
    "st": "first-hand"
   },

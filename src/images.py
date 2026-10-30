@@ -99,6 +99,7 @@ a("wechat-add-a-bank-card-form-with-card-type-valid-date-and-cvv-code.jpg","WeCh
 a("wechat-card-added-confirmation-with-done-button.jpg","WeChat confirmation screen with a green tick and the word Added above a Done button","Added. Tap Done.")
 a("wechat-bank-cards-page-with-two-visa-cards.jpg","WeChat Bank Cards page now showing two blue Visa cards, last digits hidden","Bank Cards, after: the new Visa card is listed.")
 a("wechat-pay-add-foreign-card-china-cover-16x9.jpg","Cover: the title Add your foreign card with the path Me, Wallet, Bank Cards on a green background, next to two WeChat phone screens showing the Add a Bank Card form and the Bank Cards list")
+a("alipay-vs-wechat-pay-china-cover-16x9.jpg","Cover: Alipay versus WeChat Pay on a split blue and green background with a VS circle, two phone screens showing each app Bank Cards page and the line Set up BOTH before you fly")
 a("alipay-metro-qr-code-china-cover-16x9.jpg","Cover: Metro QR in China with the chips Alipay, Metro and Bus, the line set it up before you travel, a phone showing the Alipay Transport screen and a China flag sticker")
 a("alipay-home-screen-with-transport-icon-and-quick-tutorial-caption.jpg","Alipay home screen on a phone with the Transport icon in the top row next to Scan, Pay/Receive and Pocket","Transport is in the top row of the Alipay home screen.")
 a("alipay-select-city-list-with-chengdu-highlighted-for-metro-qr.jpg","Alipay Select city list with the recent cities and the popular cities, including Chengdu, Xi'an and Shanghai","Pick the city you are going to.")
@@ -124,6 +125,7 @@ OGALT={
 "taobao-for-foreigners.jpg":R["how-to-order-on-taobao-step-by-step-guide-cover.jpg"]["alt"],
 "alipay-metro-qr-code-china.jpg":R["alipay-metro-qr-code-china-cover-16x9.jpg"]["alt"],
 "wechat-pay-add-foreign-card-china.jpg":R["wechat-pay-add-foreign-card-china-cover-16x9.jpg"]["alt"],
+"alipay-vs-wechat-pay-china.jpg":R["alipay-vs-wechat-pay-china-cover-16x9.jpg"]["alt"],
 "alipay-add-foreign-card-china.jpg":R["alipay-add-foreign-card-china-cover-16x9.jpg"]["alt"],
 "china-before-you-fly-checklist.jpg":R["china-before-you-fly-10-things-cover-16x9.jpg"]["alt"],
 }

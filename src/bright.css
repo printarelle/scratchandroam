@@ -802,3 +802,8 @@ p{margin:0}
 .soc img{height:440px;min-height:0;aspect-ratio:auto}
 .soc .in{align-self:center}
 @media(max-width:600px){.soc img{height:240px}}
+
+/* own covers with text in the hero: show the whole image, no crop, no stamp over it */
+.polaroid.wide{width:min(100%,540px)}
+.polaroid.wide::before{display:none}
+.polaroid img.full{aspect-ratio:auto;height:auto;object-fit:contain;max-height:none;width:100%}
