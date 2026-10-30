@@ -265,7 +265,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
         body.append('<div class="gal2">'+"".join(f'<figure><img src="/img/{g[0]}.jpg" alt="" loading="lazy"{cc}><figcaption>{html.escape(IMGREG.get(g[0]+".jpg",{}).get("cap") or "")}</figcaption></figure>' for g in gs)+'</div>')
     if faq:
         body.append('<h2 id="quick">Quick answers</h2>'); toc.append(("quick","Quick answers"))
-        body.append('<div class="faq">'+"".join(f'<div><h3>{html.escape(q)}</h3><p>{a}</p></div>' for q,a in faq)+'</div>')
+        body.append('<div class="faq acc"><div class="acc-h"><b>Quick answers</b><span>'+str(len(faq))+' questions</span></div>'+"".join(f'<details{" open" if i<2 else ""}><summary>{html.escape(q)}</summary><p>{a}</p></details>' for i,(q,a) in enumerate(faq))+'</div>')
     if steps:
         _pk=STEP_PICKS.get(slug,{}) if AFFILIATES_LIVE else {}
         body.append(f'<h2 id="steps">{html.escape(steps_title)}</h2>'); toc.append(("steps",steps_title))
