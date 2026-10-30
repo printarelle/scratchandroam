@@ -383,8 +383,8 @@ OFFERS={
  # Only links Natali gave. "pick"/badge only where she says she booked it. Prices only if she gives them.
  "shanghai-circus-world-era-show":[
   dict(k="Klook",price=None,title="ERA: Intersection of Time, Shanghai Circus World",
-       text="This is where we booked our ERA tickets. You choose a zone and the date, and the ticket comes through Klook. The zones and how to pick one are explained in the steps below.",
-       url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="See ERA tickets on Klook",
+       text="We booked this listing in December 2025: three B Area tickets, €111.78 in total. It is a pre-sale product, so Klook sends your order to the supplier and the ticketing agent confirms it at least 3 days before travel (page seen 30 October 2026). Check the dates, zones and prices for your day.",
+       url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="Check ERA dates, zones and prices on Klook",
        qr="klook-era-shanghai-circus-world-tickets-qr-code",qralt="QR code for the Klook ERA ticket page"),
  ],
  "the-bund-shanghai-at-night":[

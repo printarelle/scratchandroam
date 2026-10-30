@@ -708,25 +708,67 @@ guide("huangpu-river-night-cruise","Huangpu River Night Cruise: Tickets and Boar
       extra=HP_EXTRA,checked="2026-10-30",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
-guide("shanghai-circus-world-era-show","Shanghai Circus World tickets: ERA show guide (2026)","Shanghai Circus World ERA show: how to book tickets, where to sit, how to get there",
-      "ERA at Shanghai Circus World: metro Line 1, exit 3, shows at 19:30 Tuesday to Sunday, ticket zones and prices, and where foreigners can book.",
+ERA_CHECK='<p>Prices, times and the venue details here are from the sources at the bottom, checked on 30 October 2026. Dates, durations and prices change, so check them for your date.</p>'
+ERA_GLANCE=('<div class="glance"><div class="gl-h"><b>Our ERA visit at a glance</b><span class="gl-pill">Visited in person</span></div><div class="gl-g">'
+ +_gi(1,"We went","Saturday 27 December 2025, 19:30")
+ +_gi(0,"We booked","3 tickets in B Area on Klook")
+ +_gi(4,"We paid","€111.78 in total, €37.26 each")
+ +_gi(2,"Metro","Line 1, Shanghai Circus World, exit 3")
+ +'</div><p class="gl-f">Show length varies by date, from about 60 to 100 minutes. Check the date and the version on your own ticket.</p></div>')
+ERA_EXTRA=(
+ '<h2 id="verdict">Was ERA worth it?</h2>'
+ '<p>For us, yes. The show is excellent. It is acrobatics, martial arts, music and lighting with no spoken dialogue, so you do not need any Chinese to follow it. I filmed five of the acts, and the photos on this page are mine.</p>'
+ '<p>It costs money and an evening, so it is a choice rather than a default. It is a different kind of night from the free walk in my <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a>, and I would not try to fit both into one evening.</p>'
+ '<h2 id="seats">Zones and what we paid</h2>'
+ '<p>Tickets are sold by zone, not by seat. We sat in <b>B Area</b> and paid €111.78 for three tickets on Klook in December 2025, which is €37.26 each. These are the reference prices from one 2026 guide, so check the current price for your date.</p>'
+ '<table class="tbl"><thead><tr><th>Zone</th><th>Reference price</th><th>Note</th></tr></thead><tbody>'
+ '<tr><td>VIP</td><td>about 880 RMB</td><td>The closest and the most expensive</td></tr>'
+ '<tr><td>A Area</td><td>about 580 RMB</td><td>Closer than B</td></tr>'
+ '<tr><td><b>B Area (our zone)</b></td><td>about 380 RMB</td><td>What we booked, €37.26 each</td></tr>'
+ '<tr><td>Other sections</td><td>about 280 to 480 RMB</td><td>Side and upper sections, per the same guide</td></tr></tbody></table>'
+ '<p>I am not giving row numbers or claims about sightlines, because I have not checked the current seating plan. Look at the zone map on the booking page before you choose.</p>'
+ '<h2 id="schedule">Show dates, times and length</h2>'
+ '<p>The performance calendar changes, and the show comes in different lengths, roughly 60 to 100 minutes. One 2026 guide says weekday shows are usually a shorter version and the full version with an intermission is most often on Sundays and some holidays, but that is a pattern, not a rule. Do not plan your evening around it. When you book, check the exact date, the start time and which version your ticket is for. The official site, shcircusworld.com, is where the venue publishes its performance information.</p>'
+ '<h2 id="klook">How we booked, and a note on confirmation</h2>'
+ '<p>We booked on Klook. The Klook listing says it is a pre-sale product: after you order, Klook sends the request to the supplier, and the ticketing agent confirms the order at least 3 days before travel (page seen 30 October 2026). So do not leave it to the last minute. The link is in the booking section below and it is an affiliate link.</p>'
+ '<h2 id="photos">Photos and filming</h2>'
+ '<p>I filmed five acts on 27 December 2025, but I cannot tell you what the venue allows today. One 2026 guide says flash and video rules can vary and that long recordings are generally discouraged, and it suggests checking with the venue. Follow the signs and the staff on the night, keep the flash off, and do not assume that filming is allowed.</p>'
+ '<h2 id="location">Where it is</h2>'
+ '<div class="glance"><div class="gl-h"><b>Shanghai Circus World</b></div><div class="gl-g">'
+ +_gi(5,"Address","2266 Gonghexin Road, Jing\'an District")
+ +_gi(2,"Metro","Line 1, Shanghai Circus World station, exit 3")
+ +'</div><p class="gl-f">Chinese name 上海马戏城. Show this to a taxi or DiDi driver, or paste it into Amap: <b id="era-cn">上海市静安区共和新路2266号</b> <button type="button" class="btn ghost" onclick="var t=document.getElementById(\'era-cn\').textContent;if(navigator.clipboard){navigator.clipboard.writeText(t)}this.textContent=\'Copied\'">Copy Chinese address</button></p></div>'
+ '<h2 id="next">More Shanghai evenings</h2>'
+ '<p>If you want the waterfront instead, the <a href="/guides/nanjing-road-shanghai/">Nanjing Road guide</a>, the <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a> and the <a href="/guides/huangpu-river-night-cruise/">Huangpu River night cruise guide</a> make a different evening, and I would do that on another night.</p>')
+
+guide("shanghai-circus-world-era-show","Shanghai ERA Show Review: Tickets and Best Seats (2026)","Shanghai ERA Acrobatics Show: Honest Review, Tickets and Best Seats",
+      "Shanghai ERA acrobatics show at Shanghai Circus World: our visit, what we paid for B Area, ticket zones, show lengths and how to get there.",
       "Shanghai Circus World ERA tickets",None,
-      "<p>We saw ERA, the acrobatics show at Shanghai Circus World, on the 7:30pm show on Saturday 27 December 2025, and I filmed five of the acts. The long video is on YouTube. The show is excellent.</p><p>Getting there and booking is less obvious, because the venue is not in the centre and tickets are sold by zone, not by seat. This page covers where to buy, which zone to pick and how to get there by metro. We booked three tickets in B Area on Klook and paid €111.78 in total, and the link is in the <a href='#book'>booking section</a> below.</p>"+CHECK,
+      "<p>Is the ERA acrobatics show at Shanghai Circus World worth seeing? We went on the 7:30pm show on Saturday 27 December 2025, I filmed five of the acts, and I thought it was excellent. Here is what we paid, how we booked, and what to check before you buy.</p><p>The venue is not in the centre and tickets are sold by zone, not by seat, so the booking and the journey need a little planning. We booked three tickets in B Area on Klook and paid €111.78 in total, and the link is in the <a href='#book'>booking section</a> below.</p>"+ERA_GLANCE+ERA_CHECK,
       [("Get there on Line 1","Shanghai Circus World has its own metro station on Line 1 (上海马戏城). Take exit 3 and the venue is about 3 minutes on foot. Evening traffic makes taxis slower than the metro."),
-       ("Check the show times for your date","Evening show at 19:30, Tuesday to Sunday, with Monday usually dark. Saturday and Sunday add a 14:00 matinee. Weekday shows are the shorter 60 minute version; the full 100 minute version is most often on Sundays."),
-       ("Book online before you go","We booked ours on Klook (link in the booking section below). The official site is shcircusworld.com, and Trip.com also sells zone tickets with QR entry, listing Zone A around 580 RMB and Zones B and C around 380 RMB, with the seat assigned inside the zone. The box office opens around 09:30 but weekends sell out."),
-       ("Pick a zone, not a seat","Zones differ by distance and angle, not quality. Rows 3 to 7 of Zone A are a good balance for floor acts and overhead acts. VIP (around 880 RMB) is closest for the floor acts."),
-       ("Arrive by 19:00","Scanning starts about 30 minutes before the show, and latecomers are held at the door until the first act ends."),
-       ("Photos only in the breaks","Rules on flash and video vary; photos during applause are generally fine, long video recording is not.")],
-      [("How do I get to Shanghai Circus World?","Metro Line 1 to Shanghai Circus World station, exit 3, then a 3 minute walk. Address: 2266 Gonghexin Road, Jing'an District."),
-       ("How much are ERA tickets?","Roughly 280 to 880 RMB depending on zone (VIP 880, A 580, B 380, side and upper sections 280 to 480), per a 2026 guide. Check the official site or Trip.com for the date."),
-       ("Where can foreigners book ERA tickets?","We booked on Klook. You can also use the official site shcircusworld.com, Trip.com (QR code entry), or the venue box office from about 09:30."),
-       ("What time is the ERA show?","19:30 Tuesday to Sunday, plus 14:00 on Saturday and Sunday. Monday is usually a rest day.")],
-      [("Nomado: ERA acrobatics show guide (2026)","https://www.nomadotravel.app/en/attractions/era-acrobatics-show",False),("Shanghai Circus World official site","https://www.shcircusworld.com/",True)],
+       ("Check the date, time and length when you book","Show dates, times and length vary, from about 60 to 100 minutes. Check which version your ticket is for, and check the performance information on the official site, shcircusworld.com."),
+       ("Book early","We booked on Klook, which lists the ERA ticket as a pre-sale product that the ticketing agent confirms at least 3 days before travel. The official site and Trip.com also sell tickets."),
+       ("Pick a zone, not a seat","Tickets are sold by zone. We sat in B Area. Look at the zone map on the booking page, because I have not checked the current seating plan."),
+       ("Arrive by 19:00","Seat scanning starts about 30 minutes before the show, and latecomers are held at the door until the opening act ends, according to one 2026 guide."),
+       ("Follow the venue's rules on photos","Rules on flash and video can vary. Check with the venue and follow the signs and the staff on the night.")],
+      [("Is the Shanghai ERA show worth it?","For us, yes. The show is excellent, and it has no spoken dialogue, so you do not need Chinese. It costs money and an evening, so go if acrobatics and live effects are your thing."),
+       ("What is the difference between the 60 and 100 minute shows?","One 2026 guide says weekday shows are usually a condensed version of about 60 minutes, and the full version of about 100 minutes, with an intermission and extra sequences, is most often on Sundays and some holidays. Dates and versions change, so check your ticket."),
+       ("What are the best seats for ERA?","Tickets are sold by zone, not seat. VIP is closest and most expensive, then A, then B. We sat in B Area and paid €37.26 each. Check the zone map on the booking page for your date."),
+       ("How much are ERA tickets?","Reference prices from one 2026 guide: VIP about 880 RMB, A about 580, B about 380, and 280 to 480 for side and upper sections. We paid €111.78 for three B Area tickets on Klook in December 2025."),
+       ("Is ERA suitable for children?","One 2026 guide says it suits children from about five and may overwhelm under fours because of the darkness, loud music and sudden audience reactions. There is no formal age rule on that page, so check the venue."),
+       ("Do I need to understand Chinese?","No. The show has no spoken dialogue, so you can follow it without any Chinese."),
+       ("How early should I arrive?","By 19:00 for the 19:30 show. Scanning starts about 30 minutes before, and latecomers are held at the door until the opening act ends."),
+       ("Can I take photos or videos?","I filmed five acts on 27 December 2025, but I cannot confirm today's rules. Flash and video rules can vary, so check with the venue and follow the signs and staff."),
+       ("Where can foreigners book ERA tickets?","We booked on Klook. You can also use the official site shcircusworld.com or Trip.com, and the venue box office sells tickets on site. Check the date and the zone on the booking page."),
+       ("How do I get to Shanghai Circus World?","Metro Line 1 to Shanghai Circus World station, exit 3, then a 3 minute walk. Address: 2266 Gonghexin Road, Jing'an District, in Chinese 上海市静安区共和新路2266号.")],
+      [("Nomado: ERA acrobatics show guide (2026), reference prices, show lengths and arrival","https://www.nomadotravel.app/en/attractions/era-acrobatics-show",False),
+       ("Klook: Shanghai Circus World Ticket, ERA (pre-sale and confirmation note, seen 30 October 2026)","https://www.klook.com/en-US/activity/6365-era-intersection-of-time-acrobatic-show-ticket-shanghai/",False),
+       ("Shanghai Circus World official site","https://www.shcircusworld.com/",True)],
       SITE+"/og/shanghai-circus-world-era-show.jpg",
       related=[("/guides/huangpu-river-night-cruise/","huangpu-river-night-cruise-from-the-water-cover-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket"),("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go")],
       gallery=[("shanghai-circus-world-act-1-aerial-silks","Aerial silks act at Shanghai Circus World"),("shanghai-circus-world-act-2-hand-balance","Hand balance act"),("shanghai-circus-world-act-3-laser-lights","Laser light act"),("shanghai-circus-world-act-4-aerial-hoop","Act four at Shanghai Circus World"),("shanghai-circus-world-act-5-the-sphere","Act five at Shanghai Circus World")],
       place={"name":"Shanghai Circus World","city":"Shanghai","free":False},steps_title="How to book and get there",
+      extra=ERA_EXTRA,checked="2026-10-30",
       shorts={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam"})
 
 # ---- China do's and don'ts (SR-0021, 16 Oct 2026): Contraband board matching the reel and carousel ----
