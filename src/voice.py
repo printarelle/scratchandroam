@@ -55,7 +55,8 @@ STORIES = {
    '<p>We stayed at the Crowne Plaza on Nanjing Road, so the street was right outside and the Bund was a short walk away.</p>'),  # told 21 and 30 Oct 2026
  "huangpu-river-night-cruise": ("Our night on the river",
    '<p>We took the night cruise on our first China trip, Christmas 2025, when we spent New Year and the day after on the Bund and Nanjing Road. '
-   'What we loved at night was the light show of the city from our cruise. The photos on this page are mine, taken from the water.</p>'),  # told 21 and 30 Oct 2026
+   'What we loved at night was the light show of the city from our cruise. The photos on this page are mine, taken from the water.</p>'
+   '<p>We booked the Huangpu River Cruise (Qingjiang Line) on Klook for the night of 26 December 2025, three night cruise tickets for €40.29 in total. The departure location on the booking was Shiliupu Marina.</p>'),  # told 21 and 30 Oct 2026
  "china-dos-and-donts": ("One rule I broke without needing to",
    '<p>Number 12 says pack a plug adapter, and I still do. But every hotel we stayed in in Shanghai had UK sockets, '
    'so we never actually needed it there. I carry one anyway, just in case, because the next hotel might not.</p>'),  # told 21 Oct 2026
