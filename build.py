@@ -158,10 +158,11 @@ def finish_images(doc,path,og):
         t=re.sub(r'\sloading="[^"]*"','',t)
         # small WebP copies made by tools/make_variants.py (committed, because the Cloudflare build has no Pillow)
         _b=os.path.splitext(key)[0]
-        _v=[(w,f"/img/{_b}-w{w}.webp") for w in (480,960) if os.path.exists(f"docs/img/{_b}-w{w}.webp")]
+        _v=[(w,f"/img/{_b}-w{w}.webp") for w in (480,640,960) if os.path.exists(f"docs/img/{_b}-w{w}.webp")]
         if _v and "srcset=" not in t:
+            _hs='sizes=' in t
             _nw=_size("docs/img/"+key)[0]
-            t+=' srcset="'+", ".join(f"{u} {w}w" for w,u in _v)+f", {src} {_nw}w\" sizes=\"(max-width:700px) 100vw, 720px\""
+            t+=' srcset="'+", ".join(f"{u} {w}w" for w,u in _v)+f", {src} {_nw}w\""+("" if _hs else ' sizes="(max-width:700px) 100vw, 720px"')
         t+=' fetchpriority="high"' if hero else ' loading="lazy"'
         t+=' decoding="async">'
         urls.append(SITE+src)
@@ -351,6 +352,6 @@ _ik=open('src/indexnow-key.txt').read().strip(); open(f'docs/{_ik}.txt','w').wri
 import shutil; shutil.copy('src/404.html','docs/404.html') if os.path.exists('src/404.html') else None
 open('docs/_redirects','w').write(open('src/redirects.txt').read())
 import glob as _g
-_orph=[f[9:] for f in _g.glob('docs/img/**/*.*',recursive=True) if f[9:] not in USED and not re.search(r'-w(480|960)\.webp$',f)]
+_orph=[f[9:] for f in _g.glob('docs/img/**/*.*',recursive=True) if f[9:] not in USED and not re.search(r'-w(480|640|960)\.webp$',f)]
 if _orph: print("WARNING unused images (not on any page):",_orph)
 print("built", len(PAGES), "pages")
