@@ -902,6 +902,16 @@ p{margin:0}
 .rstops.r4{grid-template-columns:repeat(2,1fr)}.rstops.r4 .rs:nth-child(2n){border-right:0}.rstops.r4 .rs:nth-child(-n+2){border-bottom:1px solid var(--line)}
 @media(max-width:760px){.rstops.r4{grid-template-columns:1fr}.rstops.r4 .rs{border-bottom:1px solid var(--line)}.rstops.r4 .rs:last-child{border-bottom:0}}
 .art ul.stops{padding-left:20px}.art ul.stops li{margin:0 0 10px}
+
+/* spacing: never stack cards, maps, tables and buttons against the text around them */
+.art .glance,.art .rmap,.art .callout,.art .shots,.art table,.art nav.clus,.art .vnote{margin-top:32px;margin-bottom:32px}
+.art .glance+*,.art .rmap+*{margin-top:32px}
+.art .btn{margin-top:8px;margin-bottom:8px}
+.art .glance~.btn,.art .glance+.btn{margin-top:32px}
+.art h2{margin-top:56px}
+.art h2+.glance,.art h2+.rmap,.art h2+table{margin-top:20px}
+.art p+ul,.art p+ol{margin-top:14px}
+.art ul.stops li{margin-bottom:12px}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
