@@ -1,19 +1,19 @@
 {
  "/": {
-  "d": "2026-10-30T07:34:46+00:00",
-  "h": "37d49f234ace0c823956e96214a65c8edc935726"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "e9c0abf8cce988ad7c9b1b49b7eead5f4281c5ab"
  },
  "/about/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "cf85a9b7254af57db8df05d7cb2d122c9edc7b52"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "78e8f9655d4ac96d744e8984e39cfbb14c6fea83"
  },
  "/affiliate-disclosure/": {
   "d": "2026-10-28T18:46:04+00:00",
   "h": "20293a3c2efa5ad32430e3b9c022befe14b911a0"
  },
  "/china/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "f99195ffd65937f4368fbd15505ae9a94d001b1b"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "98a5fc1a26dac26b5d48f6a5e5dde678943f3ef8"
  },
  "/china/tools/": {
   "d": "2026-10-30T07:30:37+00:00",
@@ -40,16 +40,20 @@
   "h": "e9a925396446de1fd8e81973ab404f0124e9b204"
  },
  "/china/tools/yuan-to-euro/": {
-  "d": "2026-10-30T07:33:13+00:00",
-  "h": "519860e1bd5e7334a38a363b54322d676ceea7b3"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "0337fe4b4d995229a7af0dfe210439a32f4c96b4"
  },
  "/december-trip/": {
   "d": "2026-10-28T19:05:45+00:00",
   "h": "5ce500cffc33495b610bb8a5cd61e86cc789bb60"
  },
+ "/guides/alipay-add-foreign-card-china/": {
+  "d": "2026-10-30T07:42:30+00:00",
+  "h": "30f4b2d6993f8296601d64ca744d6a63450bc6dc"
+ },
  "/guides/alipay-metro-qr-code-china/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "8e12debbafabbd8ce81aa745104019602d797641"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "01116b00f6b4f9328129f799c34a8f2f4c78e13b"
  },
  "/guides/build-spice-tolerance-before-china/": {
   "d": "2026-10-30T07:28:47+00:00",
@@ -72,8 +76,8 @@
   "h": "5c4c2247ee70d0a2891bd8e92f10c0e95b579691"
  },
  "/guides/china-travel-apps/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "738c64f110dd32c00257199f44a55d8e0f78cc25"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "7ec10aa24c4c8f18c7b03f2eb2c9a777108face7"
  },
  "/guides/china-travel-faq/": {
   "d": "2026-10-30T07:25:56+00:00",
@@ -88,12 +92,12 @@
   "h": "112bf3a51b966dced6446f361bba3a6570fbeea2"
  },
  "/guides/food-delivery-in-china-for-foreigners-meituan/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "d527a8fc644791101f79d3e06b0c80450091daf3"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "c6da3218e70595b0ecd6e9946bf7fd1e9101634f"
  },
  "/guides/how-to-order-food-in-china-without-speaking-chinese/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "99b429bc27e8698fa81d61bd1cdf22312743eb1b"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "b6c5ac464ab0cd9fc0d4e637c45499dc8db783d2"
  },
  "/guides/huangpu-river-night-cruise/": {
   "d": "2026-10-30T07:34:42+00:00",
@@ -116,16 +120,16 @@
   "h": "71e216ac02ffbd684625f2822ae3ae83879dafb8"
  },
  "/guides/taobao-for-foreigners/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "ff3d66be4b94668c281e3d38c5de6cdcc8e0ab76"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "a36468ba7f48e00aa371458ac5346595197ae442"
  },
  "/guides/the-bund-shanghai-at-night/": {
   "d": "2026-10-30T07:34:42+00:00",
   "h": "8e1df8cec6dd019cca2b323a82b46320afcfc39b"
  },
  "/guides/top-25-china-apps/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "8cd4ed5caac51c03fdfd0fa6e2268693a0c5135c"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "543330b5343f2aea2f48eb2a81089fd801367b87"
  },
  "/klook/": {
   "d": "2026-10-30T07:20:52+00:00",
@@ -140,7 +144,7 @@
   "h": "bd9b573db97a65867b133568bfb1e3a213e3d524"
  },
  "/where-ive-been/": {
-  "d": "2026-10-30T07:28:47+00:00",
-  "h": "0830ddfa7ea566dee5294dd65473fe93a143de02"
+  "d": "2026-10-30T07:42:06+00:00",
+  "h": "9da91aef2025444b5587e21f380fea20acd70c06"
  }
 }

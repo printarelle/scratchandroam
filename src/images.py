@@ -83,6 +83,14 @@ a("top-25-china-apps-short-frame-amap-pass-critical-gate-05.jpg","Frame from the
 a("top-25-china-apps-short-frame-taobao-pass-handy-gate-16.jpg","Frame from the Short: the Taobao boarding pass, gate 16, class handy, 2 of 5, with the red stamp Missing the tiny prices")
 a("top-25-china-apps-short-frame-boarding-complete-checklist-of-25-apps.jpg","Frame from the Short: Boarding complete, a checklist of all 25 apps ticked, and a button reading send it to your travel buddy")
 a("china-before-you-fly-10-things-cover-16x9.jpg","Cover: 10 steps before China with the chips eSIM, VPN and insurance, the Shanghai skyline lit at night and a China flag sticker")
+a("alipay-transaction-history-april-with-transport-and-qr-payments.jpg","Alipay transaction history for April with the totals sent and received, two Transport rides and several QR code shop payments, names hidden","Transaction history: every payment shows in yuan with the date and category.")
+a("alipay-bank-cards-page-with-one-visa-card-and-add-bank-card-button.jpg","Alipay Bank Cards page with one Visa card listed and an Add Bank Card button at the top right, last digits hidden","Bank Cards, before: one Visa card. Tap Add Bank Card.")
+a("alipay-add-bank-card-screen-with-accepted-card-logos.jpg","Alipay Add Bank Card screen listing the accepted cards: Visa, Mastercard, UnionPay, American Express, Diners Club, Discover and JCB","The accepted cards on my screen, and a try button for the NFC option.")
+a("alipay-nfc-card-binding-tap-the-physical-card-start-button.jpg","Alipay NFC Card Binding screen reading Tapping the physical card with a blue Start button and the Visa and Mastercard logos","The NFC option: hold the card chip near your phone. I typed my details instead.")
+a("alipay-add-bank-card-number-expiry-and-cvv2-hidden.jpg","Alipay Add Bank Card form with the card number, expiry date and CVV2 hidden, card type Visa and a blue Agree to Terms and Add button","Card number, expiry and CVV2. I hid mine here. Card type fills in as Visa.")
+a("alipay-visa-card-added-successfully-screen.jpg","Alipay screen reading Added successfully with the line Visa added to My Bank Cards and a Done button, last digits hidden","Added successfully. Tap Done.")
+a("alipay-bank-cards-page-with-two-visa-cards.jpg","Alipay Bank Cards page now showing 2 bank cards, both Visa, last digits hidden","Bank Cards, after: the new Visa card is listed.")
+a("alipay-add-foreign-card-china-cover-16x9.jpg","Cover: Add your foreign card to Alipay, step by step, with the chips Visa, Mastercard and UnionPay and two Alipay phone screens")
 a("alipay-metro-qr-code-china-cover-16x9.jpg","Cover: Metro QR in China with the chips Alipay, Metro and Bus, the line set it up before you travel, a phone showing the Alipay Transport screen and a China flag sticker")
 a("alipay-home-screen-with-transport-icon-and-quick-tutorial-caption.jpg","Alipay home screen on a phone with the Transport icon in the top row next to Scan, Pay/Receive and Pocket","Transport is in the top row of the Alipay home screen.")
 a("alipay-select-city-list-with-chengdu-highlighted-for-metro-qr.jpg","Alipay Select city list with the recent cities and the popular cities, including Chengdu, Xi'an and Shanghai","Pick the city you are going to.")
@@ -107,6 +115,7 @@ OGALT={
 "top-25-china-apps.jpg":R["top-25-china-apps-boarding-pass-cover.jpg"]["alt"],
 "taobao-for-foreigners.jpg":R["how-to-order-on-taobao-step-by-step-guide-cover.jpg"]["alt"],
 "alipay-metro-qr-code-china.jpg":R["alipay-metro-qr-code-china-cover-16x9.jpg"]["alt"],
+"alipay-add-foreign-card-china.jpg":R["alipay-add-foreign-card-china-cover-16x9.jpg"]["alt"],
 "china-before-you-fly-checklist.jpg":R["china-before-you-fly-10-things-cover-16x9.jpg"]["alt"],
 }
 

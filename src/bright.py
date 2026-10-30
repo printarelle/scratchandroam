@@ -23,7 +23,7 @@ def nav_b(SOC, NAV_SHOP, FOOT_GROUPS=None, CARDS=None):
     by={c["slug"]:c for c in (CARDS or [])}
     chev='<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
     cols=""
-    MEGA_PICK={"Before you fly":["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc"],"Apps and on the ground":["china-travel-apps","alipay-metro-qr-code-china","taobao-for-foreigners","how-to-order-food-in-china-without-speaking-chinese"],"Shanghai":["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise"]}
+    MEGA_PICK={"Before you fly":["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc"],"Apps and on the ground":["china-travel-apps","alipay-add-foreign-card-china","alipay-metro-qr-code-china","taobao-for-foreigners","how-to-order-food-in-china-without-speaking-chinese"],"Shanghai":["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise"]}
     for h,l in (FOOT_GROUPS or []):
         sl=[x for x in MEGA_PICK.get(h,l) if x in by]
         if sl: cols+=f'<div class="mcol"><h3>{html.escape(h)}</h3>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</div>'
@@ -199,6 +199,7 @@ CLUSTERS=[
  ("apps","Apps and paying in China",[
    ("china-travel-apps","Set up the must-have apps","Start here: the 12 to set up at home, with the steps"),
    ("top-25-china-apps","All 25 apps, ranked","The full list from critical to optional, to choose extras"),
+   ("alipay-add-foreign-card-china","Add your card to Alipay","Link a Visa or Mastercard, step by step"),
    ("alipay-metro-qr-code-china","The metro with Alipay","Ride with the QR code"),
    ("how-to-order-food-in-china-without-speaking-chinese","Order food","Menus, QR codes and delivery"),
    ("food-delivery-in-china-for-foreigners-meituan","Food delivery","Meituan in WeChat, to your hotel"),
@@ -277,9 +278,12 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
         body.append(amazon_b(slug)); toc.append(("amazon",AMAZON[slug][0]))
     if slug in GUIDE_DEALS:
         body.append(guide_deals_b(slug)); toc.append(("links","Links for this guide"))
-    body.append(callout("tip",f'Rules change. Everything on this page was checked on {checked} against the sources below. Before you fly, open the official page once more.'))
-    body.append('<h2 id="sources">Sources</h2>'); toc.append(("sources","Sources"))
-    body.append('<ul class="sources">'+"".join(f'<li><a href="{u}" rel="noopener">{html.escape(n)}</a>{" (official)" if off else ""}</li>' for n,u,off in sources)+'</ul>')
+    if sources:
+        body.append(callout("tip",f'Rules change. Everything on this page was checked on {checked} against the sources below. Before you fly, open the official page once more.'))
+        body.append('<h2 id="sources">Sources</h2>'); toc.append(("sources","Sources"))
+        body.append('<ul class="sources">'+"".join(f'<li><a href="{u}" rel="noopener">{html.escape(n)}</a>{" (official)" if off else ""}</li>' for n,u,off in sources)+'</ul>')
+    else:
+        body.append(callout("tip",f'The screens in this guide are from my own phone, checked on {checked}. Apps change: if your screen looks different, follow what your own app says.'))
     if TIKTOKS.get(slug): body.append(tiktok_b(slug)); toc.append(("short","Watch it as a short"))
     _ord=["TikTok","YouTube","Pinterest","Instagram","Facebook"]
     shorts_links=" · ".join(f'<a href="{u}" rel="noopener">{n}</a>' for n,u in sorted((shorts or {}).items(),key=lambda kv:_ord.index(kv[0]) if kv[0] in _ord else 9))
@@ -870,7 +874,7 @@ def tool_page_b(SOC,key):
     g=lambda *ks:"".join(B[k] for k in ks)
     if key=="yuan-to-euro":
         main=P["money"].replace("{FBDATE}",TOOLS_RATE_FALLBACK["date"]); js=js_m
-        main+='<p>Paying with a foreign card in China? Read <a href="/guides/china-travel-faq/#q-foreign-card-payments">how foreign card payments work</a> and the <a href="/guides/china-travel-apps/">China travel apps guide</a>. Your bank adds its own fee on top of any rate shown here.</p>'
+        main+='<p>Paying with a foreign card in China? Follow <a href="/guides/alipay-add-foreign-card-china/">how to add your card to Alipay</a>, read <a href="/guides/china-travel-faq/#q-foreign-card-payments">how foreign card payments work</a> and the <a href="/guides/china-travel-apps/">China travel apps guide</a>. Your bank adds its own fee on top of any rate shown here.</p>'
     elif key=="clothing-size-converter":
         main=P["finder"]+g("Women's tops, roughly","Men's jackets and tops, roughly")+P["source"]+'<p>Shopping on Taobao? See <a href="/china/tools/taobao-size-charts/">how to read a Taobao size sheet</a> and the <a href="/china/tools/shoe-size-chart/">shoe size chart</a>.</p>'; js=js_s
     elif key=="trouser-size-chart":

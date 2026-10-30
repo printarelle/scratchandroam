@@ -25,6 +25,7 @@ CARDS=[
  dict(slug="food-delivery-in-china-for-foreigners-meituan",sec="shop",img="hotel-food-delivery-robot-china-cover-4x5",alt="A food delivery robot waiting in a hotel corridor at the voco in Shanghai",num="DELIVERY",meta=("STEP BY STEP","MEITUAN IN WECHAT"),t="Food delivery in China for foreigners: Meituan in WeChat",p="Order in English inside WeChat, notes for the rider, hotel robots, and what to do with no Chinese number.",short="Food delivery in China"),
  dict(slug="taobao-11-11-singles-day-for-foreigners",sec="shop",img="singles-day-sale-guide-for-foreigners-cover-16x9",alt="Cover: the title 11.11 sale on Taobao with the chips Alipay, Presale and Hotel, a lit shopping street on Nanjing Road in Shanghai and a China flag sticker",num="11.11",meta=("SALE GUIDE","9 STEPS"),t="Taobao 11.11 for foreigners: how to shop the Singles' Day sale",p="The 2026 dates, paying with Alipay and a foreign card, presale deposits, hotel delivery and the mistakes to avoid.",short="Taobao 11.11 for foreigners"),
  dict(slug="china-before-you-fly-checklist",sec="before",img="china-before-you-fly-10-things-cover-16x9",alt="Cover: 10 steps before China with the chips eSIM, VPN and insurance, the Shanghai skyline lit at night and a China flag sticker",num="10 THINGS",meta=("VIDEO + CHECKLIST","10 STEPS"),t="China first trip checklist: safety and backups",p="Insurance, your hotel in Chinese, emergency numbers, phone and data, payments, document copies, scams, a medical kit, maps and a simple first day.",short="China first trip checklist"),
+ dict(slug="alipay-add-foreign-card-china",sec="before",img="alipay-add-foreign-card-china-cover-16x9",alt="Cover of the guide to adding a foreign card to Alipay, with the chips Visa, Mastercard and UnionPay and two Alipay phone screens",num="ALIPAY CARD",meta=("STEP BY STEP","7 STEPS"),t="How to add a foreign card to Alipay, step by step",p="Open Bank Cards, add your Visa or Mastercard, see it listed, and check your first payments in the transaction history.",short="Add a foreign card to Alipay"),
  dict(slug="alipay-metro-qr-code-china",sec="before",img="alipay-metro-qr-code-china-cover-16x9",alt="Cover of the Alipay metro QR code guide: Metro QR in China with the chips Alipay, Metro and Bus and a China flag sticker",num="METRO QR",meta=("STEP BY STEP","8 STEPS"),t="Alipay metro QR code in China: how to add it, step by step",p="Pick the city, claim the free card, enter your payment password, and switch city when the code is wrong.",short="Alipay metro QR code"),
  dict(slug="the-bund-shanghai-at-night",sec="place",img="the-bund-shanghai-after-dark-cover-4x5",alt="The Bund in Shanghai at night",row_k="The Bund",row_q="How do I get to the Bund at night, and when do the lights go off?",short="The Bund at night"),
  dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-road-shanghai-neon-shop-fronts-cover-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
@@ -913,6 +914,49 @@ guide("alipay-metro-qr-code-china","Alipay metro QR code in China: how to add it
       steps_title="The 8 steps, in order",
       shotnote="Frames from my own screen recording of Alipay. Tap a picture to open it larger.",
       related=[("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/top-25-china-apps/","top-25-china-apps-boarding-pass-cover","TOP 25","Top 25 China apps for tourists, ranked like a boarding pass")])
+
+# ---------- Add a foreign card to Alipay ----------
+AC_FIGS={0:["alipay-bank-cards-page-with-one-visa-card-and-add-bank-card-button"],
+ 1:["alipay-add-bank-card-screen-with-accepted-card-logos"],
+ 2:["alipay-nfc-card-binding-tap-the-physical-card-start-button"],
+ 3:["alipay-add-bank-card-number-expiry-and-cvv2-hidden"],
+ 4:["alipay-visa-card-added-successfully-screen"],
+ 5:["alipay-bank-cards-page-with-two-visa-cards"],
+ 6:["alipay-transaction-history-april-with-transport-and-qr-payments"]}
+AC_STEPS=[
+ ("Open Bank Cards in Alipay",
+  "Open the Alipay wallet and go to <b>Bank Cards</b>. My page already listed one Visa card, and the <b>Add Bank Card</b> button is at the top right. The menu names can differ slightly between app versions and languages, so if you cannot find it, use the search bar in Alipay and type <i>bank cards</i>."),
+ ("Tap Add Bank Card and check your card is accepted",
+  "The Add Bank Card screen lists the cards it takes. On my screen the logos were <b>Visa, Mastercard, UnionPay, American Express, Diners Club, Discover and JCB</b>. Check your card brand is on the row before you start. Alipay can change this list, so trust your own screen."),
+ ("Choose how to add it: tap the card, or type the details",
+  "Under the number field there is a box that says <b>Add a payment card to Alipay</b>, with a <b>try</b> button. Tap it and you reach <b>NFC Card Binding</b>: hold the chip of your physical card near the phone's NFC area, then tap <b>Start</b>. The screen shows the Visa and Mastercard logos, so I would not count on it for other brands. I went back and typed the details by hand, which is the next step."),
+ ("Type the card number, expiry date and CVV2",
+  "Type the long card number, then the expiry date and the three-digit <b>CVV2</b> from the back of the card. The card type filled in by itself as <b>Visa</b>. Check every digit before you go on. I have hidden my own numbers in the screenshot, and you should do the same if you ever share yours."),
+ ("Read the agreement and tap Agree to Terms and Add",
+  "Under the form there is a <b>Service Agreement</b> link. Open it, and use the floating <b>Translate</b> button if it is in Chinese. When you are happy, tap the blue <b>Agree to Terms and Add</b> button."),
+ ("Look for Added successfully, then tap Done",
+  "You should see <b>Added successfully</b> with a line that the Visa card, with its last four digits, was added to <b>My Bank Cards</b>. Tap <b>Done</b>. Go back to the Bank Cards page: it now said <b>2 bank cards</b>, and the new Visa was listed under the first one."),
+ ("Check your payments in the transaction history",
+  "After you spend, open your <b>transaction history</b> in Alipay. Each row shows what the payment was for, the date and time, a category such as Transport, and the amount in yuan. At the top of the month you see how much you sent and received. My April page shows two Transport rides, several QR code payments to shops and a small 5.00 payment that looks like a metro fare. Names of people are hidden. Compare it with your bank statement later: your bank converts the yuan into your own currency and may add its own fee."),
+]
+AC_STEPS=[(a,b,AC_FIGS.get(i,[])) for i,(a,b) in enumerate(AC_STEPS)]
+guide("alipay-add-foreign-card-china","How to add a foreign card to Alipay for China, step by step","How to add a foreign card to Alipay for China, step by step",
+      "How to add a foreign Visa or Mastercard to Alipay: open Bank Cards, tap Add Bank Card, enter the details or tap the card, and check your payments.",
+      "add foreign card to alipay",None,
+      "<p>To pay in China you need a card linked to Alipay. You do not need a Chinese bank account. This guide shows how I added my own Visa card to Alipay on my phone: where Bank Cards is, which cards the screen accepts, the tap-your-card (NFC) option, typing the details, and the screen that tells you it worked. It ends with the transaction history, so you know where to check your first payments.</p><p>The screenshots are from my own phone. I have hidden my card number, expiry date, CVV2 and the last four digits, and the names of people in my payments. Checked on 30 October 2026.</p>",
+      AC_STEPS,
+      [("How do I add a foreign card to Alipay?","Open Alipay, go to Bank Cards, tap Add Bank Card, type the card number, expiry date and CVV2 (or tap the card on your phone with NFC), tap Agree to Terms and Add, and look for Added successfully."),
+       ("Which foreign cards does Alipay accept?","The Add Bank Card screen on my phone listed Visa, Mastercard, UnionPay, American Express, Diners Club, Discover and JCB. Alipay can change the list, so check your own screen."),
+       ("Do I need a Chinese bank account?","No. I added my own Visa card from home, with the number, expiry date and CVV2. Alipay may still ask for other checks, so do the setup before you fly."),
+       ("Can I add the card by tapping it on my phone?","There is an NFC option called NFC Card Binding. You hold the chip of the physical card near the phone, then tap Start. The screen shows the Visa and Mastercard logos. I typed my details instead, so I cannot say how well NFC works."),
+       ("Is there a fee for paying with a foreign card?","I do not give a fee here because I could not confirm one from Alipay. Third-party sources report a 3% Alipay fee above 200 yuan, and your own bank may add a foreign payment fee. Read the <a href='/guides/china-travel-faq/#q-foreign-card-payments'>foreign card question in the FAQ</a> and check with your bank."),
+       ("Where do I see what I paid?","In the transaction history. It shows each payment with its date, category and amount in yuan.")],
+      [],
+      SITE+"/og/alipay-add-foreign-card-china.jpg",checked="2026-10-30",published="2026-10-30",vschema=False,
+      lift='<div class="dd-hero"><img data-hero src="/img/alipay-add-foreign-card-china-cover-16x9.jpg" alt="" width="1280" height="720"></div>',
+      steps_title="The 7 steps, in order",
+      shotnote="Screenshots from my own phone, with my card details hidden. Tap a picture to open it larger.",
+      related=[("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/alipay-metro-qr-code-china/","alipay-metro-qr-code-china-cover-16x9","METRO QR","Alipay metro QR code in China: how to add it"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")])
 
 CB_STEPS=[
  ("Have travel insurance before you fly",

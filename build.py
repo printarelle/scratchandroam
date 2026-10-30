@@ -34,7 +34,7 @@ def NAV_SHOP():
     # "Shopping" menu link appears only once there are 3 or more guides with sec="shop"; one guide does not need its own menu item
     return '<a href="/china/#shopping">Shopping</a>' if sum(1 for c in globals().get("CARDS",[]) if c["sec"]=="shop")>=3 else ''
 FOOT_GROUPS=[("Before you fly",["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc","china-arrival-card-alipay","china-dos-and-donts","build-spice-tolerance-before-china"]),
- ("Apps and on the ground",["china-travel-apps","top-25-china-apps","alipay-metro-qr-code-china","taobao-for-foreigners","taobao-11-11-singles-day-for-foreigners","how-to-order-food-in-china-without-speaking-chinese","food-delivery-in-china-for-foreigners-meituan"]),
+ ("Apps and on the ground",["china-travel-apps","top-25-china-apps","alipay-add-foreign-card-china","alipay-metro-qr-code-china","taobao-for-foreigners","taobao-11-11-singles-day-for-foreigners","how-to-order-food-in-china-without-speaking-chinese","food-delivery-in-china-for-foreigners-meituan"]),
  ("Shanghai",["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show","ihg-hotels-china-shanghai-hangzhou-review"])]
 def FOOT_GUIDES():
     # grouped columns; a guide not named above falls into a group by its section so new guides still show up
