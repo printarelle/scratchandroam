@@ -819,3 +819,74 @@ def privacy_b(SOC):
 <h2>Changes</h2><p>If I change how the site tracks visitors, I will change this page and the date at the top.</p>
 </article></div></section>
 </main>'''
+
+# ===== China tools: one landing page per tool, plus a hub =====
+TOOL_PAGES={
+ "yuan-to-euro":{"title":"Yuan to euro converter for China (CNY, USD, GBP)","desc":"Convert Chinese yuan to euro, dollars or pounds with a live ECB-based rate, plus a quick price table to judge what things cost in China.","h1":"Yuan to euro converter","lede":"Type a price in yuan and see it in euro, dollars or pounds. Use it to judge a price in a shop or on Taobao, not to budget to the cent.","card":"Yuan converter","blurb":"Yuan to euro, dollars or pounds, with a quick price table.","kw":"yuan to euro cny rmb convert exchange rate currency china"},
+ "clothing-size-converter":{"title":"Chinese clothing size converter: 170/88A explained","desc":"Turn your height and chest in cm into a Chinese clothing label like 170/88A, with women's and men's size tables for EU, UK and US sizes.","h1":"Chinese clothing size converter","lede":"Chinese clothes use labels like 170/88A. Enter your height and chest and see yours, then check the women's and men's tables.","card":"Clothing sizes","blurb":"Find your 170/88A style label and compare EU, UK and US.","kw":"chinese clothing size converter 170/88A taobao size chart women men eu uk us gb/t 1335"},
+ "shoe-size-chart":{"title":"Chinese shoe size chart: EU, US and foot length in cm","desc":"How Chinese shoe sizes work: the standard size is the EU number and the code is foot length in mm. Men's and women's tables from real Taobao sheets.","h1":"Chinese shoe size chart","lede":"Shoe sizes in China are simpler than clothes once you know the foot length column. Here are two real Taobao sheets side by side.","card":"Shoe sizes","blurb":"Foot length in cm to EU and US, with a returns warning.","kw":"chinese shoe size chart taobao eu us cm foot length 标准码 国际码"},
+ "jin-to-kg":{"title":"What is jin in kg? Chinese weight and unit converter","desc":"One jin is 500 grams. Convert jin to kilograms, km to miles, Celsius to Fahrenheit and cm to inches, and see why size charts that use jin matter.","h1":"What is jin in kilograms?","lede":"Chinese shops and size charts often use jin (斤). One jin is half a kilo. Convert it here, along with the other units you will meet.","card":"Jin, km and degrees","blurb":"Jin to kg, km to miles, Celsius to Fahrenheit.","kw":"jin to kg 斤 chinese weight unit km miles celsius fahrenheit inches cm convert"},
+ "taobao-size-charts":{"title":"How to read Taobao size charts, with Chinese terms","desc":"Read real Taobao size sheets for a shirt, a bra and a dress: collar numbers, height and weight grids, jin, key Chinese words and return warnings.","h1":"How to read Taobao size charts","lede":"Real size sheets from Taobao listings, explained line by line, with the Chinese words you will see and the traps to avoid.","card":"Read a Taobao size sheet","blurb":"Shirt, bra and dress sheets explained, with Chinese words.","kw":"taobao size chart how to read 尺码 height weight grid jin bra size dress shirt collar"},
+}
+TOOL_ORDER=["yuan-to-euro","clothing-size-converter","shoe-size-chart","jin-to-kg","taobao-size-charts"]
+def _tool_parts():
+    t=_TOOLS_HTML
+    ix=lambda s,a=0:t.index(s,a)
+    money=t[ix('<div class="tool" id="money">'):ix('<div class="tool" id="units">')]
+    units=t[ix('<div class="tool" id="units">'):ix('<div class="tool" id="sizes">')]
+    sz_start=ix('<div class="tool" id="sizes">')
+    first_det=ix('<details class="tsec">',sz_start)
+    finder=t[sz_start:first_det]
+    src_i=ix('<p class="tmeta">Source: the label structure')
+    secs={}
+    for m in re.finditer(r'<details class="tsec"><summary>(.*?)</summary>',t[first_det:src_i]):
+        secs[m.group(1)]=first_det+m.start()
+    starts=sorted(secs.values())+[src_i]
+    body={}
+    for k,v in secs.items():
+        e=starts[starts.index(v)+1]; body[k]=t[v:e].replace('<details class="tsec">','<details class="tsec" open>')
+    source=t[src_i:ix('</div></section>',src_i)]
+    js=t[ix('<script>')+len('<script>'):t.rindex('</script>')]
+    jm_start=js.index('var FB='); ju=js.index('var U={'); jsz=js.index('function size_run')
+    return dict(money=money,units=units,finder=finder,body=body,source=source,js_money=js[jm_start:ju],js_units=js[ju:jsz],js_size=js[jsz:].rstrip()[:-len('})();')])
+def _tools_nav(cur):
+    return '<p class="tmeta" style="margin-top:22px"><b>More tools:</b> '+" · ".join(f'<a href="/china/tools/{k}/">{html.escape(TOOL_PAGES[k]["card"])}</a>' for k in TOOL_ORDER if k!=cur)+' · <a href="/china/tools/">All tools</a></p>'
+def tool_page_b(SOC,key):
+    P=_tool_parts(); M=TOOL_PAGES[key]; B=P["body"]
+    fb=_json.dumps(TOOLS_RATE_FALLBACK)
+    js_m="(function(){"+P["js_money"].replace("{FBJSON}",fb)+"})();"
+    js_u="(function(){"+P["js_units"]+"})();"
+    js_s="(function(){"+P["js_size"]+"})();"
+    g=lambda *ks:"".join(B[k] for k in ks)
+    if key=="yuan-to-euro":
+        main=P["money"].replace("{FBDATE}",TOOLS_RATE_FALLBACK["date"]); js=js_m
+        main+='<p>Paying with a foreign card in China? Read <a href="/guides/china-travel-faq/#q-foreign-card-payments">how foreign card payments work</a> and the <a href="/guides/china-travel-apps/">China travel apps guide</a>. Your bank adds its own fee on top of any rate shown here.</p>'
+    elif key=="clothing-size-converter":
+        main=P["finder"]+g("Women's tops, roughly","Men's jackets and tops, roughly")+P["source"]+'<p>Shopping on Taobao? See <a href="/china/tools/taobao-size-charts/">how to read a Taobao size sheet</a> and the <a href="/china/tools/shoe-size-chart/">shoe size chart</a>.</p></div>'; js=js_s
+    elif key=="shoe-size-chart":
+        main='<div class="tool">'+g("Example: shoe sizes")+'</div>'; js=""
+    elif key=="jin-to-kg":
+        main=P["units"]+'<div class="tool">'+g("Watch the weight unit: jin, not kilos")+'</div>'; js=js_u
+    else:
+        main='<div class="tool">'+g("Reading a real Taobao size sheet","Example: a bra size chart","Example: a dress with S to XL","Watch the weight unit: jin, not kilos")+'<p class="tmeta">Converting a weight in jin? Use the <a href="/china/tools/jin-to-kg/">jin to kg converter</a>.</p></div>'; js=""
+    main=main.replace('<h2>','<h2>')
+    return f'''<main>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><a href="/china/">China</a><span>/</span><a href="/china/tools/">Tools</a><span>/</span><span>{html.escape(M["card"])}</span></nav><p class="eyebrow">China Travel Companion</p><h1>{html.escape(M["h1"])}</h1><p class="lede">{html.escape(M["lede"])}</p></div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+<div class="dnote"><b>Read this first</b><p>Rates change daily, sizes differ by brand, and the seller's own chart always wins. I checked these on 29 October 2026.</p></div>
+{main}{_tools_nav(key)}
+</div></section>
+{band_b(SOC,"shop")}
+</main>
+{('<script>'+js_m*0+(js)+'</script>') if js else ''}'''
+def tools_hub_b(SOC):
+    cards="".join(f'<a class="tcard" href="/china/tools/{k}/"><b>{html.escape(TOOL_PAGES[k]["card"])}</b><span>{html.escape(TOOL_PAGES[k]["blurb"])}</span></a>' for k in TOOL_ORDER)
+    return f'''<main>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><a href="/china/">China</a><span>/</span><span>Tools</span></nav><p class="eyebrow">China Travel Companion</p><h1>China money, units and clothing size tools</h1><p class="lede">Small tools for shopping and paying in China. Each one has its own page, runs in your browser, and works once the page has loaded and your signal drops.</p></div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+<div class="dnote"><b>Read this first</b><p>Rates change daily and your bank adds its own fee. Sizes differ by brand, and the seller's own size chart always wins.</p></div>
+<div class="tcards">{cards}</div>
+<p class="tmeta" style="margin-top:22px">Not sure what you need? <a href="/guides/china-travel-faq/">Search every China question</a>, or read the <a href="/guides/taobao-for-foreigners/">Taobao order guide</a>.</p>
+</div></section>
+{band_b(SOC,"shop")}
+</main>'''

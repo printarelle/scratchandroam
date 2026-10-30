@@ -16,8 +16,28 @@
   "h": "b9a0f997a31f18b48b9c0f67daf553679543709c"
  },
  "/china/tools/": {
-  "d": "2026-10-30T07:22:52+00:00",
-  "h": "9da3d891237d93a05ad2cef617caec63d4591016"
+  "d": "2026-10-30T07:25:19+00:00",
+  "h": "611e73d97860384d4670e0ba32e095996d2cbcba"
+ },
+ "/china/tools/clothing-size-converter/": {
+  "d": "2026-10-30T07:25:19+00:00",
+  "h": "3598be399547b4f46ea8bf0e83d07299e8d38f0f"
+ },
+ "/china/tools/jin-to-kg/": {
+  "d": "2026-10-30T07:25:19+00:00",
+  "h": "bd8da9b60a0317daf076f6e3a21441382c2c70ef"
+ },
+ "/china/tools/shoe-size-chart/": {
+  "d": "2026-10-30T07:25:19+00:00",
+  "h": "86eed1b4fbcb13f41f51cc72b9102acb3fa33506"
+ },
+ "/china/tools/taobao-size-charts/": {
+  "d": "2026-10-30T07:25:19+00:00",
+  "h": "3c500bff6ef36ec7bc30862b37c3ed8ccf8bfe60"
+ },
+ "/china/tools/yuan-to-euro/": {
+  "d": "2026-10-30T07:25:19+00:00",
+  "h": "f1e6ba5037069403a4db7a04829214b52511c4a1"
  },
  "/december-trip/": {
   "d": "2026-10-28T19:05:45+00:00",
