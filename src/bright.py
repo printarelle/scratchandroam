@@ -86,7 +86,7 @@ def quick_b(slug):
 
 HELP=[("Entry and visas","Visa-free rules","/guides/china-visa-free-30-days/"),
  ("Arrival card","Fill it in before you fly","/guides/china-arrival-card-pc/"),
- ("Paying in China","Alipay and WeChat","/guides/china-travel-apps/"),
+ ("Paying in China","Alipay and WeChat","/guides/china-travel-faq/#q-foreign-card-payments"),
  ("Travel apps","The 25 I used","/guides/top-25-china-apps/"),
  ("Trains and metro","Metro QR code","/guides/alipay-metro-qr-code-china/"),
  ("Shopping","Taobao, 11.11","/guides/taobao-for-foreigners/"),
@@ -145,8 +145,14 @@ def stats_b(n_guides, title="A bit about my trips to China."):
     S=[("plane","2","Trips to China"),("cal","Dec 2025","First trip, Christmas"),("pin","Apr 2026","Second trip, Easter"),("book",str(n_guides),"Dated guides"),("heart","Dec 2026","Next: Chengdu, Chongqing, Xi'an")]
     return f'<section class="stats"><div class="wrap"><h2>{html.escape(title)}</h2><div class="row">'+"".join(f'<div class="stat">{IC[i]}<b>{v}</b><span>{l}</span></div>' for i,v,l in S)+'</div></div></section>'
 
-def band_b(SOC):
-    return f'''<section class="band"><div class="wrap"><div class="bcard">{IC["mail"]}<h2>Planning a China trip? Start with the arrival card.</h2><p>Every guide here is dated and rechecked against the official source. Start with the two things that catch first-timers out: the arrival card and Alipay. Save the checklists on Pinterest so they are there when you pack.</p><div class="acts"><a class="btn" href="/guides/china-arrival-card-pc/">Arrival card, step by step</a><a class="btn ghost" href="/guides/first-time-in-china/">13 things before you fly</a></div><small>No sign-up, no newsletter. Just the guides.</small></div></div></section>'''
+def band_b(SOC, kind="start"):
+    if kind=="shop":
+        h="Shopping on Taobao? Start with the order guide.";p="Sizes, jin and prices are only half of it. The order guide shows paying with Alipay, the address and what arrives. Every guide here is dated and rechecked against the official source.";a=('/guides/taobao-for-foreigners/',"Order on Taobao, step by step");b2=('/guides/china-travel-faq/',"Browse every China question")
+    elif kind=="taobao":
+        h="Ordering from Taobao? Check sizes and prices first.";p="Chinese sizes run differently and weights are often in jin. The tools page converts yuan, jin and clothing and shoe sizes, and shows how to read a real size sheet. Every guide here is dated and rechecked against the official source.";a=('/china/tools/',"Yuan, jin and size tools");b2=('/guides/taobao-11-11-singles-day-for-foreigners/',"Taobao 11.11 for foreigners")
+    else:
+        h="Planning a China trip? Start with the arrival card.";p="Every guide here is dated and rechecked against the official source. Start with the two things that catch first-timers out: the arrival card and Alipay. Save the checklists on Pinterest so they are there when you pack.";a=('/guides/china-arrival-card-pc/',"Arrival card, step by step");b2=('/guides/first-time-in-china/',"13 things before you fly")
+    return f'''<section class="band"><div class="wrap"><div class="bcard">{IC["mail"]}<h2>{h}</h2><p>{p}</p><div class="acts"><a class="btn" href="{a[0]}">{a[1]}</a><a class="btn ghost" href="{b2[0]}">{b2[1]}</a></div><small>No sign-up, no newsletter. Just the guides.</small></div></div></section>'''
 
 def social_b(SOC, img_yt, img_ig):
     return f'''<section class="social"><div class="wrap"><div class="box"><h2>Let's keep roaming together!</h2><p class="sub">Follow along for the videos behind these guides, the screenshots as I take them, and the next trip as it happens.</p><div class="socs">
@@ -310,7 +316,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <div class="scard"><span class="eyebrow">Quick answers</span><p>Short, dated answers to the China questions first-timers ask.</p><a href="/guides/china-travel-faq/">Search the questions →</a><p style="margin-top:10px"><a href="/china/tools/">Yuan and clothing size tools →</a></p></div>
 </aside>
 </div>
-{band_b(SOC)}
+{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug=="taobao-11-11-singles-day-for-foreigners" else "start"))}
 {social_b(SOC,"the-bund-pudong-skyline-and-shanghai-tower-at-night","nanjing-road-curved-corner-building-neon-lights")}
 </main>'''
 
@@ -661,7 +667,7 @@ _TOOLS_HTML='''<main>
 <p>Chinese clothing labels follow the national standard GB/T 1335 and look like <b>170/88A</b>: <b>170</b> is the height in cm the garment is cut for, <b>88</b> is the chest or bust in cm, and the letter is the fit. <b>A</b> is regular, <b>Y</b> is slimmer and <b>B</b> is fuller.</p>
 <div class="trow"><label>Height (cm)<input id="sH" type="number" inputmode="decimal" placeholder="168"></label><label>Chest or bust (cm)<input id="sC" type="number" inputmode="decimal" placeholder="90"></label><label>Fit<select id="sF"><option value="A">A, regular</option><option value="Y">Y, slimmer</option><option value="B">B, fuller</option></select></label></div>
 <p class="tres" id="sOut" aria-live="polite">Fill in height and chest to see your label.</p>
-<h3>Reading a real Taobao size sheet</h3>
+<details class="tsec"><summary>Reading a real Taobao size sheet</summary><div class="tin">
 <p>Many Taobao shirts and jackets do not use 170/88A at all. This one, a men's-style shirt sized by collar number, shows what you will see after tapping 尺码信息 (size info) on a listing. Sizes 39 to 46 are collar numbers, and the seller recommends 42.</p>
 <div class="twrap"><table class="szt"><thead><tr><th>Size</th><th>Height cm</th><th>Weight kg</th><th>Shoulder cm</th><th>Chest cm</th></tr></thead><tbody>
 <tr><td>39</td><td>158-173</td><td>50-55</td><td>42.1</td><td>96</td></tr>
@@ -685,7 +691,8 @@ _TOOLS_HTML='''<main>
 <tr><td>DZ</td><td></td><td>Most likely 定制 (made to measure). Ask the seller before ordering</td></tr>
 </tbody></table></div>
 <p class="tmeta">How I would use it: start with the weight grid, then check the buyer reference rows for your own height and weight, then read the size note at the bottom. The sheet itself says different ways of measuring can differ by 2 to 4 cm. I have not confirmed whether the chest number is the body or the garment, so ask the seller (客服) if it matters. Sheet seen on Taobao on 29 October 2026.</p>
-<h3>Example: a bra size chart</h3>
+</div></details>
+<details class="tsec"><summary>Example: a bra size chart</summary><div class="tin">
 <p>Bra sheets give two things: the underbust (下围) and the difference between bust and underbust (胸围和下围差). The band is the underbust rounded to a 5, and the cup comes from the difference. This sheet, for a wired and wire-free set, lists the brand's own sizes next to the China size.</p>
 <div class="twrap"><table class="szt"><thead><tr><th>Underbust cm</th><th>Band, brand</th><th>Band, China</th></tr></thead><tbody>
 <tr><td>63-67</td><td>30</td><td>65</td></tr><tr><td>68-72</td><td>32</td><td>70</td></tr><tr><td>73-77</td><td>34</td><td>75</td></tr><tr><td>78-82</td><td>36</td><td>80</td></tr><tr><td>83-87</td><td>38</td><td>85</td></tr></tbody></table></div>
@@ -704,17 +711,20 @@ _TOOLS_HTML='''<main>
 <tr><td>内裤 / 套装</td><td>nèikù / tàozhuāng</td><td>Briefs / set</td></tr>
 <tr><td>锦纶, 氨纶, 聚酯纤维, 棉, 莫代尔</td><td></td><td>Nylon, spandex, polyester, cotton, modal</td></tr>
 </tbody></table></div>
-<h3>Example: a dress with S to XL</h3>
+</div></details>
+<details class="tsec"><summary>Example: a dress with S to XL</summary><div class="tin">
 <p>Here the sizes are letters, and the cm columns are what matter: 裙长 dress length, 胸围 chest, 肩宽 shoulder, 腰围 waist, 袖长 sleeve length. This seller also shows the model: 171 cm, 50 kg, wearing M (三围, the three measurements, are bust, waist and hip: 81, 63.5 and 94).</p>
 <div class="twrap"><table class="szt"><thead><tr><th>Size</th><th>Length</th><th>Chest</th><th>Shoulder</th><th>Waist</th><th>Sleeve</th></tr></thead><tbody>
 <tr><td>S</td><td>134</td><td>72-96</td><td>33</td><td>54-76</td><td>61</td></tr><tr><td>M</td><td>135</td><td>76-100</td><td>34</td><td>58-80</td><td>62</td></tr><tr><td>L</td><td>136</td><td>80-104</td><td>35</td><td>62-84</td><td>63</td></tr><tr><td>XL</td><td>137</td><td>84-108</td><td>36</td><td>66-88</td><td>64</td></tr></tbody></table></div>
 <p class="tmeta">The chest and waist are ranges, which usually means a stretchy fabric, but the sheet does not say so. The seller notes hand measuring can be 1 to 2 cm off (手工测量可能存在1-2cm误差).</p>
-<h3>Watch the weight unit: jin, not kilos</h3>
+</div></details>
+<details class="tsec"><summary>Watch the weight unit: jin, not kilos</summary><div class="tin">
 <p>A second dress sheet has a height and weight grid. Its weight row is labelled 体重 (斤), which is <b>jin</b>. One jin is half a kilo, so 100 jin is 50 kg. If you read 100 as kilos you will order far too big. The measurement table above it on the same sheet looks like kilos (45 for the 155 cm size), so check the unit on every grid.</p>
 <div class="twrap"><table class="szt"><thead><tr><th>Height cm</th><th>85-90 jin (42.5-45 kg)</th><th>100-105 jin (50-52.5 kg)</th><th>115-120 jin (57.5-60 kg)</th></tr></thead><tbody>
 <tr><td>150-155</td><td>S</td><td>M</td><td>L</td></tr><tr><td>160-165</td><td>S</td><td>S</td><td>L</td></tr><tr><td>170-175</td><td>blank</td><td>M</td><td>M</td></tr></tbody></table></div>
 <p class="tmeta">Blank cells mean the seller does not make a size for that height and weight. The note under the grid says to choose by how you like clothes to fit (MM根据穿衣习惯选择尺码, where MM is slang for a young woman). Sheets seen on Taobao on 29 October 2026. I have not ordered any of these items.</p>
-<h3>Example: shoe sizes</h3>
+</div></details>
+<details class="tsec"><summary>Example: shoe sizes</summary><div class="tin">
 <p>Chinese shoe sizes are easier than clothes. The <b>标准码</b> (standard size) is the same number as an EU size, so a 38 is a 38. The <b>国际码</b> (international code) is the foot length in millimetres, so 240 means 24.0 cm. Always compare your own foot length in cm with the seller's 脚长 column.</p>
 <p><b>标准女鞋尺寸表, standard women's shoes</b></p>
 <div class="twrap"><table class="szt"><thead><tr><th>国际码 (mm)</th><th>标准码 (EU)</th><th>脚长 foot length cm</th><th>脚宽 foot width cm</th></tr></thead><tbody><tr><td>215</td><td>33</td><td>21.0-21.4</td><td>7.5-7.9</td></tr><tr><td>220</td><td>34</td><td>21.5-22.0</td><td>8.0-8.4</td></tr><tr><td>225</td><td>35</td><td>22.1-22.5</td><td>8.5</td></tr><tr><td>230</td><td>36</td><td>22.6-23.0</td><td>8.6-9.0</td></tr><tr><td>235</td><td>37</td><td>23.1-23.5</td><td>9.1</td></tr><tr><td>240</td><td>38</td><td>23.6-24.0</td><td>9.2-9.5</td></tr><tr><td>245</td><td>39</td><td>24.1-24.5</td><td>9.6-10.0</td></tr><tr><td>250</td><td>40</td><td>24.6-25.0</td><td>10.1-10.5</td></tr></tbody></table></div>
@@ -734,7 +744,8 @@ _TOOLS_HTML='''<main>
 <tr><td>不支持七天无理由退换</td><td>bù zhīchí qī tiān wú lǐyóu tuìhuàn</td><td>No 7-day return without a reason</td></tr>
 </tbody></table></div>
 <p class="tmeta"><b>Check returns before you buy shoes.</b> The running-shoe listing warns that shoes which are worn, washed or have the tag removed, in a way that affects resale, are not covered by the 7-day no-reason return, unless there is a quality problem. Try them on indoors on a clean floor, and ask the seller (客服) if you are unsure. Sheets seen on Taobao on 29 October 2026. The text on the second sheet is partly cut off at the edge, so I have only translated what I could read.</p>
-<h3>Women's tops, roughly</h3>
+</div></details>
+<details class="tsec"><summary>Women's tops, roughly</summary><div class="tin">
 <div class="twrap"><table class="szt"><thead><tr><th>China label</th><th>Letter</th><th>Bust cm</th><th>EU</th><th>UK</th><th>US</th></tr></thead><tbody>
 <tr><td>155/80A</td><td>XS</td><td>80-83</td><td>32-34</td><td>4-6</td><td>0-2</td></tr>
 <tr><td>160/84A</td><td>S</td><td>84-87</td><td>36-38</td><td>8-10</td><td>4-6</td></tr>
@@ -743,7 +754,8 @@ _TOOLS_HTML='''<main>
 <tr><td>170/96A</td><td>XL</td><td>96-100</td><td>44-46</td><td>20</td><td>16</td></tr>
 <tr><td>172/100A</td><td>XXL</td><td>100-104</td><td>46-48</td><td>22</td><td>18</td></tr>
 </tbody></table></div>
-<h3>Men's jackets and tops, roughly</h3>
+</div></details>
+<details class="tsec"><summary>Men's jackets and tops, roughly</summary><div class="tin">
 <div class="twrap"><table class="szt"><thead><tr><th>China label</th><th>Letter</th><th>Chest cm</th><th>Height cm</th><th>EU</th></tr></thead><tbody>
 <tr><td>165/84A</td><td>S</td><td>84-87</td><td>163-167</td><td>44</td></tr>
 <tr><td>170/88A</td><td>M</td><td>88-91</td><td>168-172</td><td>46</td></tr>
@@ -752,6 +764,7 @@ _TOOLS_HTML='''<main>
 <tr><td>185/100A</td><td>XXL</td><td>100-103</td><td>183-187</td><td>52</td></tr>
 <tr><td>190/104A</td><td>3XL</td><td>104-107</td><td>188-192</td><td>54</td></tr>
 </tbody></table></div>
+</div></details>
 <p class="tmeta">Source: the label structure and the size tables come from <a href="https://www.travelofchina.com/size-chart-for-china-clothes/" rel="noopener" target="_blank">Travel of China's size chart guide</a>, which cites GB/T 1335. Checked 29 October 2026. I have not tested these against garments myself. Trust the centimetre columns over the letter and country sizes, and measure your own chest. Taobao sellers usually post their own chart, and many brands cut smaller than the standard, so between two sizes I would go up. Trousers are not covered yet.</p></div>
 </div></section>
 {BAND}
@@ -782,7 +795,7 @@ var H=Math.round(h/5)*5,C=Math.round(c/4)*4;o.innerHTML="Your label is about <b>
 ["sH","sC","sF"].forEach(function(i){document.getElementById(i).addEventListener("input",size_run)});
 })();</script>'''
 def tools_b(SOC):
-    return (_TOOLS_HTML.replace('{FBJSON}',_json.dumps(TOOLS_RATE_FALLBACK)).replace('{FBDATE}',TOOLS_RATE_FALLBACK["date"]).replace('{BAND}',band_b(SOC)))
+    return (_TOOLS_HTML.replace('{FBJSON}',_json.dumps(TOOLS_RATE_FALLBACK)).replace('{FBDATE}',TOOLS_RATE_FALLBACK["date"]).replace('{BAND}',band_b(SOC,"shop")))
 
 CONSENTJS="""<script>(function(){var K="sr-consent";function get(){try{return localStorage.getItem(K)}catch(e){return null}}function set(v){try{localStorage.setItem(K,v)}catch(e){}}
 function apply(v){if(typeof gtag==="function"){gtag("consent","update",{analytics_storage:v==="granted"?"granted":"denied"})}}
