@@ -1296,6 +1296,32 @@ guide("alipay-vs-wechat-pay-china","Alipay or WeChat Pay in China? What I used f
       extra=AW_EXTRA,
       related=[("/guides/alipay-add-foreign-card-china/","alipay-add-foreign-card-china-cover-16x9","ALIPAY CARD","How to add a foreign card to Alipay, step by step"),("/guides/wechat-pay-add-foreign-card-china/","wechat-pay-add-foreign-card-china-cover-16x9","WECHAT CARD","How to add a foreign card to WeChat Pay, step by step"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China")])
 
+CB_GLANCE=('<div class="glance"><div class="gl-h"><b>The checklist at a glance</b><span class="gl-pill">Save this to your phone</span></div><div class="gl-g">'
+ +_gn("Emergency numbers","110 police, 120 ambulance, 119 fire")
+ +_gn("Save offline","Hotel name and address in Chinese")
+ +_gn("Phone","An eSIM plus a backup plan")
+ +_gn("Paying","A main method and a backup")
+ +_gn("Documents","Copies you can reach fast")
+ +_gn("First day","Keep it simple")
+ +'</div><p class="gl-f">Ten steps below. Screenshot this card and the list at the end.</p></div>')
+CB_EXTRA=(
+ '<h2 id="screenshot">The 10 things, as a list to screenshot</h2>'
+ '<ol class="stops"><li>Travel insurance bought, policy number and insurer emergency number saved offline.</li>'
+ '<li>Every hotel name and address saved in Chinese.</li>'
+ '<li>Emergency numbers known: 110, 120, 119.</li>'
+ '<li>eSIM installed at home, plus a backup plan for data.</li>'
+ '<li>A main way to pay and a backup set up.</li>'
+ '<li>Copies of passport page, visa if needed, flights, hotels and insurance.</li>'
+ '<li>Scam rule: if it feels off, pause.</li>'
+ '<li>A tiny medical kit and enough of your own prescription.</li>'
+ '<li>Translation app ready and key places saved on your map.</li>'
+ '<li>A simple first day planned.</li></ol>'
+ '<h2 id="more">Where to go for the detail</h2>'
+ '<ul class="stops"><li><a href="/guides/first-time-in-china/">First time in China: 13 things to set up</a>, the main overview.</li>'
+ '<li><a href="/guides/china-travel-apps/">China travel apps</a> for paying, maps, trains and the eSIM.</li>'
+ '<li><a href="/guides/china-visa-free-30-days/">China visa free for 30 days</a> and the arrival card in <a href="/guides/china-arrival-card-alipay/">Alipay</a> or on a <a href="/guides/china-arrival-card-pc/">PC</a>.</li>'
+ '<li><a href="/guides/china-dos-and-donts/">China do\'s and don\'ts</a>: what not to bring and what not to do.</li></ul>')
+
 CB_STEPS=[
  ("Have travel insurance before you fly",
   "Get it before the trip, not at the airport and not after something goes wrong. Save the policy number and the insurer's emergency number somewhere you can open without internet, for example a screenshot or a saved note. The UK government's China travel advice tells travellers to contact their travel provider and insurer if they are involved in a serious incident or emergency abroad."),
@@ -1321,17 +1347,21 @@ CB_STEPS=[
 guide("china-before-you-fly-checklist","China first trip checklist: safety and backups (2026)","China first trip checklist: 10 safety and backup things to sort before you fly",
       "The safety and backup side of a first China trip: insurance, your hotel in Chinese, emergency numbers, data, payments, copies, scams and a medical kit.",
       "china first trip checklist",None,
-      "<p>This is my China first trip checklist: the ten things I would sort if I were packing for my first China trip all over again. It is not about being afraid. Staying safe in China is about gently removing the small problems before they happen.</p><p>It comes from our two trips to China, at Christmas 2025 and Easter 2026. The advice is first-hand, and the emergency numbers are checked against the UK government's travel advice (official). Checked on 20 October 2026. My video of this checklist is coming to the Scratch &amp; Roam YouTube channel.</p>",
+      "<p>This is my China first trip checklist: the ten things I would sort if I were packing for my first China trip all over again. It is not about being afraid. Staying safe in China is about gently removing the small problems before they happen.</p><p>It comes from our two trips to China, at Christmas 2025 and Easter 2026. The advice is first-hand, and the emergency numbers are checked against the UK government's travel advice (official). Checked on 20 October 2026. My video of this checklist is coming to the Scratch &amp; Roam YouTube channel.</p>"+CB_GLANCE,
       CB_STEPS,
       [("What should I do before my first trip to China?","Sort ten small things: travel insurance, your hotel name and address in Chinese, the emergency numbers, your phone and data with a backup, a main and backup way to pay, copies of your documents, a plan to pause around scams, a tiny medical kit, a translation app with saved places, and a simple first day."),
        ("What are the emergency numbers in China?","Police is 110, ambulance is 120 and fire is 119, according to the UK government's China travel advice."),
        ("Why do I need a backup for my phone and data?","On my first trip my eSIM was ready but I forgot to switch it on before landing, and my only VPN needed wifi to activate again. A second VPN from our hotel concierge solved it. A backup plan means one small slip does not leave you without a map, translator or wallet."),
        ("Should I worry about scams in China?","I would not worry too much, just pause. If someone is too friendly, a taxi situation is unclear or a bill feels wrong, take a moment to think before you act."),
-       ("What should I do on my first day in China?","Keep it simple: get to the hotel, check your payments and data, take a slow walk around the block, eat something easy and rest.")],
-      [("UK government: China travel advice, getting help","https://www.gov.uk/foreign-travel-advice/china/getting-help",True)],
+       ("What should I do on my first day in China?","Keep it simple: get to the hotel, check your payments and data, take a slow walk around the block, eat something easy and rest."),
+       ("Will emergency operators speak English?","Do not count on it. One 2025 guide says operators in major cities may have some English, and it does not confirm English support for any specific number. Keep your hotel name and address in Chinese ready, and ask someone nearby to help you call."),
+       ("What should I save offline before I fly?","Your hotel names and addresses in Chinese, your insurance policy number and the insurer's emergency number, copies of your documents, and your key places on your map. A screenshot works if you cannot open an app without signal."),
+       ("Where is the detailed setup for apps and payments?","In my <a href='/guides/china-travel-apps/'>China travel apps guide</a> and my <a href='/guides/first-time-in-china/'>first time in China guide</a>. This page is only the safety and backup side.")],
+      [("UK government: China travel advice, getting help","https://www.gov.uk/foreign-travel-advice/china/getting-help",True),("Wander in China: emergency phone numbers in China (updated 11 January 2025)","https://wanderinchina.com/en/survival-guide/emergency-numbers",False)],
       SITE+"/og/china-before-you-fly-checklist.jpg",checked="2026-10-20",published="2026-10-20",vschema=False,
       lift='<div class="dd-hero"><img data-hero src="/img/china-before-you-fly-10-things-cover-16x9.jpg" alt="" width="1280" height="720"></div>',
       steps_title="The 10 things, in order",
+      extra=CB_EXTRA,
       related=[("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/china-dos-and-donts/","china-will-take-your-drone-15-dos-and-donts","15 RULES","China do's and don'ts: what not to bring, and what not to do"),("/guides/build-spice-tolerance-before-china/","build-spice-tolerance-before-china-cover-16x9","SPICE","How to build spice tolerance before China: a 6 week plan")])
 
 exec(open('src/spice.py').read())
