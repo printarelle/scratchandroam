@@ -765,7 +765,7 @@ _TOOLS_HTML='''<main>
 <tr><td>190/104A</td><td>3XL</td><td>104-107</td><td>188-192</td><td>54</td></tr>
 </tbody></table></div>
 </div></details>
-<p class="tmeta">Source: the label structure and the size tables come from <a href="https://www.travelofchina.com/size-chart-for-china-clothes/" rel="noopener" target="_blank">Travel of China's size chart guide</a>, which cites GB/T 1335. Checked 29 October 2026. I have not tested these against garments myself. Trust the centimetre columns over the letter and country sizes, and measure your own chest. Taobao sellers usually post their own chart, and many brands cut smaller than the standard, so between two sizes I would go up. Trousers are not covered yet.</p></div>
+<p class="tmeta">Source: the label structure and the size tables come from <a href="https://www.travelofchina.com/size-chart-for-china-clothes/" rel="noopener" target="_blank">Travel of China's size chart guide</a>, which cites GB/T 1335. Checked 29 October 2026. I have not tested these against garments myself. Trust the centimetre columns over the letter and country sizes, and measure your own chest. Taobao sellers usually post their own chart, and many brands cut smaller than the standard, so between two sizes I would go up. See the <a href=\"/china/tools/trouser-size-chart/\">trouser size chart</a> for trousers.</p></div>
 </div></section>
 {BAND}
 </main>
@@ -826,9 +826,10 @@ TOOL_PAGES={
  "clothing-size-converter":{"title":"Chinese clothing size converter: 170/88A explained","desc":"Turn your height and chest in cm into a Chinese clothing label like 170/88A, with women's and men's size tables for EU, UK and US sizes.","h1":"Chinese clothing size converter","lede":"Chinese clothes use labels like 170/88A. Enter your height and chest and see yours, then check the women's and men's tables.","card":"Clothing sizes","blurb":"Find your 170/88A style label and compare EU, UK and US.","kw":"chinese clothing size converter 170/88A taobao size chart women men eu uk us gb/t 1335"},
  "shoe-size-chart":{"title":"Chinese shoe size chart: EU, US and foot length in cm","desc":"How Chinese shoe sizes work: the standard size is the EU number and the code is foot length in mm. Men's and women's tables from real Taobao sheets.","h1":"Chinese shoe size chart","lede":"Shoe sizes in China are simpler than clothes once you know the foot length column. Here are two real Taobao sheets side by side.","card":"Shoe sizes","blurb":"Foot length in cm to EU and US, with a returns warning.","kw":"chinese shoe size chart taobao eu us cm foot length 标准码 国际码"},
  "jin-to-kg":{"title":"What is jin in kg? Chinese weight and unit converter","desc":"One jin is 500 grams. Convert jin to kilograms, km to miles, Celsius to Fahrenheit and cm to inches, and see why size charts that use jin matter.","h1":"What is jin in kilograms?","lede":"Chinese shops and size charts often use jin (斤). One jin is half a kilo. Convert it here, along with the other units you will meet.","card":"Jin, km and degrees","blurb":"Jin to kg, km to miles, Celsius to Fahrenheit.","kw":"jin to kg 斤 chinese weight unit km miles celsius fahrenheit inches cm convert"},
+ "trouser-size-chart":{"title":"Chinese trouser size chart: waist, hips, inseam","desc":"Read three real Taobao trouser size sheets: numbered waist sizes, S to 3XL and cm with inches, with the Chinese words for waist, hips and inseam.","h1":"Chinese trouser and jeans size chart","lede":"Three real trouser sheets from Taobao, explained, with the Chinese words for waist, hips, inseam and hem.","card":"Trouser sizes","blurb":"Waist, hips and inseam on three real sheets.","kw":"chinese trouser size chart jeans pants waist hips inseam 腰围 臀围 裤长 taobao"},
  "taobao-size-charts":{"title":"How to read Taobao size charts, with Chinese terms","desc":"Read real Taobao size sheets for a shirt, a bra and a dress: collar numbers, height and weight grids, jin, key Chinese words and return warnings.","h1":"How to read Taobao size charts","lede":"Real size sheets from Taobao listings, explained line by line, with the Chinese words you will see and the traps to avoid.","card":"Read a Taobao size sheet","blurb":"Shirt, bra and dress sheets explained, with Chinese words.","kw":"taobao size chart how to read 尺码 height weight grid jin bra size dress shirt collar"},
 }
-TOOL_ORDER=["yuan-to-euro","clothing-size-converter","shoe-size-chart","jin-to-kg","taobao-size-charts"]
+TOOL_ORDER=["yuan-to-euro","clothing-size-converter","trouser-size-chart","shoe-size-chart","jin-to-kg","taobao-size-charts"]
 def _tool_parts():
     t=_TOOLS_HTML
     ix=lambda s,a=0:t.index(s,a)
@@ -863,6 +864,8 @@ def tool_page_b(SOC,key):
         main+='<p>Paying with a foreign card in China? Read <a href="/guides/china-travel-faq/#q-foreign-card-payments">how foreign card payments work</a> and the <a href="/guides/china-travel-apps/">China travel apps guide</a>. Your bank adds its own fee on top of any rate shown here.</p>'
     elif key=="clothing-size-converter":
         main=P["finder"]+g("Women's tops, roughly","Men's jackets and tops, roughly")+P["source"]+'<p>Shopping on Taobao? See <a href="/china/tools/taobao-size-charts/">how to read a Taobao size sheet</a> and the <a href="/china/tools/shoe-size-chart/">shoe size chart</a>.</p></div>'; js=js_s
+    elif key=="trouser-size-chart":
+        main=trouser_html(); js=""
     elif key=="shoe-size-chart":
         main='<div class="tool">'+g("Example: shoe sizes")+'</div>'; js=""
     elif key=="jin-to-kg":
@@ -913,3 +916,41 @@ def phrase_b(SOC):
 <dialog id="pdlg" class="pdlg"><div class="pbox"><p class="pzhb" id="pdzh"></p><p class="pdy" id="pdpy"></p><p class="pde" id="pden"></p><div class="pacts"><button type="button" id="pdcopy">Copy Chinese</button><button type="button" id="pdclose">Close</button></div></div></dialog>
 </main>
 {PHRASEJS}'''
+
+
+def _trs(rows): return "".join("<tr>"+"".join(f"<td>{c}</td>" for c in r)+"</tr>" for r in rows)
+def _hds(*c): return "<thead><tr>"+"".join(f"<th>{x}</th>" for x in c)+"</tr></thead>"
+def trouser_html():
+    A=[("29","73.66","96.52","102.01","34.29"),("30","76.2","99.06","103","34.92"),("31","78.74","101.6","103.66","35.56"),("32","81.28","104.14","105","36.2"),("33","83.82","106.68","105.99","36.83"),("34","86.36","109.22","107.01","37.47"),("36","91.44","114.3","108.99","38.74"),("38","96.52","119.38","110.01","40.01")]
+    Bt=[("S","69","94","61.5","50","102"),("M","73","98","64","51.5","103.5"),("L","79","104","67.5","54","105"),("XL","85","110","71","56.5","106.5"),("2XL","91","116","74.5","59","108"),("3XL","97","122","78","61.5","109.5")]
+    C=[("S","72","100","108","79","0.34"),("M","76","104","109","79.5","0.36"),("L","82","110","110","80","0.38"),("XL","88","116","111","80.5","0.4"),("2XL","94","122","112","81","0.42"),("3XL","100","128","113","81.5","0.44")]
+    return f'''<div class="tool">
+<p>Trouser sheets list several body or garment measurements, and the size names vary. Here are three real Taobao sheets, with the Chinese words you will see. Measure your own waist and hips in cm first, then compare. To switch inches and centimetres use the <a href="/china/tools/jin-to-kg/">unit converter</a>.</p>
+<details class="tsec" open><summary>Sheet 1: numbered sizes 29 to 38 (waist in inches)</summary><div class="tin">
+<p>This English sheet is from a made-to-order seller. The size is the waist in inches: size 30 is a 76.2 cm waist, because 30 x 2.54 = 76.2. The seller says each piece is hand-sewn, can differ by 1 to 2 cm, and has extra fabric in the seams so it can be altered.</p>
+<div class="twrap"><table class="szt">{_hds("Size (waist inches)","Waistline cm","Hips cm","Length cm","Foot cm")}<tbody>{_trs(A)}</tbody></table></div>
+<p class="tmeta">"Foot" is most likely the leg opening at the hem, like 脚口 on the next sheet, but the sheet does not say. Ask the seller.</p></div></details>
+<details class="tsec" open><summary>Sheet 2: letters S to 3XL, all in Chinese</summary><div class="tin">
+<p>The top line says the real item may differ in colour from the photo and may have loose threads, and that if you mind this you should not order (由于拍照原因实物与图片会有色差，也会有线头。介意慎拍。). The article number is GZK22001.</p>
+<div class="twrap"><table class="szt">{_hds("Size","腰围 waist cm","臀围 hips cm","裆围 thigh or crotch cm","脚口 leg opening cm","裤长 length cm")}<tbody>{_trs(Bt)}</tbody></table></div>
+<p class="tmeta">I read the third column as the thigh or crotch measurement, but I am not sure of the exact meaning, so ask the seller if it matters for fit.</p></div></details>
+<details class="tsec" open><summary>Sheet 3: cm and inches, with weight</summary><div class="tin">
+<p>This one gives each size in cm and inches, plus the weight of the trousers in kg. The English words are machine translations: "Bit" means hips (臀围), "outside length" is the full length (裤长) and "inner length" is the inseam (内长). The note at the bottom says the pieces are measured lying flat (the "paving volume") and a 1 to 3 cm error is normal. Unit: cm, weight: kg.</p>
+<div class="twrap"><table class="szt">{_hds("Size","Waist cm","Hips cm","Full length cm","Inseam cm","Weight kg")}<tbody>{_trs(C)}</tbody></table></div>
+<p class="tmeta">On the listing the size buttons were S, M, L, XL, XXL and XXXL, while the sheet says 2XL and 3XL. They mean the same sizes, but always match the button to the sheet row. The price on the listing was 52 yuan.</p></div></details>
+<details class="tsec" open><summary>Words on a trouser sheet</summary><div class="tin"><div class="twrap"><table class="szt">{_hds("Chinese","Pinyin","Means")}<tbody>
+<tr><td>腰围</td><td>yāowéi</td><td>Waist</td></tr>
+<tr><td>臀围</td><td>túnwéi</td><td>Hips</td></tr>
+<tr><td>裆围</td><td>dāngwéi</td><td>Crotch or thigh measurement (check with the seller)</td></tr>
+<tr><td>脚口</td><td>jiǎokǒu</td><td>Leg opening at the hem</td></tr>
+<tr><td>裤长</td><td>kùcháng</td><td>Full trouser length</td></tr>
+<tr><td>内长</td><td>nèicháng</td><td>Inseam, inside leg length</td></tr>
+<tr><td>重量</td><td>zhòngliàng</td><td>Weight</td></tr>
+<tr><td>尺码 / 尺寸</td><td>chǐmǎ / chǐcùn</td><td>Size</td></tr>
+<tr><td>颜色分类</td><td>yánsè fēnlèi</td><td>Colour choice</td></tr>
+<tr><td>图文详情</td><td>túwén xiángqíng</td><td>Details with pictures and text, where the size sheet usually is</td></tr>
+<tr><td>7天无理由退货</td><td>qī tiān wú lǐyóu tuìhuò</td><td>7 day return with no reason needed</td></tr>
+<tr><td>介意慎拍</td><td>jièyì shèn pāi</td><td>If you mind, think twice before ordering</td></tr>
+</tbody></table></div></div></details>
+<p class="tmeta">Sheets seen on Taobao on 30 October 2026. I have not ordered these items. Seller sheets do not always say whether the numbers are the body or the finished garment, and they can differ by 1 to 3 cm, so between two sizes I would go up one. Ask the seller (客服) before you buy.</p>
+</div>'''
