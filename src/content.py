@@ -501,11 +501,11 @@ BUND_EXTRA=(
  '<h2 id="from-above">See the Bund from above</h2>'
  '<p>There are a lot of viewing platforms in Pudong that look back across the river at the Bund, so check the options online. You do not need to pay for an expensive one to get an amazing view.</p>'
  '<p>We went up the <b>Jin Mao Tower</b>. Klook lists its viewing deck on the 88th floor, at 340 metres, with views across the river to the Bund. We stayed about 30 minutes, had a coffee upstairs and just enjoyed the view. It was amazing. These photos are mine, taken in the daytime.</p>'
- '<div class="shots wideshots">'
+ '<div class="shots wideshots"><div class="col">'
  '<figure><a href="/img/jin-mao-tower-deck-view-over-huangpu-river-to-the-bund-bank.jpg"><img src="/img/jin-mao-tower-deck-view-over-huangpu-river-to-the-bund-bank.jpg" alt="" loading="lazy"></a><figcaption>The Huangpu river and the Bund bank from the Jin Mao Tower deck</figcaption></figure>'
  '<figure><a href="/img/jin-mao-tower-deck-wide-river-view-towards-the-bund-bank.jpg"><img src="/img/jin-mao-tower-deck-wide-river-view-towards-the-bund-bank.jpg" alt="" loading="lazy"></a><figcaption>A wider view towards the Bund bank</figcaption></figure>'
- '<figure><a href="/img/jin-mao-tower-deck-oriental-pearl-tower-among-pudong-towers.jpg"><img src="/img/jin-mao-tower-deck-oriental-pearl-tower-among-pudong-towers.jpg" alt="" loading="lazy"></a><figcaption>The Oriental Pearl Tower among the Pudong towers</figcaption></figure>'
- '<figure><a href="/img/jin-mao-tower-model-on-the-observation-deck.jpg"><img src="/img/jin-mao-tower-model-on-the-observation-deck.jpg" alt="" loading="lazy"></a><figcaption>A model of the Jin Mao Tower on the deck</figcaption></figure>'
+ '<figure><a href="/img/jin-mao-tower-deck-oriental-pearl-tower-among-pudong-towers.jpg"><img src="/img/jin-mao-tower-deck-oriental-pearl-tower-among-pudong-towers.jpg" alt="" loading="lazy"></a><figcaption>The Oriental Pearl Tower among the Pudong towers</figcaption></figure></div>'
+ '<figure class="tall"><a href="/img/jin-mao-tower-model-on-the-observation-deck.jpg"><img src="/img/jin-mao-tower-model-on-the-observation-deck.jpg" alt="" loading="lazy"></a><figcaption>A model of the Jin Mao Tower on the deck</figcaption></figure>'
  '</div>'
  '<p>The Shanghai Tower and the Oriental Pearl Tower are the other two platforms I would look at. The booking pages are in the next section.</p>')
 
