@@ -427,9 +427,11 @@
     "revolut wise alipay"
    ],
    "a": "Yes, both let you link a foreign card, and no Chinese bank account is needed. Set up at home, because setup can need a passport check and a text code. WeChat Pay waived foreign card fees for 90 days on new accounts, up to ¥1,000 a day, per Tencent's May 2026 announcement. Third-party sources report a 3% Alipay fee above ¥200. At home you can check registration, verification and card linking, but a real shop payment is only proven after you land, so carry cash and a second card. Whether Revolut or Wise cards link depends on the card.",
-   "slug": "china-travel-apps",
+   "slug": "alipay-add-foreign-card-china",
    "yt": "",
    "rel": [
+    "alipay-add-card",
+    "wechat-add-card",
     "travel-apps",
     "metro-qr",
     "taobao"
@@ -437,6 +439,51 @@
    "src": "Tencent newsroom, 27 May 2026 (official); Alipay fee is third-party; Revolut and Wise not tested by us",
    "chk": "2026-10-16",
    "st": "needs review (fees change; add Natali's own card screenshots)"
+  },
+  {
+   "id": "alipay-add-card",
+   "pins": [],
+   "group": "Money",
+   "q": "How do I add a foreign card to Alipay?",
+   "alts": [
+    "add visa to alipay",
+    "alipay bank cards",
+    "alipay nfc card",
+    "link foreign card alipay"
+   ],
+   "a": "Open Alipay, go to Bank Cards and tap Add Bank Card. The screen lists the cards it accepts: Visa, Mastercard, UnionPay, American Express, Diners Club, Discover and JCB. Type the card number, expiry date and CVV2, or tap your physical card on the phone with NFC, which recognised my Visa and then asked me to type the CVV. Tap Agree to Terms and Add and look for Added successfully. No Chinese bank account was needed. Alipay can change these screens.",
+   "slug": "alipay-add-foreign-card-china",
+   "yt": "",
+   "rel": [
+    "foreign-card-payments",
+    "wechat-add-card",
+    "metro-qr"
+   ],
+   "src": "Natali's own phone, screens checked 30 October 2026",
+   "chk": "2026-10-30",
+   "st": "first-hand"
+  },
+  {
+   "id": "wechat-add-card",
+   "pins": [],
+   "group": "Money",
+   "q": "How do I add a foreign card to WeChat Pay?",
+   "alts": [
+    "add visa to wechat",
+    "wechat pay bank cards",
+    "wechat wallet foreign card",
+    "link foreign card wechat"
+   ],
+   "a": "In WeChat tap Me, then Pay and Services, then Wallet, then Bank Cards, then Add a Bank Card. Type the card number, choose the valid date and type the CVV code. The card type filled in as VISA for me. Tap Agree and Add and wait for the Added screen. No Chinese bank account was needed. WeChat can change these screens, so check yours.",
+   "slug": "wechat-pay-add-foreign-card-china",
+   "yt": "",
+   "rel": [
+    "foreign-card-payments",
+    "alipay-add-card"
+   ],
+   "src": "Natali's own phone, screens checked 30 October 2026",
+   "chk": "2026-10-30",
+   "st": "first-hand"
   },
   {
    "id": "esim-or-sim",
