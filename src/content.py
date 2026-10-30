@@ -638,25 +638,73 @@ guide("nanjing-road-shanghai","Nanjing Road Shanghai: Walking and Shopping Guide
       extra=NJ_EXTRA+NJ_END,checked="2026-10-30",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
-guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: pier, ticket, time","Huangpu River night cruise in Shanghai: which pier, which ticket, and which side to stand on",
-      "Huangpu River night cruise: three piers, about 120 to 150 RMB, how to book as a foreigner, why your passport matters, and which side to stand on.",
+HP_CHECK='<p>Prices, piers and times here are from the sources at the bottom, checked on 30 October 2026. Fares are seasonal and boats change, so check the booking page for your date.</p>'
+HP_GLANCE=('<div class="glance"><div class="gl-h"><b>Huangpu River cruise at a glance</b><span class="gl-pill">Book ahead</span></div><div class="gl-g">'
+ +_gi(0,"Standard night fare","120 to 150 RMB (official)")
+ +_gi(1,"Duration","45 to 60 minutes")
+ +_gi(5,"Main departure area","Shiliupu piers, south Bund")
+ +_gi(3,"My preferred timing","Around dusk")
+ +'</div><p class="gl-f">The official Shanghai fare is 150 RMB for a night sailing from 26 February to 25 November and 120 RMB from 26 November to 25 February (page of 10 September 2025). Check the pier, the sailing time and the collection rules on your own booking.</p></div>')
+HP_EXTRA=(
+ '<h2 id="piers">Which pier? The three main boarding areas</h2>'
+ '<p>A ticket is for one pier and one boat, so decide the pier first. This is how the main boarding areas compare.</p>'
+ '<table class="tbl"><thead><tr><th>Boarding area</th><th>What it offers</th><th>Good for</th></tr></thead><tbody>'
+ '<tr><td><b>Shiliupu</b> (south end of the Bund)</td><td>The most options: 45 to 60 minute classic cruises and a longer 90 minute route past Nanpu and Yangpu bridges. The official page lists Shiliupu piers 1 and 2.</td><td>The classic cruise, the most choice</td></tr>'
+ '<tr><td><b>East Jinling Road</b> (middle of the Bund)</td><td>30 minute express and 60 minute standard cruises, according to Trip.com.</td><td>A short ride near Nanjing Road</td></tr>'
+ '<tr><td><b>Oriental Pearl</b> (Pudong, Lujiazui)</td><td>45 to 60 minute routes along the central river.</td><td>Staying in Pudong</td></tr></tbody></table>'
+ '<p><b>Cruise or ferry?</b> There is also a public ferry crossing near East Jinling Road. It is a different service from the sightseeing cruise. Make sure your ticket names the cruise boarding point, and do not treat the ferry as an alternative pier for a cruise ticket. Shiliupu and East Jinling Road are not interchangeable, and a taxi between them can take 15 to 20 minutes.</p>'
+ '<p>Tip: copy the pier name from your booking into Amap or DiDi, and look for the Chinese name 十六铺 for Shiliupu.</p>'
+ '<h2 id="price">What does it cost?</h2>'
+ '<p>The official Shanghai city page (10 September 2025) gives these per person fares for the standard sightseeing cruise from Shiliupu: night 150 RMB and day 120 RMB from 26 February to 25 November, night 120 RMB and day 100 RMB from 26 November to 25 February, and 150 RMB on public holidays. Children under 1.3 m ride free, and children 1.3 to 1.5 m and people aged 70 or over pay half price. Trip.com adds roughly 80 to 100 RMB for the 30 minute express, 30 to 50 RMB extra for a VIP deck, and 250 to 400 RMB and up for a dinner cruise. Booking platforms can price differently, so use these as reference prices, not a guarantee.</p>'
+ '<h2 id="booking">How booking works, and what to check first</h2>'
+ '<p>Procedures differ by product, so I will not tell you one rule fits every ticket. Before you pay, check these on the booking page:</p>'
+ '<ul class="stops"><li>Is it a sightseeing cruise or a dinner cruise, and how long is it?</li>'
+ '<li>Which pier and which boat does it cover?</li>'
+ '<li>Is it a fixed sailing time or a time window?</li>'
+ '<li>Do you board with a QR code or confirmation code, or do you collect a ticket at a window?</li>'
+ '<li>Do you need your original passport? Trip.com says online bookings are exchanged at the pier window against the original passport and that a photo or copy is not accepted. That may not apply to every product, so read yours.</li>'
+ '<li>What is the cancellation rule if the weather is bad?</li></ul>'
+ '<p>Official Shanghai tourism information lists WeChat ticketing, booking platforms and the ticket windows, and advises carrying valid ID. Foreigners can book through the international platforms.</p>'
+ '<h2 id="time">Sunset or after dark?</h2>'
+ '<table class="tbl"><thead><tr><th>Timing</th><th>What you get</th><th>The catch</th></tr></thead><tbody>'
+ '<tr><td>Around sunset (about 17:00 to 19:00 in the sources)</td><td>Daylight, then the lights coming on</td><td>Some buildings are not lit yet</td></tr>'
+ '<tr><td>After dark (about 19:00 to 21:00)</td><td>The Bund and Pudong fully lit, reflections on the water</td><td>The busiest and the most expensive</td></tr>'
+ '<tr><td>By day</td><td>Cheaper, quieter, better for the building details</td><td>No lights</td></tr></tbody></table>'
+ '<p>The lighting hours change by date, so read the lights section of my <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a>. For photos and video I would pick a boat close to sunset, if the timetable allows it.</p>'
+ '<h2 id="klook">The Klook cruise</h2>'
+ '<p>This is the Klook cruise my link goes to, as I saw the page on 30 October 2026: <b>Huangpu River Night Cruise Experience</b>, about 45 minutes, with evening sailings listed at 19:30, 20:00 and 20:35, free cancellation up to 24 hours before, and options with or without an English, Chinese or Thai explanation. The page did not state the pier in what I read, so open the booking page and read the details and the how to use section before you pay. It is an affiliate link.</p>'
+ '<h2 id="plan">Two ways to plan the evening</h2>'
+ '<p><b>Waterfront evening:</b> Nanjing Road, then the Bund, then the cruise. Start with my <a href="/guides/nanjing-road-shanghai/">Nanjing Road guide</a> and finish with my <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a>.</p>'
+ '<p><b>Show evening:</b> the <a href="/guides/shanghai-circus-world-era-show/">ERA show at Shanghai Circus World</a> and dinner nearby, with the cruise on another night. Trying to fit the walk, the cruise and a show into one night is too much.</p>')
+
+guide("huangpu-river-night-cruise","Huangpu River Night Cruise: Tickets and Boarding Guide (2026)","Huangpu River Night Cruise Shanghai: Tickets, Prices and Best Views",
+      "Huangpu River night cruise in Shanghai: official fares, which pier, how booking and boarding work, and when to go for the best views.",
       "Huangpu River night cruise",None,
-      "<p>On the night cruise you are right in the middle of the river, with both banks lit up and the boat going slowly. The photos on this page are mine, taken from the water.</p><p>The booking is the confusing part. There are three piers, your ticket only works at one of them, and an online booking is a voucher you still have to swap for a ticket with your passport. Below is how to choose the pier, the ticket and the time.</p>"+CHECK,
-      [("Pick the pier before the ticket","Shiliupu pier (south end of the Bund) has the most routes. Jinling East Road pier (middle of the Bund) is best for a short ride and a 10 minute walk from East Nanjing Road station. Oriental Pearl pier is on the Pudong side. Your ticket only works at its own pier."),
-       ("Choose the length","30 minutes express (about 80 to 100 RMB, mostly from Jinling East Road), 45 to 60 minutes classic (about 120 to 150 RMB, all piers, the usual choice), or 90 minutes plus, often a dinner cruise from Shiliupu (250 to 400 RMB and up)."),
-       ("Go between 19:00 and 21:00","That is when both banks are fully lit. Some landmark lighting goes off after 21:00 or 22:00, so the last boats see less. The 17:00 to 19:00 sunset slot gives you daylight and then lights."),
-       ("Book online, then swap the voucher at the pier","An online booking is a voucher, not a ticket. Exchange it at the pier window with your original passport; a photo of it is not accepted. Night cruise collection windows are roughly 17:00 to 20:00."),
-       ("Arrive 30 to 60 minutes early","Pre-booking skips the ticket queue but not security, which can take 20 to 60 minutes on busy evenings."),
-       ("Stand on the left going north","From Shiliupu heading north the Bund buildings are on the left; on the way back Pudong is on the left. Skip the cruise in rain or fog, the towers disappear.")],
-      [("How much is the Huangpu River night cruise?","About 120 to 150 RMB for the standard 45 to 60 minute sightseeing cruise, 80 to 100 RMB for the 30 minute express, more for VIP decks and dinner cruises (figures from a Trip.com guide dated August 2026)."),
-       ("Which pier is best for the Huangpu cruise?","Shiliupu for choice of routes, Jinling East Road for a short ride near the Bund, Oriental Pearl if you are staying in Pudong. Tickets are tied to one pier."),
-       ("Do I need my passport for the river cruise?","Yes, the original. Online bookings are exchanged for tickets at the pier window against your passport."),
-       ("What time is best for the Huangpu night cruise?","Between 19:00 and 21:00, when both banks are fully lit. Some lights go off from 21:00 to 22:00.")],
-      [("Trip.com: Huangpu River cruise guide (10 August 2026)","https://www.trip.com/guide/attraction/huangpu-river-cruise.html",False)],
+      "<p>Thinking about a Huangpu River night cruise? Here is how to choose the pier and the ticket, what it costs, and what to check before you pay. We did the night cruise on our first China trip, and the photos on this page are mine, taken from the water.</p><p>The booking is the confusing part: there are several boarding areas, a ticket is for one pier, and the collection rules depend on the product you buy.</p>"+HP_GLANCE+HP_CHECK,
+      [("Pick the pier before the ticket","Shiliupu (south end of the Bund) has the most routes. East Jinling Road (middle of the Bund) is the short ride near Nanjing Road. Oriental Pearl is on the Pudong side. Your ticket is for one pier only."),
+       ("Choose the length","About 30 minutes express, 45 to 60 minutes classic (the usual choice and the one the official fare covers), or 90 minutes and more, often a dinner cruise."),
+       ("Go around dusk","Sunset boats show you daylight and then the lights; after dark the skyline is fully lit but it is busier. Check the lights for your date in the Bund guide."),
+       ("Read your voucher before the day","Check the pier, the sailing time, and whether you scan a code or collect a ticket. Bring the passport you booked with, because some products need the original."),
+       ("Arrive 30 to 60 minutes early","Security can take 20 to 60 minutes on busy evenings, even with a pre-booked ticket."),
+       ("Board early and use the open deck","Heading north from Shiliupu the Bund is on the left, and on the way back Pudong is. Boats go both ways, so an open deck where you can move between sides beats worrying about one seat. Skip it in rain or fog.")],
+      [("Is the Huangpu River cruise worth it?","I think so for a first trip: the skyline from the water at night is one of the best things we did in Shanghai. It is an evening activity and costs money, so go in clear weather."),
+       ("How much is the Huangpu River night cruise?","The official fare for the standard cruise from Shiliupu is 150 RMB at night from 26 February to 25 November and 120 RMB from 26 November to 25 February (page of 10 September 2025). Express, VIP and dinner cruises cost more, and booking platforms can price differently."),
+       ("What is the difference between the cruise and the public ferry?","The sightseeing cruise is a ticketed trip along the river. The public ferry near East Jinling Road is a short crossing, not a cruise. Your cruise ticket names its own boarding point."),
+       ("Which pier is best for the Huangpu cruise?","Shiliupu for the most choice, East Jinling Road for a short ride near the Bund, Oriental Pearl if you are staying in Pudong. A ticket only works at its own pier."),
+       ("Can foreigners book Huangpu River cruise tickets?","Yes. International platforms sell them in English, and the official tourism information also lists WeChat ticketing and the ticket windows. Check the ID rule on your booking."),
+       ("Do I need my passport for the river cruise?","It depends on the product. Trip.com says online bookings are exchanged at the pier window against the original passport and that a copy is not accepted. Read your own booking, and carry the passport you booked with to be safe."),
+       ("Is it better to book in advance or at the pier?","Booking ahead means the pier is not a surprise, and it avoids queuing at the ticket window, but it does not skip security. Check the refund rule on your booking."),
+       ("Does the cruise run in bad weather?","Rain and fog hide the towers, so I would skip it then. Whether a sailing is cancelled or refunded depends on the operator and the booking, so read the cancellation rule before you pay."),
+       ("Which side of the boat has the best views?","Heading north from Shiliupu the Bund is on the left, and on the way back Pudong is. Since the boat returns, an open deck where you can move between sides is better than a fixed seat."),
+       ("What time is best for the Huangpu night cruise?","Around sunset you get daylight and then the lights. After dark the skyline is fully lit but busier. The lighting hours change by date, so check the Bund guide.")],
+      [("Shanghai government: Exploring Shanghai by boat (10 September 2025), fares and Shiliupu piers","https://english.shanghai.gov.cn/en-Transportation/20250910/65267b72530645bdacc119d56380d363.html",True),
+       ("Trip.com: Huangpu River cruise guide (10 August 2026), piers, prices and collection","https://www.trip.com/guide/attraction/huangpu-river-cruise.html",False),
+       ("Klook: Huangpu River Night Cruise Experience (sailing times and cancellation, seen 30 October 2026)","https://www.klook.com/en-US/activity/207489-shanghai-huangpu-river-night-cruise/",False)],
       SITE+"/og/huangpu-river-night-cruise.jpg",
-      related=[("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/shanghai-circus-world-era-show/","shanghai-circus-world-act-1-aerial-silks","SHANGHAI","Shanghai Circus World ERA show: tickets and how to get there")],
+      related=[("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/nanjing-road-shanghai/","nanjing-road-shanghai-neon-shop-fronts-cover-4x5","SHANGHAI","Nanjing Road Shanghai: walking and shopping guide")],
       gallery=[("huangpu-river-shanghai-tower-reflected-in-the-water","Shanghai skyline from the Huangpu river at night"),("huangpu-river-pudong-towers-lit-red-and-pink-at-night","Pudong towers from the water"),("huangpu-river-pudong-skyline-with-gold-reflections","Pudong skyline and gold reflections"),("huangpu-river-lujiazui-skyline-wide-night-view","Lujiazui lit up from the river"),("huangpu-river-blue-lit-towers-from-the-water","Blue lit towers from the river")],
       place={"name":"Huangpu River Cruise","city":"Shanghai","free":False},steps_title="How to book and board",
+      extra=HP_EXTRA,checked="2026-10-30",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
 guide("shanghai-circus-world-era-show","Shanghai Circus World tickets: ERA show guide (2026)","Shanghai Circus World ERA show: how to book tickets, where to sit, how to get there",

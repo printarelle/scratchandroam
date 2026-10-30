@@ -403,7 +403,7 @@ OFFERS={
  ],
  "huangpu-river-night-cruise":[
   dict(k="Klook",price=None,title="Huangpu River Night Cruise Experience",
-       text="The night cruise on Klook. Check which pier the ticket is for before you book, because a ticket only works at its own pier (step 1 below).",
+       text="Evening sailings of about 45 minutes, free cancellation up to 24 hours before, and options with or without an English, Chinese or Thai explanation (page seen 30 October 2026). Check the pier and the how to use section on the page before you pay.",
        url=KLOOK_CRUISE,cta="See the night cruise on Klook",
        qr="klook-huangpu-river-night-cruise-qr-code",qralt="QR code for the Klook Huangpu River night cruise page"),
  ],
