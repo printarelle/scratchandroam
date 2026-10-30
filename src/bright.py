@@ -23,7 +23,7 @@ def nav_b(SOC, NAV_SHOP, FOOT_GROUPS=None, CARDS=None):
     by={c["slug"]:c for c in (CARDS or [])}
     chev='<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
     cols=""
-    MEGA_PICK={"Before you fly":["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc"],"Apps and on the ground":["china-travel-apps","alipay-add-foreign-card-china","alipay-metro-qr-code-china","taobao-for-foreigners","how-to-order-food-in-china-without-speaking-chinese"],"Shanghai":["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise"]}
+    MEGA_PICK={"Before you fly":["first-time-in-china","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc"],"Apps and on the ground":["china-travel-apps","alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china","alipay-metro-qr-code-china","taobao-for-foreigners","how-to-order-food-in-china-without-speaking-chinese"],"Shanghai":["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise"]}
     for h,l in (FOOT_GROUPS or []):
         sl=[x for x in MEGA_PICK.get(h,l) if x in by]
         if sl: cols+=f'<div class="mcol"><h3>{html.escape(h)}</h3>'+"".join(f'<a href="/guides/{x}/">{html.escape(by[x]["short"])}</a>' for x in sl)+'</div>'
