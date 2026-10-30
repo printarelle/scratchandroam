@@ -489,7 +489,7 @@ CHECK='<p>Prices and times here are from the sources at the bottom, checked on 1
 BUND_CHECK='<p>Times and links here are from the sources at the bottom, checked on 30 October 2026. They move. Treat them as a guide and check the official notice or Trip.com for your date.</p>'
 BUND_GLANCE='<div class="glance"><div class="gl-h"><b>The Bund at a glance</b><span class="gl-pill">First-timer friendly</span></div><div class="gl-g"><div class="gl-i"><span class="gl-l"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a2 2 0 0 0 0 6v3h18v-3a2 2 0 0 1 0-6V6H3z"/><path d="M13 6v12" stroke-dasharray="2 2"/></svg>Entrance</span><b>Free, open all the time</b></div><div class="gl-i"><span class="gl-l"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Time needed</span><b>About 90 minutes</b></div><div class="gl-i"><span class="gl-l"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l2-4M15 21l-2-4"/><circle cx="9" cy="14" r=".6"/><circle cx="15" cy="14" r=".6"/></svg>Nearest metro</span><b>East Nanjing Road, exit 2 or 7</b></div><div class="gl-i"><span class="gl-l"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 18a7 7 0 0 1 14 0M12 4v3M4.5 9.5l2 2M19.5 9.5l-2 2M2 18h20"/></svg>Best arrival</span><b>Before sunset, or early morning</b></div><div class="gl-i"><span class="gl-l"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>Lights</span><b>Change by date, see step 4</b></div><div class="gl-i"><span class="gl-l"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Start at</span><b>The Peace Hotel</b></div></div><p class="gl-f">Promenade only. Add a river cruise and it becomes an evening.</p></div>'
 
-import json as _json
+import json as _json, re
 _BR=_json.load(open("src/bund-route.json"))
 BUND_MAP=('<h2 id="route">The walking route, on a map</h2>'
  '<p>This is the route I would walk: from the metro station to the Peace Hotel, then south along the river to the pier for the cruise. It is about 1.6 km, roughly 20 minutes without stops, and it takes longer with the crowds. Tap a stop to see it on the map.</p>'
@@ -554,25 +554,88 @@ guide("the-bund-shanghai-at-night","The Bund Shanghai at Night: Lights, Views an
       extra=BUND_EXTRA,checked="2026-10-30",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
-guide("nanjing-road-shanghai","Nanjing Road Shanghai: metro exit, neon times and the walk","Nanjing Road in Shanghai: how to walk it, which metro exit, when the neon comes on",
-      "Nanjing Road: 1.6 km from People's Square to the Bund, the metro exits at each end, when the neon is on, and the walk that ends at the river.",
+_NR=_json.load(open("src/nanjing-route.json"))
+_NS=[_NR[i] for i in (0,27,37,77)]
+_ICO=re.findall(r'<svg.*?</svg>',BUND_GLANCE)
+def _gi(i,l,v): return '<div class="gl-i"><span class="gl-l">'+_ICO[i]+l+'</span><b>'+v+'</b></div>'
+NJ_CHECK='<p>Distances, metro lines and opening details here are from the sources at the bottom, checked on 30 October 2026. Shops and signs change their own hours, so treat times as a guide and check on the day.</p>'
+NJ_GLANCE=('<div class="glance"><div class="gl-h"><b>Nanjing Road at a glance</b><span class="gl-pill">Free to visit</span></div><div class="gl-g">'
+ +_gi(0,"Entrance","Free, the street is open all day and night")
+ +_gi(1,"Time needed","1 to 2 hours")
+ +_gi(2,"Metro","People's Square or East Nanjing Road")
+ +_gi(3,"Best atmosphere","After sunset")
+ +_gi(4,"Shop hours","Each shop sets its own")
+ +_gi(5,"Best combination","Walk on to the Bund")
+ +'</div><p class="gl-f">My route: start at People\'s Square, walk east through the shopping street, finish at the Bund for the skyline.</p></div>')
+NJ_MAP=('<h2 id="route">The walking route, on a map</h2>'
+ '<p>This is the walk I would do: People\'s Square station, past the old department stores, and on to the Peace Hotel where the street meets the river. From the station it is about 2.3 km, roughly 30 minutes without stops. Tap a stop to see it on the map.</p>'
+ '<div class="rmap"><div id="njmap" class="rmap-m" role="img" aria-label="Walking route map from People\'s Square station along Nanjing Road to the Peace Hotel on the Bund"><noscript>The map needs JavaScript. Use the Open route button below.</noscript></div>'
+ '<div class="rstops r4">'
+ '<button type="button" class="rs" data-i="0"><span><em>1 &middot; Start here</em><b>People\'s Square station</b><small>Lines 1, 2 and 8</small></span></button>'
+ '<button type="button" class="rs" data-i="1"><span><em>2 &middot; About 5 min, 410 m</em><b>Shanghai No. 1 Department Store</b><small>Old department store, west end</small></span></button>'
+ '<button type="button" class="rs" data-i="2"><span><em>3 &middot; About 6 min, 420 m</em><b>Wing On Department Store</b><small>Another of the old stores</small></span></button>'
+ '<button type="button" class="rs" data-i="3"><span><em>4 &middot; About 20 min, 1.4 km</em><b>Fairmont Peace Hotel</b><small>Where Nanjing Road meets the Bund</small></span></button>'
+ '</div></div>'
+ '<p class="rlinks"><a class="btn" href="https://uri.amap.com/navigation?from=121.473538,31.233273,People%27s%20Square%20station&amp;to=121.489795,31.23903,Fairmont%20Peace%20Hotel&amp;mode=walk&amp;src=scratchandroam&amp;callnative=1" rel="noopener" target="_blank">Open walking route in Amap</a> <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;origin=People%27s+Square+Metro+Station+Shanghai&amp;destination=Fairmont+Peace+Hotel+Shanghai&amp;waypoints=Shanghai+No.1+Department+Store%7CWing+On+Department+Store+Shanghai&amp;travelmode=walking" rel="noopener" target="_blank">Google Maps (not in China)</a></p>'
+ '<p class="rnote">Google Maps does not work in China, so use the Amap button there. On a phone with the Amap app it opens the app. Amap routes from the station to the hotel in one go, so it will not show the two department stores. Walking times are estimates from OpenStreetMap routing. Use the route as a guide, not a rigid plan.</p>'
+ '<script>(function(){var R='+_json.dumps(_NR,separators=(",",":"))+',S='+_json.dumps(_NS,separators=(",",":"))+',el=document.getElementById("njmap"),m,started=0;if(!el)return;'
+ 'function draw(){m=L.map(el,{scrollWheelZoom:false,dragging:!L.Browser.mobile,tap:false,zoomSnap:.5,zoomControl:false,attributionControl:false});L.control.zoom({position:"topright"}).addTo(m);L.control.attribution({prefix:false}).addTo(m);'
+ 'L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:\'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors\'}).addTo(m);'
+ 'var l=L.polyline(R,{color:"#E4572E",weight:5,opacity:.95,dashArray:"1 9",lineCap:"round"}).addTo(m);'
+ 'S.forEach(function(p,i){L.marker(p,{icon:L.divIcon({className:"rpin",html:"<span>"+(i+1)+"</span>",iconSize:[30,30],iconAnchor:[15,15]})}).addTo(m)});'
+ 'm.fitBounds(l.getBounds(),{padding:[28,28]});'
+ 'document.querySelectorAll(".rs").forEach(function(b){b.addEventListener("click",function(){var i=+b.dataset.i;m.flyTo(S[i],17);el.scrollIntoView({block:"nearest",behavior:"smooth"})})})}'
+ 'function start(){if(started)return;started=1;var c=document.createElement("link");c.rel="stylesheet";c.href="/vendor/leaflet/leaflet.css";c.onload=function(){var j=document.createElement("script");j.src="/vendor/leaflet/leaflet.js";j.onload=draw;document.head.appendChild(j)};document.head.appendChild(c)}'
+ 'if("IntersectionObserver" in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){o.disconnect();start()}},{rootMargin:"400px"}).observe(el)}else{window.addEventListener("load",start)}})();</script>')
+NJ_EXTRA=(
+ '<h2 id="worth-it">Is Nanjing Road worth visiting?</h2>'
+ '<p>If it is your first time in Shanghai, I think yes. It is free, it is on the way to the Bund, and it is one of the busiest and brightest streets in the city. Spending New Year and the day after on Nanjing Road and the Bund was the best decision we made on our first China trip.</p>'
+ '<p>It is a shopping street, so expect crowds, shop fronts and big screens rather than quiet sightseeing. If you only want the skyline, go straight to my <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a>. If you want a walk with some atmosphere on the way, do both.</p>'
+ '<h2 id="east-west">East or West Nanjing Road?</h2>'
+ '<p>Nanjing Road is a long road with two halves, and people mix them up. <b>Nanjing East Road</b> is the famous pedestrian shopping street between People\'s Square and the Bund, and it is the one this guide is about. <b>Nanjing West Road</b> carries on west of People\'s Square towards Jing\'an, and it is a different part of the city, with large modern malls. If you are looking for the neon and the old department stores, you want the East Road.</p>'
+ '<h2 id="how-far">How long is the walk?</h2>'
+ '<p>The distance depends on where you start counting, and travel sites quote different numbers. The central pedestrian shopping stretch, between Henan Middle Road and Xizang Middle Road, is about 1.2 km. The street was later extended by about 500 m to reach the Bund, and some guides quote roughly 1.6 km for the whole pedestrian walk. If you start at People\'s Square station, as in the map below, the walk to the Peace Hotel on the Bund is about 2.3 km, roughly 30 minutes without stops.</p>'
+ + NJ_MAP +
+ '<h2 id="stops">Four places worth a stop</h2>'
+ '<p>You can just walk and look, but these are the landmarks I would use to break up the street.</p>'
+ '<ul class="stops"><li><b>Shanghai No. 1 Department Store.</b> One of the historic department stores on the west part of the street. Good for seeing how Shanghai shopping looked before the glass malls.</li>'
+ '<li><b>Wing On Department Store.</b> Another of the old stores, a few minutes further east. It connects the street to Shanghai\'s early shopping history.</li>'
+ '<li><b>The neon stretch.</b> The part of the street where signs, screens and lit facades pile up. My photos below are from this kind of stretch at dusk and after dark.</li>'
+ '<li><b>The Peace Hotel.</b> The green-roofed Art Deco hotel where Nanjing Road meets the Bund. It is the natural end of the walk.</li></ul>'
+ '<p>I am leaving out a food stop on purpose. I will add one when I can recommend a place we actually ate at.</p>'
+ '<h2 id="night">Nanjing Road at night</h2>'
+ '<p>The street is open all day and night, and it is at its best after sunset, when the shop signs, lit facades and big screens come on. There is no single switch-on time that I could confirm from an official source. Travel sites quote a time around 18:00 or 19:00, but each shop and sign has its own hours, so go at dusk and see what is lit.</p>'
+ '<p>It is also a good plan to see the street in the daytime first if you can, to look at the old buildings, and come back in the evening.</p>')
+NJ_END=('<h2 id="next">Finished Nanjing Road? Here is how to see the Bund at night</h2>'
+ '<p>The walk ends at the river, so keep going. The <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a> covers the lights, the best views and the Pudong viewing decks, and the <a href="/guides/huangpu-river-night-cruise/">Huangpu River night cruise guide</a> explains the piers and tickets for seeing the skyline from the water.</p>')
+
+guide("nanjing-road-shanghai","Nanjing Road Shanghai: Walking and Shopping Guide (2026)","Nanjing Road Shanghai: What to See, Shopping and Night Walk",
+      "Nanjing Road in Shanghai: walk it from People's Square to the Bund, East versus West Nanjing Road, the old department stores and the night view.",
       "Nanjing Road Shanghai",None,
-      "<p>Nanjing Road is the long pedestrian shopping street from People's Square to the Bund. It is loud, bright and busy, especially in the evening.</p><p>My advice is simple: walk it one way, from People's Square towards the river, starting when the neon comes on. Then the walk ends at the Bund with everything lit.</p>"+CHECK,
-      [("Start at People's Square","People's Square station is on Lines 1, 2 and 8. Exit 19 brings you straight into the New World City basement; come up and you are at the west end of the street."),
-       ("Walk east, about 1.6 km","The pedestrian section is car free. The old department stores (No. 1 Department Store, Wing On) and the neon signs are along the middle stretch."),
-       ("Time it for the neon","Signs come on at 19:00 from June to September and at 18:00 from October to May, and go off at 22:00. Evening from about 17:00 to 22:00 is the time; weekday evenings are quieter than weekends."),
-       ("Keep going past Henan Road to the Bund","The last 500 m east of Henan Road was pedestrianised in 2020 and leads straight to the Peace Hotel and the river. Do this bit at the end, not the start."),
-       ("If you only want the east end","East Nanjing Road station, Lines 2 and 10, exit 2 puts you on the street; exit 3 is quieter if you have luggage."),
+      "<p>Planning to walk Nanjing Road in Shanghai? Here is how to get there by metro, what to stop at, how far it really is, and why it is best after dark. We stayed at the Crowne Plaza on Nanjing Road over Christmas and New Year, and this is what I would tell a friend.</p><p>Nanjing East Road is the long pedestrian shopping street that runs from People\'s Square towards the Bund. It is loud, bright and busy, especially in the evening.</p>"+NJ_GLANCE+NJ_CHECK,
+      [("Take the metro to People's Square","People's Square station is on Lines 1, 2 and 8 and is the west end of the walk. East Nanjing Road station (Lines 2 and 10, exit 2 or 7) is the better start if you only want the part near the Bund."),
+       ("Walk east along the pedestrian street","The central pedestrian stretch is car free, about 1.2 km between Henan Middle Road and Xizang Middle Road. The old department stores and most of the signs are along this stretch."),
+       ("Go at dusk and stay for the lights","Shops and signs run on their own hours, so there is no fixed switch-on time. Arrive around dusk and walk east, so the walk ends at the Bund after dark."),
+       ("Keep going to the Bund","The last 500 m or so east of the central stretch was pedestrianised later and leads to the Peace Hotel and the river. Do this bit at the end."),
+       ("If you only want the east end","East Nanjing Road station, Lines 2 and 10, puts you on the street near the river."),
        ("Taxis and DiDi stop at the edge","Cars cannot enter. Drop-off points are the side streets such as West Tibet Road, Henan Middle Road or Jiujiang Road.")],
-      [("How long is Nanjing Road pedestrian street?","About 1.6 km of pedestrian-only street, from People's Square to the Bund. Allow an hour to walk it with stops."),
-       ("Which metro station for Nanjing Road?","People's Square (Lines 1, 2, 8) for the west end, East Nanjing Road (Lines 2, 10) for the east end near the Bund."),
-       ("When do the Nanjing Road lights come on?","18:00 from October to May, 19:00 from June to September, off at 22:00."),
-       ("Does Nanjing Road connect to the Bund?","Yes. Walk east past Henan Road and the street ends at the Peace Hotel on the Bund, about 500 m further.")],
-      [("Wander in China: Nanjing East Road guide (updated 8 June 2026)","https://wanderinchina.com/destinations/shanghai/nanjing-east-road/",False)],
+      [("Is Nanjing Road worth visiting?","For a first trip to Shanghai, yes. It is free, it is on the way to the Bund, and it is one of the brightest streets in the city. It is a crowded shopping street, so go for the atmosphere rather than for quiet sightseeing."),
+       ("Is Nanjing Road better during the day or at night?","Both are worth it. By day you can look properly at the old department stores and buildings. The lights and screens are the main draw after sunset, and my photos are all from dusk and the evening."),
+       ("How long does it take to walk Nanjing Road?","Allow 1 to 2 hours with stops. From People's Square station to the Peace Hotel on the Bund is about 2.3 km, roughly 30 minutes without stopping."),
+       ("What is the difference between East and West Nanjing Road?","Nanjing East Road is the pedestrian shopping street between People's Square and the Bund, with the old department stores. Nanjing West Road continues west towards Jing'an, with large modern malls. This guide is about the East Road."),
+       ("Where should I start walking?","At People's Square station (Lines 1, 2 and 8), then walk east towards the river so you finish at the Bund. If you are short of time, start at East Nanjing Road station instead."),
+       ("Can I walk from Nanjing Road to the Bund?","Yes. The street runs straight to the Peace Hotel on the Bund. From People's Square station it is about 2.3 km, roughly 30 minutes without stops."),
+       ("Is Nanjing Road good for shopping or mainly sightseeing?","Both. There are department stores and shops along the whole street, but I came mostly for the atmosphere and the lights, and to walk to the Bund."),
+       ("What time do the Nanjing Road lights come on?","I could not find an official switch-on time. The street is open all day and night, but each shop and sign sets its own hours. Travel sites say around 18:00 or 19:00, so arrive at dusk and see what is lit.")],
+      [("Shanghai government: Nanjing Road Pedestrian Street","https://english.shanghai.gov.cn/en-ScenicSpots/20231226/45172d56a204477195888159d4698ac8.html",True),
+       ("Wikipedia: Nanjing Road (length and pedestrian sections)","https://en.wikipedia.org/wiki/Nanjing_Road",False),
+       ("Wander in China: Nanjing East Road guide (updated 8 June 2026)","https://wanderinchina.com/destinations/shanghai/nanjing-east-road/",False),
+       ("OpenStreetMap: pedestrian routing for the walking times","https://www.openstreetmap.org/",False)],
       SITE+"/og/nanjing-road-shanghai.jpg",
       related=[("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go"),("/guides/huangpu-river-night-cruise/","huangpu-river-night-cruise-from-the-water-cover-4x5","SHANGHAI","Huangpu River night cruise: which pier and which ticket")],
       gallery=[("nanjing-road-curved-corner-building-neon-lights","Nanjing Road neon corner building"),("nanjing-road-pedestrian-street-gold-lit-facades","Nanjing Road pedestrian street at night"),("nanjing-road-clock-tower-and-neon-at-night","Nanjing Road clock tower and neon"),("nanjing-road-red-traffic-lights-and-shoppers-at-night","Nanjing Road crowd and lights"),("nanjing-road-shopping-street-at-dusk-with-big-screen","Nanjing Road at dusk")],
       place={"name":"Nanjing Road Pedestrian Street","city":"Shanghai","free":True},steps_title="How to walk Nanjing Road",
+      extra=NJ_EXTRA+NJ_END,checked="2026-10-30",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
 guide("huangpu-river-night-cruise","Huangpu River night cruise Shanghai: pier, ticket, time","Huangpu River night cruise in Shanghai: which pier, which ticket, and which side to stand on",
