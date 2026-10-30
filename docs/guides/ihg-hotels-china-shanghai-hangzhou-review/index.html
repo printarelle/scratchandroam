@@ -826,6 +826,17 @@ p{margin:0}
 .tcard:hover{border-color:var(--coral)}
 .fqcopy{font:600 13px var(--b);background:none;border:1px solid #d9cdbd;color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
 .fqcopy:hover{border-color:var(--coral);color:var(--coral)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:8px 0 22px}
+.pcard{text-align:left;background:#fff;border:1px solid var(--line,#eadfd2);border-radius:14px;padding:16px;cursor:pointer;display:block;font-family:var(--b)}
+.pcard:hover{border-color:var(--coral)}
+.pcard .pzh{display:block;font:700 24px/1.3 var(--b);color:var(--ink)}.pcard .pen{display:block;font:600 15px var(--b);margin-top:6px;color:var(--ink)}.pcard .ppy{display:block;font:400 13px var(--b);color:var(--mute,#6b6577);margin-top:2px}
+.pdlg{border:0;border-radius:18px;padding:0;width:min(94vw,640px);max-height:92vh}
+.pdlg::backdrop{background:rgba(20,33,61,.7)}
+.pbox{padding:28px 22px;text-align:center}
+.pzhb{font:700 clamp(38px,11vw,64px)/1.25 var(--b);margin:0 0 14px;color:var(--ink)}
+.pdy{font:400 18px var(--b);color:var(--mute,#6b6577);margin:0 0 6px}.pde{font:700 18px var(--b);margin:0 0 20px}
+.pacts{display:flex;gap:10px;justify-content:center}.pacts button{font:700 15px var(--b);padding:12px 18px;border-radius:10px;border:2px solid var(--coral);background:#fff;color:var(--coral);cursor:pointer}
+#pdcopy{background:var(--coral);color:#fff}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}

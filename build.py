@@ -20,7 +20,7 @@ FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="sty
 CSS=open('src/site.css').read()
 BRIGHT=os.environ.get('THEME','bright')=='bright'  # set THEME=legacy for the old dark build
 if BRIGHT:
-    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b, december_b, faq_b, faq_schema, faq_checked, tools_b, tools_hub_b, tool_page_b, TOOL_PAGES, TOOL_ORDER, CONSENTJS, privacy_b
+    from bright import nav_b, footer_b, guide_b, home_b, NAVJS_B, COPYJS, partner_b, where_b, about_b, china_b, AFFILIATES_LIVE, PARTNER_PAGES, disclosure_b, deals_b, tabbar_b, december_b, faq_b, faq_schema, faq_checked, tools_b, tools_hub_b, tool_page_b, TOOL_PAGES, TOOL_ORDER, CONSENTJS, privacy_b, phrase_b
     CSS=open('src/bright.css').read()+open('src/legacy-boards.css').read()
     FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" onload="this.onload=null;this.rel=&quot;stylesheet&quot;"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap"></noscript>'
 SOC={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Facebook":"https://www.facebook.com/scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"}
@@ -74,7 +74,7 @@ TPDRIVE="""<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-
 })();
 </script>"""
 
-def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False,published=None,modified=None):
+def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False,published=None,modified=None,noindex=False):
     assert 50<=len(desc)<=155, f'meta description for {path} is {len(desc)} characters; keep it 50 to 155 (Bing flags over 160)'
     url=SITE+path
     if BRIGHT and path=='/': body=home_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS))
@@ -103,7 +103,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 {ART_META}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{img}">
 <meta name="twitter:image:alt" content="{html.escape(OGALT.get(img.rsplit('/',1)[-1],title))}">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="robots" content="{"noindex,nofollow" if noindex else "index,follow,max-image-preview:large,max-snippet:-1"}">
 <meta name='impact-site-verification' value='7fbe3561-f8fe-44da-8eab-3d96083e40e2'>
 <link rel="alternate" type="application/rss+xml" title="Scratch &amp; Roam guides" href="/feed.xml">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -124,7 +124,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
     out="docs"+path+("index.html" if path.endswith("/") else "")
     os.makedirs(os.path.dirname(out),exist_ok=True)
     open(out,"w").write(doc)
-    PAGES.append((path,modified or published or TODAY))
+    if not noindex: PAGES.append((path,modified or published or TODAY))
 
 BAD_NAME=re.compile(r"^(img|image|pic|photo|dsc|screenshot|untitled|copy)[-_ ]?\d*$|^[a-z]{0,3}[-_]?\d+$|-(s\d{1,2}|slide-?\d{1,2})$|^(taobao|bund|river|nanjing|circus|dd)-\d")
 PAGEIMGS={}
@@ -282,6 +282,7 @@ def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,
 exec(open('src/content.py').read())
 if BRIGHT:
     if PARTNER_PAGES: page('/klook/','Klook link: what we booked in China','My Klook link, and the China tickets on this site you can book there, including the ERA show we booked in Shanghai.',partner_b('klook',SOC))
+    page('/china/phrase-cards/','Chinese phrase cards to show on your phone','Draft: big Chinese phrases to show a driver, hotel or restaurant, with English and pinyin. Waiting for a native speaker check.',phrase_b(SOC),noindex=True,modified="2026-10-30")
     _bc=lambda n,u:{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"China guides","item":SITE+"/china/"},{"@type":"ListItem","position":3,"name":"China tools","item":SITE+"/china/tools/"}]+([{"@type":"ListItem","position":4,"name":n,"item":SITE+u}] if n else [])}
     page('/china/tools/','China money, units and clothing size tools','Yuan converter, jin to kg, Chinese clothing and shoe size charts, and how to read a Taobao size sheet. Free tools for shopping in China.',tools_hub_b(SOC),[_bc(None,None)],modified="2026-10-30")
     SEARCH.append({"u":"/china/tools/","t":"China money, units and clothing size tools","d":"Yuan converter, jin, clothing and shoe sizes.","k":"tools currency size shoe jin taobao converter"})

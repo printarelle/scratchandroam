@@ -890,3 +890,26 @@ def tools_hub_b(SOC):
 </div></section>
 {band_b(SOC,"shop")}
 </main>'''
+
+
+PHRASES=[
+ ("Getting around",[("Please take me to this address.","请带我去这个地址。","Qǐng dài wǒ qù zhège dìzhǐ."),("Please stop here.","请在这里停车。","Qǐng zài zhèlǐ tíngchē."),("Where is the metro station?","请问地铁站在哪里？","Qǐngwèn dìtiě zhàn zài nǎlǐ?"),("Which platform is this train?","请问这趟火车在哪个站台？","Qǐngwèn zhè tàng huǒchē zài nǎge zhàntái?")]),
+ ("Hotel",[("I have a reservation.","我有预订。","Wǒ yǒu yùdìng."),("Can I leave my luggage here?","可以寄存行李吗？","Kěyǐ jìcún xíngli ma?")]),
+ ("Paying and shopping",[("I cannot use my payment app.","我的支付软件用不了。","Wǒ de zhīfù ruǎnjiàn yòng bu liǎo."),("Can I pay by card?","可以刷卡吗？","Kěyǐ shuā kǎ ma?"),("How much is this?","这个多少钱？","Zhège duōshao qián?")]),
+ ("Eating",[("Does this contain peanuts?","这个有花生吗？","Zhège yǒu huāshēng ma?"),("Not spicy, please.","不要辣。","Bú yào là.")]),
+ ("Help",[("I do not speak Chinese.","我不会说中文。","Wǒ bú huì shuō zhōngwén."),("Can you write it down?","可以写下来吗？","Kěyǐ xiě xiàlái ma?"),("Please help me.","请帮帮我。","Qǐng bāngbang wǒ."),("I lost my passport.","我的护照丢了。","Wǒ de hùzhào diū le."),("Where is the toilet?","请问洗手间在哪里？","Qǐngwèn xǐshǒujiān zài nǎlǐ?")]),
+]
+PHRASEJS='<script>(function(){var d=document.getElementById("pdlg"),z=document.getElementById("pdzh"),y=document.getElementById("pdpy"),e=document.getElementById("pden"),cp=document.getElementById("pdcopy");[].forEach.call(document.querySelectorAll(".pcard"),function(c){c.addEventListener("click",function(){z.textContent=c.getAttribute("data-zh");y.textContent=c.getAttribute("data-py");e.textContent=c.getAttribute("data-en");cp.textContent="Copy Chinese";if(d.showModal)d.showModal();else d.setAttribute("open","")})});document.getElementById("pdclose").addEventListener("click",function(){d.close?d.close():d.removeAttribute("open")});cp.addEventListener("click",function(){var t=z.textContent;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){cp.textContent="Copied"},function(){cp.textContent="Copy failed"})}else{cp.textContent="Copy not supported"}})})();</script>'
+def phrase_b(SOC):
+    secs=""
+    for g,items in PHRASES:
+        secs+=f'<h2>{html.escape(g)}</h2><div class="pgrid">'+"".join(f'<button type="button" class="pcard" data-zh="{html.escape(zh)}" data-en="{html.escape(en)}" data-py="{html.escape(py)}"><span class="pzh">{html.escape(zh)}</span><span class="pen">{html.escape(en)}</span><span class="ppy">{html.escape(py)}</span></button>' for en,zh,py in items)+'</div>'
+    return f'''<main>
+<section class="phero"><div class="wrap"><nav class="crumbs"><a href="/">Home</a><span>/</span><a href="/china/">China</a><span>/</span><span>Phrase cards</span></nav><p class="eyebrow">China Travel Companion</p><h1>Chinese phrase cards to show on your phone</h1><p class="lede">Tap a card to fill the screen with big Chinese text you can show a driver, hotel desk or waiter.</p></div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+<div class="dnote"><b>Draft, not published yet</b><p>This page is hidden from search and not linked anywhere. The Chinese text needs checking by a native speaker before it goes live. For a serious food allergy, show a written allergy card from your doctor as well, not only the peanut phrase.</p></div>
+{secs}
+</div></section>
+<dialog id="pdlg" class="pdlg"><div class="pbox"><p class="pzhb" id="pdzh"></p><p class="pdy" id="pdpy"></p><p class="pde" id="pden"></p><div class="pacts"><button type="button" id="pdcopy">Copy Chinese</button><button type="button" id="pdclose">Close</button></div></div></dialog>
+</main>
+{PHRASEJS}'''
