@@ -224,6 +224,7 @@ def cluster_b(slug):
     return (f'<nav class="clus" aria-label="{html.escape(title)}"><p class="ck">Part of: {html.escape(title)}</p><ol>{lis}</ol>'
             f'<a class="cnext" href="/guides/{nxt[0]}/">Next: {html.escape(nxt[1])} →</a></nav>')
 
+HERO_OWN={"alipay-add-foreign-card-china":("alipay-add-foreign-card-china-cover-16x9","Add a card to Alipay"),"wechat-pay-add-foreign-card-china":("wechat-pay-add-foreign-card-china-cover-16x9","Add a card to WeChat Pay")}
 NO_SHORT_PROMO={"alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china"}
 def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapters, related, checked, published, steps_title, shorts, extra, video_note, shotnote, IMGREG, SOC, yt, start, CARDS, n_guides, title):
     def figs(keys):
@@ -237,6 +238,8 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     CLEAN=["the-bund-pudong-skyline-and-shanghai-tower-at-night","nanjing-road-curved-corner-building-neon-lights","huangpu-river-pudong-skyline-with-gold-reflections","the-bund-peace-hotel-green-roofs-lit-at-night","the-bund-pink-lit-pearl-tower-over-the-crowd","the-bund-oriental-pearl-tower-from-the-promenade"]
     hero_img=gallery[0][0] if gallery else CLEAN[sum(map(ord,slug))%len(CLEAN)]
     hero_cap=(IMGREG.get(hero_img+".jpg",{}).get("cap") or "") if gallery else "Shanghai, our own photo"
+    _own=HERO_OWN.get(slug)
+    if _own: hero_img,hero_cap=_own
     # body pieces
     toc=[]
     body=[]
@@ -318,7 +321,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <div class="author"><img src="/img/natali-portrait-at-her-desk.jpg" alt=""><div><b>By Natali</b><p>A maker from Ireland who films her trips and writes down the parts nobody explains. First-timer China, with the screenshots to prove it.</p></div></div>
 <p class="dates">Last updated: {checked}{f"<br>Published: {published}" if published else ""}</p>
 </div>
-<figure class="polaroid"><img src="/img/{hero_img}.jpg" alt="" data-hero{"" if (gallery and slug not in TEXT_GALLERIES) else " class=\"cover\""}><figcaption>{html.escape(hero_cap)[:60]}</figcaption></figure>
+<figure class="polaroid"><img src="/img/{hero_img}.jpg" alt="" data-hero{"" if ((gallery and slug not in TEXT_GALLERIES) or slug in HERO_OWN) else " class=\"cover\""}><figcaption>{html.escape(hero_cap)[:60]}</figcaption></figure>
 </div></section>
 <p class="strip">Every price and rule on this page was checked on {checked}.{(" "+AFF_NOTE) if (AFFILIATES_LIVE and (slug in OFFERS or slug in AFF_INLINE or slug in GUIDE_DEALS or slug in AMAZON)) else " Nothing here is sponsored."}</p>
 <div class="wrap cols">
