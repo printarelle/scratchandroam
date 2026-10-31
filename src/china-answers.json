@@ -100,8 +100,7 @@
    "slug": "china-before-you-fly-checklist",
    "yt": "",
    "rel": [
-    "travel-apps",
-    "lost-phone-or-passport"
+    "travel-apps"
    ],
    "src": "Natali's own experience",
    "chk": "2026-10-20",
@@ -390,29 +389,6 @@
    "src": "Natali's own booking; official site and 2026 guide as cited in the guide; prices change",
    "chk": "2026-10-15",
    "st": "needs review (prices and times)"
-  },
-  {
-   "id": "lost-phone-or-passport",
-   "pins": [
-    37
-   ],
-   "group": "Problems",
-   "q": "What do I do if I lose my phone or passport in China?",
-   "alts": [
-    "lost passport china",
-    "lost phone china",
-    "china emergency numbers",
-    "what if my phone dies in china"
-   ],
-   "a": "The only part I have verified is the emergency numbers: police 110, ambulance 120 and fire 119, per the UK government's China travel advice. Before you fly, keep copies of your documents, save your hotel name and address in Chinese, and set up a backup for your phone and data and a second way to pay, so one slip does not leave you without a map or wallet. For a lost passport, contact your own embassy in China. I have not yet written a step by step guide for this.",
-   "slug": "china-before-you-fly-checklist",
-   "yt": "",
-   "rel": [
-    "first-trip-checklist"
-   ],
-   "src": "UK government China travel advice (official); Natali's checklist. Lost passport procedure not covered by the guide",
-   "chk": "2026-10-20",
-   "st": "needs review (partial answer)"
   },
   {
    "id": "foreign-card-payments",
