@@ -138,7 +138,7 @@ _EXTRA='''
 </ul>
 
 <h2 id="disclosure">Is this sponsored?</h2>
-<p>No. We booked these stays ourselves with our own IHG points, and I have no affiliate link for IHG, so there is no link on this page that earns me money. If that ever changes, I will say so here and on the <a href="/affiliate-disclosure/">affiliate disclosure page</a>.</p>
+<p>No. We booked these stays ourselves with our own IHG points, and I have added no affiliate link for IHG. A tracking script on this site can turn links to some travel brands into affiliate links automatically, and I have not checked whether that applies to IHG, so treat any hotel link here as one that might earn me a commission. If that ever changes, I will say so here and on the <a href="/affiliate-disclosure/">affiliate disclosure page</a>.</p>
 '''
 
 guide("ihg-hotels-china-shanghai-hangzhou-review","IHG hotels in China: 4 stays in Shanghai and Hangzhou",
