@@ -3,10 +3,10 @@
 # Source for each story is noted next to it (the date she told it).
 
 _INTERNET = ('<p>On our first trip, Christmas 2025, my eSIM was ready, and I forgot to switch it on before we landed. '
-  'So we did the thing I would not do again: we bought Chinese SIM cards at the airport. '
+  'So we bought China Mobile SIM cards at the airport instead, and I do recommend that. '
   'I also had only one VPN, NordVPN, and it needed wifi to activate again. '
   'In the end our hotel concierge shared the VPN he used, LetsVPN, and that got us back online.</p>'
-  '<p>When we went back for Easter 2026 we were fully prepared. '
+  '<p>When we went back for Easter 2026 we were fully prepared, and we just reactivated the same China Mobile SIM in the app. '
   'My lesson from it: even when you research everything, have a backup plan.</p>')  # told 17 Oct 2026
 
 _SIM = ('<p>Another time I pre-ordered a Nihao Mobile SIM and picked it up at the airport. '
