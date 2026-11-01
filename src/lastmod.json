@@ -1,19 +1,19 @@
 {
  "/": {
-  "d": "2026-10-30T08:22:21+00:00",
-  "h": "fc6bfacd4e679b901fe350f93bcb9636e65c38c6"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "b99921ff5bb0c7db0edc4ed6bc949c1a63be416a"
  },
  "/about/": {
-  "d": "2026-10-31T15:05:22+00:00",
-  "h": "da8648e244c2ed8078667ce05124516df54d006b"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "18af20c66abe5b08e02ab5e140cac2e92bef5b79"
  },
  "/affiliate-disclosure/": {
   "d": "2026-10-31T15:05:08+00:00",
   "h": "c55ba2e83fd28543155c91c203ba1c20ef831618"
  },
  "/china/": {
-  "d": "2026-10-30T08:22:21+00:00",
-  "h": "efc60275b86d4fa6a5e0d5f4e5633146f3547d90"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "007274ea9a08cb8cbc0c650fe7bac5d91c6fed6a"
  },
  "/china/tools/": {
   "d": "2026-10-30T07:30:37+00:00",
@@ -64,20 +64,20 @@
   "h": "fc52e1d15e656e47f6ecd7af4dc1ee1ff5f0ed30"
  },
  "/guides/china-arrival-card-alipay/": {
-  "d": "2026-10-31T15:05:08+00:00",
-  "h": "32ee948802c4333d2b1f29ea56d1868e0b686298"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "31cfbcb05d1e20ea64da758c9b7c928d842188e8"
  },
  "/guides/china-arrival-card-pc/": {
-  "d": "2026-10-31T15:05:08+00:00",
-  "h": "a334e7e1aec1aebc072ad4abdd8b974d9f31fc3c"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "441997a2b8fe767e430807472e4b8d0d52d8243f"
  },
  "/guides/china-before-you-fly-checklist/": {
-  "d": "2026-10-31T15:05:08+00:00",
-  "h": "354aaecbb808c565b6bdf0979c2cbb9ad029a8ad"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "4e585f7cfe7b9d7d519f10091d3b9350c7bf0a4c"
  },
  "/guides/china-dos-and-donts/": {
-  "d": "2026-10-31T15:05:08+00:00",
-  "h": "40ef91e9c88a981d9ab3ef97573ce0b762571fbd"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "cb5a843798d365e48d3b9ae8a6ccbd7c61e6468c"
  },
  "/guides/china-travel-apps/": {
   "d": "2026-10-31T15:05:08+00:00",
@@ -88,20 +88,20 @@
   "h": "99d150456038ac1b3a5aa96af4b596a1366af5fb"
  },
  "/guides/china-visa-free-30-days/": {
-  "d": "2026-10-31T15:05:08+00:00",
-  "h": "10c8d4bb632ca182f845289bd79e67e62d420567"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "be52cf3ec3d4d335bbbc115533d4f9643e89db57"
  },
  "/guides/first-time-in-china/": {
-  "d": "2026-10-31T15:05:08+00:00",
-  "h": "b00163500e4bf9864712ae4279f05e532eb2eb86"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "6653d0905fa965fefc7c4bfe4c8c4d97d4dce90c"
  },
  "/guides/food-delivery-in-china-for-foreigners-meituan/": {
   "d": "2026-10-31T15:05:08+00:00",
   "h": "b36af60693634a8d81bd1ecd62593d010e45c184"
  },
  "/guides/how-to-order-food-in-china-without-speaking-chinese/": {
-  "d": "2026-10-31T15:05:08+00:00",
-  "h": "af938319e45ef8b44533f77d4ebf1f2e3cec0711"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "c02829c34028fa599a048a1523afea0b80a9edab"
  },
  "/guides/huangpu-river-night-cruise/": {
   "d": "2026-10-31T15:05:08+00:00",
@@ -135,6 +135,10 @@
   "d": "2026-10-31T15:05:08+00:00",
   "h": "d922ee48f4c0790b07616b03219ee97dc500ac1b"
  },
+ "/guides/travelling-to-china-from-ireland/": {
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "01bc002c305bb83a1bc916bf109ab95189cc1d1a"
+ },
  "/guides/wechat-pay-add-foreign-card-china/": {
   "d": "2026-10-31T15:05:08+00:00",
   "h": "9b4e5e1e51d62226e8e29ea123bc3995dce59aa4"
@@ -156,7 +160,7 @@
   "h": "5c448202adf5a2a6066b805c37a8e6aa0d8cf814"
  },
  "/where-ive-been/": {
-  "d": "2026-10-30T08:22:21+00:00",
-  "h": "ac75e09131dda1602a4144f799d21326e99957e8"
+  "d": "2026-11-01T13:40:19+00:00",
+  "h": "81f35d00b466ddb81cde5ddd1c79e263f122b305"
  }
 }

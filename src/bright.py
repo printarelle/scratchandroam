@@ -194,6 +194,7 @@ def _stack_tables(h):
 CLUSTERS=[
  ("plan","Plan your first China trip",[
    ("first-time-in-china","The full plan, in order","Start here: every step from entry rules to packing"),
+   ("travelling-to-china-from-ireland","Getting there from Ireland","Visa-free entry, flights and the first-week setup"),
    ("china-visa-free-30-days","Do you need a visa?","Visa-free entry and the 30-day rule"),
    ("china-arrival-card-pc","Arrival card on a computer","The form, step by step"),
    ("china-arrival-card-alipay","Arrival card on your phone","The same form inside Alipay"),
@@ -227,7 +228,7 @@ def cluster_b(slug):
     return (f'<nav class="clus" aria-label="{html.escape(title)}"><p class="ck">Part of: {html.escape(title)}</p><ol>{lis}</ol>'
             f'<a class="cnext" href="/guides/{nxt[0]}/">Next: {html.escape(nxt[1])} →</a></nav>')
 
-HERO_OWN={"alipay-vs-wechat-pay-china":("alipay-vs-wechat-pay-china-cover-16x9","Alipay or WeChat Pay"),"alipay-add-foreign-card-china":("alipay-add-foreign-card-china-cover-16x9","Add a card to Alipay"),"wechat-pay-add-foreign-card-china":("wechat-pay-add-foreign-card-china-cover-16x9","Add a card to WeChat Pay")}
+HERO_OWN={"travelling-to-china-from-ireland":("travelling-to-china-from-ireland-cover-16x9","Ireland to China"),"alipay-vs-wechat-pay-china":("alipay-vs-wechat-pay-china-cover-16x9","Alipay or WeChat Pay"),"alipay-add-foreign-card-china":("alipay-add-foreign-card-china-cover-16x9","Add a card to Alipay"),"wechat-pay-add-foreign-card-china":("wechat-pay-add-foreign-card-china-cover-16x9","Add a card to WeChat Pay")}
 NO_SHORT_PROMO={"alipay-vs-wechat-pay-china","alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china"}
 def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapters, related, checked, published, steps_title, shorts, extra, video_note, shotnote, IMGREG, SOC, yt, start, CARDS, n_guides, title):
     def figs(keys):
@@ -623,6 +624,7 @@ GUIDE_DEALS={
  "china-before-you-fly-checklist":(["Firsty","Airalo","NordVPN","ExpressVPN","Welcome Pickups","GetTransfer"],"An eSIM and two VPNs for step 4, and an airport transfer for step 10, so your first day stays simple."),
  "food-delivery-in-china-for-foreigners-meituan":(["Firsty","Airalo"],"You need mobile data to order, chat with the rider and pay, so sort your eSIM before you fly."),
  "china-visa-free-30-days":(["Kiwi.com"],"Flights for a trip that fits inside the 30 days and before 31 December 2026."),
+ "travelling-to-china-from-ireland":(["Kiwi.com","Firsty","Airalo","NordVPN","ExpressVPN","Welcome Pickups","GetTransfer"],"Flights, an eSIM, a VPN and an airport transfer, in the order you need them."),
 }
 def guide_deals_b(slug):
     names,note=GUIDE_DEALS[slug]
@@ -644,6 +646,7 @@ AMZ_LINE="As an Amazon Associate I earn from qualifying purchases."
 def amz(q): return "/go/amazon?k="+q.replace(" ","+")  # src/worker.js: IE -> amazon.ie -21, others -> amazon.com -20 + OneLink
 # Only items the guide itself tells people to pack or use. Search links, so readers pick the product.
 AMAZON={
+ "travelling-to-china-from-ireland":("Plug adapter for China",[("Travel plug adapter for China","Step 8: my hotels in Shanghai had UK sockets, but I still carry one. Pick one that covers Type A and Type I.","uk to china travel adapter")]),
  "china-dos-and-donts":("Things from this list to pack",[("Travel plug adapter for China","Number 12. A UK to China adapter, or a universal one that covers Type A and Type I sockets.","uk to china travel adapter"),
    ("Travel hand sanitiser","Number 14. Many public toilets have no soap.","travel hand sanitiser"),
    ("Travel-size toiletries","Number 13. Your own deodorant and SPF in travel sizes.","travel size toiletries bottles")]),

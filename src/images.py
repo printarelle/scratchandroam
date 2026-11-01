@@ -211,3 +211,15 @@ a("jin-mao-tower-deck-view-over-huangpu-river-to-the-bund-bank.jpg","View from t
 a("jin-mao-tower-deck-wide-river-view-towards-the-bund-bank.jpg","Wide daytime view from the Jin Mao Tower deck across the Huangpu river to the Bund bank and the city beyond, in light haze","A wider view towards the Bund bank")
 a("jin-mao-tower-deck-oriental-pearl-tower-among-pudong-towers.jpg","Daytime view from the Jin Mao Tower deck of the Oriental Pearl Tower among the Pudong towers, with the Huangpu river and the Bund bank behind","The Oriental Pearl Tower among the Pudong towers")
 a("jin-mao-tower-model-on-the-observation-deck.jpg","A model of the Jin Mao Tower on a round base labelled in Chinese characters, inside the observation deck with sky and clouds behind the windows","A model of the Jin Mao Tower on the deck")
+
+# Travelling to China from Ireland (1 Nov 2026). Photos are Natali's own, from her China folder.
+a("travelling-to-china-from-ireland-cover-16x9.jpg","Cover: the title Ireland to China over the Pudong skyline, with the chips Visa-free, Flights and Setup and a China flag sticker")
+a("pudong-skyline-and-oriental-pearl-tower-from-the-shanghai-sightseeing-bus.jpg","The Oriental Pearl Tower and the Pudong skyline under a blue sky, seen from the Bund side","The Pudong skyline in daylight, from the Bund side")
+a("shanghai-steel-bridge-seen-from-the-front-of-the-sightseeing-bus.jpg","A steel truss bridge in Shanghai seen from the front of the sightseeing bus, with a white van ahead","Crossing a steel bridge on the sightseeing bus")
+a("shanghai-disneyland-castle-lit-pink-and-blue-at-night.jpg","The castle at Shanghai Disneyland lit pink, purple and blue against the night sky","Shanghai Disneyland at night")
+a("jin-mao-tower-deck-view-of-the-huangpu-river-and-pearl-tower.jpg","The Huangpu river bending past the Pudong towers and the Oriental Pearl Tower, seen from the Jin Mao Tower deck","The view from the Jin Mao Tower deck")
+a("yu-garden-bazaar-lit-pavilion-at-dusk.jpg","A lit, tiered pavilion in the Yu Garden bazaar at dusk with flowers hanging from the eaves","The Yu Garden bazaar at dusk")
+a("shanghai-temple-with-gold-roof-ornaments-and-modern-towers-behind.jpg","A Shanghai temple courtyard with gold roof ornaments, a bronze incense burner and modern towers behind","A temple courtyard with towers behind it")
+a("hangzhou-golden-globe-building-and-skyline-at-night.jpg","A round golden globe-shaped building lit at night among the Hangzhou skyline towers","The golden globe building in Hangzhou at night")
+a("hangzhou-light-show-on-the-towers-across-the-river.jpg","Hangzhou towers lit blue by the evening light show, with a crowd in front","The light show on the Hangzhou towers")
+OGALT["travelling-to-china-from-ireland.jpg"]=R["travelling-to-china-from-ireland-cover-16x9.jpg"]["alt"]

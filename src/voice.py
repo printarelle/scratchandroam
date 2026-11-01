@@ -17,7 +17,14 @@ _12306 = ('<p>Trains: I could not get through the 12306 registration in the Alip
   'so I booked all our train tickets on Trip.com and paid a small fee. '
   'If you want to use 12306 itself, download the real app from the App Store or Google Play.</p>')  # told 16 Oct 2026
 
+
+_FLIGHTS = ('<p>I live in Mallow, in Co. Cork, and I have been to China twice: Christmas 2025 and Easter 2026. '
+  'I have flown to Shanghai with a change in London, and with a change in Helsinki. '
+  'I have not flown the new nonstop from Dublin yet, so I cannot tell you what it is like. '
+  'For our next trip in December we fly Cork, London, Chengdu.</p>')  # told 15 and 26 Oct 2026, nonstop checked 20 Oct 2026
+
 STORIES = {
+ "travelling-to-china-from-ireland": ("What I have actually done", _FLIGHTS + _INTERNET),
  "first-time-in-china": ("What went wrong on our first trip", _INTERNET + _12306),
  "china-travel-apps": ("What I got wrong with apps the first time", _INTERNET + _SIM + _12306),
  "top-25-china-apps": ("Why the eSIM and VPN rank so high", _INTERNET),
