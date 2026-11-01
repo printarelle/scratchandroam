@@ -74,12 +74,15 @@ TPDRIVE="""<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-
 })();
 </script>"""
 
+DEFER=[]; _FINAL=False   # home and /china/ are built last, once every guide has registered its publish date
 def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False,published=None,modified=None,noindex=False):
+    if path in ("/","/china/") and not _FINAL:
+        DEFER.append((path,title,desc,body,schema,og_image,extra_head,dark,published,modified,noindex)); return
     assert 50<=len(desc)<=155, f'meta description for {path} is {len(desc)} characters; keep it 50 to 155 (Bing flags over 160)'
     url=SITE+path
-    if BRIGHT and path=='/': body=home_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS))
+    if BRIGHT and path=='/': body=home_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS),dates={g[0]:(g[3] or g[4]) for g in GUIDELIST})
     if BRIGHT and path=='/about/': body=about_b(SOC=SOC,n_guides=len(CARDS))
-    if BRIGHT and path=='/china/': body=china_b(CARDS=CARDS,SOC=SOC,QCARDS=QCARDS,QS_CHINA=QS_CHINA,n_guides=len(CARDS))
+    if BRIGHT and path=='/china/': body=china_b(CARDS=CARDS,SOC=SOC,QCARDS=QCARDS,QS_CHINA=QS_CHINA,n_guides=len(CARDS),dates={g[0]:(g[3] or g[4]) for g in GUIDELIST})
     img=og_image or SITE+"/og/shanghai-circus-world-photo-dump.jpg"
     ART_META=(f'<meta property="article:published_time" content="{published}">\n' if published else "")+(f'<meta property="article:modified_time" content="{modified}">\n' if modified else "")
     sj="".join(f'<script type="application/ld+json">{json.dumps(s,ensure_ascii=False)}</script>' for s in (schema or []))
@@ -299,6 +302,9 @@ if BRIGHT:
     page('/affiliate-disclosure/','Affiliate disclosure','How affiliate links work on Scratch & Roam: which links earn a commission, what we booked ourselves, and what it does not change.',disclosure_b(SOC))
     page('/december-trip/',"China in December 2026: Chengdu, Chongqing, Xi'an","Our December 2026 China trip: Chengdu, Chongqing and Xi'an by high-speed train, the stays, the plan and the guides to read first.",december_b(SOC=SOC,CARDS=CARDS))
     page('/where-ive-been/',"Where I've been","Every trip so far: two trips to China, Japan, and Chengdu, Chongqing and Xi'an in December, with the guides and videos from each.",where_b(CARDS=CARDS,SOC=SOC,n_guides=len(CARDS)))
+
+_FINAL=True
+for _a in DEFER: page(*_a)
 
 # lastmod: the home page and /china/ list every guide, so they changed when the newest guide went live
 _gd=[(pu or ck) for sl,t,d,pu,ck in GUIDELIST]
