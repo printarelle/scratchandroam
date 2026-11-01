@@ -887,11 +887,11 @@ p{margin:0}
 @media(max-width:760px){.rstops{grid-template-columns:1fr}.rs{border-right:0;border-bottom:1px solid var(--line)}.rs:last-child{border-bottom:0}.rmap-m{height:320px}}
 .rpin{background:none;border:0}.rpin span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#1B2A41;color:#fff;font:700 14px var(--b);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}
 .rlinks{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.rnote{font-size:13px;color:var(--mute);flex:1 1 240px}
-.art .faq.acc{display:block;border:1px solid var(--line);border-radius:16px;padding:6px 20px;background:#fff}
-.art .faq.acc .acc-h{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.art .faq.acc{display:block;border:1px solid var(--line);border-radius:16px;padding:4px 22px;background:#fff;margin:8px 0 28px}
+.art .faq.acc .acc-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.art .faq.acc .acc-h em{font:400 13px var(--b);font-style:normal;color:var(--mute)}
 .art .faq.acc .acc-h b{font:400 20px var(--d);color:var(--ink)}.art .faq.acc .acc-h span{font:600 12px var(--b);background:var(--mint2);padding:3px 10px;border-radius:999px;color:var(--ink2)}
 .art .faq.acc details{border-bottom:1px solid var(--line);padding:0}.art .faq.acc details:last-child{border-bottom:0}
-.art .faq.acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;padding:14px 0;font:600 16px/1.35 var(--b);color:var(--ink)}
+.art .faq.acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;min-height:56px;padding:12px 0;font:600 16px/1.35 var(--b);color:var(--ink)}
 .art .faq.acc summary::-webkit-details-marker{display:none}
 .art .faq.acc summary::after{content:"";flex:none;width:8px;height:8px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg);transition:transform .15s}
 .art .faq.acc details[open] summary::after{transform:rotate(-135deg)}
@@ -909,6 +909,7 @@ p{margin:0}
 .art .glance~.btn,.art .glance+.btn{margin-top:32px}
 .art h2{margin-top:56px}
 .art h2+.glance,.art h2+.rmap,.art h2+table{margin-top:20px}
+.art h2+.steps,.art h2+.faq,.art h2+.shots,.art h2+.stops{margin-top:20px}.art h2{margin-bottom:0}
 .art p+ul,.art p+ol{margin-top:14px}
 .art ul.stops li{margin-bottom:12px}
 
@@ -930,6 +931,7 @@ p{margin:0}
 .qbook p{margin:0;font-weight:600}
 .qbook small{color:var(--mute);line-height:1.4}
 @media(min-width:961px) and (max-width:1180px){.hb nav{gap:14px}.hb nav a,.hb .nb{white-space:nowrap;font-size:13px}.hb .logo .mark{font-size:21px;white-space:nowrap}.hb .logo .with{font-size:17px}}
+.art .faq.acc .acc-h span{white-space:nowrap}@media(max-width:600px){.art .faq.acc .acc-h em{display:none}}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
