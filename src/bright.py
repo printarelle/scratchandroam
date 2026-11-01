@@ -174,6 +174,7 @@ def _stack_tables(h):
     # label every cell with its column header so tables turn into cards on phones; wrap for scrolling
     def one(m):
         t=m.group(0)
+        if 'plugtab' in t: return t
         heads=[re.sub(r'<[^>]+>','',x).strip() for x in re.findall(r'<th[^>]*>(.*?)</th>',t,re.S)]
         if not heads: return t
         def row(r):
@@ -666,16 +667,17 @@ AMAZON={
    ("Chilli crisp","Week 4: heat that comes in oil, closer to Sichuan food.","chilli crisp"),
    ("Sichuan peppercorns","Week 5: the numbing half of mala. Start with a tiny pinch.","sichuan peppercorns")]),
 }
+PLUG_TABLE='<table class="plugtab"><thead><tr><th>Region</th><th>Plug types</th><th>Voltage</th><th>Frequency</th></tr></thead><tbody><tr><td>UK and Ireland</td><td>G</td><td>230V</td><td>50Hz</td></tr><tr><td>Most of Europe</td><td>C, E, F</td><td>230V</td><td>50Hz</td></tr><tr><td>USA</td><td>A, B</td><td>120V</td><td>60Hz</td></tr><tr><td>China</td><td>A, I</td><td>220V</td><td>50Hz</td></tr></tbody></table>'
 AMAZON_CUSTOM={"travelling-to-china-from-ireland":("Plug adapter for China",
- "My Amazon links for the plug adapter. Step 8 says why I still carry one. The picture shows why a UK or Irish plug does not fit a Chinese socket.",
- "uk-and-china-plug-and-socket-types-comparison",
+ "My Amazon links for the plug adapter. Step 8 says why I still carry one. The chart shows how the Irish and UK plug (Type G) differs from the plugs used in China.",
+ "power-plug-types-uk-ireland-europe-usa-china",
  [("Plug adapter: Amazon.ie","For readers in Ireland.","https://link.amazon/B03mkH5W5","See on Amazon.ie"),
   ("Plug adapter: Amazon.com and Amazon.co.uk","For readers in the UK and on Amazon.com.","https://link.amazon/B0c8J1o7L","See on Amazon")])}
 def amazon_b(slug, IMGREG=None):
     if slug in AMAZON_CUSTOM:
         title,intro,img,items=AMAZON_CUSTOM[slug]
         cards="".join(f'<div class="amz"><b>{html.escape(n)}</b><p>{html.escape(t)}</p><a class="btn alt2" href="{u}" rel="sponsored nofollow noopener" target="_blank">{html.escape(b)}</a></div>' for n,t,u,b in items)
-        return f'<h2 id="amazon">{html.escape(title)}</h2><p>{html.escape(intro)} {AMZ_LINE}</p><div class="plugrow"><figure><a href="/img/{img}.jpg"><img src="/img/{img}.jpg" alt="" loading="lazy"></a><figcaption>{html.escape(IMGREG[img+".jpg"]["cap"])}</figcaption></figure><div class="plugbox">{cards}</div></div>'
+        return f'<h2 id="amazon">{html.escape(title)}</h2><p>{html.escape(intro)} {AMZ_LINE}</p><div class="plugrow"><figure><a href="/img/{img}.jpg"><img src="/img/{img}.jpg" alt="" loading="lazy"></a><figcaption>{html.escape(IMGREG[img+".jpg"]["cap"])}</figcaption></figure>{PLUG_TABLE}<div class="plugbox">{cards}</div></div>'
     title,items=AMAZON[slug]
     cards="".join(f'<div class="amz"><b>{html.escape(n)}</b><p>{html.escape(t)}</p><a class="btn alt2" href="{amz(q)}" rel="sponsored nofollow noopener" target="_blank">See on Amazon</a></div>' for n,t,q in items)
     return f'<h2 id="amazon">{html.escape(title)}</h2><p>These open a search on Amazon in your country, so you can pick the one that suits you. {AMZ_LINE}</p><div class="amzs">{cards}</div>'
