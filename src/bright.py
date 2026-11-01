@@ -288,7 +288,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
         body.append(ex)
     if AFFILIATES_LIVE and slug in OFFERS: body.append(offers_b(OFFERS[slug],slug)); toc.append(("book",OFFER_HEAD.get(slug,("Where to book",))[0]))
     if slug in AMAZON:
-        body.append(amazon_b(slug)); toc.append(("amazon",AMAZON[slug][0]))
+        body.append(amazon_b(slug,IMGREG)); toc.append(("amazon",AMAZON[slug][0]))
     if slug in GUIDE_DEALS:
         body.append(guide_deals_b(slug)); toc.append(("links","Links for this guide"))
     if sources:
@@ -666,7 +666,16 @@ AMAZON={
    ("Chilli crisp","Week 4: heat that comes in oil, closer to Sichuan food.","chilli crisp"),
    ("Sichuan peppercorns","Week 5: the numbing half of mala. Start with a tiny pinch.","sichuan peppercorns")]),
 }
-def amazon_b(slug):
+AMAZON_CUSTOM={"travelling-to-china-from-ireland":("Plug adapter for China",
+ "My Amazon links for the plug adapter. Step 8 says why I still carry one. The picture shows why a UK or Irish plug does not fit a Chinese socket.",
+ "uk-and-china-plug-and-socket-types-comparison",
+ [("Plug adapter: Amazon.ie","For readers in Ireland.","https://link.amazon/B03mkH5W5","See on Amazon.ie"),
+  ("Plug adapter: Amazon.com and Amazon.co.uk","For readers in the UK and on Amazon.com.","https://link.amazon/B0c8J1o7L","See on Amazon")])}
+def amazon_b(slug, IMGREG=None):
+    if slug in AMAZON_CUSTOM:
+        title,intro,img,items=AMAZON_CUSTOM[slug]
+        cards="".join(f'<div class="amz"><b>{html.escape(n)}</b><p>{html.escape(t)}</p><a class="btn alt2" href="{u}" rel="sponsored nofollow noopener" target="_blank">{html.escape(b)}</a></div>' for n,t,u,b in items)
+        return f'<h2 id="amazon">{html.escape(title)}</h2><p>{html.escape(intro)} {AMZ_LINE}</p><div class="plugrow"><figure><a href="/img/{img}.jpg"><img src="/img/{img}.jpg" alt="" loading="lazy"></a><figcaption>{html.escape(IMGREG[img+".jpg"]["cap"])}</figcaption></figure><div class="plugbox">{cards}</div></div>'
     title,items=AMAZON[slug]
     cards="".join(f'<div class="amz"><b>{html.escape(n)}</b><p>{html.escape(t)}</p><a class="btn alt2" href="{amz(q)}" rel="sponsored nofollow noopener" target="_blank">See on Amazon</a></div>' for n,t,q in items)
     return f'<h2 id="amazon">{html.escape(title)}</h2><p>These open a search on Amazon in your country, so you can pick the one that suits you. {AMZ_LINE}</p><div class="amzs">{cards}</div>'
