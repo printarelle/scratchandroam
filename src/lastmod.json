@@ -1,19 +1,19 @@
 {
  "/": {
-  "d": "2026-11-01T16:10:24+00:00",
-  "h": "4aca59ae3e3db1db959b74d81e91528aa26e0711"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "bbe201484e4d0ae418a2876348990b85f3a70d74"
  },
  "/about/": {
-  "d": "2026-11-01T13:40:19+00:00",
-  "h": "18af20c66abe5b08e02ab5e140cac2e92bef5b79"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "09e713cf282269c4d561cf18b87d3d6c9d1a6b49"
  },
  "/affiliate-disclosure/": {
   "d": "2026-10-31T15:05:08+00:00",
   "h": "c55ba2e83fd28543155c91c203ba1c20ef831618"
  },
  "/china/": {
-  "d": "2026-11-01T16:09:55+00:00",
-  "h": "eb5439a652217538eecb755c9eb174b7395103d7"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "95714cbd0968c8e838a0acf0668818867945ddc6"
  },
  "/china/tools/": {
   "d": "2026-10-30T07:30:37+00:00",
@@ -104,20 +104,20 @@
   "h": "b2ce73ffb46e0693eaaf37b29d884482842019fb"
  },
  "/guides/huangpu-river-night-cruise/": {
-  "d": "2026-11-01T16:12:57+00:00",
-  "h": "637dbb88dc1d5c04a40352a9656e74c7b4e84d20"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "eeb7aa96b5ace937cdb4506d6ccf73e43ec6b098"
  },
  "/guides/ihg-hotels-china-shanghai-hangzhou-review/": {
   "d": "2026-11-01T16:12:57+00:00",
   "h": "1010ef729e28c800d7f0f64567f100547e2ee1a1"
  },
  "/guides/nanjing-road-shanghai/": {
-  "d": "2026-11-01T16:12:57+00:00",
-  "h": "60ce3372b243c0abb858b2d5c9d5061d7827dcd7"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "05419eccea78b0215e00f43b7fef7ad3f9ec6bff"
  },
  "/guides/shanghai-circus-world-era-show/": {
-  "d": "2026-11-01T16:12:57+00:00",
-  "h": "846a08d6ade97e3d055405d8080b895bca9ea589"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "d5872148c6a367bf5259cf97f0bed30c74062cd9"
  },
  "/guides/taobao-11-11-singles-day-for-foreigners/": {
   "d": "2026-11-01T16:12:57+00:00",
@@ -128,20 +128,24 @@
   "h": "4dc1b63ddedfa856faf7dd13fb19eba9eb0d40f8"
  },
  "/guides/the-bund-shanghai-at-night/": {
-  "d": "2026-11-01T16:12:57+00:00",
-  "h": "a844d2d85a62e2b79858ab085d797b43edab1783"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "7ffc5cd62fff29bc819f40712af4dc62e4454d4a"
  },
  "/guides/top-25-china-apps/": {
   "d": "2026-11-01T16:12:57+00:00",
   "h": "3560fba3a697d6d7b0095d47110fea5dde460ef8"
  },
  "/guides/travelling-to-china-from-ireland/": {
-  "d": "2026-11-01T16:21:36+00:00",
-  "h": "dc515b2ee5fcf4050651ff429be035ca6db644a0"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "c18bca4f163a8a1ecc00c398091a30a3410336c5"
  },
  "/guides/wechat-pay-add-foreign-card-china/": {
   "d": "2026-11-01T16:12:57+00:00",
   "h": "2fd712704b2fdcb6b79f6cedb9eff0dab25ce561"
+ },
+ "/guides/yu-garden-shanghai/": {
+  "d": "2026-11-02T13:15:48+00:00",
+  "h": "6a17dcfe6e42ec439d2b7c2817db0fe70140ffc7"
  },
  "/klook/": {
   "d": "2026-10-30T11:09:12+00:00",
@@ -160,7 +164,7 @@
   "h": "5c448202adf5a2a6066b805c37a8e6aa0d8cf814"
  },
  "/where-ive-been/": {
-  "d": "2026-11-01T13:40:19+00:00",
-  "h": "81f35d00b466ddb81cde5ddd1c79e263f122b305"
+  "d": "2026-11-02T13:15:44+00:00",
+  "h": "30cefcd91f2b17fc2b700f8a6cf05f0313dec6f7"
  }
 }

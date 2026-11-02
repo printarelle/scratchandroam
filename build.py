@@ -35,7 +35,7 @@ def NAV_SHOP():
     return '<a href="/china/#shopping">Shopping</a>' if sum(1 for c in globals().get("CARDS",[]) if c["sec"]=="shop")>=3 else ''
 FOOT_GROUPS=[("Before you fly",["first-time-in-china","travelling-to-china-from-ireland","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc","china-arrival-card-alipay","china-dos-and-donts","build-spice-tolerance-before-china"]),
  ("Apps and on the ground",["china-travel-apps","top-25-china-apps","alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china","alipay-vs-wechat-pay-china","alipay-metro-qr-code-china","taobao-for-foreigners","taobao-11-11-singles-day-for-foreigners","how-to-order-food-in-china-without-speaking-chinese","food-delivery-in-china-for-foreigners-meituan"]),
- ("Shanghai",["the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show","ihg-hotels-china-shanghai-hangzhou-review"])]
+ ("Shanghai",["the-bund-shanghai-at-night","nanjing-road-shanghai","yu-garden-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show","ihg-hotels-china-shanghai-hangzhou-review"])]
 def FOOT_GUIDES():
     # grouped columns; a guide not named above falls into a group by its section so new guides still show up
     cards=globals().get("CARDS",[]); by={c["slug"]:c for c in cards}
@@ -180,7 +180,7 @@ def yt(vid,title,start=None):
         return f'<div class="video soon" style="background-image:url(/img/first-time-in-china-13-things-before-you-fly.jpg)"><div><b>Video goes live on YouTube on Friday 16 October</b><br><small>This page will embed it as soon as it is up.</small></div></div>'
     return f'''<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}{"?start="+str(start) if start else ""}" title="{html.escape(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'''
 
-PUBDATES={'china-arrival-card-alipay':'2026-10-15','china-arrival-card-pc':'2026-10-15','first-time-in-china':'2026-10-15','huangpu-river-night-cruise':'2026-10-15','nanjing-road-shanghai':'2026-10-15','shanghai-circus-world-era-show':'2026-10-15','the-bund-shanghai-at-night':'2026-10-15','china-dos-and-donts':'2026-10-16','china-travel-apps':'2026-10-16','china-visa-free-30-days':'2026-10-17'}  # first commit date of each page in git = go-live date
+PUBDATES={'yu-garden-shanghai':'2026-11-02','china-arrival-card-alipay':'2026-10-15','china-arrival-card-pc':'2026-10-15','first-time-in-china':'2026-10-15','huangpu-river-night-cruise':'2026-10-15','nanjing-road-shanghai':'2026-10-15','shanghai-circus-world-era-show':'2026-10-15','the-bund-shanghai-at-night':'2026-10-15','china-dos-and-donts':'2026-10-16','china-travel-apps':'2026-10-16','china-visa-free-30-days':'2026-10-17'}  # first commit date of each page in git = go-live date
 GUIDELIST=[]
 SEARCH=[]
 def guide(slug,title,h1,desc,keyword,vid,intro,steps,faq,sources,og,jsonld=None,chapters=None,related=None,checked=TODAY,minutes=None,upload=None,gallery=None,place=None,steps_title='Step by step',shorts=None,start=None,vschema=True,video_note=None,extra=None,lift=None,head="",published=None,og_alt=None,shotnote=None):

@@ -216,6 +216,7 @@ CLUSTERS=[
  ("shanghai","Shanghai, what to book and see",[
    ("the-bund-shanghai-at-night","The Bund at night","Start here: when to go and where to stand"),
    ("nanjing-road-shanghai","Nanjing Road","The walk from the Bund"),
+   ("yu-garden-shanghai","Yu Garden","Tickets, free bazaar, food and a map"),
    ("huangpu-river-night-cruise","Huangpu River night cruise","Which pier, which cruise, how to book"),
    ("shanghai-circus-world-era-show","ERA show tickets","Where we booked and how to get there"),
  ]),

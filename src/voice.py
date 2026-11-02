@@ -56,6 +56,11 @@ STORIES = {
    'What we did enjoy was the light show of the city from our cruise, and walking down the Bund and having a good time.</p>'
    '<p>The crowds are always there, because it is the most popular area, so you will see them wherever you go. '
    'And it is really easy to get to. Ask anyone and they will tell you: all roads lead to the Bund.</p>'),  # told 21 and 30 Oct 2026
+ "yu-garden-shanghai": ("Our favourite place for a walk",
+   '<p>We went to Yu Garden three times, and it was our favourite place to go for a walk. '
+   'We also loved the small food markets there, and how affordable the meals were. '
+   'We had paper cut portraits made for memories too. The photos on this page are mine.</p>'
+   '<p>We did not go into the paid part of the garden, because it was super busy. Everything here is from the bazaar and the streets around it.</p>'),  # told 2 Nov 2026
  "nanjing-road-shanghai": ("New Year on Nanjing Road",
    '<p>Our first China trip was Christmas 2025. After Christmas at Shanghai Disneyland, we spent New Year and the day after on Nanjing Road and the Bund. '
    'It was the best decision we made on that trip. The photos here are mine.</p>'

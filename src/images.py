@@ -224,3 +224,21 @@ a("shanghai-temple-with-gold-roof-ornaments-and-modern-towers-behind.jpg","A Sha
 a("hangzhou-golden-globe-building-and-skyline-at-night.jpg","A round golden globe-shaped building lit at night among the Hangzhou skyline towers","The golden globe building in Hangzhou at night")
 a("hangzhou-light-show-on-the-towers-across-the-river.jpg","Hangzhou towers lit blue by the evening light show, with a crowd in front","The light show on the Hangzhou towers")
 OGALT["travelling-to-china-from-ireland.jpg"]=R["travelling-to-china-from-ireland-cover-16x9.jpg"]["alt"]
+
+# Yu Garden Shanghai guide (2 Nov 2026). Photos are Natali's own.
+a("yu-garden-bazaar-red-lanterns-and-crowds-at-night.jpg","Red lanterns hanging over a crowded street in the Yu Garden bazaar at night","Yu Garden bazaar at night")
+a("yu-garden-bazaar-new-year-decorations-glowing-at-night.jpg","New Year decorations glowing in red and gold over the Yu Garden bazaar at night","New Year lights in the bazaar")
+a("yu-garden-bazaar-teahouse-building-with-red-banners-by-day.jpg","A traditional teahouse building with red banners in the Yu Garden bazaar by day","The bazaar by day")
+a("yu-garden-bazaar-red-lantern-banners-hanging-over-street.jpg","Red lantern banners hanging over a street in the Yu Garden bazaar","Red lanterns over the street")
+a("yu-garden-bazaar-colourful-hanging-decorations-over-lane.jpg","Colourful decorations hanging over a lane in the Yu Garden bazaar","Decorations over a lane")
+a("yu-garden-bazaar-gold-roofed-building-in-april.jpg","A building with a gold roof in the Yu Garden bazaar in April","The bazaar in April")
+a("yu-garden-bazaar-pond-with-white-statue-and-lotus-planters.jpg","The pond in the Yu Garden bazaar with a white statue and lotus planters","The pond with lotus planters")
+a("yu-garden-huxinting-teahouse-pavilion-over-the-pond.jpg","The Huxinting teahouse pavilion standing over the pond at Yu Garden","The teahouse pavilion over the pond")
+a("yu-garden-bazaar-pond-koi-fish-swimming.jpg","Koi fish swimming in the pond in the Yu Garden bazaar","Koi in the pond")
+a("yu-garden-bazaar-teahouse-roof-and-carved-balcony.jpg","A teahouse roof and carved wooden balcony in the Yu Garden bazaar","A carved balcony and roof")
+a("yu-garden-bazaar-wonton-soup-with-greens.jpg","A bowl of wonton soup with greens from a Yu Garden bazaar food stall","Wonton soup in the bazaar")
+a("yu-garden-bazaar-pan-fried-pork-buns-on-a-tray.jpg","Pan-fried pork buns on a tray at a Yu Garden bazaar food stall","Pan-fried pork buns")
+a("yu-garden-bazaar-bronze-guardian-lion-statue.jpg","A bronze guardian lion statue in the Yu Garden bazaar","A bronze guardian lion")
+a("yu-garden-old-street-gate-in-the-bazaar.jpg","An old street gate in the Yu Garden bazaar","An old gate in the bazaar")
+a("yu-garden-paper-cut-portrait-stand-framed-silhouettes.jpg","A paper cut portrait stand with framed black paper silhouettes at Yu Garden","The paper cut portrait stand")
+OGALT["yu-garden-shanghai.jpg"]="A gold-roofed building in the Yu Garden bazaar in Shanghai in April"

@@ -32,6 +32,7 @@ CARDS=[
  dict(slug="alipay-metro-qr-code-china",sec="before",img="alipay-metro-qr-code-china-cover-16x9",alt="Cover of the Alipay metro QR code guide: Metro QR in China with the chips Alipay, Metro and Bus and a China flag sticker",num="METRO QR",meta=("STEP BY STEP","8 STEPS"),t="Alipay metro QR code in China: how to add it, step by step",p="Pick the city, claim the free card, enter your payment password, and switch city when the code is wrong.",short="Alipay metro QR code"),
  dict(slug="the-bund-shanghai-at-night",sec="place",img="the-bund-shanghai-after-dark-cover-4x5",alt="The Bund in Shanghai at night",row_k="The Bund",row_q="How do I get to the Bund at night, and when do the lights go off?",short="The Bund at night"),
  dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-road-shanghai-neon-shop-fronts-cover-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
+ dict(slug="yu-garden-shanghai",sec="place",img="yu-garden-bazaar-gold-roofed-building-in-april",alt="Yu Garden bazaar gold-roofed building",row_k="Yu Garden",row_q="What does the ticket cost, and is the bazaar free to walk?",short="Yu Garden"),
  dict(slug="huangpu-river-night-cruise",sec="place",img="huangpu-river-night-cruise-from-the-water-cover-4x5",alt="Shanghai skyline from the Huangpu river at night",row_k="River cruise",row_q="Which pier, which ticket, and is the night cruise worth it?",short="Huangpu River night cruise"),
  dict(slug="shanghai-circus-world-era-show",sec="place",img="shanghai-circus-world-full-show-cover",alt="Shanghai Circus World stage with aerial silks",row_k="ERA show",row_q="Where do I book ERA circus tickets and how do I get there?",short="Shanghai Circus World ERA show"),
  dict(slug="ihg-hotels-china-shanghai-hangzhou-review",sec="place",img="intercontinental-shanghai-pudong-diplomatic-suite-living-area",alt="The Diplomatic Suite living room at InterContinental Shanghai Pudong",row_k="IHG hotels",row_q="Which IHG hotels did we stay at in Shanghai and Hangzhou, and which would we skip?",short="IHG hotels in China"),
@@ -671,6 +672,87 @@ guide("nanjing-road-shanghai","Nanjing Road Shanghai: Walking and Shopping Guide
       gallery=[("nanjing-road-curved-corner-building-neon-lights","Nanjing Road neon corner building"),("nanjing-road-pedestrian-street-gold-lit-facades","Nanjing Road pedestrian street at night"),("nanjing-road-clock-tower-and-neon-at-night","Nanjing Road clock tower and neon"),("nanjing-road-red-traffic-lights-and-shoppers-at-night","Nanjing Road crowd and lights"),("nanjing-road-shopping-street-at-dusk-with-big-screen","Nanjing Road at dusk")],
       place={"name":"Nanjing Road Pedestrian Street","city":"Shanghai","free":True},steps_title="How to walk Nanjing Road",
       extra=NJ_EXTRA+NJ_END,checked="2026-10-30",
+      shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
+
+YG_PINS=[[31.229683,121.482809],[31.2291,121.4878],[31.23903,121.489795]]
+YG_CHECK='<p>Prices, hours and metro details here are from the sources at the bottom, checked on 2 November 2026. Sources disagree on the exact closing and last entry times, so check before you go.</p>'
+YG_GLANCE=('<div class="glance"><div class="gl-h"><b>Yu Garden at a glance</b><span class="gl-pill">Bazaar is free to walk</span></div><div class="gl-g">'
+ +_gi(0,"Garden ticket","30 to 40 RMB, by season")
+ +_gi(1,"Time needed","1 to 2 hours for the bazaar")
+ +_gi(2,"Metro","Yuyuan Garden, Lines 10 and 14, exit 1")
+ +_gi(3,"Best atmosphere","Evening, when the lanterns are lit")
+ +_gi(4,"Garden hours","Around 9:00 to 16:30, closed Mondays (check)")
+ +_gi(5,"Best combination","Add the Bund and Nanjing Road")
+ +'</div><p class="gl-f">We went three times and only walked the bazaar and the lanes around it. We never went into the paid part of the garden.</p></div>')
+def _yfig(keys):
+    return '<div class="shots">'+"".join('<figure><a href="/img/%s.jpg"><img src="/img/%s.jpg" alt="%s" loading="lazy"></a><figcaption>%s</figcaption></figure>'%(k,k,IMGREG[k+".jpg"]["alt"],IMGREG[k+".jpg"]["cap"]) for k in keys)+'</div>'
+YG_MAP=('<h2 id="map">Yu Garden on a map</h2>'
+ '<p>The metro exit and the garden are close together, about 500 m in a straight line, and the walk in is through the old streets of the bazaar. The third pin is the Peace Hotel on the Bund, because Yu Garden fits well into the same day as my <a href="/guides/nanjing-road-shanghai/">Nanjing Road guide</a> and <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a>. Tap a stop to see it on the map.</p>'
+ '<div class="rmap"><div id="ygmap" class="rmap-m" role="img" aria-label="Map showing Yuyuan Garden metro station, Yu Garden and the bazaar, and the Peace Hotel on the Bund"><noscript>The map needs JavaScript. Use the Amap button below.</noscript></div>'
+ '<div class="rstops r3">'
+ '<button type="button" class="rs" data-i="0"><span><em>1 &middot; Start here</em><b>Yuyuan Garden metro station</b><small>Lines 10 and 14, exit 1</small></span></button>'
+ '<button type="button" class="rs" data-i="1"><span><em>2 &middot; About 500 m away</em><b>Yu Garden and the bazaar</b><small>Anren Street, the old streets and food stalls</small></span></button>'
+ '<button type="button" class="rs" data-i="2"><span><em>3 &middot; Same day</em><b>Fairmont Peace Hotel, the Bund</b><small>Where the Nanjing Road walk ends</small></span></button>'
+ '</div></div>'
+ '<p class="rlinks"><a class="btn" href="https://uri.amap.com/navigation?from=121.482809,31.229683,Yuyuan%20Garden%20station&amp;to=121.4878,31.2291,Yu%20Garden&amp;mode=walk&amp;coordinate=wgs84&amp;src=scratchandroam&amp;callnative=1" rel="noopener" target="_blank">Open walking route in Amap</a> <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;origin=Yuyuan+Garden+Metro+Station+Shanghai&amp;destination=Yu+Garden+Shanghai&amp;travelmode=walking" rel="noopener" target="_blank">Google Maps (not in China)</a></p>'
+ '<p class="rnote">Google Maps does not work in China, so use the Amap button there. On a phone with the Amap app it opens the app. The pins are approximate, so use the map as a guide and follow the signs once you are in the bazaar.</p>'
+ '<script>(function(){var S='+_json.dumps(YG_PINS)+',el=document.getElementById("ygmap"),m,started=0;if(!el)return;'
+ 'function draw(){m=L.map(el,{scrollWheelZoom:false,dragging:!L.Browser.mobile,tap:false,zoomSnap:.5,zoomControl:false,attributionControl:false});L.control.zoom({position:"topright"}).addTo(m);L.control.attribution({prefix:false}).addTo(m);'
+ 'L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:\'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors\'}).addTo(m);'
+ 'S.forEach(function(p,i){L.marker(p,{icon:L.divIcon({className:"rpin",html:"<span>"+(i+1)+"</span>",iconSize:[30,30],iconAnchor:[15,15]})}).addTo(m)});'
+ 'm.fitBounds(L.latLngBounds(S),{padding:[34,34]});'
+ 'document.querySelectorAll(".rs").forEach(function(b){b.addEventListener("click",function(){var i=+b.dataset.i;m.flyTo(S[i],17);el.scrollIntoView({block:"nearest",behavior:"smooth"})})})}'
+ 'function start(){if(started)return;started=1;var c=document.createElement("link");c.rel="stylesheet";c.href="/vendor/leaflet/leaflet.css";c.onload=function(){var j=document.createElement("script");j.src="/vendor/leaflet/leaflet.js";j.onload=draw;document.head.appendChild(j)};document.head.appendChild(c)}'
+ 'if("IntersectionObserver" in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){o.disconnect();start()}},{rootMargin:"400px"}).observe(el)}else{window.addEventListener("load",start)}})();</script>')
+YG_EXTRA=(
+ '<h2 id="what">What is Yu Garden?</h2>'
+ '<p>Yu Garden (Yuyuan) is a classical Chinese garden in the old city of Shanghai, built in the Ming dynasty. Around it is the Yuyuan bazaar, a maze of old-style buildings with tea houses, shops and food stalls. Most visitors mean both when they say Yu Garden, but they are two different things: the garden has a ticket, and the bazaar around it is just streets you can walk.</p>'
+ +_yfig(["yu-garden-bazaar-teahouse-building-with-red-banners-by-day","yu-garden-huxinting-teahouse-pavilion-over-the-pond","yu-garden-bazaar-teahouse-roof-and-carved-balcony","yu-garden-old-street-gate-in-the-bazaar"])+
+ '<h2 id="tickets">Yu Garden ticket price and opening hours</h2>'
+ '<p>The garden has an entrance fee. The sources I found say it is <b>40 RMB</b> from April to June and September to November, and <b>30 RMB</b> from December to March and July to August. Hours are given as roughly 9:00 to 16:30, closed on Mondays, but sources disagree on the exact closing time and last entry (16:00 or 16:30), so check the day you go.</p>'
+ '<p>I have not bought a garden ticket myself. We went three times and each time we stayed in the bazaar, because the paid part was super busy. If you want to go inside, check the official or ticketing page for your date first.</p>'
+ '<h2 id="bazaar">The bazaar: free to walk and my favourite part</h2>'
+ '<p>The bazaar is the part we loved. We went three times, and it was our favourite place to go for a walk. There are pond views, old gates, carved balconies, and in winter and at New Year the whole area is covered in red lanterns and lights. I would go in the late afternoon and stay until after dark.</p>'
+ +_yfig(["yu-garden-bazaar-red-lanterns-and-crowds-at-night","yu-garden-bazaar-new-year-decorations-glowing-at-night","yu-garden-bazaar-pond-with-white-statue-and-lotus-planters"])+
+ '<h2 id="food">Food in the small markets</h2>'
+ '<p>We loved the small food markets in the bazaar, and how affordable the meals were. We ate wonton soup and pan-fried pork buns, shown below. I do not have exact prices written down, so I am not going to guess them here. Stall prices change, so look at the board before you order.</p>'
+ +_yfig(["yu-garden-bazaar-wonton-soup-with-greens","yu-garden-bazaar-pan-fried-pork-buns-on-a-tray"])+
+ '<h2 id="papercut">Paper cut portraits as a memory</h2>'
+ '<p>We had paper cut portraits made as a memory of the trip. A paper cut portrait is a silhouette cut from black paper, and the stand we used is in the photo below. It is a small, cheap-feeling souvenir that is actually personal, and I would do it again.</p>'
+ +_yfig(["yu-garden-paper-cut-portrait-stand-framed-silhouettes"])+
+ '<h2 id="how">How to get to Yu Garden by metro</h2>'
+ '<p>Take Line 10 or Line 14 to <b>Yuyuan Garden station</b> and use exit 1. Follow the signs and the crowds into the old streets, and the walk to the bazaar takes about 10 minutes according to the sources I read. Taxis and DiDi can drop you near the edge, but the lanes themselves are for walking.</p>'
+ + YG_MAP +
+ '<h2 id="together">Put it with the Bund and Nanjing Road</h2>'
+ '<p>Yu Garden is a good first stop before the evening. I would walk the bazaar in the afternoon, then go on to the <a href="/guides/nanjing-road-shanghai/">Nanjing Road walk</a> and finish at the <a href="/guides/the-bund-shanghai-at-night/">Bund</a> after dark.</p>'
+ '<p class="rnote">Based on my trips in December 2025 and April 2026. Rules change, so double check before you fly.</p>')
+
+guide("yu-garden-shanghai","Yu Garden Shanghai: Tickets, Bazaar and Tips (2026)","Yu Garden Shanghai: Tickets, Free Bazaar, Food and Map",
+      "Yu Garden in Shanghai: ticket price, opening hours, metro, the free bazaar, street food and paper cut portraits, with a map and my photos.",
+      "Yu Garden Shanghai",None,
+      "<p>Planning a trip to Yu Garden in Shanghai? We went three times and it was our favourite place to go for a walk. Here is what the garden ticket costs, how to get there, what the bazaar is like, and where it sits on a map.</p>"+YG_GLANCE+YG_CHECK,
+      [("Take the metro to Yuyuan Garden","Lines 10 and 14 both stop at Yuyuan Garden station. Use exit 1 and follow the signs."),
+       ("Walk into the bazaar","The old streets around the garden are the bazaar. It is open to walk, with tea houses, shops and food stalls."),
+       ("Decide about the garden ticket","The garden has its own ticket, 30 to 40 RMB depending on the month. It can be very busy, so we skipped it and stayed in the bazaar."),
+       ("Eat from the small food markets","We loved the small food stalls and how affordable the meals were. Check the price board before ordering."),
+       ("Stay until the lights come on","The lanterns and decorations look best in the evening."),
+       ("Carry on to the Bund","Yu Garden fits well before the Bund and Nanjing Road in the same day.")],
+      [("How much is the Yu Garden ticket?","The sources I found say 40 RMB from April to June and September to November, and 30 RMB from December to March and July to August. Check before you go, as prices can change."),
+       ("Is the Yu Garden bazaar free?","We walked the bazaar and the lanes around it three times without going into the paid garden. The garden itself has a ticket."),
+       ("What are the Yu Garden opening hours?","Sources give about 9:00 to 16:30 and say it is closed on Mondays, but they disagree on the exact last entry, 16:00 or 16:30. Check on the day."),
+       ("How do I get to Yu Garden by metro?","Take Line 10 or Line 14 to Yuyuan Garden station, exit 1, then walk about 10 minutes."),
+       ("Is Yu Garden worth visiting?","We went three times and it was our favourite place to go for a walk. We never went into the paid garden because it was super busy, so I can speak for the bazaar."),
+       ("Is the food at Yu Garden affordable?","We found the small food markets affordable and loved them. I do not have exact prices, so check the board at each stall."),
+       ("What are paper cut portraits?","They are silhouettes cut from black paper. We had portraits made as a memory of the trip."),
+       ("Does Google Maps work for Yu Garden?","Google Maps does not work in China. Use the Amap button on this page, which opens a walking route from the metro to the garden.")],
+      [("Wander in China: Yu Garden complete guide","https://wanderinchina.com/en/blog/yu-garden-a-complete-guide-for-tourists-visiting-shanghais-classical-garden",False),
+       ("Trvlogue: Yu Garden Shanghai tickets and hours 2026","https://www.trvlogue.com/en/yu-garden-shanghai-tickets",False),
+       ("OpenStreetMap: map tiles","https://www.openstreetmap.org/",False)],
+      SITE+"/og/yu-garden-shanghai.jpg",
+      related=[("/guides/nanjing-road-shanghai/","nanjing-road-shanghai-neon-shop-fronts-cover-4x5","SHANGHAI","Nanjing Road: how to walk it and when the neon is on"),("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go")],
+      gallery=[("yu-garden-bazaar-red-lantern-banners-hanging-over-street","Red lantern banners over the bazaar street"),("yu-garden-bazaar-colourful-hanging-decorations-over-lane","Colourful decorations over a lane"),("yu-garden-bazaar-gold-roofed-building-in-april","Gold-roofed building in April"),("yu-garden-bazaar-pond-koi-fish-swimming","Koi in the pond"),("yu-garden-bazaar-bronze-guardian-lion-statue","Bronze guardian lion")],
+      place={"name":"Yu Garden","city":"Shanghai","free":False},steps_title="How to do Yu Garden",
+      extra=YG_EXTRA,checked="2026-11-02",
       shorts={"Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam","Pinterest":"https://www.pinterest.com/scratchandroam/"})
 
 HP_CHECK='<p>Prices, piers and times here are from the sources at the bottom, checked on 30 October 2026. Fares are seasonal and boats change, so check the booking page for your date.</p>'
