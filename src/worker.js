@@ -18,10 +18,15 @@ const product = ([h, t], asin) => `https://${h}/dp/${asin}?tag=${t}`;
 export default {
   async fetch(req, env) {
     const u = new URL(req.url);
-    // One address for every page: https://scratchandroam.com (Google indexed www. and http:// copies)
-    if (u.hostname !== "scratchandroam.com" || u.protocol === "http:") {
-      if (u.hostname.endsWith("scratchandroam.com")) {
+    // One address for every page: https://scratchandroam.com/<page>/ (Google indexed www. and http:// copies).
+    // Host, protocol and trailing slash are fixed in ONE permanent redirect. Without the slash step here,
+    // the assets layer (html_handling auto-trailing-slash) adds a second hop as a temporary 307.
+    if (u.hostname.endsWith("scratchandroam.com")) {
+      const last = u.pathname.split("/").pop();
+      const needsSlash = !u.pathname.endsWith("/") && !last.includes(".") && !u.pathname.startsWith("/go/");
+      if (u.hostname !== "scratchandroam.com" || u.protocol === "http:" || needsSlash) {
         u.hostname = "scratchandroam.com"; u.protocol = "https:"; u.port = "";
+        if (needsSlash) u.pathname += "/";
         return Response.redirect(u.toString(), 301);
       }
     }

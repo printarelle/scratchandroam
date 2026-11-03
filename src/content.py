@@ -858,8 +858,8 @@ ERA_EXTRA=(
  '<h2 id="next">More Shanghai evenings</h2>'
  '<p>If you want the waterfront instead, the <a href="/guides/nanjing-road-shanghai/">Nanjing Road guide</a>, the <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a> and the <a href="/guides/huangpu-river-night-cruise/">Huangpu River night cruise guide</a> make a different evening, and I would do that on another night.</p>')
 
-guide("shanghai-circus-world-era-show","Shanghai ERA Show Review: Tickets and Best Seats (2026)","Shanghai ERA Acrobatics Show: Honest Review, Tickets and Best Seats",
-      "Shanghai ERA acrobatics show at Shanghai Circus World: our visit, what we paid for B Area, ticket zones, show lengths and how to get there.",
+guide("shanghai-circus-world-era-show","Shanghai Circus World Tickets: ERA Show Review (2026)","Shanghai Circus World ERA Show: Honest Review, Tickets and Best Seats",
+      "Shanghai Circus World tickets for the ERA acrobatics show: what we paid for B Area, ticket zones, show lengths, how to book and how to get there.",
       "Shanghai Circus World ERA tickets",None,
       "<p>Is the ERA acrobatics show at Shanghai Circus World worth seeing? We went on the 7:30pm show on Saturday 27 December 2025, I filmed five of the acts, and I thought it was excellent. Here is what we paid, how we booked, and what to check before you buy.</p><p>The venue is not in the centre and tickets are sold by zone, not by seat, so the booking and the journey need a little planning. We booked three tickets in B Area on Klook and paid €111.78 in total, and the link is in the <a href='#book'>booking section</a> below.</p>"+ERA_GLANCE+ERA_CHECK,
       [("Get there on Line 1","Shanghai Circus World has its own metro station on Line 1 (上海马戏城). Take exit 3 and the venue is about 3 minutes on foot. Evening traffic makes taxis slower than the metro."),
