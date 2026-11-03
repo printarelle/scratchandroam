@@ -685,7 +685,7 @@ YG_GLANCE=('<div class="glance"><div class="gl-h"><b>Yu Garden at a glance</b><s
  +_gi(5,"Best combination","Add the Bund and Nanjing Road")
  +'</div><p class="gl-f">We went three times and only walked the bazaar and the lanes around it. We never went into the paid part of the garden.</p></div>')
 def _yfig(keys):
-    return '<div class="shots">'+"".join('<figure><a href="/img/%s.jpg"><img src="/img/%s.jpg" alt="%s" loading="lazy"></a><figcaption>%s</figcaption></figure>'%(k,k,IMGREG[k+".jpg"]["alt"],IMGREG[k+".jpg"]["cap"]) for k in keys)+'</div>'
+    return '<div class="pgal">'+"".join('<figure><a href="/img/%s.jpg"><img src="/img/%s.jpg" alt="%s" loading="lazy"></a><figcaption>%s</figcaption></figure>'%(k,k,IMGREG[k+".jpg"]["alt"],IMGREG[k+".jpg"]["cap"]) for k in keys)+'</div>'
 YG_MAP=('<h2 id="map">Yu Garden on a map</h2>'
  '<p>The metro exit and the garden are close together, about 500 m in a straight line, and the walk in is through the old streets of the bazaar. The third pin is the Peace Hotel on the Bund, because Yu Garden fits well into the same day as my <a href="/guides/nanjing-road-shanghai/">Nanjing Road guide</a> and <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a>. Tap a stop to see it on the map.</p>'
  '<div class="rmap"><div id="ygmap" class="rmap-m" role="img" aria-label="Map showing Yuyuan Garden metro station, Yu Garden and the bazaar, and the Peace Hotel on the Bund"><noscript>The map needs JavaScript. Use the Amap button below.</noscript></div>'

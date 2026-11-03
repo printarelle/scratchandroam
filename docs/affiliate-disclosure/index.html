@@ -943,6 +943,26 @@ p{margin:0}
 .clus ol{align-items:stretch}.clus ol>li{display:flex}.clus li a,.clus li.here{flex:1;height:auto}
 .art .clus ol>li{margin:0}.art .plugtab{display:table}@media(max-width:600px){.art .plugtab th,.art .plugtab td{padding:10px 8px;font-size:14px}}
 @media(max-width:600px){.art .plugtab th{font-size:12px!important;word-break:normal;overflow-wrap:normal}.art .plugtab th,.art .plugtab td{padding:10px 6px}}
+
+/* photo viewer (lightbox) and photo grids */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(15,22,36,.92);display:none;align-items:center;justify-content:center;padding:56px 56px 40px}
+.lb.on{display:flex}.lb-lock{overflow:hidden}
+.lb figure{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;gap:10px}
+.lb img,.lb .lb-i{max-width:100%;max-height:calc(100vh - 130px);width:auto;height:auto;border-radius:8px;display:block}
+.lb .lb-i{display:contents}.lb figcaption{color:#fff;font-size:14px;text-align:center;min-height:1em}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;border-radius:50%;width:44px;height:44px;font-size:28px;line-height:1;display:grid;place-items:center}
+.lb button:hover{background:rgba(255,255,255,.3)}
+.lb-x{top:12px;right:12px}.lb-p{left:10px;top:50%;transform:translateY(-50%)}.lb-n{right:10px;top:50%;transform:translateY(-50%)}
+.lb.one .lb-p,.lb.one .lb-n{display:none}
+@media(max-width:600px){.lb{padding:56px 10px 24px}.lb-p,.lb-n{top:auto;bottom:10px;transform:none}}
+.art .pgal{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.art .pgal figure{margin:0}
+.art .pgal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block;cursor:zoom-in}
+.art .pgal figure:last-child:nth-child(odd){grid-column:1/-1}
+.art .pgal figure:last-child:nth-child(odd) img{aspect-ratio:16/9}
+.art .pgal figcaption{font-size:13px;margin-top:6px}
+.gal2 img,.gal img,.art .shots img{cursor:zoom-in}
+@media(max-width:520px){.art .pgal{grid-template-columns:1fr}.art .pgal figure:last-child:nth-child(odd) img{aspect-ratio:4/3}}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
@@ -1085,6 +1105,21 @@ var box=null;function close(){if(box){box.remove();box=null}}
 function open(){if(box)return;box=document.createElement("div");box.id="ckb";box.setAttribute("role","dialog");box.setAttribute("aria-label","Cookie choices");
 box.innerHTML='<p><b>Cookies</b></p><p>I use Google Analytics to see which guides help people. It only runs if you say yes. Nothing else on the page needs it. <a href="/privacy/">How it works</a></p><div class="ckr"><button type="button" id="ckn">No thanks</button><button type="button" id="cky">Accept analytics</button></div>';
 document.body.appendChild(box);document.getElementById("cky").addEventListener("click",function(){set("granted");apply("granted");close()});document.getElementById("ckn").addEventListener("click",function(){set("denied");apply("denied");close()});document.getElementById("ckn").focus()}
-if(!get())open();var b=document.getElementById("cookieSet");if(b)b.addEventListener("click",function(){open()})})();</script>
+if(!get())open();var b=document.getElementById("cookieSet");if(b)b.addEventListener("click",function(){open()})})();</script><script>(function(){var G='.pgal img,.gal2 img,.shots img,.gal img',o,im,cap,list=[],i=0,sx=0;
+function build(){o=document.createElement('div');o.className='lb';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-label','Photo viewer');
+o.innerHTML='<button type="button" class="lb-x" aria-label="Close">&times;</button><button type="button" class="lb-p" aria-label="Previous photo">&#8249;</button><figure><span class="lb-i"></span><figcaption></figcaption></figure><button type="button" class="lb-n" aria-label="Next photo">&#8250;</button>';
+document.body.appendChild(o);im=document.createElement('img');im.alt='';o.querySelector('.lb-i').appendChild(im);cap=o.querySelector('figcaption');
+o.addEventListener('click',function(e){var c=e.target.className;if(c==='lb-x'||e.target===o||e.target.tagName==='FIGURE')close();else if(c==='lb-p')go(-1);else if(c==='lb-n')go(1)});
+o.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+o.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)go(d<0?1:-1)})}
+function src(x){var a=x.closest('a');return a&&/\.(jpe?g|png|webp)$/i.test(a.getAttribute('href')||'')?a.href:(x.currentSrc||x.src)}
+function show(){var x=list[i];im.src=src(x);im.alt=x.alt||'';var f=x.closest('figure'),c=f&&f.querySelector('figcaption');cap.textContent=c?c.textContent:'';
+o.classList.toggle('one',list.length<2)}
+function go(d){i=(i+d+list.length)%list.length;show()}
+function close(){if(!o)return;o.classList.remove('on');document.documentElement.classList.remove('lb-lock');im.removeAttribute('src');if(back)back.focus()}
+var back;
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest(G);if(!t)return;var a=t.closest('a');if(a&&!/\.(jpe?g|png|webp)$/i.test(a.getAttribute('href')||''))return;
+e.preventDefault();if(!o)build();var root=t.closest('.pgal,.gal2,.shots,.gal');list=[].slice.call(root.querySelectorAll('img'));i=list.indexOf(t);back=a||t;show();o.classList.add('on');document.documentElement.classList.add('lb-lock');o.querySelector('.lb-x').focus()});
+document.addEventListener('keydown',function(e){if(!o||!o.classList.contains('on'))return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft')go(-1);else if(e.key==='ArrowRight')go(1)})})();</script>
 </body>
 </html>

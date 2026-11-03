@@ -48,6 +48,22 @@ def FOOT_GUIDES():
     return "".join(cols)
 NAVJS='<script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("menu");if(!b)return;b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>'
 SEARCHJS=open('src/search.js.html').read()
+LBJS=r"""<script>(function(){var G='.pgal img,.gal2 img,.shots img,.gal img',o,im,cap,list=[],i=0,sx=0;
+function build(){o=document.createElement('div');o.className='lb';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-label','Photo viewer');
+o.innerHTML='<button type="button" class="lb-x" aria-label="Close">&times;</button><button type="button" class="lb-p" aria-label="Previous photo">&#8249;</button><figure><span class="lb-i"></span><figcaption></figcaption></figure><button type="button" class="lb-n" aria-label="Next photo">&#8250;</button>';
+document.body.appendChild(o);im=document.createElement('img');im.alt='';o.querySelector('.lb-i').appendChild(im);cap=o.querySelector('figcaption');
+o.addEventListener('click',function(e){var c=e.target.className;if(c==='lb-x'||e.target===o||e.target.tagName==='FIGURE')close();else if(c==='lb-p')go(-1);else if(c==='lb-n')go(1)});
+o.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+o.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)go(d<0?1:-1)})}
+function src(x){var a=x.closest('a');return a&&/\.(jpe?g|png|webp)$/i.test(a.getAttribute('href')||'')?a.href:(x.currentSrc||x.src)}
+function show(){var x=list[i];im.src=src(x);im.alt=x.alt||'';var f=x.closest('figure'),c=f&&f.querySelector('figcaption');cap.textContent=c?c.textContent:'';
+o.classList.toggle('one',list.length<2)}
+function go(d){i=(i+d+list.length)%list.length;show()}
+function close(){if(!o)return;o.classList.remove('on');document.documentElement.classList.remove('lb-lock');im.removeAttribute('src');if(back)back.focus()}
+var back;
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest(G);if(!t)return;var a=t.closest('a');if(a&&!/\.(jpe?g|png|webp)$/i.test(a.getAttribute('href')||''))return;
+e.preventDefault();if(!o)build();var root=t.closest('.pgal,.gal2,.shots,.gal');list=[].slice.call(root.querySelectorAll('img'));i=list.indexOf(t);back=a||t;show();o.classList.add('on');document.documentElement.classList.add('lb-lock');o.querySelector('.lb-x').focus()});
+document.addEventListener('keydown',function(e){if(!o||!o.classList.contains('on'))return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft')go(-1);else if(e.key==='ArrowRight')go(1)})})();</script>"""
 SDLG='<dialog class="sdlg" id="sdlg" aria-label="Search guides"><div class="sbox"><div class="srow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sq" type="search" placeholder="Search guides, e.g. arrival card" autocomplete="off" aria-label="Search guides"><button id="sclose" type="button" aria-label="Close search">Close</button></div><div id="sres" class="sres"></div></div></dialog>'
 def footer():
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
@@ -120,7 +136,7 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 <body>
 {nav_b(SOC,NAV_SHOP,FOOT_GROUPS,CARDS) if BRIGHT else nav(dark)}
 {body}
-{footer_b(SOC,FOOT_GROUPS,CARDS)+(tabbar_b(path) if BRIGHT else '')+SDLG+NAVJS_B+COPYJS+SEARCHJS+CONSENTJS if BRIGHT else footer()}
+{footer_b(SOC,FOOT_GROUPS,CARDS)+(tabbar_b(path) if BRIGHT else '')+SDLG+NAVJS_B+COPYJS+SEARCHJS+CONSENTJS+LBJS if BRIGHT else footer()}
 </body>
 </html>'''
     doc=finish_images(doc,path,img)
