@@ -236,7 +236,7 @@ NO_SHORT_PROMO={"alipay-vs-wechat-pay-china","alipay-add-foreign-card-china","we
 def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapters, related, checked, published, steps_title, shorts, extra, video_note, shotnote, IMGREG, SOC, yt, start, CARDS, n_guides, title):
     def figs(keys):
         if not keys: return ""
-        return '<div class="shots">'+"".join(f'<figure><a href="/img/{k}.jpg"><img src="/img/{k}.jpg" alt="" loading="lazy"></a><figcaption>{html.escape(IMGREG[k+".jpg"]["cap"])}</figcaption></figure>' for k in keys)+'</div><p class="shotnote">'+(shotnote or 'Screenshots from my own phone. The app is in Chinese, the English labels are mine. Tap a picture to open it larger.')+'</p>'
+        return '<div class="shots">'+"".join(f'<figure><a href="/img/{k}.jpg"><img src="/img/{k}.jpg" alt="" loading="lazy"></a><figcaption>{html.escape(IMGREG[k+".jpg"]["cap"])}</figcaption></figure>' for k in keys)+'</div>'
     rd=max(3,round(len(_t(intro)+" ".join(_t(s[1]) for s in steps)+" ".join(_t(a) for q,a in faq))/900))
     kind='Video + steps' if vid else ('Place guide' if gallery else 'Checklist')
     # hero photo: first gallery photo, else the guide cover
@@ -275,6 +275,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
     if steps:
         _pk=STEP_PICKS.get(slug,{}) if AFFILIATES_LIVE else {}
         body.append(f'<h2 id="steps">{html.escape(steps_title)}</h2>'); toc.append(("steps",steps_title))
+        if any(len(s_)>2 and s_[2] for s_ in steps): body.append('<p class="shotnote">'+(shotnote or 'Screenshots from my own phone. The app is in Chinese, the English labels are mine. Tap a picture to open it larger.')+'</p>')
         _tick = slug in TICK_GUIDES
         if _tick:
             body.append(f'<button type="button" class="tkshow" id="tkshow" hidden>Show tick-off checklist</button><div class="tickbar" id="tickbar" data-key="{slug}"><button type="button" class="tkx" id="tkx" aria-label="Hide the checklist">&times;</button><div class="tk-top"><b>Tick-off checklist</b><span>Tap a step number to tick it off. Progress is saved in this browser on this device. No account needed.</span></div><div class="tk-prog"><span id="tkcnt">0 of {len(steps)} done</span></div><div class="tk-bar"><i id="tkfill"></i></div><div class="tk-acts"><button type="button" id="tkcopy">Copy what is left</button><button type="button" id="tkpdf">Save as PDF</button><button type="button" id="tkreset">Reset</button></div><div class="tk-confirm" id="tkconf" hidden role="alert"><span>Reset all <b id="tkn"></b> ticked steps?</span><button type="button" id="tkyes">Yes, reset</button><button type="button" id="tkno">Keep them</button></div></div>')
