@@ -56,7 +56,7 @@ NAVJS_B='<script>(function(){var sb=document.getElementById("shareBtn");if(sb){s
 
 
 # ===== tick-off steps, quick answers, topic shortcuts, phone tab bar =====
-TICK_GUIDES={"first-time-in-china","china-before-you-fly-checklist","china-arrival-card-pc","china-arrival-card-alipay","china-travel-apps","china-dos-and-donts","china-visa-free-30-days","alipay-metro-qr-code-china","taobao-for-foreigners","taobao-11-11-singles-day-for-foreigners","food-delivery-in-china-for-foreigners-meituan","how-to-order-food-in-china-without-speaking-chinese","build-spice-tolerance-before-china"}
+TICK_GUIDES={"pinduoduo-for-foreigners","first-time-in-china","china-before-you-fly-checklist","china-arrival-card-pc","china-arrival-card-alipay","china-travel-apps","china-dos-and-donts","china-visa-free-30-days","alipay-metro-qr-code-china","taobao-for-foreigners","taobao-11-11-singles-day-for-foreigners","food-delivery-in-china-for-foreigners-meituan","how-to-order-food-in-china-without-speaking-chinese","build-spice-tolerance-before-china"}
 TICKJS=r"""(function(){var bar=document.getElementById("tickbar");if(!bar)return;var key="sr-tick:"+bar.getAttribute("data-key"),bs=[].slice.call(document.querySelectorAll(".steps .tick")),saved=[];try{saved=JSON.parse(localStorage.getItem(key)||"[]")}catch(e){}
 function on(b){return b.getAttribute("aria-pressed")==="true"}
 function count(){return bs.filter(on).length}
@@ -341,7 +341,7 @@ def guide_b(*, slug, h1, desc, intro, steps, faq, sources, vid, gallery, chapter
 <div class="scard"><span class="eyebrow">Quick answers</span><p>Short, dated answers to the China questions first-timers ask.</p><a href="/guides/china-travel-faq/">Search the questions →</a><p style="margin-top:10px"><a href="/china/tools/">Yuan and clothing size tools →</a></p></div>
 </aside>
 </div>
-{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug=="taobao-11-11-singles-day-for-foreigners" else ("pay-alipay" if slug=="alipay-add-foreign-card-china" else ("pay-both" if slug=="alipay-vs-wechat-pay-china" else ("pay-wechat" if slug=="wechat-pay-add-foreign-card-china" else (slug if slug in SH_PLACES else "start"))))))}
+{band_b(SOC,"taobao" if slug=="taobao-for-foreigners" else ("shop" if slug in ("taobao-11-11-singles-day-for-foreigners","pinduoduo-for-foreigners") else ("pay-alipay" if slug=="alipay-add-foreign-card-china" else ("pay-both" if slug=="alipay-vs-wechat-pay-china" else ("pay-wechat" if slug=="wechat-pay-add-foreign-card-china" else (slug if slug in SH_PLACES else "start"))))))}
 {social_b(SOC,"the-bund-pudong-skyline-and-shanghai-tower-at-night","nanjing-road-curved-corner-building-neon-lights")}
 </main>'''
 

@@ -24,6 +24,7 @@ CARDS=[
  dict(slug="china-arrival-card-alipay",sec="before",img="china-arrival-card-in-alipay-step-by-step",alt="Cover of the China arrival card guide for Alipay on a phone",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card in Alipay on your phone",p="The same card through the Alipay mini program, for people who do it on the way.",short="Arrival card in Alipay"),
  dict(slug="taobao-for-foreigners",sec="shop",img="how-to-order-on-taobao-step-by-step-guide-cover",alt="Cover of the how to order on Taobao guide, a phone showing the Taobao app",num="SHOPPING",meta=("STEP BY STEP","12 STEPS"),t="How to order on Taobao as a foreigner, step by step",p="Settings, euro prices, searching in English, sending a parcel to your hotel and paying with Alipay.",short="How to order on Taobao"),
  dict(slug="food-delivery-in-china-for-foreigners-meituan",sec="shop",img="hotel-food-delivery-robot-china-cover-4x5",alt="A food delivery robot waiting in a hotel corridor at the voco in Shanghai",num="DELIVERY",meta=("STEP BY STEP","MEITUAN IN WECHAT"),t="Food delivery in China for foreigners: Meituan in WeChat",p="Order in English inside WeChat, notes for the rider, hotel robots, and what to do with no Chinese number.",short="Food delivery in China"),
+ dict(slug="pinduoduo-for-foreigners",sec="shop",img="pinduoduo-in-english-step-by-step-guide-cover",alt="Cover: Pinduoduo in English, search, order, ship, step by step, beside a phone showing the Pinduoduo mini program with a China flag sticker",num="PINDUODUO",meta=("STEP BY STEP","9 STEPS"),t="Pinduoduo in English: how to search, save and order",p="Open it in WeChat, search in English, tap the heart to save items, find them in your profile and pay.",short="Pinduoduo in English"),
  dict(slug="taobao-11-11-singles-day-for-foreigners",sec="shop",img="singles-day-sale-guide-for-foreigners-cover-16x9",alt="Cover: the title 11.11 sale on Taobao with the chips Alipay, Presale and Hotel, a lit shopping street on Nanjing Road in Shanghai and a China flag sticker",num="11.11",meta=("SALE GUIDE","9 STEPS"),t="Taobao 11.11 for foreigners: how to shop the Singles' Day sale",p="The 2026 dates, paying with Alipay and a foreign card, presale deposits, hotel delivery and the mistakes to avoid.",short="Taobao 11.11 for foreigners"),
  dict(slug="china-before-you-fly-checklist",sec="before",img="china-before-you-fly-10-things-cover-16x9",alt="Cover: 10 steps before China with the chips eSIM, VPN and insurance, the Shanghai skyline lit at night and a China flag sticker",num="10 THINGS",meta=("VIDEO + CHECKLIST","10 STEPS"),t="China first trip checklist: safety and backups",p="Insurance, your hotel in Chinese, emergency numbers, phone and data, payments, document copies, scams, a medical kit, maps and a simple first day.",short="China first trip checklist"),
  dict(slug="alipay-add-foreign-card-china",sec="before",img="alipay-add-foreign-card-china-cover-16x9",alt="Cover of the guide to adding a foreign card to Alipay, with the badge No Chinese bank account and two Alipay phone screens",num="ALIPAY CARD",meta=("STEP BY STEP","7 STEPS"),t="How to add a foreign card to Alipay, step by step",p="Open Bank Cards, add your Visa or Mastercard, see it listed, and check your first payments in the transaction history.",short="Add a foreign card to Alipay"),
@@ -43,6 +44,7 @@ QCARDS={
  "alipay":("Arrival card · Phone","Can I do the arrival card in Alipay on the way?","3 min video + steps","china-arrival-card-alipay"),
  "visa":("Visa-free","Do I need a visa, and for how many days?","Answers by passport, dated","china-visa-free-30-days"),
  "apps":("Paying · Maps · Trains","Which apps do I need, and which can I skip?","12 apps + Alipay extras","china-travel-apps"),
+ "pdd":("Shopping · Pinduoduo","How do I use Pinduoduo when it is all in Chinese?","9 steps, red boxes on every tap","pinduoduo-for-foreigners"),
  "taobao":("Shopping · Taobao","How do I order on Taobao when it is all in Chinese?","12 steps, hotel delivery","taobao-for-foreigners"),
  "metro":("Metro · Bus · Alipay","How do I get the metro QR code in Alipay?","8 steps, any city","alipay-metro-qr-code-china"),
  "before":("Before you fly","What do I need to set up before I land?","13-point checklist, 6 min","first-time-in-china"),
@@ -1082,7 +1084,7 @@ guide("taobao-for-foreigners","How to order on Taobao as a foreigner: step by st
        ("Can I send a Taobao parcel to my hotel?","Yes, but ask the hotel first. Message them with your name, booking number and dates, ask if they accept parcels before you arrive, and ask for their address and reception phone in Chinese. Add a Chinese note asking them to leave it at reception and not to call the guest."),
        ("How long does Taobao delivery take?","It varies. Delivery to a hotel can take up to three days, so do not order for a stay of one to three days. Read the delivery estimate before you pay."),
        ("How do I pay on Taobao with a foreign card?","Through Alipay, with your own bank card linked in the Alipay app. Set it up before you travel. Third-party sources report a 3% fee on payments over ¥200."),
-       ("Is Pinduoduo the same as Taobao?","Not the same company, but similar. I have used Pinduoduo too, and to me it is a cheaper version of Taobao.")],
+       ("Is Pinduoduo the same as Taobao?","Not the same company, but similar. I have used Pinduoduo too, and to me it is a cheaper version of Taobao. My <a href=\"/guides/pinduoduo-for-foreigners/\">Pinduoduo guide</a> has the steps with every tap marked.")],
       [("Phone settings: Live Text on iPhone (Apple Support)","https://support.apple.com/en-ie/HT212630",True),
        ("Circle to Search: translate (Google Search Help)","https://support.google.com/websearch/answer/14508957?hl=en",True),
        ("Alipay on the App Store","https://apps.apple.com/app/alipay/id333206289",True),
@@ -1094,6 +1096,50 @@ guide("taobao-for-foreigners","How to order on Taobao as a foreigner: step by st
       lift='<div class="dd-hero"><img data-hero src="/img/how-to-order-on-taobao-step-by-step-guide-cover.jpg" alt=""></div>',
       steps_title="The 12 steps, in order",
       related=[("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly"),("/guides/china-arrival-card-alipay/","china-arrival-card-in-alipay-step-by-step","GUIDE 14","China arrival card in Alipay on your phone")])
+
+
+# ---------- Pinduoduo in English (4 Nov 2026) ----------
+PDD_STEPS=[
+ ("Open WeChat, tap Discover, then Mini Programs",
+  "Pinduoduo opened for me inside WeChat, as a mini program, so there was nothing extra to install. In WeChat tap <b>Discover</b> at the bottom, then <b>Mini Programs</b>. <b>First-hand:</b> the app is in Chinese on my phone. The English you see in these screenshots is my phone's own translation, so your wording may differ a little."),
+ ("Tap Pinduoduo, or search for it",
+  "If you have used it before, Pinduoduo (拼多多) sits under <b>Recently Used</b>: tap it. If it is not there, tap the search box, type <b>pindu</b> and tap the first result, which has the red Pinduoduo icon."),
+ ("Tap the search bar and type in English",
+  "On the Pinduoduo home screen tap the search bar at the top. I typed my search in English (<b>dji nano accessories</b>) and tapped <b>Search</b>, and it gave me results. If a result is not in a language you read, use your phone's own translation, such as Live Text on an iPhone or Circle to Search on Android."),
+ ("Open a product and choose your options",
+  "Tap a product, then choose the options, for example the colour and the battery capacity. Read the option names with your phone's translation before you choose, because the picture and the option name do not always match. When you are happy, tap the red <b>determine</b> button at the bottom."),
+ ("Tap the heart to save things for later",
+  "This is the step I found most useful. On a product page, tap the <b>heart</b> at the bottom left of the bar. It changes to <b>Saved</b>. Save a few products from different sellers, and compare them calmly afterwards instead of buying the first thing you see."),
+ ("Find everything you saved in your profile",
+  "Go back to the Pinduoduo home screen and tap <b>Personal Center</b>, bottom right. This is your profile page. Tap <b>Product Favorites</b> and every product you tapped the heart on is in one list."),
+ ("Tick the items and tap Proceed to checkout",
+  "In the list, tick the circle next to each item you want to buy now, then tap <b>Proceed to</b> checkout at the bottom right. The total and any discount shown at the bottom update as you tick."),
+ ("Check Weixin Pay, then Pay immediately",
+  "On the checkout screen, look at the payment row. I paid with <b>Weixin Pay</b>, which is WeChat Pay, and it was ticked on my order. Check the total, then tap <b>Pay immediately</b>. If you have not linked a card to WeChat Pay yet, do that at home first: my <a href=\"/guides/wechat-pay-add-foreign-card-china/\">WeChat Pay guide</a> shows how I did it."),
+ ("Find your order under My orders",
+  "Back in <b>Personal Center</b>, the <b>My orders</b> row has your orders sorted into pending payment, to be shared, pending shipment, awaiting receipt and evaluate. This is where I look to follow an order after I have paid."),
+]
+PDD_FIGS={0: ['pinduoduo-wechat-discover-tab-and-mini-programs-row-marked'], 1: ['pinduoduo-wechat-mini-programs-recently-used-marked', 'pinduoduo-wechat-search-pindu-result-marked'], 2: ['pinduoduo-mini-program-home-search-bar-marked', 'pinduoduo-search-type-in-english-field-and-search-button-marked'], 3: ['pinduoduo-product-options-colour-capacity-and-confirm-marked'], 4: ['pinduoduo-product-page-saved-heart-marked'], 5: ['pinduoduo-home-personal-center-tab-marked', 'pinduoduo-personal-center-product-favorites-marked'], 6: ['pinduoduo-favorites-tick-items-and-proceed-to-checkout-marked'], 7: ['pinduoduo-checkout-weixin-pay-and-pay-immediately-marked'], 8: ['pinduoduo-personal-center-my-orders-row-marked']}
+PDD_STEPS=[(a,b,PDD_FIGS.get(i,[])) for i,(a,b) in enumerate(PDD_STEPS)]
+guide("pinduoduo-for-foreigners","Pinduoduo in English: how to search, save and order, step by step","Pinduoduo in English: how to search, save and order, step by step",
+      "How I used Pinduoduo as a visitor: open it in WeChat, search in English, tap the heart to save items, find them in your profile, pay and track the order.",
+      "pinduoduo in english","",
+      "<p>Pinduoduo is a big Chinese shopping app, and on my phone it is all in Chinese. I used it through WeChat, with my phone translating the screen for me, and I ordered from Ireland. This guide follows one real order on my own phone. Every screenshot has a red box on the exact thing to tap and a number for the order to tap it in.</p><p>The part people skip is the heart. Tap it on any product to save it, then find all your saved items in your profile under Product Favorites. That is how I compared things before I paid.</p><p>It is a close cousin of Taobao. If you have not used either, my <a href=\"/guides/taobao-for-foreigners/\">Taobao guide</a> covers the address and delivery side in more detail.</p>",
+      PDD_STEPS,
+      [("Is Pinduoduo available in English?","Not on my phone. The app was in Chinese, and the English in my screenshots is my phone's translation of the screen. Check what your own app offers, because I did not find an official language list."),
+       ("Can I search Pinduoduo in English?","Yes, it worked for me. I typed dji nano accessories and got results. For anything you cannot read, use Live Text on an iPhone or Circle to Search on Android."),
+       ("How do I save a product on Pinduoduo?","Tap the heart on the product page. It then says Saved. Your saved products are under Personal Center, then Product Favorites."),
+       ("Where do I find the things I saved?","Open Personal Center at the bottom right, then tap Product Favorites. On my phone, every product I had hearted was listed there, and I could tick the ones I wanted and go to checkout from that list."),
+       ("How did you pay on Pinduoduo?","With Weixin Pay, which is WeChat Pay. It was ticked on my checkout screen and I tapped Pay immediately. Set up your card in WeChat Pay before you fly."),
+       ("Where do I see my order afterwards?","In Personal Center, on the My orders row. Orders are sorted by status, such as pending payment, pending shipment and awaiting receipt."),
+       ("Is Pinduoduo the same as Taobao?","Not the same company, but similar. I have used both, and to me Pinduoduo is a cheaper version of Taobao. I only show one Pinduoduo order here, so I do not compare prices.")],
+      [("Phone settings: Live Text on iPhone (Apple Support)","https://support.apple.com/en-ie/HT212630",True),
+       ("Circle to Search: translate (Google Search Help)","https://support.google.com/websearch/answer/14508957?hl=en",True)],
+      SITE+"/og/pinduoduo-for-foreigners.jpg",checked="2026-11-04",published="2026-11-04",vschema=False,
+      lift='<div class="dd-hero"><img data-hero src="/img/pinduoduo-in-english-step-by-step-guide-cover.jpg" alt="" width="1280" height="720"></div>',
+      steps_title="The 9 steps, in order",
+      shotnote="Screenshots from my own phone, recorded on 4 November 2026. The app is in Chinese and the English is my phone's translation. The red boxes and numbers are mine. Tap a picture to open it larger.",
+      related=[("/guides/taobao-for-foreigners/","how-to-order-on-taobao-step-by-step-guide-cover","SHOPPING","How to order on Taobao as a foreigner, step by step"),("/guides/wechat-pay-add-foreign-card-china/","wechat-pay-add-foreign-card-china-cover-16x9","WECHAT CARD","How to add a foreign card to WeChat Pay, step by step"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China")])
 
 
 # ---------- Taobao 11.11 for foreigners (27 Oct 2026) ----------

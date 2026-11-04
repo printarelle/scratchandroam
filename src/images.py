@@ -109,7 +109,23 @@ a("alipay-payment-password-notice-for-claiming-metro-qr-card.jpg","Black screen 
 a("alipay-metro-card-collected-successfully-use-now-button.jpg","Alipay screen reading Card collected successfully with a blue Use now button and the line Take Metro and get green energy","Card collected. Tap Use now to open your QR code.")
 a("alipay-wrong-qr-code-switch-city-top-left-notice.jpg","Alipay home screen for Xi'an with a notice reading Wrong QR code? Switch the city top left to switch your QR code","Wrong QR code? Switch the city at the top left.")
 
+# ---------- Pinduoduo guide (4 Nov 2026) ----------
+a("pinduoduo-in-english-step-by-step-guide-cover.jpg","Cover: Pinduoduo in English, search, order, ship, step by step, beside a phone showing the Pinduoduo mini program with a China flag sticker")
+a("pinduoduo-wechat-discover-tab-and-mini-programs-row-marked.jpg","WeChat Discover page with red marks: 1 on the Discover tab at the bottom, 2 on the Mini Programs row","1. Tap Discover, then 2. Mini Programs.")
+a("pinduoduo-wechat-mini-programs-recently-used-marked.jpg","WeChat Mini Programs page with red marks: 1 on the Pinduoduo icon under Recently Used, 2 on the search box","1. Tap Pinduoduo under Recently Used. 2. Or search for it.")
+a("pinduoduo-wechat-search-pindu-result-marked.jpg","WeChat mini program search with pindu typed in and red marks on the search box and the first result, Pinduoduo","1. Type pindu. 2. Tap the first result.")
+a("pinduoduo-mini-program-home-search-bar-marked.jpg","Pinduoduo mini program home screen with a red mark on the search bar at the top","Tap the search bar at the top.")
+a("pinduoduo-search-type-in-english-field-and-search-button-marked.jpg","Pinduoduo search screen with red marks on the text field where I typed in English and the Search button","1. Type in English. 2. Tap Search.")
+a("pinduoduo-product-options-colour-capacity-and-confirm-marked.jpg","Pinduoduo product options sheet with red marks on the colour choice, the battery capacity choice and the red determine button","1 and 2. Pick your options. 3. Tap determine.")
+a("pinduoduo-product-page-saved-heart-marked.jpg","Pinduoduo product page with a red mark on the heart icon at the bottom, which reads Saved once tapped","Tap the heart to save the item.")
+a("pinduoduo-home-personal-center-tab-marked.jpg","Pinduoduo mini program home screen with a red mark on the Personal Center tab at the bottom right","Tap Personal Center, bottom right.")
+a("pinduoduo-personal-center-product-favorites-marked.jpg","Pinduoduo Personal Center page with a red mark on the Product Favorites icon","Tap Product Favorites to see everything you saved.")
+a("pinduoduo-favorites-tick-items-and-proceed-to-checkout-marked.jpg","Pinduoduo list of saved items with red marks on two tick circles and on the Proceed to checkout button","1. Tick what you want. 2. Tap Proceed to checkout.")
+a("pinduoduo-checkout-weixin-pay-and-pay-immediately-marked.jpg","Pinduoduo checkout with red marks on the ticked Weixin Pay row and the red Pay immediately button","1. Check Weixin Pay is ticked. 2. Tap Pay immediately.")
+a("pinduoduo-personal-center-my-orders-row-marked.jpg","Pinduoduo Personal Center with a red mark on the My orders row: pending payment, pending shipment, awaiting receipt","Your order lives under My orders.")
+
 OGALT={
+"pinduoduo-for-foreigners.jpg":R["pinduoduo-in-english-step-by-step-guide-cover.jpg"]["alt"],
 "china-visa-free-30-days.jpg":R["china-visa-free-30-days-departure-board-cover-16x9.jpg"]["alt"],
 "china-arrival-card-in-alipay.jpg":R["china-arrival-card-in-alipay-step-by-step.jpg"]["alt"],
 "china-arrival-card-on-a-pc.jpg":R["china-arrival-card-on-a-pc-step-by-step.jpg"]["alt"],
