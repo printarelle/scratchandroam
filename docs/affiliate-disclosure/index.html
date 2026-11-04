@@ -613,6 +613,7 @@ p{margin:0}
 
 /* tick-off steps */
 .tickbar{background:var(--mint2);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 18px;position:sticky;top:84px;z-index:6;box-shadow:var(--sh)}
+.tickbar[hidden]{display:none}.tickbar .tk-top{padding-right:44px}.tkx{position:absolute;top:6px;right:6px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--mute);font:400 30px/1 var(--b);cursor:pointer}.tkx:hover,.tkx:focus-visible{background:#fff;color:var(--ink)}.tkshow{display:block;margin:0 0 18px;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font:700 13px var(--b);cursor:pointer}.tkshow[hidden]{display:none}
 .tickbar .tk-top b{font:400 19px var(--d);color:var(--ink);display:block}
 .tickbar .tk-top span{font:600 13px/1.4 var(--b);color:var(--mute)}
 .tk-prog{display:flex;justify-content:space-between;align-items:center;margin:8px 0 6px;font:700 12px var(--b);color:var(--ink)}
@@ -683,7 +684,7 @@ p{margin:0}
 .hb nav .msub{display:none}
 @media(max-width:960px){.hb nav .msub{display:block;color:var(--coral);font-weight:700}}
 @media(max-width:600px){.art .steps.ticking li{grid-template-columns:48px minmax(0,1fr);gap:12px}.art .steps.ticking .n{width:48px;height:48px;line-height:48px;font-size:18px}}
-@media print{.hb,.tabs,.ft,.band,.side,aside,.toc,.mtoc,.tk-acts,.tk-confirm,.startck,.enjoy,.video,.strip,.polaroid,.ghero .author,.clus,.social,.stats{display:none!important}.tickbar{position:static;box-shadow:none;border:0}.art{font-size:14px}body{background:#fff}.art .steps li{break-inside:avoid}.art .steps .n.tick[aria-pressed=true]{background:#117A72!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@media print{.tkx,.tkshow,.hb,.tabs,.ft,.band,.side,aside,.toc,.mtoc,.tk-acts,.tk-confirm,.startck,.enjoy,.video,.strip,.polaroid,.ghero .author,.clus,.social,.stats{display:none!important}.tickbar{position:static;box-shadow:none;border:0}.art{font-size:14px}body{background:#fff}.art .steps li{break-inside:avoid}.art .steps .n.tick[aria-pressed=true]{background:#117A72!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 
 /* china hero: dark overlay so the lights stand out */
 .whero{background:#0E1626}
