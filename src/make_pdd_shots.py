@@ -33,6 +33,12 @@ SHOTS=[
    [(1,(4,898,572,948)),(2,(378,1104,576,1182))],[]),
  ("pinduoduo-personal-center-my-orders-row-marked","orders",
    [(1,(6,333,570,500))],[]),
+ ("pinduoduo-mini-program-three-dots-top-right-marked","translate-dots",
+   [(1,(410,76,532,134))],[(1,"Tap the three dots",300,200)]),
+ ("pinduoduo-mini-program-menu-translation-button-marked","translate-menu",
+   [(1,(498,930,576,1080))],[(1,"Tap Translation",290,750)]),
+ ("pinduoduo-store-page-established-store-genuine-and-flagship-marked","store-page",
+   [(1,(100,282,400,322)),(2,(10,402,350,452)),(3,(8,474,340,526))],[]),
 ]
 def box(im,b):
     n,(x0,y0,x1,y1)=b

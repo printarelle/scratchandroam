@@ -123,6 +123,9 @@ a("pinduoduo-personal-center-product-favorites-marked.jpg","Pinduoduo Personal C
 a("pinduoduo-favorites-tick-items-and-proceed-to-checkout-marked.jpg","Pinduoduo list of saved items with red marks on two tick circles and on the Proceed to checkout button","1. Tick what you want. 2. Tap Proceed to checkout.")
 a("pinduoduo-checkout-weixin-pay-and-pay-immediately-marked.jpg","Pinduoduo checkout with red marks on the ticked Weixin Pay row and the red Pay immediately button","1. Check Weixin Pay is ticked. 2. Tap Pay immediately.")
 a("pinduoduo-personal-center-my-orders-row-marked.jpg","Pinduoduo Personal Center with a red mark on the My orders row: pending payment, pending shipment, awaiting receipt","Your order lives under My orders.")
+a("pinduoduo-mini-program-three-dots-top-right-marked.jpg","Pinduoduo mini program home screen with a red mark on the three dots at the top right","Tap the three dots at the top right.")
+a("pinduoduo-mini-program-menu-translation-button-marked.jpg","Mini program menu with a red mark on the Translation button at the bottom right, contacts hidden","Then tap Translation. My contacts are hidden.")
+a("pinduoduo-store-page-established-store-genuine-and-flagship-marked.jpg","Pinduoduo store page with red marks on 10-year-old established store, Genuine Product and Flagship Store Guarantee","Check how long the store has been established, Genuine Product and the Flagship Store Guarantee.")
 
 OGALT={
 "pinduoduo-for-foreigners.jpg":R["pinduoduo-in-english-step-by-step-guide-cover.jpg"]["alt"],
