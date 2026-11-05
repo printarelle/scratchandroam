@@ -213,6 +213,8 @@ CLUSTERS=[
    ("how-to-order-food-in-china-without-speaking-chinese","Order food","Menus, QR codes and delivery"),
    ("food-delivery-in-china-for-foreigners-meituan","Food delivery","Meituan in WeChat, to your hotel"),
    ("taobao-for-foreigners","Shop on Taobao","Order to your hotel"),
+   ("taobao-11-11-singles-day-for-foreigners","Taobao 11.11","Singles Day sales, how I would shop them"),
+   ("pinduoduo-for-foreigners","Shop on Pinduoduo","Search, translate, save and pay in English"),
  ]),
  ("shanghai","Shanghai, what to book and see",[
    ("the-bund-shanghai-at-night","The Bund at night","Start here: when to go and where to stand"),
