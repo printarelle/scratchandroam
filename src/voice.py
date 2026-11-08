@@ -56,6 +56,8 @@ STORIES = {
    'What we did enjoy was the light show of the city from our cruise, and walking down the Bund and having a good time.</p>'
    '<p>The crowds are always there, because it is the most popular area, so you will see them wherever you go. '
    'And it is really easy to get to. Ask anyone and they will tell you: all roads lead to the Bund.</p>'),  # told 21 and 30 Oct 2026
+ "china-public-holidays-2027": ("New Year on the Bund",
+   '<p>Our first China trip was Christmas 2025. We spent Christmas at Shanghai Disneyland, and then New Year and the day after on the Bund and Nanjing Road. We stayed at the Crowne Plaza on Nanjing Road. It was Christmas and New Year, so it was always full, and we did not want to stand in the crowd just watching the lights go up. What we did enjoy was the light show of the city from our cruise, and walking down the Bund.</p>'),  # told 21 and 30 Oct 2026, same story as the Bund guide
  "yu-garden-shanghai": ("Our favourite place for a walk",
    '<p>We went to Yu Garden three times, and it was our favourite place to go for a walk. '
    'We also loved the small food markets there, and how affordable the meals were. '

@@ -74,6 +74,12 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 paint()})();"""
 
 QUICK={
+ "china-public-holidays-2027":("Quick answer",[
+  ("Which weeks are the big ones?","Spring Festival 5 to 13 February, Labour Day 1 to 5 May and National Day 1 to 7 October."),
+  ("Why are the breaks so long?","Few days are statutory, so the State Council swaps weekend working days to make blocks of 5 to 9 days."),
+  ("Trains?","Tickets open 15 days ahead, counting the travel day. Book on release day."),
+  ("Shops?","Many close in the first days of Chinese New Year, so plan food and shopping."),
+ ],("The 2027 calendar","#calendar")),
  "taobao-11-11-singles-day-for-foreigners":("Quick answer",[
   ("When is the sale?","Deposits opened 15 October. The main sale began 20 October at 8 pm China time. The big day is Wednesday 11 November."),
   ("Can foreigners join?","Yes, for physical goods, paying through Alipay with your own bank card."),
@@ -202,6 +208,7 @@ CLUSTERS=[
    ("china-arrival-card-alipay","Arrival card on your phone","The same form inside Alipay"),
    ("china-before-you-fly-checklist","Safety and backups","Insurance, documents, emergency numbers, plan B"),
    ("china-dos-and-donts","Do's and don'ts","The small rules that save you trouble"),
+   ("china-public-holidays-2027","China holidays 2027","The dates to avoid and what to book early"),
  ]),
  ("apps","Apps and paying in China",[
    ("china-travel-apps","Set up the must-have apps","Start here: the 12 to set up at home, with the steps"),
@@ -632,6 +639,7 @@ STEP_PICKS={"china-travel-apps":{8:_pick_firsty(),9:_pick_nordvpn()},"china-befo
 
 # ===== "Links for this guide" boxes (partner links that fit the guide's topic) =====
 GUIDE_DEALS={
+ "china-public-holidays-2027":(["Klook","Kiwi.com"],"Klook is where we booked the ERA show and the Huangpu cruise. I booked my trains on Trip.com and have not tested Klook for trains. Kiwi.com is for flights, and flights also fill up around the big holidays."),
  "china-travel-apps":(["Firsty","Airalo","Yesim","Saily","NordVPN","ExpressVPN"],"eSIMs for step 8, and two VPNs for step 9: the one I had, and a second one as a backup. Whichever you pick, read the plan description first: for China you want one that routes data outside China, so Google and WhatsApp keep working."),
  "top-25-china-apps":(["Firsty","Airalo","Yesim","Saily","NordVPN"],"eSIMs for pass number 4, and the VPN I had. For China, read the plan description first: you want one that routes data outside China."),
  "first-time-in-china":(["Firsty","Airalo","Kiwi.com","Welcome Pickups","GetTransfer"],"An eSIM for the internet on landing, flights, and a transfer from the airport so the first hour is easy."),

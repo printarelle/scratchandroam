@@ -169,6 +169,9 @@ a("order-food-china-scan-to-order-menus-slide.jpg","Slide 7: pan-fried buns with
 a("order-food-china-how-to-read-pinyin-and-tones-slide.jpg","Slide 8: how to read pinyin, with the letters q x zh c and the four tone marks and what they sound like","Slide 8: how to read pinyin")
 a("order-food-china-save-this-phrase-list-slide.jpg","Slide 9: Save this, a list of the Chinese phrases from the guide, from 我要这个 to 扫码点餐","Slide 9: save this phrase list")
 OGALT["order-food-in-china-without-speaking-chinese.jpg"]=R["order-food-in-china-without-speaking-chinese-cover-16x9.jpg"]["alt"]
+# ---- China public holidays 2027 (8 Nov 2026) ----
+a("china-public-holidays-2027-dates-and-how-to-prepare-cover-16x9.jpg","Cover: China holidays 2027 with the chips Dates, Why and Prepare, the Oriental Pearl Tower lit pink at night and a China flag sticker")
+OGALT["china-public-holidays-2027.jpg"]=R["china-public-holidays-2027-dates-and-how-to-prepare-cover-16x9.jpg"]["alt"]
 # ---- Taobao 11.11 for foreigners (27 Oct 2026) ----
 a("singles-day-sale-guide-for-foreigners-cover-16x9.jpg","Cover: the title 11.11 sale on Taobao with the chips Alipay, Presale and Hotel, a lit shopping street on Nanjing Road in Shanghai and a China flag sticker")
 OGALT["taobao-11-11-singles-day-for-foreigners.jpg"]=R["singles-day-sale-guide-for-foreigners-cover-16x9.jpg"]["alt"]

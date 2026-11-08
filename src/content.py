@@ -18,6 +18,7 @@ CARDS=[
  dict(slug="first-time-in-china",sec="before",img="first-time-in-china-13-things-before-you-fly",alt="Cover of the 13 things before China guide, with the 200 yuan fee card",num="GUIDE 13",meta=("VIDEO + CHECKLIST","6 MIN"),t="First time in China: 13 things to set up before you fly",p="Visa-free list, arrival card, Alipay and WeChat, cards, cash, trains, maps, packing.",short="First time in China: 13 things"),
  dict(slug="china-visa-free-30-days",sec="before",img="china-visa-free-30-days-departure-board-cover-4x5",alt="Cover of the China visa free 30 days guide: a departure board reading China, visa free, to 31 Dec, with the China flag",num="VISA-FREE",meta=("VIDEO + ANSWERS","30 DAYS"),t="China visa free 30 days: Irish, UK and EU passports",p="Who gets 30 days, until when, what to show at the border, and what you cannot extend.",short="China visa free 30 days"),
  dict(slug="china-dos-and-donts",sec="before",img="china-will-take-your-drone-15-dos-and-donts",alt="Cover of the China do's and don'ts guide: China will take your drone, 15 do's and don'ts",num="15 RULES",meta=("LIST","15 DO'S AND DON'TS"),t="China do's and don'ts: what not to bring, and what not to do",p="What customs and security take off you, the table manners that get stares, and what to pack or just buy there.",short="China do's and don'ts"),
+ dict(slug="china-public-holidays-2027",sec="before",img="china-public-holidays-2027-dates-and-how-to-prepare-cover-16x9",alt="Cover: China holidays 2027 with the chips Dates, Why and Prepare, the Oriental Pearl Tower lit pink at night and a China flag sticker",num="2027",meta=("DATES + PREP","7 HOLIDAYS"),t="China public holidays 2027: dates and how to prepare",p="The seven official holidays, why the dates move, which three weeks to avoid, and what to book and prepare if you go.",short="China holidays 2027"),
  dict(slug="china-travel-apps",sec="before",img="china-travel-apps-12-apps-to-set-up-before-china",alt="Cover of the China travel apps guide, 12 apps to set up before China with a Nanjing Road night photo and the China flag",num="APPS LIST",meta=("LIST + VIDEO","12 APPS"),t="Apps to download before you go to China: the full list",p="Paying, maps, taxis, trains, what to set up at home, the extras already inside Alipay, and what to skip.",short="China travel apps"),
  dict(slug="top-25-china-apps",sec="before",img="top-25-china-apps-boarding-pass-cover",alt="Cover of the top 25 China apps guide: the words Top 25 China apps, an Access Denied stamp and three boarding passes for Alipay, Amap and Hellobike",num="TOP 25",meta=("RANKED LIST","25 APPS"),t="Top 25 China apps for tourists, ranked like a boarding pass",p="From critical to optional: what each app does, how to set it up, and what you lose without it.",short="Top 25 China apps"),
  dict(slug="china-arrival-card-pc",sec="before",img="china-arrival-card-on-a-pc-step-by-step",alt="Cover of the China arrival card guide for PC, number 14 with a passport and an entry stamp",num="GUIDE 14",meta=("VIDEO + STEPS","3 MIN"),t="China arrival card online, step by step on a computer",p="Upload your passport, let it fill the form, save the QR. Every screen shown.",short="Arrival card on a PC"),
@@ -1224,6 +1225,94 @@ guide("taobao-11-11-singles-day-for-foreigners","Taobao 11.11 for foreigners: Si
       steps_title="What to check before you order",
       extra=_tb11_extra(),
       related=[("/guides/taobao-for-foreigners/","how-to-order-on-taobao-step-by-step-guide-cover","GUIDE","How to order on Taobao as a foreigner, step by step"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")])
+
+
+# ---------- China public holidays 2027 (8 Nov 2026) ----------
+HOL27_STEPS=[
+ ("Know the seven holidays of 2027",
+  """China has seven public holiday periods in 2027. The State Council announced them on 5 November 2026, and together they add up to 29 days off, weekends included. In short: New Year 1 to 3 January, Spring Festival 5 to 13 February, Qingming 3 to 5 April, Labour Day 1 to 5 May, Dragon Boat on 9 June only, Mid-Autumn on 15 September only, and National Day 1 to 7 October. The full table, with the weekdays and the make-up working days, is in <a href="#calendar">the 2027 calendar</a> below the steps. One change from 2026: Dragon Boat and Mid-Autumn were three-day weekends in 2026, and in 2027 they are single Wednesdays, which is why the yearly total drops from 33 days to 29 (China Briefing)."""),
+ ("Understand why the dates move",
+  """Some holidays follow the lunar calendar, so they land on a different Western date every year. Spring Festival, the Chinese New Year, starts on the first day of the lunar year, which is Saturday 6 February 2027, and the holiday begins the evening before, on Friday 5 February. Dragon Boat is the fifth day of the fifth lunar month and Mid-Autumn is the fifteenth day of the eighth lunar month, which gives Wednesday 9 June and Wednesday 15 September in 2027. Qingming, the tomb-sweeping festival, is tied to the solar calendar, so it stays around 4 or 5 April. Labour Day (1 May) and National Day (1 October) are fixed dates."""),
+ ("Learn why China has such long holidays",
+  """Only 13 days a year are statutory days off, since 1 January 2025, when Lunar New Year's Eve and 2 May were added. The long breaks come from swapping days: the State Council gives some weekdays off and takes them back on a weekend next to the holiday. These are called make-up working days, <b>调休 tiáoxiū</b>. In 2027 five weekend days are working days: Sunday 31 January and Sunday 14 February, Saturday 8 May, and Sunday 26 September and Saturday 9 October. This matters for a visitor. Because 14 February and 9 October are working days, I would expect the last day or two of those holidays to be busy with people heading home."""),
+ ("Know the three weeks to avoid",
+  """If your dates are flexible, I would avoid three periods, especially with a route that crosses several cities: Spring Festival (5 to 13 February), Labour Day (1 to 5 May) and National Day, known as Golden Week (1 to 7 October). Cathay Pacific describes Labour Day as a five-day holiday that has become synonymous with tourism, and says to expect bustling transport hubs and packed tourist spots. Spring Festival is the biggest of them. In my own small test, we were on the Bund over New Year 2025 to 2026 and it was full every time we went, and that is only a three-day holiday."""),
+ ("See how big the Spring Festival rush is",
+  """The Spring Festival travel rush is called <b>chunyun</b>. Officials expected a record 9.5 billion trips during the 2026 rush, with about 540 million by rail and 95 million by air (China Daily). It is far longer than the holiday itself: in 2026 it ran 40 days, from 2 February to 13 March, for a New Year on 17 February. I have not found the official dates for 2027 yet. If it follows the same pattern, it would run from about 22 January to 2 March, but that is my own calculation, not an official date. The festivities last 15 days and end with the Lantern Festival, which by my count is Saturday 20 February 2027. Cathay Pacific also says many shops and businesses close during the first few days, so plan meals and shopping for the opening days."""),
+ ("Do not forget the smaller holidays",
+  """New Year (Friday 1 to Sunday 3 January) and Qingming (Saturday 3 to Monday 5 April) are three-day weekends with no make-up days. I found no figures for how busy they are, so I treat them as busier than a normal weekend and book early. Dragon Boat and Mid-Autumn are single Wednesdays in 2027, with no weekend attached. I would expect them to be quieter than in 2026, when each was a three-day weekend, but I could not find data, so check your own dates before you decide."""),
+ ("If you go in a holiday, book trains the day tickets open",
+  """12306, the national railway booking system, sells tickets 15 days ahead, counting the travel day. That makes the release dates predictable, and you can read them in <a href="#tickets">the ticket table</a>: for Friday 5 February, tickets open on Friday 22 January. Those dates are my calculation from the 15-day rule, and the release hour can differ by station. One travel agency site says peak trains can sell out within minutes of release, and I could not confirm that figure. A Trip.com guide says tickets for travel dates inside Spring Festival lose 20 percent when refunded, so be sure of your dates before you pay. I booked all our trains on Trip.com and paid a small fee, because I could not get through the 12306 registration in the Alipay version. I found no measured sell-out figures for holiday weeks, so I cannot say how fast they go."""),
+ ("Book hotels early and compare the dates around them",
+  """Cathay Pacific says bookings fill up quickly around the big holidays. I could not find a source for how much hotel prices rise, so I would compare the price for your exact dates with the days just before and after. If one night of a stay falls on a make-up working day or a quiet midweek day, the price there is the one that tells you how much the holiday adds. Book somewhere with free cancellation first if you can, and message the hotel before you arrive."""),
+ ("Prepare before you fly",
+  """Holidays are a bad time to find out that an app does not work. I would finish the setup from my <a href="/guides/china-before-you-fly-checklist/">first trip checklist</a> and my <a href="/guides/china-travel-apps/">apps guide</a> at home: payment, maps, data and a backup for each. Save the Chinese address of every hotel, and leave extra time for every transfer. For the days around a holiday, I would also check the opening hours of any attraction on your list on the day itself, because they can change around holidays. This is advice from my own habits, not a rule from a source."""),
+ ("Choose the quiet weeks",
+  """The State Council notice itself encourages people to stagger their travel and avoid the peaks. A week before or after a holiday window gives you the same season with a fraction of the crowds, but the days right next to the window still feel the rush. <a href="#quiet">The quiet-weeks table</a> shows the stretches with no public holiday in 2027. School summer holidays are also a busy period, according to one travel agency site, and I found no official figures. Our own trip in December 2026 does not overlap any of the seven holidays, because December has none."""),
+]
+HOL27_EXTRA=(
+ '<h2 id="calendar">The 2027 calendar</h2>'
+ '<p>These are the dates from the State Council notice of 5 November 2026. The weekdays are from the notice. Make-up working days are weekend days when many people go to work.</p>'
+ '<table class="tbl"><thead><tr><th>Holiday</th><th>Days off</th><th>Total</th><th>Make-up working days</th></tr></thead><tbody>'
+ '<tr><td><b>New Year</b></td><td>Fri 1 to Sun 3 January</td><td>3 days</td><td>None</td></tr>'
+ '<tr><td><b>Spring Festival</b></td><td>Fri 5 to Sat 13 February (Chinese New Year is Sat 6 February)</td><td>9 days</td><td>Sun 31 January, Sun 14 February</td></tr>'
+ '<tr><td><b>Qingming</b></td><td>Sat 3 to Mon 5 April</td><td>3 days</td><td>None</td></tr>'
+ '<tr><td><b>Labour Day</b></td><td>Sat 1 to Wed 5 May</td><td>5 days</td><td>Sat 8 May</td></tr>'
+ '<tr><td><b>Dragon Boat</b></td><td>Wed 9 June</td><td>1 day</td><td>None</td></tr>'
+ '<tr><td><b>Mid-Autumn</b></td><td>Wed 15 September</td><td>1 day</td><td>None</td></tr>'
+ '<tr><td><b>National Day</b></td><td>Fri 1 to Thu 7 October</td><td>7 days</td><td>Sun 26 September, Sat 9 October</td></tr></tbody></table>'
+ '<h2 id="tickets">When train tickets open for each travel date</h2>'
+ '<p>12306 sells tickets 15 days ahead, counting the travel day, so the first sale day is 14 days before. These dates are my calculation from that rule. Check the release hour for your own station in the app.</p>'
+ '<table class="tbl"><thead><tr><th>Travel day</th><th>Tickets open</th></tr></thead><tbody>'
+ '<tr><td>Fri 5 February, Spring Festival starts</td><td>Fri 22 January</td></tr>'
+ '<tr><td>Sat 6 February, Chinese New Year</td><td>Sat 23 January</td></tr>'
+ '<tr><td>Sat 13 February, last day off</td><td>Sat 30 January</td></tr>'
+ '<tr><td>Sun 14 February, working day</td><td>Sun 31 January</td></tr>'
+ '<tr><td>Sat 3 April, Qingming starts</td><td>Sat 20 March</td></tr>'
+ '<tr><td>Sat 1 May, Labour Day starts</td><td>Sat 17 April</td></tr>'
+ '<tr><td>Wed 5 May, last day off</td><td>Wed 21 April</td></tr>'
+ '<tr><td>Fri 1 October, National Day starts</td><td>Fri 17 September</td></tr>'
+ '<tr><td>Thu 7 October, last day off</td><td>Thu 23 September</td></tr></tbody></table>'
+ '<h2 id="quiet">The stretches with no public holiday in 2027</h2>'
+ '<p>I read these from the official calendar. The first two overlap the estimated Spring Festival rush, so they are quieter on the calendar but not always on the trains.</p>'
+ '<table class="tbl"><thead><tr><th>Window</th><th>Next to</th></tr></thead><tbody>'
+ '<tr><td>4 January to 4 February</td><td>After New Year, before Spring Festival (rush may start about 22 January)</td></tr>'
+ '<tr><td>15 February to 2 April</td><td>After Spring Festival (rush may run to about 2 March)</td></tr>'
+ '<tr><td>6 April to 30 April</td><td>Between Qingming and Labour Day</td></tr>'
+ '<tr><td>6 May to 8 June</td><td>After Labour Day, before Dragon Boat (8 May is a working Saturday)</td></tr>'
+ '<tr><td>10 June to 14 September</td><td>Summer, with school holidays</td></tr>'
+ '<tr><td>16 September to 30 September</td><td>After Mid-Autumn, before Golden Week (26 September is a working Sunday)</td></tr>'
+ '<tr><td>8 October to 31 December</td><td>After Golden Week (9 October is a working Saturday)</td></tr></tbody></table>'
+)
+guide("china-public-holidays-2027","China public holidays 2027: dates and how to prepare","China public holidays 2027: when, why and what to prepare",
+      "The official 2027 China holiday dates, why they move, the three weeks to avoid, and what to book and prepare if you travel in one.",
+      "china public holidays 2027","",
+      "<p>When we were on the Bund over New Year, it was full every time we went. That is what a Chinese public holiday does to a popular place. This guide lists the seven public holidays of 2027, explains why the dates move and why China has such long breaks, and says what I would book and prepare if you travel in one.</p><p>The dates come from the State Council notice published on 5 November 2026. I read the Chinese text on Xinhua and an English summary on gov.cn. Where a fact comes from somewhere else, I say so, and where I could not confirm something, I say that too.</p>",
+      HOL27_STEPS,
+      [("When is Chinese New Year in 2027?","Saturday 6 February 2027. The public holiday runs from Friday 5 February, New Year's Eve, to Saturday 13 February, nine days in total, and Sunday 31 January and Sunday 14 February are working days."),
+       ("When is Golden Week in 2027?","National Day Golden Week runs from Friday 1 October to Thursday 7 October 2027, seven days. Sunday 26 September and Saturday 9 October are working days."),
+       ("Is Labour Day a long holiday in China?","Yes. In 2027 it runs from Saturday 1 May to Wednesday 5 May, five days, with Saturday 8 May as a working day. Only 1 and 2 May are statutory days off. The rest is made by swapping working days."),
+       ("Which 2027 holidays are only one day?","Dragon Boat on Wednesday 9 June and Mid-Autumn on Wednesday 15 September. Both were three-day weekends in 2026."),
+       ("Do shops and restaurants close at Chinese New Year?","Cathay Pacific says many shops and businesses close during the first few days of Chinese New Year. I found no list of which ones, so check the places you need."),
+       ("How far ahead can I buy a train ticket in China?","15 days, counting the travel day, on the official 12306 system. A travel agency site says third-party platforms can take earlier reservations, but those are not 12306 tickets, and I have not tested them."),
+       ("When is the best time to visit China to avoid crowds?","Outside the seven holiday periods, and ideally a week or more away from them. The table of quiet stretches above shows the 2027 windows. Official 2027 chunyun dates are not out yet, so check them before you book around Spring Festival.")],
+      [("State Council notice on the 2027 holiday arrangements, 5 November 2026 (Chinese text on Xinhua)","https://www.news.cn/politics/20261105/f90cd6ad4df94ab4833b141e52ccfc13/c.html",True),
+       ("gov.cn: Public holidays for 2027 (English)","https://english.www.gov.cn/policies/latestreleases/202611/06/content_WS6aed74dcc6d00ca5f9a0e22e.html",True),
+       ("China Briefing: China public holiday schedule 2027","https://www.china-briefing.com/news/china-public-holiday-schedule-2027-official-calendar-working-days/",False),
+       ("Beijing government: statutory holidays extended by two days from 2025","https://english.beijing.gov.cn/latest/news/202411/t20241113_3940410.html",True),
+       ("DLA Piper: China increases public holiday entitlement, 15 November 2024","https://knowledge.dlapiper.com/dlapiperknowledge/globalemploymentlatestdevelopments/2024/China-increases-public-holiday-entitlement",False),
+       ("Shanghai government: train ticket sales begin for the Spring Festival travel rush, 19 January 2026","https://english.shanghai.gov.cn/en-LatestNews/20260119/50214166c9ec4d9492a780526c3a0268.html",True),
+       ("Shenzhen government: 12306 Spring Festival ticket sales, January 2025","https://www.sz.gov.cn/en_szgov/news/latest/content/post_11934568.html",True),
+       ("China Daily: China expects largest-ever Spring Festival travel rush, 29 January 2026","https://www.chinadaily.com.cn/a/202601/29/WS697ac0efa310d6866eb365da.html",False),
+       ("Xinhua via China Services Info: Spring Festival travel rush starts, 3 February 2026","https://www.chinaservicesinfo.com/s/202602/03/WS698164f2498e23165e06d397/chinas-spring-festival-travel-rush-starts-with-record-trips-expected.html",False),
+       ("Cathay Pacific: a traveller's guide to China's public holidays and festivals in 2026","https://www.cathaypacific.com/cx/en_IE/inspiration/travel/china-festivals-2026.html",False),
+       ("Trip.com: China 2027 calendar, public holidays and major festivals","https://uk.trip.com/guide/china/china-public-holidays.html",False),
+       ("Trip.com: how to book China train tickets on 12306","https://in.trip.com/guide/train/12306.html",False),
+       ("HelloChinaTrip: how far in advance foreigners can buy high-speed rail tickets","https://hellochinatrip.com/?p=48415",False)],
+      SITE+"/og/china-public-holidays-2027.jpg",checked="2026-11-08",published="2026-11-08",vschema=False,
+      steps_title="When, why and what to prepare",
+      extra=HOL27_EXTRA,
+      related=[("/guides/china-before-you-fly-checklist/","china-before-you-fly-10-things-cover-16x9","10 THINGS","China first trip checklist: safety and backups"),("/guides/china-travel-apps/","china-travel-apps-12-apps-to-set-up-before-china","GUIDE","Apps to download before you go to China"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")])
 
 
 # ---------- Top 25 China apps, Boarding Pass style (SR-0027) ----------
