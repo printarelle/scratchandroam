@@ -926,6 +926,19 @@ DIS_EXTRA=(
  '<p>You can buy from the official Shanghai Disney Resort site and app, or from travel platforms such as Trip.com and Klook. We used Klook, and the link is in the booking section below. One guide says the official channels make date changes easiest, and another says third-party sites are sometimes a little cheaper. I have not compared prices for the same day, so check both for your date.</p>'
  '<h2 id="hours">Opening hours</h2>'
  '<p>Trip.com lists the hours as varying by day, from 08:30, with closing at 20:30 or 21:30. Another guide says the same. Hours change with the season and the holidays, so check the official page for the day you go.</p>'
+ '<h2 id="passport">Do you need your passport for the ticket?</h2>'
+ '<p>The guides I read say yes. A ticket is tied to the passport or ID used to buy it, staff scan that document at the gate, and a name that does not match can stop you getting in. So book with the passport each person will travel on, spell the name exactly as printed, and carry the real document on the day. I have not written up how our own entry worked, so check what your booking page asks for.</p>'
+ '<p>For groups, the same guides say you need the passport details of every person, and each person is checked against their own ticket, so you cannot buy a spare ticket and hand it to someone later. They also say guests under 16 must come with someone aged 16 or over. Rules like these can change, so confirm them with the official site.</p>'
+ '<h2 id="best-time">Best time to go</h2>'
+ '<p>The guides agree that an ordinary weekday outside Chinese holidays and school breaks has the shortest queues and the lowest ticket tier. The busy periods they name are Chinese New Year, the July and August school break, Golden Week from 1 to 7 October, and weekends all year. We went on Christmas Day, and I have not compared it with other days, so I cannot say how the crowds compared.</p>'
+ '<p>One guide says the park usually opens around 08:30 and most often closes around 20:30, later on holidays, and that the schedule is published about two weeks ahead. It also says resort hotel guests can enter earlier, from about 07:30. Confirm that perk with the hotel or the official app before you rely on it.</p>'
+ '<h2 id="before-you-go">Phone, payment, food and language</h2>'
+ '<ul>'
+ '<li><b>Phone.</b> Google, Instagram and WhatsApp are blocked on a normal Chinese SIM. Plan roaming, a China eSIM or a VPN before you land. See my <a href="/guides/first-time-in-china/">first time in China guide</a>.</li>'
+ '<li><b>Paying.</b> The guides say Alipay and WeChat Pay are accepted everywhere, foreign cards work at ticket counters and shops, and cash is taken in only a few places.</li>'
+ '<li><b>Food.</b> One guide says you may bring your own food and drink since 2019, except anything that needs reheating or refrigeration and strongly scented items such as durian. Bags are screened at entry.</li>'
+ '<li><b>Language.</b> Signs and maps are in Chinese and English, but one guide says shows and announcements are mostly in Mandarin.</li>'
+ '<li><b>App.</b> The official Shanghai Disney Resort app shows live queue times and hours.</li></ul>'
  '<h2 id="map">Map: where everything is</h2>'
  '<p>This map shows the metro station, the castle in the middle of the park and one of the resort hotels, so you can see how the resort is laid out. Tap a stop to zoom in. We did not stay in the hotel, and it is on the map only for orientation.</p>'
  '<div class="rmap"><div id="dismap" class="rmap-m" role="img" aria-label="Map of Shanghai Disney Resort with Disney Resort metro station, Enchanted Storybook Castle and Shanghai Disneyland Hotel"><noscript>The map needs JavaScript. Use the Open in Amap button below.</noscript></div>'
@@ -978,6 +991,9 @@ guide("shanghai-disneyland-tickets-guide","Shanghai Disneyland Tickets, Map and 
        ("What is the Chinese name for Shanghai Disneyland?","上海迪士尼乐园. The Line 11 metro station is 迪士尼. Show either to a taxi or DiDi driver."),
        ("Is it worth going on Christmas Day?","We went on 25 December 2025 and the castle had Christmas decorations, as you can see in the photos on this page. I have not compared it with other days, so I cannot say how the crowds compared."),
        ("How much are child tickets?","Trip.com lists the child ticket for ages 3 to 11 or heights of 1.01 to 1.4 metres. The price depends on the date, so check the booking page."),
+       ("Do I need my passport for Shanghai Disneyland tickets?","The guides say yes. A ticket is tied to the passport or ID used to buy it, and it is scanned at the gate, so book with the passport each guest will carry and bring the real document. Guests under 16 need to be with someone aged 16 or over. Confirm the rules on the official site."),
+       ("When is the best time to visit Shanghai Disneyland?","Guides say an ordinary weekday outside Chinese holidays and school breaks, which has the shortest queues and the cheapest tickets. The busiest times are Chinese New Year, July and August, Golden Week and weekends. We went on Christmas Day and I have not compared it with other days."),
+       ("Can I bring food into Shanghai Disneyland?","One guide says yes since 2019, except food that needs reheating or refrigeration and strongly scented items such as durian. All bags are screened at entry. Check the official rules before you pack."),
        ("Can I use Google Maps at Shanghai Disneyland?","Google Maps does not work well in China. Use Amap, and the map on this page has an Open in Amap button.")],
       [("Trip.com: Shanghai Disneyland tickets, opening hours and child ticket rule","https://www.trip.com/guide/attraction/shanghai-disneyland-tickets.html",False),
        ("Trip.com US blog: Shanghai Disneyland 2026, tickets, rides and one-day plan (27 October 2026)","https://us.trip.com/blog/shanghai-disneyland/",False),
