@@ -264,3 +264,20 @@ a("yu-garden-bazaar-bronze-guardian-lion-statue.jpg","A bronze guardian lion sta
 a("yu-garden-old-street-gate-in-the-bazaar.jpg","An old street gate in the Yu Garden bazaar","An old gate in the bazaar")
 a("yu-garden-paper-cut-portrait-stand-framed-silhouettes.jpg","A paper cut portrait stand with framed black paper silhouettes at Yu Garden","The paper cut portrait stand")
 OGALT["yu-garden-shanghai.jpg"]="A gold-roofed building in the Yu Garden bazaar in Shanghai in April"
+
+# ---- Shanghai Disneyland guide (Nov 2026) ----
+a("shanghai-disneyland-path-to-the-castle-on-a-sunny-december-day.jpg","Visitors walking the path towards Enchanted Storybook Castle under a clear sky at Shanghai Disneyland","The path to the castle on a sunny December day")
+a("shanghai-disneyland-enchanted-storybook-castle-in-daylight.jpg","Enchanted Storybook Castle at Shanghai Disneyland in daylight, seen from the front","Enchanted Storybook Castle in daylight")
+a("shanghai-disneyland-castle-across-the-lake-from-the-path.jpg","Enchanted Storybook Castle across the lake at Shanghai Disneyland, seen from the path","The castle across the lake")
+a("shanghai-disneyland-christmas-tree-and-snowmen-in-front-of-the-castle.jpg","Christmas tree and snowmen in front of Enchanted Storybook Castle at Shanghai Disneyland","Christmas decorations in front of the castle, December 2025")
+a("shanghai-disneyland-castle-lit-pink-and-blue-close-up-at-night.jpg","Close view of Enchanted Storybook Castle lit pink and blue at night at Shanghai Disneyland","The castle lit pink and blue after dark")
+a("shanghai-disneyland-castle-in-ice-blue-light-after-dark.jpg","Enchanted Storybook Castle lit in ice blue light after dark at Shanghai Disneyland","The castle in ice blue light")
+a("shanghai-disneyland-castle-lit-pink-seen-from-the-street-at-night.jpg","Enchanted Storybook Castle lit pink at night, seen from the street at Shanghai Disneyland","The castle lit pink, seen from the street")
+a("shanghai-disneyland-fountain-and-castle-tower-in-the-sun.jpg","A fountain with a castle tower behind it in the sun at Shanghai Disneyland","A fountain and a castle tower in the sun")
+a("shanghai-disneyland-bear-shaped-toast-in-a-resort-box.jpg","Bear shaped toast in a takeaway box from Shanghai Disney Resort","Bear shaped toast in a resort box")
+a("shanghai-disneyland-plate-of-glazed-meat-sausage-and-tomatoes.jpg","A plate of glazed meat, sausage and tomatoes from a meal at Shanghai Disney Resort","A plate from a meal at the resort")
+a("shanghai-disneyland-mickey-croissant-and-pastries-on-a-tray.jpg","A Mickey shaped croissant and pastries on a tray at Shanghai Disney Resort","A Mickey croissant and pastries")
+a("shanghai-disneyland-mickey-pastry-and-a-stitch-cup.jpg","A Mickey shaped pastry and a Stitch cup at Shanghai Disney Resort","A Mickey pastry and a Stitch cup")
+a("klook-shanghai-disneyland-tickets-qr-code.jpg","QR code that opens the Klook page for Shanghai Disneyland tickets","Scan with your phone camera to open the same Klook page")
+a("shanghai-disneyland-tickets-map-and-tips-cover-16x9.jpg","Cover: the words Shanghai Disneyland with chips for tickets, map and tips, next to the castle lit at night","Shanghai Disneyland: tickets, map and tips")
+OGALT["shanghai-disneyland.jpg"]=R["shanghai-disneyland-tickets-map-and-tips-cover-16x9.jpg"]["alt"]

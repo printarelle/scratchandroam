@@ -35,7 +35,7 @@ def NAV_SHOP():
     return '<a href="/china/#shopping">Shopping</a>' if sum(1 for c in globals().get("CARDS",[]) if c["sec"]=="shop")>=3 else ''
 FOOT_GROUPS=[("Before you fly",["first-time-in-china","travelling-to-china-from-ireland","china-before-you-fly-checklist","china-visa-free-30-days","china-arrival-card-pc","china-arrival-card-alipay","china-dos-and-donts","china-public-holidays-2027","build-spice-tolerance-before-china"]),
  ("Apps and on the ground",["china-travel-apps","top-25-china-apps","alipay-add-foreign-card-china","wechat-pay-add-foreign-card-china","alipay-vs-wechat-pay-china","alipay-metro-qr-code-china","taobao-for-foreigners","taobao-11-11-singles-day-for-foreigners","pinduoduo-for-foreigners","how-to-order-food-in-china-without-speaking-chinese","food-delivery-in-china-for-foreigners-meituan"]),
- ("Shanghai",["the-bund-shanghai-at-night","nanjing-road-shanghai","yu-garden-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show","ihg-hotels-china-shanghai-hangzhou-review"])]
+ ("Shanghai",["the-bund-shanghai-at-night","nanjing-road-shanghai","yu-garden-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show","shanghai-disneyland-tickets-guide","ihg-hotels-china-shanghai-hangzhou-review"])]
 def FOOT_GUIDES():
     # grouped columns; a guide not named above falls into a group by its section so new guides still show up
     cards=globals().get("CARDS",[]); by={c["slug"]:c for c in cards}

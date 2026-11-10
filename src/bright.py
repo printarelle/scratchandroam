@@ -229,6 +229,7 @@ CLUSTERS=[
    ("yu-garden-shanghai","Yu Garden","Tickets, free bazaar, food and a map"),
    ("huangpu-river-night-cruise","Huangpu River night cruise","Which pier, which cruise, how to book"),
    ("shanghai-circus-world-era-show","ERA show tickets","Where we booked and how to get there"),
+   ("shanghai-disneyland-tickets-guide","Shanghai Disneyland","Tickets, map and how to get there"),
  ]),
 ]
 CLUSTER_OF={g[0]:c for c in CLUSTERS for g in c[2]}
@@ -407,6 +408,12 @@ OFFERS={
        url="https://klook.tpm.li/YtyjQpDu",pick=True,badge="Where we booked",cta="Check ERA dates, zones and prices on Klook",
        qr="klook-era-shanghai-circus-world-tickets-qr-code",qralt="QR code for the Klook ERA ticket page"),
  ],
+ "shanghai-disneyland-tickets-guide":[
+  dict(k="Klook",price=None,title="Shanghai Disneyland Ticket, 1-day ticket with CNY 120 food and beverage coupons",
+       text="This is the listing we booked for 25 December 2025: 2 adults, €117.40 in total, about €58.70 each. Prices change by date, so check the price for your day, and read the how to use section before you pay.",
+       url="https://klook.tpm.li/SiL7FGGn",pick=True,badge="Where we booked",cta="Check Disneyland dates and prices on Klook",
+       qr="klook-shanghai-disneyland-tickets-qr-code",qralt="QR code that opens the Klook page for Shanghai Disneyland tickets"),
+ ],
  "the-bund-shanghai-at-night":[
   dict(k="Klook",price=None,title="Jin Mao Tower Observation Deck Ticket",
        text="This is the viewing deck we went up. Klook lists it on the 88th floor, at 340 metres, with views across the river to the Bund. We stayed about 30 minutes and had a coffee upstairs.",
@@ -433,6 +440,7 @@ OFFERS={
 }
 QUICKBOOK={
  "shanghai-circus-world-era-show":("We paid €111.78 for three B Area tickets in December 2025. Prices change by date and zone.","https://klook.tpm.li/YtyjQpDu","Check ERA dates and prices on Klook"),
+ "shanghai-disneyland-tickets-guide":("We paid €117.40 for 2 adult tickets in December 2025. Prices change by date.","https://klook.tpm.li/SiL7FGGn","Check Disneyland prices on Klook"),
  "huangpu-river-night-cruise":("We paid €40.29 for three night cruise tickets in December 2025. Prices change by date and boat.","https://klook.tpm.li/W4dyROGI","See the Qingjiang Line cruise on Klook"),
 }
 def quickbook_b(slug):
@@ -445,11 +453,13 @@ OFFER_HEAD={
    "These are affiliate links: if you book through one, I may earn a small commission at no extra cost to you. Prices change by date, so check today's price on each page."),
  "shanghai-circus-world-era-show":("Where we booked our tickets",
    "We booked ERA through Klook, and this is the link I use. It is an affiliate link: if you book through it, I may earn a small commission at no extra cost to you. Ticket prices change by date and zone, so check today's price on the page."),
+ "shanghai-disneyland-tickets-guide":("Where we booked our tickets",
+   "We booked Disneyland through Klook, and this is the link I use. It is an affiliate link: if you book through it, I may earn a small commission at no extra cost to you. Ticket prices change by date, so check today's price on the page."),
  "huangpu-river-night-cruise":("Where to book the cruise",
    "The cruise on Klook. It is an affiliate link: if you book through it, I may earn a small commission at no extra cost to you. Prices change by date and boat, so check today's price on the page."),
 }
 # guides that mention the cruise in passing and carry the same links inline (they show the affiliate note too)
-AFF_INLINE={"the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show"}
+AFF_INLINE={"shanghai-disneyland-tickets-guide","the-bund-shanghai-at-night","nanjing-road-shanghai","huangpu-river-night-cruise","shanghai-circus-world-era-show"}
 def offers_b(items, slug=None):
     cards=""
     for o in items:

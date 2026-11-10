@@ -1,19 +1,19 @@
 {
  "/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "6777f477d8557befbe22089fcd8bb4b94e0b0c6b"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "05bd2a5e734e18cacc68a5b67fee7757b4281b49"
  },
  "/about/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "20400a40fa49a5abf2e8fdf7f06f427136fe1dff"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "b75a2888bb51333187598b5e9bc84e4fa83d81bc"
  },
  "/affiliate-disclosure/": {
   "d": "2026-10-31T15:05:08+00:00",
   "h": "c55ba2e83fd28543155c91c203ba1c20ef831618"
  },
  "/china/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "1a564da484809c109d7de522751b474009ffe81c"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "3c15143b3db6cb71b304eb513bd5ec69ff3082be"
  },
  "/china/tools/": {
   "d": "2026-10-30T07:30:37+00:00",
@@ -108,24 +108,28 @@
   "h": "929002233692c65d0cfdd24cfba9dee3d20570fb"
  },
  "/guides/huangpu-river-night-cruise/": {
-  "d": "2026-11-02T13:15:44+00:00",
-  "h": "eeb7aa96b5ace937cdb4506d6ccf73e43ec6b098"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "03208f256e9877482e027006e5c8e3a252cb9098"
  },
  "/guides/ihg-hotels-china-shanghai-hangzhou-review/": {
   "d": "2026-11-01T16:12:57+00:00",
   "h": "1010ef729e28c800d7f0f64567f100547e2ee1a1"
  },
  "/guides/nanjing-road-shanghai/": {
-  "d": "2026-11-02T13:15:44+00:00",
-  "h": "05419eccea78b0215e00f43b7fef7ad3f9ec6bff"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "bd87715a5b8e04b969af50c4d911ea68347a6504"
  },
  "/guides/pinduoduo-for-foreigners/": {
   "d": "2026-11-05T06:33:02+00:00",
   "h": "a12e9e22f9aced134273d218bac57bc566583e1c"
  },
  "/guides/shanghai-circus-world-era-show/": {
-  "d": "2026-11-03T09:09:08+00:00",
-  "h": "ef6f04c8ed58b8da08efc849f90a9b1c71993372"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "79744beba891722a99bb2ce75ce3517f450f2ce9"
+ },
+ "/guides/shanghai-disneyland-tickets-guide/": {
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "04c973fcf12e0f5a7c08f714564c864c1ba21c5a"
  },
  "/guides/taobao-11-11-singles-day-for-foreigners/": {
   "d": "2026-11-05T06:23:35+00:00",
@@ -136,8 +140,8 @@
   "h": "4936a2791c7f434090f22303578be752a462898c"
  },
  "/guides/the-bund-shanghai-at-night/": {
-  "d": "2026-11-04T19:26:03+00:00",
-  "h": "6545e1fd281de80e0a5c797191b22ccb80cdc4b1"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "400dd8db025c61f05c5afdf5b7fa23a272e14616"
  },
  "/guides/top-25-china-apps/": {
   "d": "2026-11-05T06:23:35+00:00",
@@ -152,12 +156,12 @@
   "h": "977d1cfbc29ed165b9fad460f8f9c4c5f27893bb"
  },
  "/guides/yu-garden-shanghai/": {
-  "d": "2026-11-04T19:26:03+00:00",
-  "h": "a973ea11c04eeaef36b0159484d0cb278cf2fadc"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "2c5735c36120f6d71893ac29b223a5ec894bd635"
  },
  "/klook/": {
-  "d": "2026-10-30T11:09:12+00:00",
-  "h": "b9d6a5af3ab7e7a2493d4261393d705f8e75699f"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "67bc4ecf767feb1567067aff5fc96ffad39da175"
  },
  "/privacy/": {
   "d": "2026-10-31T15:05:08+00:00",
@@ -172,7 +176,7 @@
   "h": "5c448202adf5a2a6066b805c37a8e6aa0d8cf814"
  },
  "/where-ive-been/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "93249d0cfb7b97d51b1a022aa8dd0c9f495b5a30"
+  "d": "2026-11-10T08:43:56+00:00",
+  "h": "3f77b8affd47d028786d6309a25cf26393db11bd"
  }
 }

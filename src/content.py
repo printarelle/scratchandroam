@@ -36,6 +36,7 @@ CARDS=[
  dict(slug="nanjing-road-shanghai",sec="place",img="nanjing-road-shanghai-neon-shop-fronts-cover-4x5",alt="Nanjing Road neon shop fronts",row_k="Nanjing Road",row_q="When is the neon on, and where does the walking street start?",short="Nanjing Road"),
  dict(slug="yu-garden-shanghai",sec="place",img="yu-garden-bazaar-gold-roofed-building-in-april",alt="Yu Garden bazaar gold-roofed building",row_k="Yu Garden",row_q="What does the ticket cost, and is the bazaar free to walk?",short="Yu Garden"),
  dict(slug="huangpu-river-night-cruise",sec="place",img="huangpu-river-night-cruise-from-the-water-cover-4x5",alt="Shanghai skyline from the Huangpu river at night",row_k="River cruise",row_q="Which pier, which ticket, and is the night cruise worth it?",short="Huangpu River night cruise"),
+ dict(slug="shanghai-disneyland-tickets-guide",sec="place",img="shanghai-disneyland-tickets-map-and-tips-cover-16x9",alt="Shanghai Disneyland cover with the castle lit at night",row_k="Disneyland",row_q="How much were our Shanghai Disneyland tickets and how do we get there?",short="Shanghai Disneyland tickets, map and tips"),
  dict(slug="shanghai-circus-world-era-show",sec="place",img="shanghai-circus-world-full-show-cover",alt="Shanghai Circus World stage with aerial silks",row_k="ERA show",row_q="Where do I book ERA circus tickets and how do I get there?",short="Shanghai Circus World ERA show"),
  dict(slug="ihg-hotels-china-shanghai-hangzhou-review",sec="place",img="intercontinental-shanghai-pudong-diplomatic-suite-living-area",alt="The Diplomatic Suite living room at InterContinental Shanghai Pudong",row_k="IHG hotels",row_q="Which IHG hotels did we stay at in Shanghai and Hangzhou, and which would we skip?",short="IHG hotels in China"),
 ]
@@ -890,6 +891,104 @@ guide("shanghai-circus-world-era-show","Shanghai Circus World Tickets: ERA Show 
       gallery=[("shanghai-circus-world-act-1-aerial-silks","Aerial silks act at Shanghai Circus World"),("shanghai-circus-world-act-2-hand-balance","Hand balance act"),("shanghai-circus-world-act-3-laser-lights","Laser light act"),("shanghai-circus-world-act-4-aerial-hoop","Act four at Shanghai Circus World"),("shanghai-circus-world-act-5-the-sphere","Act five at Shanghai Circus World")],
       place={"name":"Shanghai Circus World","city":"Shanghai","free":False},steps_title="How to book and get there",
       extra=ERA_EXTRA,checked="2026-10-30",
+      shorts={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam"})
+
+
+# ---- Shanghai Disneyland: tickets, map and tips (Nov 2026). Only what Natali told us and what the listed sources say.
+def _dfig(*ks):
+    return '<div class="gal2">'+"".join(f'<figure><a href="/img/{k}.jpg"><img src="/img/{k}.jpg" alt="{html.escape(IMGREG[k+".jpg"]["alt"])}" loading="lazy"></a><figcaption>{html.escape(IMGREG[k+".jpg"]["cap"])}</figcaption></figure>' for k in ks)+'</div>'
+DIS_CHECK='<p>Based on my trip in December 2025. Rules change, so double check before you fly. Prices, hours and the rest here are from the sources at the bottom, checked on 10 November 2026. I could not open the official Shanghai Disney Resort pages from my tools, so please check tickets, hours and entry rules there before you go.</p>'
+DIS_GLANCE=('<div class="glance"><div class="gl-h"><b>Our Disneyland day at a glance</b><span class="gl-pill">Visited in person</span></div><div class="gl-g">'
+ +_gi(1,"We went","Christmas Day, 25 December 2025")
+ +_gi(0,"We booked","2 adults, 1-day ticket with CNY 120 food and drink coupons, on Klook")
+ +_gi(4,"We paid","€117.40 in total, about €58.70 each")
+ +_gi(2,"Metro","Line 11 to Disney Resort, the end of the line")
+ +'</div><p class="gl-f">Ticket prices change by date. Check the price for your own day before you book.</p></div>')
+_DIS_P=[[31.143429,121.663737],[31.1455449,121.6556832],[31.1374078,121.6616804]]
+DIS_EXTRA=(
+ '<h2 id="tickets">What we booked and what we paid</h2>'
+ '<p>We went on Christmas Day 2025 and booked on Klook. Our booking was called Shanghai Disneyland Ticket, 1-day ticket plus free CNY 120 food and beverage coupons, for 2 adults, for 25 December 2025. We paid €117.40 for both of us, which is about €58.70 each.</p>'
+ '<table class="tbl"><thead><tr><th>What</th><th>Our booking</th></tr></thead><tbody>'
+ '<tr><td>Ticket</td><td>1-day ticket, dated 25 December 2025</td></tr>'
+ '<tr><td>Extra in the listing</td><td>Free CNY 120 food and beverage coupons</td></tr>'
+ '<tr><td>People</td><td>2 adults</td></tr>'
+ '<tr><td><b>Total paid</b></td><td><b>€117.40 (about €58.70 each)</b></td></tr></tbody></table>'
+ '<p>I have not described how we collected or used the coupons here, because I would rather give you that from the booking page than from my memory. Read the "how to use" section of your own listing before you pay.</p>'
+ '<h2 id="prices">Ticket prices in general</h2>'
+ '<p>Disneyland tickets are dated, and the price depends on the day. Two 2026 guides put adult 1-day tickets at roughly 475 to 799 RMB, from the cheapest weekdays to Chinese New Year and Golden Week, and one of them says tickets are released on a 30 day rolling basis. These are reference numbers from guides, not a price list, and they are not what we paid.</p>'
+ '<table class="tbl"><thead><tr><th>Type of day</th><th>Reference price (adult, 1 day)</th></tr></thead><tbody>'
+ '<tr><td>Off-peak weekdays</td><td>about 475 RMB</td></tr>'
+ '<tr><td>Standard weekends and Fridays</td><td>about 539 RMB</td></tr>'
+ '<tr><td>Peak days, summer and some holidays</td><td>about 599 to 659 RMB</td></tr>'
+ '<tr><td>Busiest days, Chinese New Year and Golden Week</td><td>about 719 to 799 RMB</td></tr></tbody></table>'
+ '<p>Children\'s tickets follow a separate rule. Trip.com lists the child ticket for ages 3 to 11 or heights of 1.01 to 1.4 metres. Check the age and height rule on the page you book from.</p>'
+ '<h2 id="where">Where to buy</h2>'
+ '<p>You can buy from the official Shanghai Disney Resort site and app, or from travel platforms such as Trip.com and Klook. We used Klook, and the link is in the booking section below. One guide says the official channels make date changes easiest, and another says third-party sites are sometimes a little cheaper. I have not compared prices for the same day, so check both for your date.</p>'
+ '<h2 id="hours">Opening hours</h2>'
+ '<p>Trip.com lists the hours as varying by day, from 08:30, with closing at 20:30 or 21:30. Another guide says the same. Hours change with the season and the holidays, so check the official page for the day you go.</p>'
+ '<h2 id="map">Map: where everything is</h2>'
+ '<p>This map shows the metro station, the castle in the middle of the park and one of the resort hotels, so you can see how the resort is laid out. Tap a stop to zoom in. We did not stay in the hotel, and it is on the map only for orientation.</p>'
+ '<div class="rmap"><div id="dismap" class="rmap-m" role="img" aria-label="Map of Shanghai Disney Resort with Disney Resort metro station, Enchanted Storybook Castle and Shanghai Disneyland Hotel"><noscript>The map needs JavaScript. Use the Open in Amap button below.</noscript></div>'
+ '<div class="rstops">'
+ '<button type="button" class="rs" data-i="0"><img src="/img/shanghai-disneyland-path-to-the-castle-on-a-sunny-december-day.jpg" alt="" loading="lazy"><span><em>1 &middot; Arrive</em><b>Disney Resort metro station</b><small>Line 11, the end of the line</small></span></button>'
+ '<button type="button" class="rs" data-i="1"><img src="/img/shanghai-disneyland-enchanted-storybook-castle-in-daylight.jpg" alt="" loading="lazy"><span><em>2 &middot; The park</em><b>Enchanted Storybook Castle</b><small>The castle in the middle of Shanghai Disneyland</small></span></button>'
+ '<button type="button" class="rs" data-i="2"><img src="/img/shanghai-disneyland-fountain-and-castle-tower-in-the-sun.jpg" alt="" loading="lazy"><span><em>3 &middot; For reference</em><b>Shanghai Disneyland Hotel</b><small>One of the resort hotels. We did not stay here</small></span></button>'
+ '</div></div>'
+ '<p class="rlinks"><a class="btn" href="https://uri.amap.com/marker?position=121.6557,31.1455&amp;name=Shanghai%20Disneyland&amp;src=scratchandroam&amp;coordinate=wgs84&amp;callnative=1" rel="noopener" target="_blank">Open in Amap</a> <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai+Disneyland" rel="noopener" target="_blank">Google Maps (not in China)</a> '
+ '<button type="button" class="btn ghost" data-copy="上海迪士尼乐园">Copy 上海迪士尼乐园</button> <button type="button" class="btn ghost" data-copy="迪士尼">Copy 迪士尼 (metro station)</button></p>'
+ '<p class="rnote">Google Maps does not work in China, so use Amap there. Show 上海迪士尼乐园 to a taxi or DiDi driver, and 迪士尼 is the name of the Line 11 station. Pin positions are from public map data and are approximate.</p>'
+ '<script>(function(){var S='+_json.dumps(_DIS_P,separators=(",",":"))+',el=document.getElementById("dismap"),m,started=0;if(!el)return;'
+ 'function draw(){m=L.map(el,{scrollWheelZoom:false,dragging:!L.Browser.mobile,tap:false,zoomSnap:.5,zoomControl:false,attributionControl:false});L.control.zoom({position:"topright"}).addTo(m);L.control.attribution({prefix:false}).addTo(m);'
+ 'L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:\'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors\'}).addTo(m);'
+ 'S.forEach(function(p,i){L.marker(p,{icon:L.divIcon({className:"rpin",html:"<span>"+(i+1)+"</span>",iconSize:[30,30],iconAnchor:[15,15]})}).addTo(m)});'
+ 'm.fitBounds(L.latLngBounds(S),{padding:[34,34]});'
+ 'document.querySelectorAll(".rs").forEach(function(b){b.addEventListener("click",function(){var i=+b.dataset.i;m.flyTo(S[i],17);el.scrollIntoView({block:"nearest",behavior:"smooth"})})})}'
+ 'function start(){if(started)return;started=1;var c=document.createElement("link");c.rel="stylesheet";c.href="/vendor/leaflet/leaflet.css";c.onload=function(){var j=document.createElement("script");j.src="/vendor/leaflet/leaflet.js";j.onload=draw;document.head.appendChild(j)};document.head.appendChild(c)}'
+ 'if("IntersectionObserver" in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){o.disconnect();start()}},{rootMargin:"400px"}).observe(el)}else{window.addEventListener("load",start)}})();</script>'
+ '<h2 id="getting-there">Getting there</h2>'
+ '<p>We went by metro. Line 11 ends at Disney Resort station, so there is no stop to miss. Guides put the ride from central Shanghai at about 45 minutes with a transfer at People\'s Square, and a metro fare of about 6 to 8 RMB. A taxi or DiDi from the centre is quicker but costs much more. Look up the last train home before you go, because a late finish and the last Line 11 train are not a good surprise.</p>'
+ '<h2 id="photos">Our photos</h2>'
+ '<p>These are all from our day. The castle is on the cover because it is the shot I would plan the day around.</p>'
+ +_dfig("shanghai-disneyland-path-to-the-castle-on-a-sunny-december-day","shanghai-disneyland-castle-across-the-lake-from-the-path","shanghai-disneyland-christmas-tree-and-snowmen-in-front-of-the-castle","shanghai-disneyland-castle-lit-pink-and-blue-close-up-at-night","shanghai-disneyland-castle-in-ice-blue-light-after-dark","shanghai-disneyland-castle-lit-pink-seen-from-the-street-at-night")+
+ '<h2 id="food">Food photos</h2>'
+ '<p>Our ticket came with CNY 120 of food and drink coupons, and these are my photos of food from the day.</p>'
+ +_dfig("shanghai-disneyland-bear-shaped-toast-in-a-resort-box","shanghai-disneyland-mickey-croissant-and-pastries-on-a-tray","shanghai-disneyland-mickey-pastry-and-a-stitch-cup","shanghai-disneyland-plate-of-glazed-meat-sausage-and-tomatoes")+
+ '<h2 id="shorts">Two Shorts from the day</h2>'
+ '<div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:1em 0">'
+ '<div style="flex:1 1 240px;max-width:300px;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#000"><iframe style="width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/jQcpoJMluEA" title="Shanghai Disneyland parade, a YouTube Short by Scratch and Roam" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'
+ '<div style="flex:1 1 240px;max-width:300px;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#000"><iframe style="width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/N-wlUm8T_G0" title="Shanghai Disneyland castle at night, a YouTube Short by Scratch and Roam" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>'
+ '<h2 id="next">More Shanghai days</h2>'
+ '<p>If you have another evening in the city, the <a href="/guides/the-bund-shanghai-at-night/">Bund guide</a>, the <a href="/guides/huangpu-river-night-cruise/">Huangpu River night cruise guide</a> and the <a href="/guides/shanghai-circus-world-era-show/">ERA show guide</a> are the other Shanghai things we booked.</p>')
+
+guide("shanghai-disneyland-tickets-guide","Shanghai Disneyland Tickets, Map and Tips (2026)","Shanghai Disneyland: tickets, map and how to get there",
+      "Shanghai Disneyland tickets, what we paid on Klook for Christmas Day, price ranges, opening hours, a map and how to get there on Metro Line 11.",
+      "Shanghai Disneyland tickets",None,
+      "<p>We spent Christmas Day 2025 at Shanghai Disneyland. This page has what we paid, how we booked, a map of the resort, how to get there and my photos and Shorts from the day.</p><p>We booked 2 adult tickets on Klook and paid €117.40 in total, and the ticket came with CNY 120 of food and drink coupons. The link is in the <a href='#book'>booking section</a> below.</p>"+DIS_GLANCE+DIS_CHECK,
+      [("Choose your date and check the price","Tickets are dated and the price changes by day. Reference prices in 2026 guides run from about 475 to 799 RMB for an adult 1-day ticket. Check your date on the booking page."),
+       ("Book before you go","We booked on Klook before our trip. You can also book on the official Shanghai Disney Resort site and app or on Trip.com."),
+       ("Check the booking terms","Read the how to use and cancellation sections of the listing you choose. Ours included CNY 120 of food and drink coupons, and I have not described how we redeemed them."),
+       ("Take Metro Line 11 to Disney Resort","Line 11 ends at Disney Resort station, in Chinese 迪士尼. Guides put it at about 45 minutes from People's Square."),
+       ("Check the hours and the last train","Opening hours vary by day, from 08:30, with closing at 20:30 or 21:30 in one guide. Check the official page for your date and look up the last train home.")],
+      [("How much are Shanghai Disneyland tickets?","They are dated, so the price depends on the day. Two 2026 guides give about 475 to 799 RMB for an adult 1-day ticket. We paid €117.40 for 2 adults on Klook for 25 December 2025, about €58.70 each, and that included CNY 120 of food and drink coupons."),
+       ("What did we pay on Klook for Shanghai Disneyland?","€117.40 in total for 2 adults, for a 1-day ticket on 25 December 2025 with free CNY 120 food and beverage coupons. That is about €58.70 each."),
+       ("Where can foreigners buy Shanghai Disneyland tickets?","We booked on Klook. You can also use the official Shanghai Disney Resort site and app, or Trip.com. Check the date and price on each."),
+       ("Is it cheaper to buy on Klook or the official site?","One guide says third-party sites are sometimes a little cheaper and that the official channels make changes easiest. I have not compared the same day, so check both."),
+       ("How do I get to Shanghai Disneyland by metro?","Take Line 11 to Disney Resort station, the end of the line. Guides put it at about 45 minutes from People's Square, with a fare of about 6 to 8 RMB."),
+       ("What are the Shanghai Disneyland opening hours?","Trip.com lists them as varying by day, from 08:30, and closing at 20:30 or 21:30. Check the official page for your date."),
+       ("What is the Chinese name for Shanghai Disneyland?","上海迪士尼乐园. The Line 11 metro station is 迪士尼. Show either to a taxi or DiDi driver."),
+       ("Is it worth going on Christmas Day?","We went on 25 December 2025 and the castle had Christmas decorations, as you can see in the photos on this page. I have not compared it with other days, so I cannot say how the crowds compared."),
+       ("How much are child tickets?","Trip.com lists the child ticket for ages 3 to 11 or heights of 1.01 to 1.4 metres. The price depends on the date, so check the booking page."),
+       ("Can I use Google Maps at Shanghai Disneyland?","Google Maps does not work well in China. Use Amap, and the map on this page has an Open in Amap button.")],
+      [("Trip.com: Shanghai Disneyland tickets, opening hours and child ticket rule","https://www.trip.com/guide/attraction/shanghai-disneyland-tickets.html",False),
+       ("Trip.com US blog: Shanghai Disneyland 2026, tickets, rides and one-day plan (27 October 2026)","https://us.trip.com/blog/shanghai-disneyland/",False),
+       ("Cities Insider: Shanghai theme parks guide 2026, price tiers","https://citiesinsider.com/country/china/shanghai/theme-parks/en",False),
+       ("Shanghai Disney Resort (official site, could not be opened from my tools)","https://www.shanghaidisneyresort.com/",True),
+       ("Klook: Shanghai Disneyland tickets (the booking we made)","https://klook.tpm.li/SiL7FGGn",False)],
+      SITE+"/og/shanghai-disneyland.jpg",
+      related=[("/guides/shanghai-circus-world-era-show/","shanghai-circus-world-full-show-cover","SHANGHAI","Shanghai Circus World ERA show: tickets and how to get there"),("/guides/the-bund-shanghai-at-night/","the-bund-shanghai-after-dark-cover-4x5","SHANGHAI","The Bund at night: how to get there and when to go")],
+      gallery=[("shanghai-disneyland-path-to-the-castle-on-a-sunny-december-day","The path to the castle"),("shanghai-disneyland-enchanted-storybook-castle-in-daylight","The castle in daylight"),("shanghai-disneyland-castle-lit-pink-and-blue-close-up-at-night","The castle at night")],
+      place={"name":"Shanghai Disneyland","city":"Shanghai","free":False},steps_title="How to book and get there",
+      extra=DIS_EXTRA,published="2026-11-10",checked="2026-11-10",
       shorts={"YouTube":"https://www.youtube.com/@scratchandroam","Instagram":"https://www.instagram.com/scratchandroam/","TikTok":"https://www.tiktok.com/@scratchandroam"})
 
 # ---- China do's and don'ts (SR-0021, 16 Oct 2026): Contraband board matching the reel and carousel ----

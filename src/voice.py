@@ -75,3 +75,6 @@ STORIES = {
    '<p>Number 12 says pack a plug adapter, and I still do. But every hotel we stayed in in Shanghai had UK sockets, '
    'so we never actually needed it there. I carry one anyway, just in case, because the next hotel might not.</p>'),  # told 21 Oct 2026
 }
+
+STORIES["shanghai-disneyland-tickets-guide"]=("From our trip",
+ '<p>We spent Christmas Day 2025 at Shanghai Disneyland. We booked our tickets on Klook for 25 December 2025: 2 adults, a 1-day ticket with free CNY 120 food and beverage coupons, for €117.40 in total.</p>')  # told by Natali 10 Nov 2026 (booking screenshot)
