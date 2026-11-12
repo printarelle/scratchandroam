@@ -26,7 +26,8 @@ BUY_STEPS=[
  ("A neck pillow for the long flight",
   "The flight is long, and so are some of the train rides. A memory foam neck pillow that packs into its own bag is easier to carry than the big bead ones. This one comes with earplugs and an eye mask as well, so it can replace number 8 if you would like one item less."),
  ("Compression socks for the flight",
-  "A must have for long flights. I always wear them on a long flight, because they are good for blood flow and circulation when you sit for hours. The colourful ones are my personal pairs, and I use them because I love the colours. If you have a health condition, ask your doctor which strength suits you."),
+  "A must have for long flights. I always wear them on a long flight, because they are good for blood flow and circulation when you sit for hours. The colourful ones are my personal pairs, and I use them because I love the colours. If you have a health condition, ask your doctor which strength suits you.",
+  ["cambivo-compression-sock-cream-and-blue-worn-at-home","cambivo-compression-socks-pink-and-purple-on-sofa-with-cat"]),
  ("Packing cubes",
   "A China trip usually means several hotels. Cubes keep one suitcase tidy when you repack every few days, and the compression kind leaves room for what you buy there."),
  ("A foldable duffel bag for the way home",
@@ -152,5 +153,6 @@ guide(BUY_SLUG,"What to buy before China, and what to buy there","What to buy be
        ("China Highlights: shopping in China","https://chinahighlights.com/travelguide/guidebook/shopping.htm",False)],
       SITE+"/og/"+BUY_SLUG+".jpg",checked="2026-11-12",published="2026-11-12",vschema=False,
       steps_title="18 things to buy before you fly",
+      shotnote="My own photos. Tap a picture to open it larger.",
       extra=BUY_EXTRA,
       related=[("/guides/china-dos-and-donts/","china-will-take-your-drone-15-dos-and-donts","15 RULES","China do's and don'ts: what not to bring, and what not to do"),("/guides/china-before-you-fly-checklist/","china-before-you-fly-10-things-cover-16x9","10 THINGS","China first trip checklist: safety and backups"),("/guides/taobao-for-foreigners/","how-to-order-on-taobao-step-by-step-guide-cover","SHOPPING","How to order on Taobao as a foreigner, step by step"),("/guides/first-time-in-china/","first-time-in-china-13-things-before-you-fly","GUIDE 13","First time in China: 13 things to set up before you fly")])
