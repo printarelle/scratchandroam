@@ -26,15 +26,17 @@
 
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
 (function () {
+    function go(){ setTimeout(function(){
     var script = document.createElement("script");
     script.async = 1;
     script.setAttribute("data-cmp-ab","2");
     script.src = 'https://tpembars.com/NTkxODEx.js?t=591811';
     document.head.appendChild(script);
+    },1); }
+    if(document.readyState==='complete')go();else window.addEventListener('load',go);
 })();
 </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V7PB9WB64C"></script>
+<!-- Google tag (gtag.js), library loaded after window load -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -43,6 +45,8 @@
   gtag('js', new Date());
 
   gtag('config', 'G-V7PB9WB64C');
+  (function(){function go(){setTimeout(function(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-V7PB9WB64C';document.head.appendChild(s);},1)}
+  if(document.readyState==='complete')go();else window.addEventListener('load',go);})();
 </script>
 <style>/* Scratch & Roam, bright edition. Standalone stylesheet. */
 :root{--ink:#1B2A41;--ink2:rgba(27,42,65,.8);--mute:#6F7A8A;--navy:#1B2A41;--mint:#FBEFE3;--mint2:#FFF8F1;--sky:#ECEEFB;--coral:#E4572E;--blue:#117A72;--line:#EFE3D6;--white:#fff;--d:"DM Serif Display",Georgia,serif;--b:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--s:"Caveat",cursive;--r:14px;--sh:0 10px 30px rgba(27,42,65,.08)}

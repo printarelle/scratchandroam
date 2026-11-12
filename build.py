@@ -69,8 +69,9 @@ def footer():
     links="".join(f'<a href="{u}" rel="me noopener">{n}</a>' for n,u in SOC.items())
     return f'''<footer><div class="wrap"><div class="in"><div><a class="logo" href="/"><span class="mark">Scratch <em>&amp;</em> Roam</span><span class="with">with Natali</span></a><p class="tag">Scratch to reveal. Roam to discover.</p><p style="margin-top:10px;max-width:46ch">Travel guides and videos from a maker in Ireland. First-timer China now, Japan and the next trip after that.</p><p class="eyebrow" style="color:#9a93a3;margin-top:22px">Follow along</p><div class="follow">{links}</div></div>{FOOT_GUIDES()}</div><div class="fine"><span>© 2026 Scratch &amp; Roam with Natali, Ireland</span><span>scratchandroam@gmail.com</span></div></div></footer><dialog class="sdlg" id="sdlg" aria-label="Search guides"><div class="sbox"><div class="srow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sq" type="search" placeholder="Search guides, e.g. arrival card" autocomplete="off" aria-label="Search guides"><button id="sclose" type="button" aria-label="Close search">Close</button></div><div id="sres" class="sres"></div></div></dialog>{NAVJS}{SEARCHJS}'''
 
-GTAG="""<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V7PB9WB64C"></script>
+# Both third-party scripts are added after the window load event, so they do not compete with the hero image
+# for bandwidth or main-thread time. Consent defaults are still set first; gtag calls queue in dataLayer until the library arrives.
+GTAG="""<!-- Google tag (gtag.js), library loaded after window load -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -79,14 +80,19 @@ GTAG="""<!-- Google tag (gtag.js) -->
   gtag('js', new Date());
 
   gtag('config', 'G-V7PB9WB64C');
+  (function(){function go(){setTimeout(function(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-V7PB9WB64C';document.head.appendChild(s);},1)}
+  if(document.readyState==='complete')go();else window.addEventListener('load',go);})();
 </script>"""
 TPDRIVE="""<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
 (function () {
+    function go(){ setTimeout(function(){
     var script = document.createElement("script");
     script.async = 1;
     script.setAttribute("data-cmp-ab","2");
     script.src = 'https://tpembars.com/NTkxODEx.js?t=591811';
     document.head.appendChild(script);
+    },1); }
+    if(document.readyState==='complete')go();else window.addEventListener('load',go);
 })();
 </script>"""
 
@@ -148,11 +154,12 @@ def page(path,title,desc,body,schema=None,og_image=None,extra_head="",dark=False
 BAD_NAME=re.compile(r"^(img|image|pic|photo|dsc|screenshot|untitled|copy)[-_ ]?\d*$|^[a-z]{0,3}[-_]?\d+$|-(s\d{1,2}|slide-?\d{1,2})$|^(taobao|bund|river|nanjing|circus|dd)-\d")
 PAGEIMGS={}
 USED=set()
+VARIANT_W=(480,640,800,960)   # must match W in tools/make_variants.py
 def finish_images(doc,path,og):
     """Image rules, checked on every build (the build stops on a mistake):
     file name descriptive, listed in src/images.py with a true alt, alt 15-160 chars, width and height set,
     lazy loading except the hero (data-hero), decoding async. Empty alt only for a picture that sits next to its own caption."""
-    urls=[og]
+    urls=[og]; pre=[]
     def fix(m):
         t=m.group(0)
         src=re.search(r'src="([^"]*)"',t).group(1)
@@ -177,16 +184,21 @@ def finish_images(doc,path,og):
         t=re.sub(r'\sloading="[^"]*"','',t)
         # small WebP copies made by tools/make_variants.py (committed, because the Cloudflare build has no Pillow)
         _b=os.path.splitext(key)[0]
-        _v=[(w,f"/img/{_b}-w{w}.webp") for w in (480,640,960) if os.path.exists(f"docs/img/{_b}-w{w}.webp")]
+        _v=[(w,f"/img/{_b}-w{w}.webp") for w in VARIANT_W if os.path.exists(f"docs/img/{_b}-w{w}.webp")]
         if _v and "srcset=" not in t:
             _hs='sizes=' in t
             _nw=_size("docs/img/"+key)[0]
             t+=' srcset="'+", ".join(f"{u} {w}w" for w,u in _v)+f", {src} {_nw}w\""+("" if _hs else ' sizes="(max-width:700px) 100vw, 720px"')
+        if hero and not pre:
+            # the first hero image is the page's largest paint: ask for it before the browser has read the inline CSS
+            _ss=re.search(r'srcset="([^"]*)"',t); _sz=re.search(r'sizes="([^"]*)"',t)
+            pre.append('<link rel="preload" as="image" fetchpriority="high" '+(f'imagesrcset="{_ss.group(1)}" imagesizes="{_sz.group(1) if _sz else "100vw"}"' if _ss else f'href="{src}"')+'>')
         t+=' fetchpriority="high"' if hero else ' loading="lazy"'
         t+=' decoding="async">'
         urls.append(SITE+src)
         return t
     doc=re.sub(r"<img\b[^>]*>",fix,doc)
+    if pre: doc=doc.replace('<meta name="viewport" content="width=device-width,initial-scale=1">\n','<meta name="viewport" content="width=device-width,initial-scale=1">\n'+pre[0]+'\n',1)
     PAGEIMGS[path]=list(dict.fromkeys(urls))
     return doc
 PAGES=[]
@@ -375,6 +387,6 @@ _ik=open('src/indexnow-key.txt').read().strip(); open(f'docs/{_ik}.txt','w').wri
 import shutil; shutil.copy('src/404.html','docs/404.html') if os.path.exists('src/404.html') else None
 open('docs/_redirects','w').write(open('src/redirects.txt').read())
 import glob as _g
-_orph=[f[9:] for f in _g.glob('docs/img/**/*.*',recursive=True) if f[9:] not in USED and not re.search(r'-w(480|640|960)\.webp$',f)]
+_orph=[f[9:] for f in _g.glob('docs/img/**/*.*',recursive=True) if f[9:] not in USED and not re.search(r'-w(%s)\.webp$'%'|'.join(map(str,VARIANT_W)),f)]
 if _orph: print("WARNING unused images (not on any page):",_orph)
 print("built", len(PAGES), "pages")
