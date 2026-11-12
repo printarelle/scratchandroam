@@ -78,7 +78,7 @@ BUY_PICKS={
 }
 
 BUY_EXTRA=(
- '<div class="gal2 wide buyimgs"><figure><img src="/img/what-to-buy-before-travelling-to-china-essentials-infographic.jpg" alt="" loading="lazy"><figcaption>'+html.escape(IMGREG["what-to-buy-before-travelling-to-china-essentials-infographic.jpg"]["cap"])+'</figcaption></figure></div>'
+ '<h2 id="cards">The list as six cards to save</h2><p>The same list, one topic per card. Tap a card to open it larger. They are illustrations I made for Pinterest, not photos from my trips.</p><div class="gal2 buyimgs"><figure><img src="/img/what-to-buy-before-travelling-to-china-packing-guide-card.jpg" alt="" loading="lazy"><figcaption>The packing guide, card 1 of 6</figcaption></figure><figure><img src="/img/stay-charged-in-china-adapter-cables-power-bank-card.jpg" alt="" loading="lazy"><figcaption>Stay charged: numbers 1 and 2, and the power bank rule</figcaption></figure><figure><img src="/img/toilet-essentials-for-china-bidet-soap-sheets-seat-covers-card.jpg" alt="" loading="lazy"><figcaption>Toilet essentials: numbers 5 and 6</figcaption></figure><figure><img src="/img/travel-health-kit-china-edition-medicine-pouch-card.jpg" alt="" loading="lazy"><figcaption>The health kit: number 7</figcaption></figure><figure><img src="/img/keeping-warm-in-china-hand-warmers-thermal-layers-card.jpg" alt="" loading="lazy"><figcaption>Keeping warm: number 13</figcaption></figure><figure><img src="/img/rest-well-while-travelling-eye-mask-earplugs-card.jpg" alt="" loading="lazy"><figcaption>Rest well: number 8</figcaption></figure></div>'
  '<h2 id="buy-in-china">What to buy in China instead</h2>'
  '<p>These are the things I would leave out of the suitcase and pick up after landing. The first two are practical. The others are what travellers and China guides recommend most often as things worth bringing home. I have not bought all of them myself, so the sources are listed at the bottom.</p>'
  '<h3>A power bank, if you take a flight inside China</h3>'
@@ -100,13 +100,11 @@ BUY_EXTRA=(
  '<p>Chopsticks, red Chinese knots and paper fans are the easy presents. Phone cases and cables cost very little in China. And the snack aisle is a souvenir shop of its own: look for flavours you will not see at home, like cucumber crisps.</p>'
  '<h3>What to skip</h3>'
  '<p>A famous brand at a bargain price is probably a copy, so leave those. Guides also advise against buying a phone there, as models, warranties and software can differ from home.</p>'
- '<div class="gal2 buyimgs"><figure><img src="/img/china-packing-flat-lay-with-day-bag-adapter-and-medical-kit-illustration.jpg" alt="" loading="lazy"><figcaption>'+html.escape(IMGREG["china-packing-flat-lay-with-day-bag-adapter-and-medical-kit-illustration.jpg"]["cap"])+'</figcaption></figure><figure><img src="/img/packing-a-travel-organiser-on-a-hotel-bed-in-china-illustration.jpg" alt="" loading="lazy"><figcaption>'+html.escape(IMGREG["packing-a-travel-organiser-on-a-hotel-bed-in-china-illustration.jpg"]["cap"])+'</figcaption></figure></div>'
  '<h2 id="get-it-home">How to get it all home</h2>'
  '<p>Weigh your suitcase before you leave for the airport: the <a href="/go/luggage-scale" rel="sponsored nofollow noopener" target="_blank">luggage scale</a> from number 10 is the reason we have never had a surprise at check-in. Leave some room on the way out, or pack <a href="/go/compression-packing-cubes" rel="sponsored nofollow noopener" target="_blank">compression cubes</a> so the space is there on the way back.</p>'
  '<p>If you would like to shop the way people in China do, my guides to <a href="/guides/taobao-for-foreigners/">ordering on Taobao</a> and <a href="/guides/pinduoduo-for-foreigners/">Pinduoduo in English</a> show how I have parcels sent to our hotels.</p>'
  f'<p class="amzline">The product buttons on this page are my Amazon links. Readers in Ireland go to Amazon.ie and everyone else to Amazon.com. {_B.AMZ_LINE}</p>'
  f'<p><b>{BUY_LINE}</b></p>'
- '<div class="gal2 wide buyimgs tall"><figure><img src="/img/what-to-buy-before-travelling-to-china-six-categories-infographic.jpg" alt="" loading="lazy"><figcaption>'+html.escape(IMGREG["what-to-buy-before-travelling-to-china-six-categories-infographic.jpg"]["cap"])+'</figcaption></figure></div>'
 )
 
 _B.STEP_PICKS[BUY_SLUG]={k:_go_cards(v) for k,v in BUY_PICKS.items()}
@@ -119,8 +117,7 @@ guide(BUY_SLUG,"What to buy before China, and what to buy there","What to buy be
       "what to buy before going to China",None,
       "<p>Every hotel we stayed in in Shanghai had UK sockets, so the plug adapter I packed never left my bag. I still pack it for every trip. A power bank is the opposite story: it is on every packing list, and it is the one thing I would now buy after landing.</p>"
       "<p>This page is two lists. First, the 15 things worth buying at home before you fly, with the exact products I picked. Then what to leave out of the suitcase and buy in China, from a power bank to tea. Two of the products are ones we own and take on every trip, and they are marked. The others are my picks from Amazon.</p>"
-      f"<p>{BUY_LINE} The facts were checked on 12 November 2026 against the sources at the bottom.</p>"
-      +'<div class="gal2 wide buyimgs"><figure><img src="/img/open-suitcase-packed-for-china-with-adapter-first-aid-and-wipes-illustration.jpg" alt="" loading="lazy"><figcaption>'+html.escape(IMGREG["open-suitcase-packed-for-china-with-adapter-first-aid-and-wipes-illustration.jpg"]["cap"])+'</figcaption></figure></div>',
+      f"<p>{BUY_LINE} The facts were checked on 12 November 2026 against the sources at the bottom.</p>",
       BUY_STEPS,
       [("What should I buy before going to China?","A plug adapter, the toiletries you want in your own brand (deodorant, sun cream, tampons), soap sheets and wipes, a small medical kit, and an eSIM and a VPN set up at home. The full list of 15 is below."),
        ("Can I bring my power bank to China?","You can bring it into the country. The problem is flights inside China: since 28 June 2025 a power bank needs a clear 3C mark to pass security on a domestic flight, and most power banks sold abroad do not have one. If you fly inside China, buy one there."),
