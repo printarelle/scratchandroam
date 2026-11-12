@@ -109,7 +109,7 @@ BUY_EXTRA=(
 
 _B.STEP_PICKS[BUY_SLUG]={k:_go_cards(v) for k,v in BUY_PICKS.items()}
 _B.GUIDE_DEALS[BUY_SLUG]=(["Firsty","NordVPN","ExpressVPN"],"Number 15: the eSIM I use, the VPN I had on our first trip, and a second VPN as a backup. For China, read the plan description first: you want one that routes data outside China.")
-_B.HERO_OWN[BUY_SLUG]=(BUY_SLUG+"-cover-16x9","Buy before, or buy in China")
+_B.HERO_OWN[BUY_SLUG]=(BUY_SLUG+"-cover-16x9","What to buy before going to China")
 _B.TICK_GUIDES.add(BUY_SLUG)
 
 guide(BUY_SLUG,"What to buy before China, and what to buy there","What to buy before China, and what to buy there",
