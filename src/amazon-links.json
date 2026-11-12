@@ -104,5 +104,37 @@
   "handheld-fan": {
     "ie": "B0DRNTNVMC",
     "q": "portable handheld fan rechargeable"
+  },
+  "hand-sanitiser-clip": {
+    "ie": "B01ASEMAGO",
+    "q": "hand sanitiser gel with clip travel"
+  },
+  "foldable-duffel-bag": {
+    "ie": "B09QS816FR",
+    "q": "foldable travel duffel bag"
+  },
+  "travel-neck-pillow": {
+    "ie": "B0CYPZBKV7",
+    "q": "memory foam travel neck pillow"
+  },
+  "cable-organiser-case": {
+    "ie": "B0BX3YHWPW",
+    "q": "cable organiser hard case electronics travel"
+  },
+  "hanging-toiletry-bag": {
+    "ie": "B0D17M1WDR",
+    "q": "hanging toiletry bag travel"
+  },
+  "dreshow-compression-socks": {
+    "ie": "B0C9PF6FJM",
+    "q": "dreshow compression socks 4 pairs"
+  },
+  "cambivo-compression-socks": {
+    "ie": "B0G69W9YLV",
+    "q": "cambivo compression socks 3 pairs"
+  },
+  "cambivo-compression-socks-2": {
+    "ie": "B0F5W92MZF",
+    "q": "cambivo compression socks 3 pairs"
   }
 }
