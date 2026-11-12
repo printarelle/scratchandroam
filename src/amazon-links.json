@@ -1,8 +1,108 @@
 {
-  "_how": "Short links at scratchandroam.com/go/<name>. ie = Amazon.ie product id (ASIN) for Irish readers, com = Amazon.com ASIN for everyone else (OneLink sends them to their own store). q = search used if a store has no ASIN.",
+  "_how": "Short links at scratchandroam.com/go/<name>. ie = Amazon.ie product id (ASIN) for Irish readers, com = Amazon.com ASIN for everyone else (OneLink sends them to their own store). q = search used if a store has no ASIN. A store with no ASIN falls back to the q search. 12 Nov 2026: Amazon.com blocked the product check, so most entries have ie only and send other readers to the q search on Amazon.com.",
   "osmo-pocket-3": {
     "ie": "B0CG19QXWD",
     "com": "B0H4ZJ73YB",
     "q": "dji osmo pocket 3"
+  },
+  "tessan-travel-adapter": {
+    "ie": "B0DWSV456T",
+    "com": "B0B2PD7VW4",
+    "q": "tessan universal travel adapter usb c"
+  },
+  "lencent-65w-travel-adapter": {
+    "ie": "B0BNNFQ927",
+    "q": "lencent universal travel adapter 65w gan"
+  },
+  "iniu-usb-c-cable": {
+    "ie": "B0BR3L78XN",
+    "q": "iniu usb c to usb c cable 2 pack"
+  },
+  "silicone-travel-bottles": {
+    "ie": "B0CLQR944C",
+    "q": "silicone travel bottles 100ml leak proof"
+  },
+  "deodorant-wipes": {
+    "ie": "B09K4M9TBL",
+    "q": "deodorant wipes individually wrapped"
+  },
+  "travel-size-deodorant": {
+    "ie": "B006MD1OHM",
+    "q": "secret outlast invisible solid deodorant travel size"
+  },
+  "travel-sunscreen-spf30": {
+    "ie": "B07S3WXWNX",
+    "q": "travel size sunscreen spf 30"
+  },
+  "paper-soap-sheets": {
+    "ie": "B0BZ8LHSCB",
+    "q": "paper soap sheets travel"
+  },
+  "antibacterial-wipes": {
+    "ie": "B09CLVGBWS",
+    "q": "antibacterial hand wipes travel packs"
+  },
+  "mini-wet-wipes": {
+    "ie": "B0FFS5PL7C",
+    "q": "mini wet wipes travel size fragrance free"
+  },
+  "toilet-seat-covers": {
+    "ie": "B08RK2QBMG",
+    "q": "disposable toilet seat covers flushable"
+  },
+  "portable-travel-bidet": {
+    "ie": "B0F7R3M3PK",
+    "q": "portable travel bidet rechargeable"
+  },
+  "travel-first-aid-kit": {
+    "ie": "B0B4GWF112",
+    "q": "small travel first aid kit"
+  },
+  "travel-medicine-bag": {
+    "ie": "B0D9NLM9KF",
+    "q": "travel medicine bag empty"
+  },
+  "sleep-mask-with-earplugs": {
+    "ie": "B0D1YBHHZW",
+    "q": "sleep mask with earplugs"
+  },
+  "compression-packing-cubes": {
+    "ie": "B0C9SZ5LNZ",
+    "q": "compression packing cubes"
+  },
+  "packing-cubes-4-set": {
+    "ie": "B07T8ZGC5N",
+    "q": "packing cubes for suitcases 4 set"
+  },
+  "luggage-scale": {
+    "ie": "B0B5GQZ2RP",
+    "q": "digital luggage scale"
+  },
+  "xiaomi-daypack": {
+    "ie": "B07KQPPNLK",
+    "q": "xiaomi mi casual daypack"
+  },
+  "passport-holder-with-strap": {
+    "ie": "B0GXZDSH2F",
+    "q": "passport holder rfid family travel wallet with strap"
+  },
+  "passport-travel-wallet": {
+    "ie": "B08T8TH1GM",
+    "q": "passport travel wallet crossbody rfid"
+  },
+  "hand-warmers": {
+    "ie": "B00FQLL0IO",
+    "q": "hothands hand warmers"
+  },
+  "mens-thermal-set": {
+    "ie": "B07WK2MC6B",
+    "q": "mens thermal underwear set"
+  },
+  "womens-thermal-set": {
+    "q": "womens thermal underwear set"
+  },
+  "handheld-fan": {
+    "ie": "B0DRNTNVMC",
+    "q": "portable handheld fan rechargeable"
   }
 }

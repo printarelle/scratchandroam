@@ -208,6 +208,7 @@ CLUSTERS=[
    ("china-arrival-card-alipay","Arrival card on your phone","The same form inside Alipay"),
    ("china-before-you-fly-checklist","Safety and backups","Insurance, documents, emergency numbers, plan B"),
    ("china-dos-and-donts","Do's and don'ts","The small rules that save you trouble"),
+   ("what-to-buy-before-china-and-what-to-buy-there","What to buy, and where","15 things to pack, and what to buy after landing"),
    ("china-public-holidays-2027","China holidays 2027","The dates to avoid and what to book early"),
  ]),
  ("apps","Apps and paying in China",[

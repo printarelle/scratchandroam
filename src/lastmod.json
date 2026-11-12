@@ -1,19 +1,19 @@
 {
  "/": {
-  "d": "2026-11-10T08:56:55+00:00",
-  "h": "3051a651436cb04174ad39eb43e84b07fd28e33c"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "d827b0b5b0497c5cb55e72058e5aa63e2001f5c0"
  },
  "/about/": {
-  "d": "2026-11-10T08:43:56+00:00",
-  "h": "b75a2888bb51333187598b5e9bc84e4fa83d81bc"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "190c2591835165e4c8b97e33bfb8af7bcbd774fc"
  },
  "/affiliate-disclosure/": {
   "d": "2026-10-31T15:05:08+00:00",
   "h": "c55ba2e83fd28543155c91c203ba1c20ef831618"
  },
  "/china/": {
-  "d": "2026-11-10T08:56:55+00:00",
-  "h": "e91970c3378f807a8a98d4641a704d664321eed0"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "aa1f8fcaa7686c3777e8766a555a8cde8c6841f6"
  },
  "/china/tools/": {
   "d": "2026-10-30T07:30:37+00:00",
@@ -64,24 +64,24 @@
   "h": "c6d84852e38dd3a2c93cd0cd7f6d04a0ed1d3706"
  },
  "/guides/china-arrival-card-alipay/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "158d3849364b1c37cdb1686c76f3506bb56e5cbb"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "f354e61ad68bb2c7a681d502bfb31ea7cda5a358"
  },
  "/guides/china-arrival-card-pc/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "8bc7a981c01b4689f948f1d6ac5bad5f423ac5da"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "d161439e2e815b3b0de7fec520694f4ac506b59a"
  },
  "/guides/china-before-you-fly-checklist/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "c00b4a955577a6a7d0f4ddff4bfdd64706ec9d57"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "ccd1ef5074ed100163994bbf433c3a9cf1269a57"
  },
  "/guides/china-dos-and-donts/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "0f7be181d666d0f9bcc24e8452a366201ccf75d8"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "f4b968419d97b8954b57d04d62c0374fa69e8d8b"
  },
  "/guides/china-public-holidays-2027/": {
-  "d": "2026-11-08T12:55:28+00:00",
-  "h": "02e1060f2d7f9d2a20c40e0c4d53b530e0da4a25"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "35998c6098d6452cd068cc33bb82e259f2be7f93"
  },
  "/guides/china-travel-apps/": {
   "d": "2026-11-05T06:23:35+00:00",
@@ -92,12 +92,12 @@
   "h": "99d150456038ac1b3a5aa96af4b596a1366af5fb"
  },
  "/guides/china-visa-free-30-days/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "949d55bd53efe1ebe07776ee58d9b6003c578d7b"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "84bdb8f9b23359f24eb956f317810aeb63c57609"
  },
  "/guides/first-time-in-china/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "230296d65ae25014f471b1ca0461517ee6c4ee61"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "847228fc1aaf3d713afa91125b3ddcec032e207b"
  },
  "/guides/food-delivery-in-china-for-foreigners-meituan/": {
   "d": "2026-11-05T06:23:35+00:00",
@@ -148,12 +148,16 @@
   "h": "1e0634a2a2b41e10e7477323f69c16ffe6c5ed58"
  },
  "/guides/travelling-to-china-from-ireland/": {
-  "d": "2026-11-08T12:54:59+00:00",
-  "h": "8daf28eea934b4fa04260ee1d53afe566798f800"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "5323c17c40227e63eb9a120bdca7cf0798d7b5fe"
  },
  "/guides/wechat-pay-add-foreign-card-china/": {
   "d": "2026-11-05T06:23:35+00:00",
   "h": "977d1cfbc29ed165b9fad460f8f9c4c5f27893bb"
+ },
+ "/guides/what-to-buy-before-china-and-what-to-buy-there/": {
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "e82e74807f653e6824554392680ae04ffd0ca6c1"
  },
  "/guides/yu-garden-shanghai/": {
   "d": "2026-11-10T08:43:56+00:00",
@@ -176,7 +180,7 @@
   "h": "5c448202adf5a2a6066b805c37a8e6aa0d8cf814"
  },
  "/where-ive-been/": {
-  "d": "2026-11-10T08:43:56+00:00",
-  "h": "3f77b8affd47d028786d6309a25cf26393db11bd"
+  "d": "2026-11-12T06:57:10+00:00",
+  "h": "a77d35f36d52d7979473d46ab111b2dff422ffaf"
  }
 }

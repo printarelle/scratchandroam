@@ -281,3 +281,5 @@ a("shanghai-disneyland-mickey-pastry-and-a-stitch-cup.jpg","A Mickey shaped past
 a("klook-shanghai-disneyland-tickets-qr-code.jpg","QR code that opens the Klook page for Shanghai Disneyland tickets","Scan with your phone camera to open the same Klook page")
 a("shanghai-disneyland-tickets-map-and-tips-cover-16x9.jpg","Cover: the words Shanghai Disneyland with chips for tickets, map and tips, next to the castle lit at night","Shanghai Disneyland: tickets, map and tips")
 OGALT["shanghai-disneyland.jpg"]=R["shanghai-disneyland-tickets-map-and-tips-cover-16x9.jpg"]["alt"]
+a("what-to-buy-before-china-and-what-to-buy-there-cover-16x9.jpg","Cover: Buy before or in China, with the chips Adapter, Power bank and Tea, the gold sign of Yu Garden Old Street and a China flag sticker","Buy before, or buy in China")
+OGALT["what-to-buy-before-china-and-what-to-buy-there.jpg"]=R["what-to-buy-before-china-and-what-to-buy-there-cover-16x9.jpg"]["alt"]
