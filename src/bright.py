@@ -657,6 +657,7 @@ GUIDE_DEALS={
  "first-time-in-china":(["Firsty","Airalo","Kiwi.com","Welcome Pickups","GetTransfer"],"An eSIM for the internet on landing, flights, and a transfer from the airport so the first hour is easy."),
  "china-before-you-fly-checklist":(["Firsty","Airalo","NordVPN","ExpressVPN","Welcome Pickups","GetTransfer"],"An eSIM and two VPNs for step 4, and an airport transfer for step 10, so your first day stays simple."),
  "food-delivery-in-china-for-foreigners-meituan":(["Firsty","Airalo"],"You need mobile data to order, chat with the rider and pay, so sort your eSIM before you fly."),
+ "china-visa-free-2027-countries":(["Kiwi.com"],"Flights for a 2027 trip. Until China publishes a notice, I would pick a fare you can change."),
  "china-visa-free-30-days":(["Kiwi.com"],"Flights for a trip that fits inside the 30 days and before 31 December 2026."),
  "travelling-to-china-from-ireland":(["Kiwi.com","Firsty","Airalo","NordVPN","ExpressVPN","Welcome Pickups","GetTransfer"],"Flights, an eSIM, a VPN and an airport transfer, in the order you need them."),
 }
