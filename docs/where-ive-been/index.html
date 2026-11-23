@@ -973,6 +973,9 @@ p{margin:0}
 .art .pgal figcaption{font-size:13px;margin-top:6px}
 .gal2 img,.gal img,.art .shots img{cursor:zoom-in}
 @media(max-width:520px){.art .pgal{grid-template-columns:1fr}.art .pgal figure:last-child:nth-child(odd) img{aspect-ratio:4/3}}
+
+/* visa-free country list: keep region and end-date columns readable on desktop */
+.art table.vfl{table-layout:fixed}.art table.vfl th:first-child,.art table.vfl td:first-child{width:130px}.art table.vfl th:last-child,.art table.vfl td:last-child{width:130px;white-space:nowrap}.art table.vfl td:first-child{font-weight:700}@media(max-width:600px){.art table.vfl{table-layout:auto}}
 /* legacy board components (do/don't board, boarding pass) */
 .gemlist,.skiplist{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;max-width:70ch}
 .gemlist li,.skiplist li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 48px;position:relative;font-size:16px;color:var(--ink2)}
