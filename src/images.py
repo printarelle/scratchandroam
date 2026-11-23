@@ -129,6 +129,7 @@ a("pinduoduo-store-page-established-store-genuine-and-flagship-marked.jpg","Pind
 
 OGALT={
 "pinduoduo-for-foreigners.jpg":R["pinduoduo-in-english-step-by-step-guide-cover.jpg"]["alt"],
+"china-visa-free-2027-countries.jpg":R["china-visa-free-30-days-departure-board-cover-16x9.jpg"]["alt"],
 "china-visa-free-30-days.jpg":R["china-visa-free-30-days-departure-board-cover-16x9.jpg"]["alt"],
 "china-arrival-card-in-alipay.jpg":R["china-arrival-card-in-alipay-step-by-step.jpg"]["alt"],
 "china-arrival-card-on-a-pc.jpg":R["china-arrival-card-on-a-pc-step-by-step.jpg"]["alt"],

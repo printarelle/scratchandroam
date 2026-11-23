@@ -204,6 +204,7 @@ CLUSTERS=[
    ("first-time-in-china","The full plan, in order","Start here: every step from entry rules to packing"),
    ("travelling-to-china-from-ireland","Getting there from Ireland","Visa-free entry, flights and the first-week setup"),
    ("china-visa-free-30-days","Do you need a visa?","Visa-free entry and the 30-day rule"),
+   ("china-visa-free-2027-countries","Visa-free in 2027?","The country list and what is not confirmed yet"),
    ("china-arrival-card-pc","Arrival card on a computer","The form, step by step"),
    ("china-arrival-card-alipay","Arrival card on your phone","The same form inside Alipay"),
    ("china-before-you-fly-checklist","Safety and backups","Insurance, documents, emergency numbers, plan B"),
