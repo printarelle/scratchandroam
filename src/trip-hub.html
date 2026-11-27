@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="theme-color" content="#2F5A47">
-<link rel="icon" href="/favicon.svg">
+<link rel="icon" href="/favicon.svg"><link rel="manifest" href="/trip/manifest.webmanifest">
 <title>China Trip Studio</title>
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <style>@font-face {
@@ -300,6 +300,39 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
 .aud-list audio{width:100%;max-width:100%;height:36px}
 .aud-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
 .aud-row span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Today, driver cards, voice and upload queue (website only) */
+.bigbtns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bigbtns .fbtn{padding:18px 6px;font-size:14px}
+.recbtn.on{border-style:solid;border-color:#B3261E;background:#FBE9E7;color:#B3261E}
+.recbtn.on svg{color:#B3261E}
+.uqbox{display:flex;flex-direction:column;gap:6px}
+.uqbox:empty{display:none}
+.uqsum{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:600;color:var(--green)}
+.uqsum.wait{color:var(--warn)}
+.uqi{display:flex;align-items:center;gap:10px;font-size:13px}
+.uqi .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.uqi .bar{width:80px;height:6px;border-radius:4px;background:var(--line);overflow:hidden;flex:none}
+.uqi .bar i{display:block;height:100%;background:var(--green-2)}
+.uqi .st{width:74px;text-align:right;color:var(--muted);flex:none}
+.uqi .st.ok{color:var(--green)}.uqi .st.bad{color:var(--warn)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.dcard{border:1px solid var(--line-2);border-radius:14px;padding:14px;background:var(--bg);cursor:pointer;text-align:left;font:inherit;color:var(--ink);display:flex;flex-direction:column;gap:4px}
+.dcard b{font-family:var(--serif);font-weight:500;font-size:17px;line-height:1.15}
+.dcard span{font-size:12px;color:var(--muted)}
+.dcard.sos{background:#FBE9E7;border-color:#E8B4AE}
+.dcard.sos b{color:#B3261E}
+.chk{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--peach-ink);background:var(--peach);border-radius:999px;padding:2px 8px;align-self:flex-start}
+.show{display:flex;flex-direction:column;gap:14px;text-align:center}
+.show .zh{font-size:clamp(34px,9vw,56px);line-height:1.2;font-weight:600;color:var(--ink);word-break:break-all}
+.show .zha{font-size:clamp(24px,6.5vw,38px);line-height:1.35;color:var(--ink);word-break:break-all}
+.show .ask{font-size:clamp(22px,6vw,32px);color:var(--green);font-weight:600}
+.show .en{font-size:15px;color:var(--muted)}
+.show a.tel{font-size:22px;font-weight:600}
+.sos-list{display:flex;flex-direction:column;gap:10px;text-align:left}
+.sos-list a{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+.sos-list a b{font-size:22px;color:#B3261E;font-variant-numeric:tabular-nums}
+#ftoast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));background:var(--green);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;z-index:35;max-width:90vw;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+#ftoast.err{background:var(--warn)}
 /* PIN gate (website only) */
 #gate{position:fixed;inset:0;z-index:40;background:var(--hero);display:grid;place-items:center;padding:24px}
 #gate .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;width:100%;max-width:360px;display:flex;flex-direction:column;gap:14px;text-align:center}
@@ -352,6 +385,7 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
     <div class="brand"><div class="mark">s</div><div><b>scratch &amp; roam</b><span>with Natali</span></div></div>
     <nav id="nav">
       <div class="lbl eyebrow">My workspace</div>
+      <button data-v="today"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="3.2"/><path d="M10 2.5v2M10 15.5v2M2.5 10h2M15.5 10h2M4.7 4.7l1.4 1.4M13.9 13.9l1.4 1.4M4.7 15.3l1.4-1.4M13.9 6.1l1.4-1.4"/></svg>Today</button>
       <button data-v="overview"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5v4.5l3 2"/></svg>Overview</button>
       <button data-v="daily"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h12v12H4z"/><path d="M7 9h6M7 12h4"/></svg>Daily log<span class="n" id="nDays"></span></button>
       <button data-v="calendar"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>Trip calendar</button>
@@ -378,7 +412,7 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
 </div>
 
 <nav class="tabbar" id="tabbar" aria-label="Sections">
-  <button data-v="overview"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5v4.5l3 2"/></svg>Home</button>
+  <button data-v="today"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="3.2"/><path d="M10 2.5v2M10 15.5v2M2.5 10h2M15.5 10h2M4.7 4.7l1.4 1.4M13.9 13.9l1.4 1.4M4.7 15.3l1.4-1.4M13.9 6.1l1.4-1.4"/></svg>Today</button>
   <button data-v="daily"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h12v12H4z"/><path d="M7 9h6M7 12h4"/></svg>Daily</button>
   <button data-v="calendar"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>Dates</button>
   <button data-v="places"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 17s-5-4.5-5-9a5 5 0 0 1 10 0c0 4.5-5 9-5 9z"/><circle cx="10" cy="8" r="1.8"/></svg>Places</button>
@@ -387,6 +421,7 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
   <button data-v="expenses"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h12v9H4zM4 7l2-3h8l2 3M8 11h4"/></svg>Money</button>
 </nav>
 
+<div id="ftoast" hidden></div>
 <div class="ovl" id="ovl" role="dialog" aria-modal="true"><div class="modal" id="modal"></div></div>
 
 <script>
@@ -412,8 +447,8 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
   var PRIO={high:'Must do',medium:'Would love to',low:'Maybe'};
 
   var S={places:{},videos:{},tasks:{},days:{},notes:{},ideas:{},expenses:{},estimates:[],rate:0.127,meta:{notes:''},loaded:false};
-  var db=null,view='overview',pf={city:'all',type:'all'};
-  var h=(location.hash||'').slice(1);if(['overview','daily','calendar','places','videos','checklist','expenses'].indexOf(h)>-1)view=h;
+  var db=null,view='today',pf={city:'all',type:'all'};
+  var h=(location.hash||'').slice(1);if(['today','overview','daily','calendar','places','videos','checklist','expenses'].indexOf(h)>-1)view=h;
 
   /* ---------- rendering ---------- */
   function tag(cls,txt){return '<span class="tag '+cls+'">'+esc(txt)+'</span>'}
@@ -580,9 +615,10 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
     '<div class="panel"><span class="eyebrow">Step 1 · Drop today\'s content here</span><form id="dayForm"><div class="row"><label class="f">Date<input type="date" id="fDate" required></label><label class="f">City<select id="fCity"><option>Chengdu</option><option>Chongqing</option><option>Xi\'an</option><option>Travel day</option><option>Other</option></select></label></div>'+
     '<div class="files"><div class="fbtns">'+
       '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 13l4-4 3 3 2-2 5 5"/><circle cx="13" cy="8" r="1.3"/></svg>Photos &amp; Amap screenshots<small>pick many at once</small><input type="file" id="upImg" accept="image/*" multiple></label>'+
-      '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2.5" width="6" height="9" rx="3"/><path d="M4.5 9.5a5.5 5.5 0 0 0 11 0M10 15v2.5"/></svg>Voice memo<small>record, then pick the file</small><input type="file" id="upAud" accept="audio/*,.m4a,.mp3,.wav,.aac,.ogg,.webm,.amr" multiple></label>'+
+      '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2.5" width="6" height="9" rx="3"/><path d="M4.5 9.5a5.5 5.5 0 0 0 11 0M10 15v2.5"/></svg>Voice memo file<small>pick a recording</small><input type="file" id="upAud" accept="audio/*,.m4a,.mp3,.wav,.aac,.ogg,.webm,.amr" multiple></label>'+
+      '<button type="button" class="fbtn recbtn" data-rec="daily"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><circle cx="10" cy="10" r="2.5" fill="currentColor"/></svg><span class="rl">Record voice</span><small class="rs">tap to start</small></button>'+
       '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="10" height="10" rx="2"/><path d="M13 9l4-2v6l-4-2z"/></svg>Videos<small>any size, incl. DJI .LRF</small><input type="file" id="upVid" accept="video/*,.mp4,.mov,.lrf,.LRF" multiple></label>'+
-    '</div><div class="thumbs" id="thumbs"></div><p class="small muted" id="upNote">Files go straight into the Dropbox folder for the date above as soon as they upload (saved even before you press Save). Keep this page open and the screen on until every file has finished. Voice memos: record in the phone Recorder, then pick the file here. Keep talking naturally, Claude transcribes it overnight.</p></div>'+
+    '</div><div class="uqbox"></div><div class="thumbs" id="thumbs"></div><p class="small muted" id="upNote">Files go straight into the Dropbox folder for the date above (saved even before you press Save). No internet? Add them anyway: they wait on the phone and send themselves later. If a big video stops halfway it carries on from where it stopped. Record voice right here, talk naturally, Claude transcribes it overnight.</p></div>'+
     '<div class="upload" id="uploadBox" style="padding:14px 16px"><div><b style="font-weight:600">Big batches and backups</b><p class="small muted">Everything can go through this page now, even long videos (hotel WiFi, screen on). If this page will not load, use the Dropbox upload page instead (no sign-in, companions can use it too); files land in <code>01_RAW/China/2026-12_PHONE-INBOX</code> and Claude files them overnight. Google Drive is the last backup.</p><p class="small muted"><b>DJI Pocket 3:</b> upload only the small <code>.LRF</code> proxy files from the card (USB-C card reader into the phone). The 4K originals stay on the microSD cards until home. <b>DJI Osmo Nano:</b> 128 GB built in, so empty it to the phone every two or three days (USB-C or the Mimo app); upload its <code>.LRF</code> proxies the same way.</p></div><div style="display:flex;flex-direction:column;gap:8px"><a class="btn" href="https://www.dropbox.com/request/7mt2mrxu60rij1v5yjip" target="_blank" rel="noopener">Dropbox upload ↗</a><a class="btn" href="https://drive.google.com/drive/folders/1K0V-wXjDGwmTLnT5Qnp8lLO8NxRfC3eO" target="_blank" rel="noopener">Drive backup folder ↗</a></div></div>'+
     '<span class="eyebrow" style="margin-top:6px">Step 2 · Tell Claude about it (type, or just talk into a voice memo)</span>'+
     '<label class="f">Where we went<textarea id="fPlaces" placeholder="Hotel Indigo check-in, Hongya Cave at night, hotpot at ..."></textarea></label>'+
@@ -608,13 +644,97 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
     '</div>';
   }
 
+  /* ---------- Today ---------- */
+  var TRIP0='2026-12-06',TRIPN='2026-12-29';
+  function daysBetween(a,b){return Math.round((P(b)-P(a))/864e5)}
+  function stayOn(iso){var hs=sortedPlaces().filter(function(p){return p.type==='hotel'&&p.date&&p.date<=iso&&(p.end||p.date)>iso});hs.sort(function(a,b){return daysBetween(a.date,a.end||a.date)-daysBetween(b.date,b.end||b.date)});return hs[0]||null}
+  function rToday(){
+    var td=todayISO(),pl=sortedPlaces(),stay=stayOn(td);
+    var on=pl.filter(function(p){return p.type!=='hotel'&&p.date&&p.date<=td&&(p.end||p.date)>=td}).sort(function(a,b){return (a.time||'99').localeCompare(b.time||'99')});
+    var moves=pl.filter(function(p){return p.type==='hotel'&&(p.date===td||p.end===td)});
+    var title,lead;
+    if(td<TRIP0){var n=daysBetween(td,'2026-12-05');title=n>0?n+' day'+(n>1?'s':'')+' to go.':'Flying today.';lead='China, 5 to 29 December 2026. Everything you add here goes straight into Dropbox.'}
+    else if(td>TRIPN){title='Welcome home.';lead='The trip is over, everything you uploaded is safe in Dropbox.'}
+    else{title='Day '+(daysBetween(TRIP0,td)+1)+' in China.';lead=(stay?stay.city+' · tonight: '+stay.name:'')}
+    var n=S.notes[td]||S.notes[addDays(td,-1)];var nd=S.notes[td]?td:addDays(td,-1);
+    var cardsHtml=cardsList().map(function(c){return '<button type="button" class="dcard" data-card="'+esc(c.id)+'"><b>'+esc(c.zh||c.en)+'</b><span>'+esc(c.en)+'</span>'+(c.check?'<span class="chk">Check before you fly</span>':'')+'</button>'}).join('')+'<button type="button" class="dcard sos" data-card="sos"><b>Emergency 110 · 120</b><span>Police, ambulance, Irish Embassy</span></button>';
+    var stayCard=stay?cardsList().filter(function(c){return c.placeId===stay.id})[0]:null;
+    return '<div class="pagehead"><div class="t"><span class="eyebrow dot">Today · '+esc(dmy(td))+'</span><h1>'+esc(title)+'</h1><p class="lead">'+esc(lead)+'</p></div>'+(stayCard?'<button class="btn primary" data-card="'+esc(stayCard.id)+'">Show the driver: '+esc(stay.city)+' hotel</button>':'')+'</div>'+
+    '<div class="panel"><span class="eyebrow">Add to today</span><div class="bigbtns">'+
+      '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 13l4-4 3 3 2-2 5 5"/><circle cx="13" cy="8" r="1.3"/></svg>Photos &amp; videos<small>any size</small><input type="file" id="tUp" accept="image/*,video/*,.lrf,.LRF" multiple></label>'+
+      '<button type="button" class="fbtn recbtn" data-rec="today"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2.5" width="6" height="9" rx="3"/><path d="M4.5 9.5a5.5 5.5 0 0 0 11 0M10 15v2.5"/></svg><span class="rl">Record voice</span><small class="rs">tap to start</small></button>'+
+      '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h6l4 4v10H6z"/><path d="M12 3v4h4"/></svg>Other file<small>Amap, ticket, PDF</small><input type="file" id="tAny" multiple></label>'+
+    '</div><div class="uqbox"></div><p class="small muted">Saved to Dropbox for '+esc(longD(td))+'. No internet? Add them anyway: they wait on the phone and send themselves when you are back online.</p></div>'+
+    '<div class="panel"><span class="eyebrow">Quick note</span><form id="qForm" style="display:flex;flex-direction:column;gap:8px"><textarea id="qText" rows="3" placeholder="What just happened, a price, a funny moment, an idea"></textarea><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn primary" type="submit">Add to today</button><button class="btn ghost" type="button" data-go="daily">Full daily log →</button><span class="toast" id="qToast"></span></div></form></div>'+
+    ((on.length||moves.length)?'<div class="panel"><span class="eyebrow">On today</span><div class="list">'+moves.concat(on).map(function(p){var c=cardsList().filter(function(x){return x.placeId===p.id})[0];return '<div class="li"><div class="tx"><b>'+(p.time?esc(p.time)+' · ':'')+esc(p.name)+'</b><span>'+esc(p.type==='hotel'?(p.date===td?'Check in':'Check out'):(TYPES[p.type]||p.type))+(p.notes?' · '+esc(p.notes.slice(0,110))+(p.notes.length>110?'…':''):'')+'</span></div>'+(c?'<button class="btn sm" data-card="'+esc(c.id)+'">Driver</button>':'')+'</div>'}).join('')+'</div></div>':'')+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">Tap and show the screen</span><h3>Show the driver</h3></div><button class="btn ghost sm" data-act="addCard">+ Add</button></div><div class="cards">'+cardsHtml+'</div></div>'+
+    (n?'<div class="panel"><span class="eyebrow">From Claude · '+esc(longD(nd))+'</span><div class="notes" style="border-radius:10px">'+(n.summary?'<p>'+esc(n.summary)+'</p>':'')+(n.metricool?'<p class="small"><b>Waiting for you in Metricool:</b> '+esc(n.metricool)+'</p>':'')+(Array.isArray(n.postIdeas)&&n.postIdeas.length?'<ul>'+n.postIdeas.slice(0,4).map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')+'</div></div>':'')+
+    '<button class="btn ghost" data-go="overview" style="align-self:flex-start">Trip overview →</button>';
+  }
+  function addDays(iso,n){var d=P(iso);d.setDate(d.getDate()+n);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+  function quickNote(e){e.preventDefault();var t=$('qText').value.trim();if(!t||!need())return;var td=todayISO();var cur=S.days[td]||{};var d=new Date();var stamp=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+    var patch={story:(cur.story?cur.story+'\n':'')+stamp+' '+t,savedAt:new Date().toISOString(),reviewed:false};if(!S.days[td]){var st=stayOn(td);patch.city=st?st.city:'Chengdu';patch.createdAt=new Date().toISOString();patch.files=[]}
+    db.doc('days/'+td).update(patch).then(function(){$('qText').value='';var q=$('qToast');if(q)q.textContent='Added to '+longD(td)+'.'})}
+
+  /* ---------- Show the driver cards ---------- */
+  var DEFAULT_CARDS=[
+    {id:'c-indigo',placeId:'p01',en:'Hotel Indigo Chongqing Chaotianmen',zh:'重庆朝天门英迪格酒店',addrZh:'重庆市渝中区朝天门街道接圣街2号（来福士）',addrEn:'No. 2 Jiesheng Street, Chaotianmen, Yuzhong District (Raffles City)',phone:'+86 23 8658 8888',check:false},
+    {id:'c-ic',placeId:'p04',en:'InterContinental Chengdu Global Center',zh:'成都环球中心洲际酒店',addrZh:'成都市天府大道北段1736号（新世纪环球中心）',addrEn:'1736 Tianfu Avenue North, New Century Global Center',phone:'',check:true},
+    {id:'c-ht',placeId:'p02',en:"Han Tang House (Guardian Han Tang), Xi'an",zh:'',addrZh:'西安市新城区南长巷',addrEn:'32 Nanchang Lane, Xincheng District (confirm the number and the Chinese name from your booking)',phone:'',check:true},
+    {id:'c-apt',placeId:'p03',en:'Yunzhongyue Apartment, Taikoo Li, Chengdu',zh:'',addrZh:'',addrEn:'Room 410, Building 6, 1 Dong Xin Jie, Jinjiang District (paste the Chinese address from your booking)',phone:'',check:true}
+  ];
+  function cardsList(){var m=S.cardsDoc;return (m&&Array.isArray(m.items))?m.items:DEFAULT_CARDS}
+  function showCard(id){
+    if(id==='sos'){openModal('<div class="mh"><div><span class="eyebrow">Emergency</span><h2>Help in China</h2></div><button class="x" type="button" data-close>×</button></div><div class="show"><div class="zha">我需要帮助</div><div class="en">I need help</div><div class="zha" style="font-size:26px">请帮我叫救护车</div><div class="en">Please call an ambulance for me</div></div><div class="sos-list">'+
+      '<a href="tel:110"><span>Police</span><b>110</b></a><a href="tel:120"><span>Ambulance</span><b>120</b></a><a href="tel:119"><span>Fire</span><b>119</b></a><a href="tel:122"><span>Traffic accident</span><b>122</b></a>'+
+      '<a href="tel:+861085316200"><span>Irish Embassy Beijing (office hours)</span><b style="font-size:16px">+86 10 8531 6200</b></a><a href="tel:+8613801056774"><span>Embassy duty phone, out of hours</span><b style="font-size:16px">+86 138 0105 6774</b></a><a href="tel:+35314082000"><span>DFA Dublin duty officer</span><b style="font-size:16px">+353 1 408 2000</b></a></div><p class="small muted">Numbers from the Irish Department of Foreign Affairs, checked 27/11/2026.</p>');return}
+    var c=cardsList().filter(function(x){return x.id===id})[0];if(!c)return;
+    openModal('<div class="mh"><div><span class="eyebrow">Show the driver</span></div><button class="x" type="button" data-close>×</button></div><div class="show"><div class="ask">请送我到这里</div>'+(c.zh?'<div class="zh">'+esc(c.zh)+'</div>':'')+(c.addrZh?'<div class="zha">'+esc(c.addrZh)+'</div>':'<div class="en">No Chinese address yet. Tap Edit and paste it from the booking.</div>')+'<div class="en">'+esc(c.en)+(c.addrEn?'<br>'+esc(c.addrEn):'')+'</div>'+(c.phone?'<a class="tel" href="tel:'+esc(c.phone.replace(/\s/g,''))+'">'+esc(c.phone)+'</a>':'')+(c.check?'<span class="chk" style="align-self:center">Check before you fly</span>':'')+'</div><div class="acts"><span class="small muted">Please take me here.</span><button class="btn sm" data-editcard="'+esc(c.id)+'">Edit</button></div>');
+  }
+  function cardForm(c){c=c||{};var isNew=!c.id;
+    openModal('<div class="mh"><div><span class="eyebrow">Show the driver</span><h2>'+(isNew?'New card':'Edit card')+'</h2></div><button class="x" type="button" data-close>×</button></div><form id="cForm">'+
+    '<label class="f">Name in Chinese<input id="cZh" value="'+esc(c.zh)+'" placeholder="重庆朝天门英迪格酒店"></label>'+
+    '<label class="f">Address in Chinese (copy it from the booking or Amap)<textarea id="cAZh" rows="2">'+esc(c.addrZh)+'</textarea></label>'+
+    '<label class="f">Name in English *<input id="cEn" required value="'+esc(c.en)+'"></label>'+
+    '<label class="f">Address in English<input id="cAEn" value="'+esc(c.addrEn)+'"></label>'+
+    '<label class="f">Phone<input id="cPh" type="tel" value="'+esc(c.phone)+'" placeholder="+86 ..."></label>'+
+    '<label class="chip" style="align-self:flex-start"><input type="checkbox" id="cChk"'+(c.check?' checked':'')+'> Still needs checking</label>'+
+    '<div class="acts">'+(isNew?'<span></span>':'<button class="btn ghost" type="button" data-delcard="'+esc(c.id)+'">Delete</button>')+'<div style="display:flex;gap:8px"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Save</button></div></div></form>');
+    $('cForm').addEventListener('submit',function(e){e.preventDefault();if(!need())return;
+      var items=cardsList().slice(),d={id:c.id||('c-'+Date.now().toString(36)),placeId:c.placeId||'',zh:$('cZh').value.trim(),addrZh:$('cAZh').value.trim(),en:$('cEn').value.trim(),addrEn:$('cAEn').value.trim(),phone:$('cPh').value.trim(),check:$('cChk').checked};
+      var i=items.findIndex(function(x){return x.id===d.id});if(i>-1)items[i]=d;else items.push(d);
+      db.doc('meta/cards').set({items:items,updatedAt:new Date().toISOString()}).then(function(){showCard(d.id)})});
+  }
+
+  /* ---------- voice recording in the page ---------- */
+  var REC=null;
+  function recLabel(){document.querySelectorAll('.recbtn').forEach(function(b){var on=!!REC;b.classList.toggle('on',on);var l=b.querySelector('.rl'),s=b.querySelector('.rs');if(on){var t=Math.floor((Date.now()-REC.t0)/1000);l.textContent='● '+Math.floor(t/60)+':'+String(t%60).padStart(2,'0');s.textContent='tap to stop and save'}else{l.textContent='Record voice';s.textContent='tap to start'}})}
+  function recToggle(date){
+    if(REC){REC.mr.stop();return}
+    if(!navigator.mediaDevices||!window.MediaRecorder){ftoast('This browser cannot record here. Use the Voice memo file button instead.',true);return}
+    navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
+      var mime=['audio/webm;codecs=opus','audio/mp4','audio/webm'].filter(function(m){try{return MediaRecorder.isTypeSupported(m)}catch(e){return false}})[0]||'';
+      var mr=new MediaRecorder(stream,mime?{mimeType:mime}:undefined),chunks=[];
+      REC={mr:mr,t0:Date.now(),date:date,timer:setInterval(recLabel,500)};
+      mr.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data)};
+      mr.onstop=function(){stream.getTracks().forEach(function(t){t.stop()});clearInterval(REC.timer);var dt=REC.date;REC=null;recLabel();
+        var type=(mr.mimeType||mime||'audio/webm').split(';')[0];var ext=/mp4/.test(type)?'m4a':'webm';var blob=new Blob(chunks,{type:type});if(!blob.size){ftoast('Nothing was recorded.',true);return}
+        var d=new Date(),name='Voice '+dt+' '+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')+String(d.getSeconds()).padStart(2,'0')+'.'+ext;
+        var f;try{f=new File([blob],name,{type:type,lastModified:Date.now()})}catch(e){f=blob;f.name=name}
+        UQ.add([f],dt);ftoast('Voice memo saved, uploading to '+longD(dt)+'.')};
+      mr.start(1000);recLabel();
+    }).catch(function(){ftoast('The microphone was not allowed. Tap the lock icon in the address bar to allow it.',true)});
+  }
+  var ft=null;function ftoast(m,err){var t=$('ftoast');t.textContent=m;t.className=err?'err':'';t.hidden=false;clearTimeout(ft);ft=setTimeout(function(){t.hidden=true},3500)}
+
   function render(){
     var el=$('view');
-    el.innerHTML=({overview:rOverview,daily:rDaily,calendar:rCalendar,places:rPlaces,videos:rVideos,checklist:rChecklist,expenses:rExpenses})[view]();
+    el.innerHTML=({today:rToday,overview:rOverview,daily:rDaily,calendar:rCalendar,places:rPlaces,videos:rVideos,checklist:rChecklist,expenses:rExpenses})[view]();
     if(view==='expenses'){var rt=null;$('rateIn').addEventListener('input',function(){clearTimeout(rt);var v=parseFloat($('rateIn').value);if(!v||!db)return;rt=setTimeout(function(){S.rate=v;db.doc('meta/rate').set({rate:v,updatedAt:new Date().toISOString()}).catch(function(){})},700)});
       var r=S.rate||0.127;function y2e(){var y=parseFloat($('cvY').value);$('cvE').value=isNaN(y)?'':(y*r).toFixed(2)}function e2y(){var e=parseFloat($('cvE').value);$('cvY').value=isNaN(e)?'':(e/r).toFixed(0)}
       $('cvY').addEventListener('input',y2e);$('cvE').addEventListener('input',e2y);y2e();
       $('cvChips').addEventListener('click',function(e){var c=e.target.closest('[data-cv]');if(c){$('cvY').value=c.dataset.cv;y2e()}})}
+    if(view==='today'){$('tUp').addEventListener('change',function(e){var fs=e.target.files;if(fs.length)UQ.add(fs,todayISO());e.target.value=''});$('tAny').addEventListener('change',function(e){var fs=e.target.files;if(fs.length)UQ.add(fs,todayISO());e.target.value=''});$('qForm').addEventListener('submit',quickNote);recLabel();UQ.fire()}
     document.querySelectorAll('#nav button,#tabbar button').forEach(function(b){b.classList.toggle('on',b.dataset.v===view)});
     $('nPlaces').textContent=Object.keys(S.places).length||'';$('nDays').textContent=Object.keys(S.days).length||'';
     if(view==='daily'){
@@ -625,7 +745,7 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
       $('clearBtn').addEventListener('click',function(){$('dayForm').reset();$('fDate').value=todayISO();try{localStorage.removeItem('cts-draft')}catch(e){};renderThumbs()});
       ['upImg','upAud','upVid'].forEach(function(id){$(id).addEventListener('change',function(e){attachFiles(e.target.files);e.target.value=''})});
       $('fDate').addEventListener('change',renderThumbs);
-      renderThumbs();
+      renderThumbs();recLabel();UQ.fire();
       $('ideaForm').addEventListener('submit',function(e){e.preventDefault();var t=$('ideaText').value.trim();if(!t||!need())return;db.collection('ideas').add({text:t,date:todayISO(),createdAt:new Date().toISOString(),status:'new'}).then(function(){$('ideaText').value=''}).catch(function(){toast('Could not save the idea.',true)})});
     }
     if(view==='checklist'){
@@ -640,53 +760,95 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
   /* ---------- forms ---------- */
   var FIELDS=['fDate','fCity','fPlaces','fLoc','fFilmed','fStory','fFood','fIdeas','fCount','fEnergy'],BOX=['fMe','fHusband','fFamily','fNone'];
 
-  /* ---------- uploads: straight into the Dropbox day folder, in 8 MB pieces ---------- */
+  /* ---------- uploads: kept on the phone until they reach Dropbox, sent in 8 MB pieces, resumed after drops ---------- */
   var CHUNK=8*1024*1024;
-  function postBin(path,body,tries){tries=tries||4;var a=0;
+  function postBin(path,body,tries){tries=tries||2;var a=0;
     function go(){a++;return fetch(API+path,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/octet-stream'},body:body}).then(function(r){
       if(r.status===401){showGate();throw new Error('PIN needed')}
       return r.json().catch(function(){return {}}).then(function(j){if(!r.ok)throw new Error(j.error||('Error '+r.status));return j})
     }).catch(function(err){if(a>=tries||err.message==='PIN needed')throw err;return new Promise(function(res){setTimeout(res,1500*a)}).then(go)})}
     return go()}
+  /* direct upload, used for expense receipts (needs a connection) */
   var assets={
     upload:function(file,o){o=o||{};var size=file.size,first=file.slice(0,Math.min(CHUNK,size)),off=0,sid='';
-      return postBin('up/start',first).then(function(j){sid=j.sid;off=first.size;if(o.onProgress)o.onProgress(off/Math.max(size,1));return loop()}).then(function(r){return {id:r.id,url:TH(r.id),sizeBytes:r.size,name:r.name}});
+      return postBin('up/start',first,4).then(function(j){sid=j.sid;off=first.size;if(o.onProgress)o.onProgress(off/Math.max(size,1));return loop()}).then(function(r){return {id:r.id,url:TH(r.id),sizeBytes:r.size,name:r.name}});
       function loop(){
-        if(size-off>CHUNK){return postBin('up/append?sid='+encodeURIComponent(sid)+'&off='+off,file.slice(off,off+CHUNK)).then(function(){off+=CHUNK;if(o.onProgress)o.onProgress(off/size);return loop()})}
-        return postBin('up/finish?sid='+encodeURIComponent(sid)+'&off='+off+'&dir='+encodeURIComponent(o.dir||'')+'&name='+encodeURIComponent(file.name||('upload-'+Date.now())),file.slice(off,size))}
+        if(size-off>CHUNK){return postBin('up/append?sid='+encodeURIComponent(sid)+'&off='+off,file.slice(off,off+CHUNK),4).then(function(){off+=CHUNK;if(o.onProgress)o.onProgress(off/size);return loop()})}
+        return postBin('up/finish?sid='+encodeURIComponent(sid)+'&off='+off+'&dir='+encodeURIComponent(o.dir||'')+'&name='+encodeURIComponent(file.name||('upload-'+Date.now())),file.slice(off,size),4)}
     },
-    delete:function(){return Promise.resolve()} /* files are never deleted from Dropbox by the page */
+    delete:function(){return Promise.resolve()}
   };
-  var pending={},dbq=Promise.resolve(),busy=0,wake=null;
   function kindOf(file){var t=(file.type||'').toLowerCase(),n=(file.name||'').toLowerCase();if(t.indexOf('image/')===0||/\.(heic|heif|jpe?g|png|webp)$/.test(n))return 'image';if(t.indexOf('audio/')===0||/\.(m4a|mp3|wav|aac|ogg|oga|opus|amr|3gp)$/.test(n))return 'audio';if(t.indexOf('video/')===0||/\.(mp4|mov|webm|lrf|m4v)$/.test(n))return 'video';return 'other'}
-  function renderThumbs(){var date=$('fDate')?$('fDate').value:'';var el=$('thumbs');if(!el)return;var files=(S.days[date]&&Array.isArray(S.days[date].files))?S.days[date].files:[];
-    el.innerHTML=files.map(function(f){var inner=f.kind==='image'?'<img src="'+esc(TH(f.id))+'" alt="">':(f.kind==='audio'?'🎙 '+esc(f.name.slice(0,14)):'▶ '+esc(f.name.slice(0,14)));return '<div class="th '+(f.kind==='audio'?'aud':f.kind!=='image'?'vid':'')+'">'+inner+'<button type="button" class="rm" data-rmfile="'+esc(f.id)+'" aria-label="Remove">×</button></div>'}).join('')+
-      Object.keys(pending).map(function(k){return '<div class="th up" data-pk="'+esc(k)+'">'+esc(pending[k])+'</div>'}).join('');}
-  function setPending(key,text){pending[key]=text;var el=document.querySelector('[data-pk="'+(window.CSS&&CSS.escape?CSS.escape(key):key)+'"]');if(el)el.textContent=text;else renderThumbs()}
+  var busy=0,wake=null;
   function holdScreen(on){if(on){busy++;if(busy===1){try{navigator.wakeLock.request('screen').then(function(w){wake=w}).catch(function(){})}catch(e){}}}else{busy=Math.max(0,busy-1);if(!busy&&wake){try{wake.release()}catch(e){}wake=null}}}
   document.addEventListener('visibilitychange',function(){if(busy&&document.visibilityState==='visible'){try{navigator.wakeLock.request('screen').then(function(w){wake=w}).catch(function(){})}catch(e){}}});
-  window.addEventListener('beforeunload',function(e){if(busy){e.preventDefault();e.returnValue=''}});
-  var upQ=Promise.resolve();
-  function attachFiles(list){
-    if(!need())return;
-    var date=$('fDate').value;if(!date){toast('Pick a date first.',true);return}
-    var city=$('fCity').value;
-    Array.prototype.slice.call(list).forEach(function(file){
-      var kind=kindOf(file);
-      var key=file.name+'|'+file.size+'|'+Date.now();setPending(key,'Waiting '+file.name.slice(0,10));
-      holdScreen(true);
-      upQ=upQ.catch(function(){}).then(function(){
-        setPending(key,'0% '+file.name.slice(0,10));
-        return assets.upload(file,{dir:'day:'+date,onProgress:function(x){setPending(key,Math.round(x*100)+'% '+file.name.slice(0,10))}});
-      }).then(function(res){
-        var ref=db.doc('days/'+date);return (dbq=dbq.catch(function(){}).then(function(){return ref.get()}).then(function(snap){
-          var cur=snap.exists?Object.assign({},snap.data()):{city:city,createdAt:new Date().toISOString(),reviewed:false,placeholder:true};
-          var files=Array.isArray(cur.files)?cur.files.slice():[];files.push({id:res.id,name:res.name||file.name,kind:kind,size:res.sizeBytes,type:file.type||'',uploadedAt:new Date().toISOString()});
-          cur.files=files;cur.savedAt=new Date().toISOString();cur.reviewed=false;return ref.set(cur)}));
-      }).then(function(){delete pending[key];holdScreen(false);toast(file.name+' saved to Dropbox for '+longD(date)+'.');renderThumbs()})
-      .catch(function(err){delete pending[key];holdScreen(false);renderThumbs();toast('Upload failed for '+file.name+(err&&err.message?' ('+err.message+')':'')+'. Try again on better WiFi.',true)});
-    });
-  }
+  window.addEventListener('beforeunload',function(e){if(UQ.active()){e.preventDefault();e.returnValue=''}});
+
+  var UQ=(function(){
+    var dbp=null,items=[],running=false;
+    function idb(){if(dbp)return dbp;dbp=new Promise(function(res){try{var r=indexedDB.open('trip-up',1);r.onupgradeneeded=function(){r.result.createObjectStore('q',{keyPath:'key'})};r.onsuccess=function(){res(r.result)};r.onerror=function(){res(null)}}catch(e){res(null)}});return dbp}
+    function tx(mode,fn){return idb().then(function(d){if(!d)return null;return new Promise(function(res){try{var t=d.transaction('q',mode),req=fn(t.objectStore('q'));t.oncomplete=function(){res(req&&'result' in req?req.result:true)};t.onerror=t.onabort=function(){res(null)}}catch(e){res(null)}})})}
+    function rec(it){return {key:it.key,date:it.date,name:it.name,kind:it.kind,type:it.type,size:it.size,blob:it.blob,sid:it.sid,off:it.off,city:it.city,captured:it.captured,addedAt:it.addedAt}}
+    function save(it){if(it.memOnly)return Promise.resolve();return tx('readwrite',function(st){return st.put(rec(it))}).then(function(ok){if(ok===null)it.memOnly=true})}
+    function drop(it){return tx('readwrite',function(st){return st.delete(it.key)})}
+    function fire(){document.querySelectorAll('.uqbox').forEach(draw);if(view==='daily')renderThumbs()}
+    function draw(box){
+      var live=items.filter(function(x){return x.status!=='done'}),done=items.filter(function(x){return x.status==='done'});
+      if(!items.length){box.innerHTML='';return}
+      var tot=items.reduce(function(s,x){return s+x.size},0),sent=items.reduce(function(s,x){return s+(x.status==='done'?x.size:(x.off||0))},0);
+      var waiting=live.some(function(x){return x.status==='paused'});
+      var sum=live.length?((waiting?(navigator.onLine?'Waiting to retry':'No internet: waiting')+' · ':'Uploading · ')+done.length+' of '+items.length+' done · '+Math.round(sent/Math.max(tot,1)*100)+'% of '+mb(tot)):('All '+items.length+' uploaded ✓');
+      box.innerHTML='<div class="uqsum'+(waiting?' wait':'')+'"><span>'+esc(sum)+'</span>'+(live.length?'':'<button type="button" class="btn ghost sm" data-uqclear>Clear</button>')+'</div>'+
+        items.slice(-8).reverse().map(function(x){var p=x.status==='done'?100:Math.round((x.off||0)/Math.max(x.size,1)*100);
+          var st=x.status==='done'?'<span class="st ok">Done</span>':x.status==='failed'?'<span class="st bad">Failed</span>':x.status==='paused'?'<span class="st bad">Waiting</span>':x.status==='uploading'?'<span class="st">'+p+'%</span>':'<span class="st">Queued</span>';
+          return '<div class="uqi"><span class="nm">'+esc(x.name)+'</span><span class="bar"><i style="width:'+p+'%"></i></span>'+st+'</div>'}).join('')+
+        (items.length>8?'<span class="small muted">and '+(items.length-8)+' more</span>':'');
+    }
+    function mb(n){return n>1e9?(n/1e9).toFixed(1)+' GB':Math.max(1,Math.round(n/1e6))+' MB'}
+    function add(files,date){
+      var st=stayOn(date);
+      Array.prototype.slice.call(files).forEach(function(f,i){
+        var it={key:date+'|'+(f.name||'file')+'|'+f.size+'|'+Date.now()+'|'+i,date:date,name:f.name||('file-'+Date.now()),kind:kindOf(f),type:f.type||'',size:f.size,blob:f,sid:'',off:0,city:st?st.city:'',captured:f.lastModified?new Date(f.lastModified).toISOString():'',addedAt:new Date().toISOString(),status:'waiting'};
+        items.push(it);save(it);
+      });
+      fire();kick();
+    }
+    function kick(){if(running)return;var next=items.filter(function(x){return x.status==='waiting'||x.status==='paused'})[0];if(!next)return;running=true;holdScreen(true);loop()}
+    function loop(){
+      var it=items.filter(function(x){return x.status==='waiting'||x.status==='paused'})[0];
+      if(!it){running=false;holdScreen(false);fire();return}
+      if(navigator.onLine===false){items.forEach(function(x){if(x.status==='waiting')x.status='paused'});running=false;holdScreen(false);fire();return}
+      it.status='uploading';fire();
+      step(it).then(function(r){return finish(it,r)}).then(loop,function(err){
+        if(err&&err.message==='PIN needed'){it.status='paused';running=false;holdScreen(false);fire();return}
+        it.status='paused';it.err=err&&err.message;save(it);running=false;holdScreen(false);fire();setTimeout(kick,20000)});
+    }
+    function step(it){var size=it.size,b=it.blob;
+      if(!it.sid){var first=b.slice(0,Math.min(CHUNK,size));return postBin('up/start',first).then(function(j){it.sid=j.sid;it.off=first.size;save(it);fire();return step(it)})}
+      function fix(err){var m=/correct_offset"?\s*:\s*(\d+)/.exec(err&&err.message||'');if(m){it.off=+m[1];save(it);return step(it)}
+        if(/not_found|closed|incorrect_offset|lookup_failed/.test(err&&err.message||'')){it.sid='';it.off=0;save(it);return step(it)}throw err}
+      if(size-it.off>CHUNK){return postBin('up/append?sid='+encodeURIComponent(it.sid)+'&off='+it.off,b.slice(it.off,it.off+CHUNK)).then(function(){it.off+=CHUNK;save(it);fire();return step(it)},fix)}
+      return postBin('up/finish?sid='+encodeURIComponent(it.sid)+'&off='+it.off+'&dir='+encodeURIComponent('day:'+it.date)+'&name='+encodeURIComponent(it.name),b.slice(it.off,size)).catch(fix);
+    }
+    function finish(it,r){
+      it.status='done';it.off=it.size;drop(it);it.blob=null;fire();
+      if(!db)return;var ref=db.doc('days/'+it.date);
+      return ref.get().then(function(snap){
+        var cur=snap.exists?Object.assign({},snap.data()):{city:it.city||'Chengdu',createdAt:new Date().toISOString(),reviewed:false,placeholder:true};
+        var files=Array.isArray(cur.files)?cur.files.slice():[];
+        files.push({id:r.id,name:r.name||it.name,kind:it.kind,size:r.size||it.size,type:it.type,captured:it.captured,uploadedAt:new Date().toISOString()});
+        cur.files=files;cur.savedAt=new Date().toISOString();cur.reviewed=false;return ref.set(cur)});
+    }
+    function load(){return tx('readonly',function(st){return st.getAll()}).then(function(rows){(rows||[]).forEach(function(r){if(items.some(function(x){return x.key===r.key}))return;r.status='waiting';items.push(r)});fire();kick()})}
+    window.addEventListener('online',function(){items.forEach(function(x){if(x.status==='paused')x.status='waiting'});kick()});
+    setInterval(function(){if(!running&&items.some(function(x){return x.status==='paused'})&&navigator.onLine!==false){items.forEach(function(x){if(x.status==='paused')x.status='waiting'});kick()}},30000);
+    try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+    return {add:add,load:load,kick:kick,fire:fire,clear:function(){items=items.filter(function(x){return x.status!=='done'});fire()},active:function(){return items.some(function(x){return x.status!=='done'})||!!REC},pendingFor:function(date){return items.filter(function(x){return x.date===date&&x.status!=='done'})}};
+  })();
+  function renderThumbs(){var date=$('fDate')?$('fDate').value:'';var el=$('thumbs');if(!el)return;var files=(S.days[date]&&Array.isArray(S.days[date].files))?S.days[date].files:[];
+    el.innerHTML=files.map(function(f){var inner=f.kind==='image'?'<img src="'+esc(TH(f.id))+'" alt="">':(f.kind==='audio'?'🎙 '+esc(f.name.slice(0,14)):'▶ '+esc(f.name.slice(0,14)));return '<div class="th '+(f.kind==='audio'?'aud':f.kind!=='image'?'vid':'')+'">'+inner+'<button type="button" class="rm" data-rmfile="'+esc(f.id)+'" aria-label="Remove">×</button></div>'}).join('')+
+      UQ.pendingFor(date).map(function(x){return '<div class="th up">'+(x.status==='paused'?'Waiting ':Math.round((x.off||0)/Math.max(x.size,1)*100)+'% ')+esc(x.name.slice(0,10))+'</div>'}).join('');}
+  function attachFiles(list){var date=$('fDate').value;if(!date){toast('Pick a date first.',true);return}UQ.add(list,date);toast(list.length+' file'+(list.length>1?'s':'')+' added. They upload in the background, keep the screen on.')}
   function removeFile(id){if(!need())return;var date=$('fDate').value;var ref=db.doc('days/'+date);ref.get().then(function(snap){if(!snap.exists)return;var cur=Object.assign({},snap.data());cur.files=(cur.files||[]).filter(function(f){return f.id!==id});return ref.set(cur)}).then(function(){renderThumbs();toast('Removed from the hub. The file stays safe in Dropbox.')}).catch(function(){toast('Could not remove the file.',true)})}
   function readForm(){var o={};FIELDS.forEach(function(k){o[k]=$(k).value});BOX.forEach(function(k){o[k]=$(k).checked});return o}
   function fillForm(o){FIELDS.forEach(function(k){if(o[k]!==undefined&&o[k]!==null)$(k).value=o[k]});BOX.forEach(function(k){$(k).checked=!!o[k]})}
@@ -732,9 +894,15 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
 
   /* ---------- events ---------- */
   document.addEventListener('click',function(e){
-    var t=e.target.closest('[data-v],[data-go],[data-act],[data-edit],[data-editv],[data-editday],[data-set],[data-pf],[data-ef],[data-close],[data-delplace],[data-delvideo],[data-deltask],[data-delidea],[data-rmfile],[data-editexp],[data-delexp],[data-est]');if(!t)return;
+    var t=e.target.closest('[data-card],[data-editcard],[data-delcard],[data-rec],[data-uqclear],[data-v],[data-go],[data-act],[data-edit],[data-editv],[data-editday],[data-set],[data-pf],[data-ef],[data-close],[data-delplace],[data-delvideo],[data-deltask],[data-delidea],[data-rmfile],[data-editexp],[data-delexp],[data-est]');if(!t)return;
     var d=t.dataset;
     if(d.rmfile){removeFile(d.rmfile);return}
+    if(d.card){showCard(d.card);return}
+    if(d.editcard){var cc=cardsList().filter(function(x){return x.id===d.editcard})[0];cardForm(cc);return}
+    if(d.delcard){if(!need())return;var its=cardsList().filter(function(x){return x.id!==d.delcard});db.doc('meta/cards').set({items:its,updatedAt:new Date().toISOString()}).then(closeModal);return}
+    if(d.act==='addCard'){cardForm();return}
+    if(d.rec){recToggle(d.rec==='daily'&&$('fDate')?$('fDate').value:todayISO());return}
+    if(d.uqclear!==undefined){UQ.clear();return}
     if(d.act==='addExp'){expForm();return}
     if(d.editexp){expForm(Object.assign({id:d.editexp},S.expenses[d.editexp]));return}
     if(d.delexp){if(!need())return;var xid=d.delexp;db.doc('expenses/'+xid).delete().then(function(){var pr=db.doc('places/x-'+xid);return pr.get().then(function(sn){if(sn.exists&&sn.data().fromExpense===xid)return pr.delete()})}).then(closeModal).catch(function(){closeModal()});return}
@@ -763,27 +931,45 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
 
   /* ---------- store: the same calls as the claude.ai hub, kept in Dropbox through this site ---------- */
   function mkdb(initial){
-    var D=initial||{},L=[],q=Promise.resolve(),inflight=0;
+    /* every change is applied here at once, kept on the phone, and sent to Dropbox when there is a connection */
+    var D=initial||{},L=[],OQ=[],flushing=false,fails=0;
+    try{OQ=JSON.parse(localStorage.getItem('trip-ops')||'[]')||[]}catch(e){OQ=[]}
+    OQ.forEach(local);persist();
+    function persist(){try{localStorage.setItem('trip-db',JSON.stringify(D))}catch(e){}}
+    function saveQ(){try{localStorage.setItem('trip-ops',JSON.stringify(OQ))}catch(e){}}
     function snapCol(c){var o=D[c]||{};return {docs:Object.keys(o).map(function(k){return {id:k,data:function(){return o[k]}}})}}
     function snapDoc(c,id){var v=(D[c]||{})[id];return {id:id,exists:v!==undefined,data:function(){return v}}}
     function fire(){L.forEach(function(l){try{l.cb(l.id?snapDoc(l.col,l.id):snapCol(l.col))}catch(e){}})}
     function local(op){var c=D[op.col]||(D[op.col]={});if(op.op==='set')c[op.id]=op.data;else if(op.op==='update')c[op.id]=Object.assign({},c[op.id]||{},op.data);else delete c[op.id]}
-    function write(op){local(op);fire();inflight++;cloud('Saving…',true);
-      var p=q.then(function(){return fetch(API+'db',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({ops:[op]})}).then(function(r){if(r.status===401){showGate();throw new Error('PIN needed')}if(!r.ok)throw new Error('save')})});
-      q=p.catch(function(){});
-      p.then(function(){inflight--;if(!inflight)cloud('Saved to Dropbox',true)},function(){inflight--;cloud('Could not save, check the connection',false);refresh()});
-      return p}
+    function status(){if(OQ.length)cloud(navigator.onLine===false?'Offline · '+OQ.length+' change'+(OQ.length>1?'s':'')+' saved on the phone':'Saving…',navigator.onLine!==false);else cloud('Saved to Dropbox',true)}
+    function write(op){local(op);persist();fire();OQ.push(op);saveQ();status();flush();return Promise.resolve()}
+    function flush(){
+      if(flushing||!OQ.length||navigator.onLine===false){status();return Promise.resolve()}
+      flushing=true;var batch=OQ.slice(0,25);
+      return fetch(API+'db',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({ops:batch})}).then(function(r){
+        if(r.status===401){showGate();throw {pin:1}}
+        if(r.status===400){OQ.splice(0,batch.length);saveQ();throw {bad:1}}
+        if(!r.ok)throw {server:r.status};
+        OQ.splice(0,batch.length);saveQ();fails=0;flushing=false;status();if(OQ.length)return flush();
+      }).catch(function(e){flushing=false;fails++;status();if(!(e&&e.pin))setTimeout(flush,Math.min(60000,3000*fails))});
+    }
     function gid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,10)}
     function docref(c,id){return {id:id,
       set:function(d){return write({op:'set',col:c,id:id,data:d})},update:function(d){return write({op:'update',col:c,id:id,data:d})},delete:function(){return write({op:'delete',col:c,id:id})},
       get:function(){return Promise.resolve(snapDoc(c,id))},onSnapshot:function(cb){L.push({col:c,id:id,cb:cb});cb(snapDoc(c,id))}}}
-    function refresh(){if(inflight)return q;return fetch(API+'db',{credentials:'same-origin'}).then(function(r){if(r.status===401){showGate();throw new Error('PIN needed')}if(!r.ok)throw new Error('load');return r.json()}).then(function(j){if(inflight)return;D=j.data||{};fire();cloud('Synced to Dropbox',true)}).catch(function(){cloud('Offline, changes may not save',false)})}
+    function refresh(){
+      if(OQ.length)return flush();
+      return fetch(API+'db',{credentials:'same-origin'}).then(function(r){if(r.status===401){showGate();throw new Error('PIN needed')}if(!r.ok)throw new Error('load');return r.json()})
+        .then(function(j){if(OQ.length)return;D=j.data||{};persist();fire();status()}).catch(function(){if(navigator.onLine===false)status()})}
+    window.addEventListener('online',function(){flush().then(refresh)});
+    window.addEventListener('offline',status);
+    if(OQ.length)setTimeout(flush,500);
     return {collection:function(c){return {doc:function(id){return docref(c,id||gid())},add:function(d){var r=docref(c,gid());return r.set(d).then(function(){return r})},onSnapshot:function(cb){L.push({col:c,cb:cb});cb(snapCol(c))}}},
-      doc:function(path){var p=path.split('/');return docref(p[0],p[1])},refresh:refresh};
+      doc:function(path){var p=path.split('/');return docref(p[0],p[1])},refresh:refresh,flush:flush};
   }
   function cloud(t,on){$('cloud').textContent=t;$('cloud').className='cloud'+(on?' on':'')}
   function sub(col,into,after){db.collection(col).onSnapshot(function(s){var o={};s.docs.forEach(function(d){o[d.id]=d.data()});S[into]=o;if(after)after();rerenderSoft()},function(){cloud('Lost the hub store, reload the page',false)})}
-  var raf=null;function rerenderSoft(){if(raf)return;raf=requestAnimationFrame(function(){raf=null;if($('ovl').classList.contains('open'))return;var ae=document.activeElement;var keep=ae&&(ae.tagName==='TEXTAREA'||ae.tagName==='INPUT'||ae.tagName==='SELECT')&&ae.id;if(keep&&(view==='daily'||view==='checklist'||view==='expenses'))return;var y=window.scrollY;render();window.scrollTo(0,y)})}
+  var raf=null;function rerenderSoft(){if(raf)return;raf=requestAnimationFrame(function(){raf=null;if($('ovl').classList.contains('open'))return;var ae=document.activeElement;var keep=ae&&(ae.tagName==='TEXTAREA'||ae.tagName==='INPUT'||ae.tagName==='SELECT')&&ae.id;if(keep&&(view==='today'||view==='daily'||view==='checklist'||view==='expenses'))return;var y=window.scrollY;render();window.scrollTo(0,y)})}
 
   /* ---------- PIN gate ---------- */
   function showGate(){$('gate').hidden=false;setTimeout(function(){$('pin').focus()},50)}
@@ -793,24 +979,31 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
     .catch(function(err){$('pinErr').textContent=err.message}).then(function(){$('pinGo').disabled=false})});
 
   var started=false;
+  function boot(data,offline){
+    db=mkdb(data);cloud(offline?'Offline copy · changes are kept on the phone':'Synced to Dropbox',!offline);
+    sub('places','places');sub('videos','videos');sub('tasks','tasks');sub('days','days');sub('notes','notes');sub('ideas','ideas');sub('expenses','expenses');
+    db.doc('meta/rate').onSnapshot(function(d){if(d.exists){S.rate=d.data().rate;rerenderSoft()}});
+    db.doc('meta/estimates').onSnapshot(function(d){if(d.exists){S.estimates=d.data().items||[];rerenderSoft()}});
+    db.doc('meta/cards').onSnapshot(function(d){S.cardsDoc=d.exists?d.data():null;rerenderSoft()});
+    db.doc('meta/notes').onSnapshot(function(d){if(d.exists){S.meta=d.data();var ta=$('metaNotes');if(ta&&document.activeElement!==ta)ta.value=S.meta.notes||''}});
+    if(!started){started=true;UQ.load();
+      setInterval(function(){if(document.visibilityState==='visible'&&db)db.refresh()},45000);
+      document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&db)db.refresh()});
+    }
+  }
   function start(){
     render();
     fetch(API+'db',{credentials:'same-origin'}).then(function(r){
       if(r.status===401){showGate();return null}
       return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'load');return j});
-    }).then(function(j){
-      if(!j)return;
-      db=mkdb(j.data);cloud('Synced to Dropbox',true);
-      sub('places','places');sub('videos','videos');sub('tasks','tasks');sub('days','days');sub('notes','notes');sub('ideas','ideas');sub('expenses','expenses');
-      db.doc('meta/rate').onSnapshot(function(d){if(d.exists){S.rate=d.data().rate;rerenderSoft()}});
-      db.doc('meta/estimates').onSnapshot(function(d){if(d.exists){S.estimates=d.data().items||[];rerenderSoft()}});
-      db.doc('meta/notes').onSnapshot(function(d){if(d.exists){S.meta=d.data();var ta=$('metaNotes');if(ta&&document.activeElement!==ta)ta.value=S.meta.notes||''}});
-      if(!started){started=true;
-        setInterval(function(){if(document.visibilityState==='visible'&&db)db.refresh()},45000);
-        document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&db)db.refresh()});
-      }
-    }).catch(function(err){cloud('Hub store unavailable: '+(err&&err.message||'check the connection')+'. Reload to try again.',false)});
+    }).then(function(j){if(j)boot(j.data,false)})
+    .catch(function(err){
+      var cached=null;try{cached=JSON.parse(localStorage.getItem('trip-db')||'null')}catch(e){}
+      if(cached){boot(cached,true);setTimeout(function(){db.refresh()},15000)}
+      else cloud('Hub store unavailable: '+(err&&err.message||'check the connection')+'. Reload to try again.',false);
+    });
   }
+  if('serviceWorker' in navigator){try{navigator.serviceWorker.register('/trip/sw.js',{scope:'/trip/'}).catch(function(){})}catch(e){}}
   start();
 })();
 </script>
