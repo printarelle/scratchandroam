@@ -1,17 +1,20 @@
-// Private Trip Hub for Natali, at /trip/ (PIN protected, never indexed).
-// The phone only talks to scratchandroam.com. This Worker passes files on to Dropbox,
-// into the day folders the nightly Claude task reads, and reads Claude's notes back.
+// Private China Trip Hub for Natali, at /trip/ (PIN protected, never indexed).
+// Same app as the claude.ai "China Trip Studio" artifact, but it runs on her own site so she
+// never has to open Claude in China. The phone only talks to scratchandroam.com; this Worker
+// keeps the hub data in Dropbox (_hub/hub.json), saves uploads into the Dropbox day folders the
+// nightly Claude task reads, and serves Claude's nightly notes (_hub/notes/*.json) back.
 //
-// Secrets (Cloudflare dashboard > Workers > scratchandroam > Settings > Variables and Secrets):
-//   TRIP_PIN               the PIN she types (8 digits or more)
-//   DROPBOX_APP_KEY        from her Dropbox app
-//   DROPBOX_APP_SECRET     from her Dropbox app
-//   DROPBOX_REFRESH_TOKEN  shown once by /trip/connect/ after she approves the app
+// Secrets (Cloudflare > Workers > scratchandroam > Settings > Variables and secrets):
+//   TRIP_PIN, DROPBOX_APP_KEY, DROPBOX_APP_SECRET, DROPBOX_REFRESH_TOKEN
 // Optional: DROPBOX_ROOT_NS (team folder namespace, default below).
 import HUB from "./trip-hub.html";
+import SEED from "./trip-seed.json";
 
 const ROOT_NS = "732279378"; // "DexPixel Ltd" team folder
 const TRIP = "/Scratch and Roam/01_RAW/China/2026-12 December Trip";
+const HUBDIR = TRIP + "/_hub";
+const DATA = HUBDIR + "/hub.json";
+const NOTES = HUBDIR + "/notes";
 const DAYS = [
   ["01", "2026-12-06", "Chengdu arrival"], ["02", "2026-12-07", "Chengdu"], ["03", "2026-12-08", "Chengdu"],
   ["04", "2026-12-09", "Chongqing"], ["05", "2026-12-10", "Chongqing"], ["06", "2026-12-11", "Chongqing"],
@@ -23,18 +26,20 @@ const DAYS = [
   ["22", "2026-12-27", "Chengdu"], ["23", "2026-12-28", "Chengdu"], ["24", "2026-12-29", "Flight home"],
 ];
 const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-function folderOf(d) {
-  const [n, iso, label] = d;
-  const [, m, dd] = iso.split("-");
-  return `${TRIP}/Day ${n} - ${dd} ${MON[+m - 1]} - ${label}`;
+function folderOf(d) { const [n, iso, label] = d; const [, m, dd] = iso.split("-"); return `${TRIP}/Day ${n} - ${dd} ${MON[+m - 1]} - ${label}`; }
+// Where an upload goes: the day folder for trip dates, otherwise a dated folder under _hub/other.
+function dirFor(spec) {
+  if (spec === "receipts") return HUBDIR + "/receipts";
+  const m = /^day:(\d{4}-\d\d-\d\d)$/.exec(spec || "");
+  if (m) { const d = DAYS.find(x => x[1] === m[1]); return d ? folderOf(d) : `${HUBDIR}/other/${m[1]}`; }
+  return HUBDIR + "/other";
 }
-const dayByNum = n => DAYS.find(d => d[0] === n);
 
 const NOINDEX = { "X-Robots-Tag": "noindex, nofollow, noarchive", "Cache-Control": "private, no-store" };
 const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { "Content-Type": "application/json", ...NOINDEX } });
 const enc = new TextEncoder();
 
-// ---------- session cookie ----------
+// ---------- session ----------
 async function hmac(env, msg) {
   const key = await crypto.subtle.importKey("raw", enc.encode("trip:" + env.TRIP_PIN + ":" + (env.DROPBOX_APP_SECRET || "")),
     { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
@@ -56,16 +61,12 @@ async function authed(req, env) {
 }
 async function login(req, env) {
   if (!env.TRIP_PIN) return json({ error: "The Hub PIN is not set up yet." }, 503);
-  let pin = "";
-  try { pin = String((await req.json()).pin || ""); } catch {}
-  if (!safeEq(pin, String(env.TRIP_PIN))) {
-    await new Promise(r => setTimeout(r, 1500)); // slows down guessing
-    return json({ error: "Wrong PIN" }, 401);
-  }
-  const exp = String(Date.now() + 45 * 86400e3);
+  let pin = ""; try { pin = String((await req.json()).pin || ""); } catch {}
+  if (!safeEq(pin, String(env.TRIP_PIN))) { await new Promise(r => setTimeout(r, 1500)); return json({ error: "Wrong PIN" }, 401); }
+  const exp = String(Date.now() + 60 * 86400e3);
   const v = encodeURIComponent(exp + "." + await hmac(env, exp));
   return new Response(JSON.stringify({ ok: true }), { headers: { "Content-Type": "application/json", ...NOINDEX,
-    "Set-Cookie": `trip=${v}; Path=/trip/; Max-Age=${45 * 86400}; HttpOnly; Secure; SameSite=Lax` } });
+    "Set-Cookie": `trip=${v}; Path=/trip/; Max-Age=${60 * 86400}; HttpOnly; Secure; SameSite=Lax` } });
 }
 
 // ---------- Dropbox ----------
@@ -82,42 +83,93 @@ async function token(env) {
   tok = { v: j.access_token, exp: Date.now() + (j.expires_in - 300) * 1000 };
   return tok.v;
 }
-// Dropbox-API-Arg must be ASCII: escape everything else.
 const argHeader = o => JSON.stringify(o).replace(/[\u007f-￿]/g, c => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"));
-function rootHeader(env) {
-  return JSON.stringify({ ".tag": "namespace_id", namespace_id: env.DROPBOX_ROOT_NS || ROOT_NS });
-}
+const rootHeader = env => JSON.stringify({ ".tag": "namespace_id", namespace_id: env.DROPBOX_ROOT_NS || ROOT_NS });
 async function rpc(env, path, body) {
   const r = await fetch("https://api.dropboxapi.com/2/" + path, { method: "POST", headers: {
     Authorization: "Bearer " + await token(env), "Content-Type": "application/json", "Dropbox-API-Path-Root": rootHeader(env) },
     body: JSON.stringify(body) });
-  const t = await r.text();
-  let j; try { j = JSON.parse(t); } catch { j = { error_summary: t }; }
+  const t = await r.text(); let j; try { j = JSON.parse(t); } catch { j = { error_summary: t }; }
   if (!r.ok) { const e = new Error(j.error_summary || ("Dropbox error " + r.status)); e.dbx = j; throw e; }
   return j;
 }
 async function content(env, path, arg, body) {
-  const r = await fetch("https://content.dropboxapi.com/2/" + path, { method: "POST", headers: {
+  return fetch("https://content.dropboxapi.com/2/" + path, { method: "POST", headers: {
     Authorization: "Bearer " + await token(env), "Content-Type": "application/octet-stream",
     "Dropbox-API-Arg": argHeader(arg), "Dropbox-API-Path-Root": rootHeader(env) }, body });
-  return r;
 }
 async function contentJSON(env, path, arg, body) {
-  const r = await content(env, path, arg, body);
-  const t = await r.text();
-  if (!r.ok) throw new Error("Dropbox upload error " + r.status + ": " + t.slice(0, 200));
+  const r = await content(env, path, arg, body); const t = await r.text();
+  if (!r.ok) { const e = new Error("Dropbox error " + r.status + ": " + t.slice(0, 200)); e.status = r.status; e.body = t; throw e; }
   return t ? JSON.parse(t) : {};
 }
-async function listAll(env, path, recursive) {
-  let j = await rpc(env, "files/list_folder", { path, recursive, limit: 2000 });
-  const out = [...j.entries];
-  while (j.has_more) { j = await rpc(env, "files/list_folder/continue", { cursor: j.cursor }); out.push(...j.entries); }
+
+// ---------- hub data (one JSON document in Dropbox) ----------
+async function readData(env) {
+  const r = await content(env, "files/download", { path: DATA }, null);
+  if (r.status === 409) { // not created yet: start from the data copied from the claude.ai hub
+    const meta = await contentJSON(env, "files/upload", { path: DATA, mode: "add", autorename: false, mute: true }, enc.encode(JSON.stringify(SEED)));
+    return { data: JSON.parse(JSON.stringify(SEED)), rev: meta.rev };
+  }
+  if (!r.ok) throw new Error("Could not read hub data (" + r.status + ")");
+  const meta = JSON.parse(r.headers.get("Dropbox-API-Result") || "{}");
+  return { data: await r.json(), rev: meta.rev };
+}
+const COLS = ["places", "videos", "tasks", "days", "notes", "ideas", "expenses", "meta"];
+function applyOps(data, ops) {
+  for (const o of ops) {
+    if (!COLS.includes(o.col) || !o.id || typeof o.id !== "string" || o.id.length > 120) throw new Error("Bad write");
+    const c = data[o.col] || (data[o.col] = {});
+    if (o.op === "set") c[o.id] = o.data || {};
+    else if (o.op === "update") c[o.id] = Object.assign({}, c[o.id] || {}, o.data || {});
+    else if (o.op === "delete") delete c[o.id];
+    else throw new Error("Bad op");
+  }
+}
+async function writeOps(env, ops) {
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const { data, rev } = await readData(env);
+    applyOps(data, ops);
+    try {
+      await contentJSON(env, "files/upload", { path: DATA, mode: { ".tag": "update", update: rev }, mute: true }, enc.encode(JSON.stringify(data)));
+      return data;
+    } catch (e) { if (e.status !== 409) throw e; await new Promise(r => setTimeout(r, 300 * (attempt + 1))); }
+  }
+  throw new Error("Busy, try again");
+}
+// Claude's nightly notes: one file per run, "<YYYY-MM-DD> run <HHMM>.json"; newest per date wins.
+const noteCache = new Map(); // id -> {rev, obj}
+async function nightlyNotes(env) {
+  let entries = [];
+  try {
+    let j = await rpc(env, "files/list_folder", { path: NOTES, limit: 2000 });
+    entries = j.entries; while (j.has_more) { j = await rpc(env, "files/list_folder/continue", { cursor: j.cursor }); entries.push(...j.entries); }
+  } catch { return {}; }
+  const latest = {};
+  for (const e of entries) {
+    const m = /^(\d{4}-\d\d-\d\d)\b.*\.json$/i.exec(e.name);
+    if (e[".tag"] !== "file" || !m) continue;
+    if (!latest[m[1]] || e.name > latest[m[1]].name) latest[m[1]] = e;
+  }
+  const out = {};
+  await Promise.all(Object.entries(latest).map(async ([date, e]) => {
+    let c = noteCache.get(e.id);
+    if (!c || c.rev !== e.rev) {
+      const r = await content(env, "files/download", { path: e.id }, null);
+      if (!r.ok) return;
+      try { c = { rev: e.rev, obj: await r.json() }; noteCache.set(e.id, c); } catch { return; }
+    }
+    out[date] = c.obj;
+  }));
   return out;
 }
 
 const cleanName = s => String(s || "file").replace(/[\\/:*?"<>|\u0000-\u001f]/g, "_").slice(0, 180) || "file";
-const KIND = n => /\.(jpe?g|png|heic|webp|gif)$/i.test(n) ? "photo" : /\.(mp4|mov|lrf|m4v|webm)$/i.test(n) ? "video"
-  : /\.(m4a|mp3|aac|wav|ogg|opus|amr)$/i.test(n) ? "voice" : /^Claude notes/i.test(n) ? "claude" : /\.(txt|md)$/i.test(n) ? "note" : "file";
+const MIME = n => { const x = (n.split(".").pop() || "").toLowerCase();
+  return ({ jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", gif: "image/gif", webp: "image/webp", heic: "image/heic",
+    mp4: "video/mp4", mov: "video/quicktime", m4v: "video/mp4", webm: "video/webm", lrf: "video/mp4",
+    m4a: "audio/mp4", mp3: "audio/mpeg", aac: "audio/aac", wav: "audio/wav", ogg: "audio/ogg", opus: "audio/ogg", amr: "audio/amr",
+    pdf: "application/pdf", txt: "text/plain; charset=utf-8", md: "text/plain; charset=utf-8", json: "application/json" })[x] || "application/octet-stream"; };
 
 // ---------- API ----------
 async function api(req, env, u) {
@@ -125,48 +177,32 @@ async function api(req, env, u) {
   if (p === "login" && req.method === "POST") return login(req, env);
   if (!(await authed(req, env))) return json({ error: "PIN needed" }, 401);
   try {
-    if (p === "days") {
-      // One recursive listing, grouped by day folder.
-      const entries = await listAll(env, TRIP, true);
-      const days = DAYS.map(d => {
-        const f = folderOf(d).toLowerCase() + "/";
-        const files = entries.filter(e => e[".tag"] === "file" && e.path_lower.startsWith(f));
-        const c = { photo: 0, video: 0, voice: 0, note: 0, file: 0, claude: 0 };
-        files.forEach(e => c[KIND(e.name)]++);
-        return { n: d[0], date: d[1], label: d[2], counts: c, total: files.length - c.claude };
-      });
-      return json({ days });
+    if (p === "db" && req.method === "GET") {
+      const [{ data }, nightly] = await Promise.all([readData(env), nightlyNotes(env)]);
+      data.notes = Object.assign({}, data.notes || {}, nightly);
+      return json({ data });
     }
-    if (p === "day") {
-      const d = dayByNum(u.searchParams.get("n"));
-      if (!d) return json({ error: "No such day" }, 404);
-      const entries = (await listAll(env, folderOf(d), false)).filter(e => e[".tag"] === "file");
-      entries.sort((a, b) => (b.server_modified || "").localeCompare(a.server_modified || ""));
-      const files = entries.map(e => ({ id: e.id, name: e.name, size: e.size, kind: KIND(e.name), at: e.server_modified }));
-      // Read Claude's notes and her typed notes (small text files only).
-      const texts = [];
-      for (const f of files.filter(f => (f.kind === "claude" || f.kind === "note") && f.size < 200000).slice(0, 12)) {
-        const r = await content(env, "files/download", { path: f.id }, null);
-        if (r.ok) texts.push({ id: f.id, name: f.name, kind: f.kind, at: f.at, text: await r.text() });
+    if (p === "db" && req.method === "POST") {
+      const { ops } = await req.json();
+      if (!Array.isArray(ops) || !ops.length || ops.length > 50) return json({ error: "Nothing to save" }, 400);
+      await writeOps(env, ops);
+      return json({ ok: true });
+    }
+    if (p === "blob") {
+      const id = u.searchParams.get("id") || "";
+      if (!/^id:[\w-]+$/.test(id)) return new Response("", { status: 404, headers: NOINDEX });
+      if (u.searchParams.get("t")) {
+        const r = await content(env, "files/get_thumbnail_v2",
+          { resource: { ".tag": "path", path: id }, format: "jpeg", size: "w640h480", mode: "fitone_bestfit" }, null);
+        if (r.ok) return new Response(r.body, { headers: { "Content-Type": "image/jpeg", "Cache-Control": "private, max-age=604800", "X-Robots-Tag": "noindex" } });
       }
-      return json({ day: { n: d[0], date: d[1], label: d[2] }, files: files.filter(f => f.kind !== "claude" && f.kind !== "note"), texts });
-    }
-    if (p === "thumb") {
-      const r = await content(env, "files/get_thumbnail_v2",
-        { resource: { ".tag": "path", path: u.searchParams.get("id") }, format: "jpeg", size: "w256h256", mode: "fitone_bestfit" }, null);
+      const r = await content(env, "files/download", { path: id }, null);
       if (!r.ok) return new Response("", { status: 404, headers: NOINDEX });
-      return new Response(r.body, { headers: { "Content-Type": "image/jpeg", "Cache-Control": "private, max-age=86400", "X-Robots-Tag": "noindex" } });
+      const meta = JSON.parse(r.headers.get("Dropbox-API-Result") || "{}");
+      return new Response(r.body, { headers: { "Content-Type": MIME(meta.name || ""),
+        "Content-Disposition": `inline; filename*=UTF-8''${encodeURIComponent(meta.name || "file")}`, "Cache-Control": "private, max-age=604800", "X-Robots-Tag": "noindex" } });
     }
-    if (p === "note" && req.method === "POST") {
-      const { n, text } = await req.json();
-      const d = dayByNum(n);
-      if (!d || !String(text || "").trim()) return json({ error: "Nothing to save" }, 400);
-      const stamp = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 16).replace("T", " ").replace(":", "");
-      const r = await contentJSON(env, "files/upload",
-        { path: `${folderOf(d)}/Natali note ${stamp}.txt`, mode: "add", autorename: true }, enc.encode(String(text).slice(0, 100000)));
-      return json({ ok: true, name: r.name });
-    }
-    // Chunked upload: start (first chunk), append, finish (last chunk). Chunks are 8 MB, under the Worker body limit.
+    // Chunked upload: start (first chunk), append, finish (last chunk). 8 MB chunks keep every request small.
     if (p === "up/start" && req.method === "POST") {
       const r = await contentJSON(env, "files/upload_session/start", { close: false }, await req.arrayBuffer());
       return json({ sid: r.session_id });
@@ -178,12 +214,11 @@ async function api(req, env, u) {
       return json({ ok: true });
     }
     if (p === "up/finish" && req.method === "POST") {
-      const d = dayByNum(u.searchParams.get("n"));
-      if (!d) return json({ error: "No such day" }, 404);
       const r = await contentJSON(env, "files/upload_session/finish", {
         cursor: { session_id: u.searchParams.get("sid"), offset: +u.searchParams.get("off") },
-        commit: { path: `${folderOf(d)}/${cleanName(u.searchParams.get("name"))}`, mode: "add", autorename: true, mute: true } }, await req.arrayBuffer());
-      return json({ ok: true, name: r.name, size: r.size });
+        commit: { path: `${dirFor(u.searchParams.get("dir"))}/${cleanName(u.searchParams.get("name"))}`, mode: "add", autorename: true, mute: true } },
+        await req.arrayBuffer());
+      return json({ id: r.id, name: r.name, size: r.size, path: r.path_display });
     }
     return json({ error: "Not found" }, 404);
   } catch (e) {
@@ -193,12 +228,11 @@ async function api(req, env, u) {
 
 // ---------- one-time Dropbox connection ----------
 async function connect(req, env, u) {
-  const page = (body) => new Response(`<!doctype html><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noindex><title>Connect Dropbox</title><body style="font:16px system-ui;max-width:560px;margin:40px auto;padding:0 18px;color:#243127">${body}</body>`,
+  const page = (body) => new Response(`<!doctype html><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noindex><title>Connect Dropbox</title><body style="font:16px system-ui;max-width:560px;margin:40px auto;padding:0 18px;color:#1F2A26">${body}</body>`,
     { headers: { "Content-Type": "text/html; charset=utf-8", ...NOINDEX } });
   const code = u.searchParams.get("code");
   let ok = await authed(req, env);
   if (!ok && code) {
-    // Coming back from Dropbox: trust the signed state we sent out.
     const [exp, sig] = String(u.searchParams.get("state") || "").split(".");
     ok = !!exp && Date.now() < +exp && safeEq(sig || "", await hmac(env, "state" + exp));
   }
@@ -226,8 +260,8 @@ async function connect(req, env, u) {
 export async function trip(req, env, u) {
   if (u.pathname.startsWith("/trip/api/")) return api(req, env, u);
   if (u.pathname === "/trip/connect/" || u.pathname === "/trip/connect") return connect(req, env, u);
-  if (u.pathname === "/trip" ) return Response.redirect("https://scratchandroam.com/trip/", 301);
+  if (u.pathname === "/trip") return Response.redirect("https://scratchandroam.com/trip/", 301);
   if (u.pathname === "/trip/") return new Response(HUB, { headers: { "Content-Type": "text/html; charset=utf-8", ...NOINDEX,
-    "Content-Security-Policy": "default-src 'self'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'" } });
+    "Content-Security-Policy": "default-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'" } });
   return new Response("Not found", { status: 404, headers: NOINDEX });
 }

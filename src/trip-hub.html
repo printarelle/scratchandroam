@@ -1,355 +1,811 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="theme-color" content="#243127">
-<title>Trip Hub</title>
+<meta name="theme-color" content="#2F5A47">
 <link rel="icon" href="/favicon.svg">
-<style>
-@font-face{font-family:SRInter;font-weight:600;src:url(/fonts/sr-inter-600.woff2) format('woff2');font-display:swap}
-@font-face{font-family:SRInter;font-weight:700;src:url(/fonts/sr-inter-700.woff2) format('woff2');font-display:swap}
-@font-face{font-family:SRInter;font-weight:800;src:url(/fonts/sr-inter-800.woff2) format('woff2');font-display:swap}
-:root{--g:#243127;--g2:#34473a;--sage:#6f8f73;--sage2:#dfe8dc;--cream:#f6f3ea;--line:#e4e2d8;--ink:#1f2a22;--mute:#6b746c;--ok:#2f7d4f;--bad:#b33a3a}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--cream);color:var(--ink);font:500 15px/1.45 SRInter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;margin:0}
-button,input,textarea,select{font:inherit}
-.hide{display:none!important}
-/* PIN */
-#gate{min-height:100vh;display:grid;place-items:center;background:var(--g);padding:24px}
-#gate .box{background:#fff;border-radius:18px;padding:28px 24px;width:100%;max-width:340px;text-align:center}
-#gate h1{font-size:26px;margin-bottom:6px}
-#gate p{color:var(--mute);margin:0 0 18px}
-#pin{width:100%;font-size:28px;letter-spacing:8px;text-align:center;padding:12px;border:2px solid var(--line);border-radius:12px}
-#pin:focus{outline:none;border-color:var(--sage)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 18px;font-weight:700;cursor:pointer;background:var(--g);color:#fff}
-.btn.sage{background:var(--sage)}
-.btn.ghost{background:#fff;color:var(--g);border:1.5px solid var(--line)}
-.btn.wide{width:100%;margin-top:12px}
-.err{color:var(--bad);min-height:20px;margin-top:10px;font-weight:600}
-/* layout */
-#app{display:flex;min-height:100vh}
-nav.side{width:230px;background:var(--g);color:#e9efe7;padding:22px 14px;position:sticky;top:0;height:100vh;flex-shrink:0}
-nav.side h2{color:#fff;font-size:21px;padding:0 8px 18px}
-nav.side a{display:block;color:#cfdacd;text-decoration:none;padding:11px 12px;border-radius:10px;font-weight:600;cursor:pointer}
-nav.side a.on{background:var(--g2);color:#fff}
-nav.side .foot{position:absolute;bottom:18px;left:22px;right:14px;color:#9fb09f;font-size:12px}
-main{flex:1;min-width:0;padding:22px 22px 110px;max-width:880px}
-.tabs{display:none}
-@media (max-width:760px){
-  nav.side{display:none}
-  main{padding:14px 14px calc(96px + env(safe-area-inset-bottom))}
-  .tabs{display:flex;position:fixed;left:0;right:0;bottom:0;background:var(--g);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:20}
-  .tabs a{flex:1;text-align:center;color:#cfdacd;text-decoration:none;font-weight:700;font-size:13px;padding:9px 4px;border-radius:10px;cursor:pointer}
-  .tabs a.on{background:var(--g2);color:#fff}
+<title>China Trip Studio</title>
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<style>@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/trip/dmsans-normal-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
-.card h3{font-size:18px;margin-bottom:10px}
-.dayhead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.dayhead .t{flex:1;min-width:0}
-.dayhead h1{font-size:24px;line-height:1.15}
-.dayhead .sub{color:var(--mute);font-weight:600}
-.arrow{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-size:20px;font-weight:800;color:var(--g);cursor:pointer;flex-shrink:0}
-.arrow:disabled{opacity:.35}
-.addrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.addrow .btn{padding:18px 10px;font-size:16px;flex-direction:column;gap:4px}
-.addrow .btn small{font-weight:600;opacity:.8;font-size:12px}
-textarea{width:100%;min-height:96px;border:1.5px solid var(--line);border-radius:12px;padding:12px;resize:vertical}
-textarea:focus{outline:none;border-color:var(--sage)}
-.q{margin-top:12px}
-.qi{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
-.qi .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.bar{height:6px;background:var(--sage2);border-radius:6px;overflow:hidden;width:90px;flex-shrink:0}
-.bar i{display:block;height:100%;width:0;background:var(--sage)}
-.st{width:70px;text-align:right;font-weight:700;font-size:13px;flex-shrink:0}
-.st.ok{color:var(--ok)}.st.bad{color:var(--bad)}
-.warn{background:#fff7e0;border:1px solid #f0dfa8;border-radius:10px;padding:9px 12px;font-size:13px;margin-top:10px}
-.note{border-left:4px solid var(--sage);padding:2px 0 2px 12px;margin:12px 0}
-.note .meta{color:var(--mute);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
-.note.claude{border-color:var(--g)}
-.md h4{font:700 16px Georgia,serif;margin:12px 0 4px}
-.md ul{margin:4px 0 8px;padding-left:20px}
-.md p{margin:4px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
-.tile{aspect-ratio:1;border-radius:10px;background:var(--sage2);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:11px;color:var(--g);text-align:center;padding:6px}
-.tile img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.tile .ic{font-size:26px;line-height:1;margin-bottom:4px}
-.tile .fn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:100%}
-.empty{color:var(--mute);font-size:14px}
-.days .row{display:flex;align-items:center;gap:12px;padding:12px 4px;border-top:1px solid var(--line);cursor:pointer}
-.days .row:first-child{border-top:0}
-.days .num{width:44px;height:44px;border-radius:12px;background:var(--sage2);display:grid;place-items:center;font-weight:800;color:var(--g);flex-shrink:0}
-.days .row.today .num{background:var(--g);color:#fff}
-.days .row .t{flex:1;min-width:0}
-.days .row .t b{display:block}
-.days .row .t span{color:var(--mute);font-size:13px}
-.pill{font-size:12px;font-weight:700;padding:4px 9px;border-radius:20px;background:var(--sage2);color:var(--g);white-space:nowrap}
-.pill.done{background:var(--g);color:#fff}
-.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--g);color:#fff;padding:11px 16px;border-radius:12px;font-weight:700;z-index:30;box-shadow:0 6px 20px rgba(0,0,0,.2)}
-.help li{margin-bottom:8px}
-</style>
-</head>
-<body>
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/trip/dmsans-normal-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/trip/dmsans-normal-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/trip/dmsans-normal-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/trip/dmsans-normal-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/trip/dmsans-normal-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/trip/fraunces-italic-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/trip/fraunces-italic-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/trip/fraunces-normal-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/trip/fraunces-normal-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style>
+<style>
+/* Layout: fixed sage sidebar + scrolling cream main, seven views switched in script. On phones the sidebar becomes a bottom tab bar. */
+:root{
+  --bg:#F6F7F3; --side:#EEF2EC; --card:#FFFFFF; --hero:#E4ECE3; --line:#E1E6DE; --line-2:#CFD8CC;
+  --ink:#1F2A26; --muted:#6B7770; --faint:#98A39C;
+  --green:#2F5A47; --green-2:#5E8A6E; --green-soft:#DCE8DC; --sage:#B9CDB9;
+  --peach:#F3E5D8; --peach-ink:#9A5A2E; --lav:#E7E3F2; --lav-ink:#5B4E8A; --sky:#DCE7EE; --sky-ink:#36606F;
+  --ok:#2F5A47; --warn:#9A5A2E;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif; --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14191A; --side:#1A2220; --card:#1E2624; --hero:#223029; --line:#2B3531; --line-2:#3A4641;
+  --ink:#E7ECE8; --muted:#A3AFA8; --faint:#6F7B74; --green:#8FC2A4; --green-2:#6FA186; --green-soft:#24342C; --sage:#3B5447;
+  --peach:#3A2A1E; --peach-ink:#E3B48E; --lav:#2A2638; --lav-ink:#BDB1E6; --sky:#1F2E35; --sky-ink:#9CC3D3; --ok:#8FC2A4; --warn:#E3B48E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14191A; --side:#1A2220; --card:#1E2624; --hero:#223029; --line:#2B3531; --line-2:#3A4641;
+  --ink:#E7ECE8; --muted:#A3AFA8; --faint:#6F7B74; --green:#8FC2A4; --green-2:#6FA186; --green-soft:#24342C; --sage:#3B5447;
+  --peach:#3A2A1E; --peach-ink:#E3B48E; --lav:#2A2638; --lav-ink:#BDB1E6; --sky:#1F2E35; --sky-ink:#9CC3D3; --ok:#8FC2A4; --warn:#E3B48E; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;padding-block:0;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--serif);margin:0;line-height:1.1;font-weight:500;text-wrap:balance}
+h1{font-size:clamp(30px,4vw,42px);letter-spacing:-.01em}
+h2{font-size:clamp(24px,3.2vw,34px);letter-spacing:-.01em}
+h3{font-size:18px}
+h2 em,h1 em{font-style:italic;color:var(--green-2)}
+p{margin:0}
+a{color:var(--green)}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.eyebrow.dot::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green-2);margin-right:8px;vertical-align:middle}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.app{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:100%}
+aside{background:var(--side);padding:24px 18px;display:flex;flex-direction:column;gap:22px;position:sticky;top:0;height:100vh;height:100dvh}
+.brand{display:flex;align-items:center;gap:10px;padding:0 6px}
+.brand .mark{width:34px;height:34px;border-radius:50%;border:2px solid var(--green);display:grid;place-items:center;color:var(--green);font-family:var(--serif);font-style:italic;font-size:16px}
+.brand b{font-family:var(--serif);font-weight:500;font-size:20px;color:var(--green);display:block;line-height:1}
+.brand span{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+nav{display:flex;flex-direction:column;gap:2px}
+nav .lbl{padding:0 10px 8px}
+nav button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:10px 12px;font:inherit;color:var(--ink);cursor:pointer}
+nav button .ic{width:18px;height:18px;flex:none;color:var(--green)}
+nav button .n{margin-left:auto;font-size:12px;color:var(--muted)}
+nav button.on{background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.05)}
+nav button:hover:not(.on){background:rgba(255,255,255,.4)}
+.side-card{background:var(--hero);border-radius:14px;padding:18px;position:relative;overflow:hidden}
+.side-card .stars{color:var(--peach-ink);font-size:18px;letter-spacing:8px}
+.side-card b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin:10px 0 6px;line-height:1.5}
+.side-card .small{color:var(--muted)}
+.side-card .burst{position:absolute;right:-22px;bottom:-22px;width:90px;height:90px;border-radius:50%;background:repeating-conic-gradient(var(--sage) 0 4deg,transparent 4deg 12deg);opacity:.7}
+.side-foot{margin-top:auto;display:flex;flex-direction:column;gap:6px}
+.side-foot button{background:none;border:0;font:inherit;color:var(--muted);text-align:left;padding:6px 12px;cursor:pointer;display:flex;gap:10px;align-items:center}
+main{min-width:0;padding:22px clamp(16px,4vw,44px) 60px;display:flex;flex-direction:column;gap:26px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.crumb{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.crumb b{color:var(--muted)}
+.sync{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.sync .av{width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:600;font-size:13px}
+.sync .cloud{display:inline-flex;align-items:center;gap:6px}
+.sync .cloud::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--faint)}
+.mini{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px 4px 6px}
+.mini input{width:72px;padding:4px 8px;border-radius:999px;font-size:14px;background:var(--bg)}
+.mini b{font-variant-numeric:tabular-nums;color:var(--green);white-space:nowrap}
+.conv .chips .chip{cursor:pointer}
+@media (max-width:860px){.sync .cloud{display:none}.mini input{width:64px}}
+.sync .cloud.on::before{background:var(--green-2)}
+.pagehead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.pagehead .t{display:flex;flex-direction:column;gap:8px;max-width:60ch}
+.pagehead p.lead{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-2);background:var(--card);color:var(--ink);border-radius:10px;padding:10px 16px;font:inherit;font-weight:500;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn.sm{padding:6px 12px;font-size:13px}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--green-2);outline-offset:2px}
+.hero{background:var(--hero);border-radius:18px;padding:clamp(20px,3vw,34px);display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center;overflow:hidden}
+.hero .t{display:flex;flex-direction:column;gap:12px}
+.hero h2{font-size:clamp(30px,4.5vw,46px)}
+.hero p{color:var(--muted);max-width:44ch}
+.route{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:4px}
+.route span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--card);border:1px solid var(--line);padding:7px 12px;border-radius:8px;font-weight:600}
+.route i{color:var(--muted);font-style:normal}
+.hero svg{width:100%;height:auto;max-width:100%;display:block}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.stat .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center}
+.stat .ic.peach{background:var(--peach);color:var(--peach-ink)}.stat .ic.green{background:var(--green-soft);color:var(--green)}.stat .ic.lav{background:var(--lav);color:var(--lav-ink)}.stat .ic.sky{background:var(--sky);color:var(--sky-ink)}
+.stat b{font-family:var(--serif);font-size:30px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.stat button{background:none;border:0;color:var(--muted);cursor:pointer;font:inherit;padding:0}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel .ph{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.panel .ph h3{font-size:22px}
+.list{display:flex;flex-direction:column}
+.li{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line);min-width:0}
+.li:first-child{border-top:0}
+.li .tx{min-width:0}
+.li .tx b{display:block;font-weight:500;overflow-wrap:anywhere}
+.li .tx span{font-size:13px;color:var(--muted)}
+.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.tag.booked,.tag.done,.tag.published{background:var(--green-soft);color:var(--green)}
+.tag.planned{background:var(--sky);color:var(--sky-ink)}
+.tag.idea{background:var(--peach);color:var(--peach-ink)}
+.tag.filmed,.tag.editing{background:var(--lav);color:var(--lav-ink)}
+.tag.city{background:transparent;border:1px solid var(--line-2);color:var(--muted)}
+.task{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);cursor:pointer}
+.task:first-child{border-top:0}
+.task input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--green)}
+.task span{flex:1;min-width:0;overflow-wrap:anywhere}
+.task input:checked + span{color:var(--muted);text-decoration:line-through}
+.task button{background:none;border:0;color:var(--faint);cursor:pointer;font-size:16px;line-height:1;padding:0 4px}
+.task button:hover{color:var(--warn)}
+.progress{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.progress div{height:100%;background:var(--green-2);width:0;transition:width .3s}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:1px solid var(--line-2);background:var(--card);color:var(--muted);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.filters button.on{background:var(--green);border-color:var(--green);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.pcard .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pcard .type{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.pcard h3{font-size:19px;overflow-wrap:anywhere}
+.pcard .meta{font-size:13px;color:var(--muted)}
+.pcard .desc{font-size:14px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
+.seg{display:flex;flex-direction:column;gap:5px}
+.seg .lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.seg .opts{display:flex;border:1px solid var(--line-2);border-radius:8px;overflow:hidden}
+.seg .opts button{flex:1;border:0;background:transparent;color:var(--muted);font:inherit;font-size:12px;padding:6px 4px;cursor:pointer;border-left:1px solid var(--line)}
+.seg .opts button:first-child{border-left:0}
+.seg .opts button.on{background:var(--green-soft);color:var(--green);font-weight:600}
+.pcard .foot{display:flex;justify-content:flex-end;gap:8px;margin-top:auto}
+.film{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:start;min-width:0}
+.film .no{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;padding-top:4px}
+.film .b{display:flex;flex-direction:column;gap:8px;min-width:0}
+.film h3{font-size:20px;overflow-wrap:anywhere}
+.film .meta{font-size:13px;color:var(--muted)}
+.film .desc{font-size:14px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.board div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+.board b{font-family:var(--serif);font-size:26px;font-weight:500;display:block;line-height:1.1}
+.board span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.cal{display:flex;flex-direction:column;gap:14px}
+.calday{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start}
+.calday .d{background:var(--card);border:1px solid var(--line);border-radius:12px;text-align:center;padding:8px 4px}
+.calday .d b{font-family:var(--serif);font-size:24px;display:block;line-height:1}
+.calday .d span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.calday .e{display:flex;flex-direction:column;gap:8px;min-width:0}
+.calday .e .wd{font-size:13px;color:var(--muted)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--muted);font-weight:500;min-width:0}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line-2);border-radius:9px;padding:9px 12px;width:100%;min-width:0}
+.dwrap{position:relative;display:block;width:100%}
+.dwrap .dshow{display:block;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line-2);border-radius:9px;padding:9px 12px;font-variant-numeric:tabular-nums}
+.dwrap input[type=date]{position:absolute;inset:0;opacity:0;width:100%;height:100%;padding:0;margin:0;cursor:pointer}
+.dwrap:focus-within .dshow{outline:2px solid var(--green-2);outline-offset:2px}
+@media (max-width:860px){.dwrap .dshow{font-size:18px;padding:14px}}
+textarea{min-height:74px;resize:vertical;line-height:1.45}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;background:var(--bg);user-select:none}
+.chip input{width:auto;margin:0;accent-color:var(--green)}
+.chip:has(input:checked){border-color:var(--green);background:var(--green-soft);color:var(--green)}
+.toast{font-size:13px;color:var(--green);min-height:1.2em}
+.toast.err{color:var(--warn)}
+.upload{background:var(--hero);border-radius:16px;padding:20px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.upload code{font-size:12px;background:var(--card);padding:2px 6px;border-radius:4px;word-break:break-all}
+.daycard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.daycard .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.daycard h3{font-size:20px}
+.kv{display:grid;grid-template-columns:100px 1fr;gap:4px 12px;font-size:14px}
+.kv dt{color:var(--faint);font-size:12px;padding-top:2px;letter-spacing:.04em}
+.kv dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;min-width:0}
+.notes{border-left:3px solid var(--green-2);background:var(--green-soft);padding:12px 14px;border-radius:0 10px 10px 0;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.notes .eyebrow{color:var(--green)}
+.notes ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.notes p{white-space:pre-wrap;overflow-wrap:anywhere}
+.idea{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.idea:first-child{border-top:0}
+.idea .d{font-size:11px;color:var(--faint);flex:none;padding-top:3px;font-variant-numeric:tabular-nums}
+.idea span{flex:1;min-width:0;overflow-wrap:anywhere}
+.idea button{background:none;border:0;color:var(--faint);cursor:pointer;font-size:16px;line-height:1}
+.empty{color:var(--muted);font-size:14px;padding:10px 0}
+.cta{background:var(--hero);border-radius:16px;padding:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.cta h3{font-size:22px}
+.cta p{color:var(--muted);max-width:50ch}
+.foot{color:var(--faint);font-size:13px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;margin-top:10px}
+.view{display:flex;flex-direction:column;gap:22px}
+/* modal */
+.ovl{position:fixed;inset:0;background:rgba(20,28,25,.45);display:none;align-items:flex-start;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));z-index:20;overflow:auto}
+.ovl.open{display:flex}
+.modal{background:var(--card);border-radius:18px;width:100%;max-width:640px;padding:24px;display:flex;flex-direction:column;gap:16px;margin:auto 0}
+.modal .mh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.modal .mh h2{font-size:28px}
+.modal form{display:flex;flex-direction:column;gap:12px}
+.modal .acts{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:4px}
+.x{background:var(--bg);border:1px solid var(--line);border-radius:8px;width:32px;height:32px;cursor:pointer;color:var(--muted);font-size:18px;line-height:1}
+.tabbar{display:none}
+.files{display:flex;flex-direction:column;gap:10px}
+.fbtns{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.fbtn{display:flex;flex-direction:column;align-items:center;gap:4px;border:1px dashed var(--line-2);border-radius:12px;padding:14px 8px;background:var(--bg);cursor:pointer;text-align:center;font-size:13px;font-weight:500;color:var(--ink)}
+.fbtn small{font-weight:400;color:var(--muted);font-size:11px}
+.fbtn input{display:none}
+.fbtn svg{width:22px;height:22px;color:var(--green)}
+.fbtn:hover{border-color:var(--green-2)}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px}
+.th{position:relative;width:78px;height:78px;border-radius:10px;overflow:hidden;background:var(--line);display:grid;place-items:center;flex:none}
+.th img{width:100%;height:100%;object-fit:cover;display:block}
+.th.aud,.th.vid{background:var(--green-soft);color:var(--green);font-size:11px;text-align:center;padding:4px;font-weight:600;line-height:1.2}
+.th .rm{position:absolute;top:2px;right:2px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:50%;width:20px;height:20px;font-size:13px;line-height:1;cursor:pointer}
+.th.up{background:var(--peach);color:var(--peach-ink);font-size:11px;text-align:center;padding:4px}
+.aud-list{display:flex;flex-direction:column;gap:6px}
+.aud-list audio{width:100%;max-width:100%;height:36px}
+.aud-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.aud-row span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* PIN gate (website only) */
+#gate{position:fixed;inset:0;z-index:40;background:var(--hero);display:grid;place-items:center;padding:24px}
+#gate .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;width:100%;max-width:360px;display:flex;flex-direction:column;gap:14px;text-align:center}
+#gate .brand{justify-content:center}
+#gate input{font-size:26px;letter-spacing:8px;text-align:center;padding:12px}
+#gate .err{color:var(--warn);min-height:20px;font-size:14px}
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  aside{position:static;height:auto;min-width:0;width:100%;padding:12px max(16px,env(safe-area-inset-left,0px)) 8px;gap:8px;flex-direction:row;align-items:center;justify-content:space-between}
+  aside nav,aside .side-card,aside .side-foot{display:none}
+  .brand b{font-size:18px}
+  main{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .tabbar{display:grid;grid-template-columns:repeat(7,1fr);position:fixed;left:0;right:0;bottom:0;z-index:15;background:var(--card);border-top:1px solid var(--line);padding:6px max(6px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px))}
+  .tabbar button{background:none;border:0;font:inherit;font-size:10px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;border-radius:10px;cursor:pointer;min-width:0}
+  .tabbar button svg{width:22px;height:22px}
+  .tabbar button.on{color:var(--green);background:var(--green-soft)}
+  h1{font-size:30px}
+  .pagehead{flex-direction:column;align-items:stretch}
+  .pagehead .btn{justify-content:center}
+  input,select,textarea{font-size:16px;padding:12px}
+  .btn{padding:12px 16px}
+  .seg .opts button{padding:9px 4px}
+  .hero{grid-template-columns:1fr}.hero svg{max-height:160px}
+  .two{grid-template-columns:1fr}.row{grid-template-columns:1fr}
+  .upload{grid-template-columns:1fr}
+  .film{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr}.kv dt{padding-top:6px}
+  body{font-size:18px}
+  h1{font-size:36px}h2{font-size:30px}h3{font-size:22px}
+  .small{font-size:15.5px}.eyebrow,.crumb{font-size:13px}
+  .brand .mark{width:44px;height:44px;font-size:20px}.brand b{font-size:24px}.brand span{font-size:11px}
+  .btn{font-size:17px;padding:14px 18px}.btn.sm{font-size:15px;padding:9px 14px}
+  input,select,textarea{font-size:18px;padding:14px}
+  .tabbar{padding-top:8px}
+  .tabbar button{font-size:12.5px;gap:4px;padding:8px 2px}
+  .tabbar button svg{width:28px;height:28px}
+  .mini{padding:6px 14px 6px 8px;gap:8px;font-size:18px}
+  .mini input{width:96px;font-size:18px;padding:8px 10px}
+  .mini b{font-size:20px}
+  .sync .av{width:40px;height:40px;font-size:17px}
+  main{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
 
-<section id="gate">
-  <div class="box">
-    <h1>Trip Hub</h1>
-    <p>Scratch &amp; Roam, China December 2026</p>
-    <input id="pin" type="password" inputmode="numeric" autocomplete="current-password" placeholder="PIN" aria-label="PIN">
-    <button class="btn wide" id="go">Open</button>
-    <div class="err" id="perr"></div>
-  </div>
-</section>
+<div id="gate" hidden><form class="box" id="gateForm"><div class="brand"><div class="mark">s</div><div style="text-align:left"><b>scratch &amp; roam</b><span>with Natali</span></div></div><h2 style="font-size:28px">China Trip Studio</h2><input type="password" id="pin" inputmode="numeric" autocomplete="current-password" placeholder="PIN" aria-label="PIN"><button class="btn primary" type="submit" id="pinGo" style="justify-content:center">Open</button><div class="err" id="pinErr"></div></form></div>
 
-<div id="app" class="hide">
-  <nav class="side">
-    <h2>Trip Hub</h2>
-    <a data-v="today" class="on">Today</a>
-    <a data-v="days">All days</a>
-    <a data-v="help">How it works</a>
-    <div class="foot">Uploads go straight into your Dropbox day folders. Claude sorts them every night at 23:07 China time.</div>
-  </nav>
+<div class="app">
+  <aside>
+    <div class="brand"><div class="mark">s</div><div><b>scratch &amp; roam</b><span>with Natali</span></div></div>
+    <nav id="nav">
+      <div class="lbl eyebrow">My workspace</div>
+      <button data-v="overview"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5v4.5l3 2"/></svg>Overview</button>
+      <button data-v="daily"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h12v12H4z"/><path d="M7 9h6M7 12h4"/></svg>Daily log<span class="n" id="nDays"></span></button>
+      <button data-v="calendar"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>Trip calendar</button>
+      <button data-v="places"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 17s-5-4.5-5-9a5 5 0 0 1 10 0c0 4.5-5 9-5 9z"/><circle cx="10" cy="8" r="1.8"/></svg>Places &amp; shows<span class="n" id="nPlaces"></span></button>
+      <button data-v="videos"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="10" height="10" rx="2"/><path d="M13 9l4-2v6l-4-2z"/></svg>Video planner</button>
+      <button data-v="checklist"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h3M4 10h3M4 14h3M9 6h7M9 10h7M9 14h7"/></svg>My checklist</button>
+      <button data-v="expenses"><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h12v9H4zM4 7l2-3h8l2 3M8 11h4"/></svg>Expenses &amp; tickets</button>
+    </nav>
+    <div class="side-card"><div class="stars">✳ ✳</div><b>The little adventures become big stories.</b><p class="small">December 2026 · China</p><div class="burst"></div></div>
+    <div class="side-foot">
+      <button type="button" id="jumpUpload">↑ Upload today's files</button>
+      <a class="small" style="padding:6px 12px;color:var(--muted);text-decoration:none" href="https://wanderlog.com/plan/dduggalhhdzkbzcp/trip-to-xian-chengdu-and-more/shared" target="_blank" rel="noopener">↗ Wanderlog trip</a>
+    </div>
+  </aside>
+
   <main>
-    <section id="v-today">
-      <div class="dayhead">
-        <button class="arrow" id="prev" aria-label="Previous day">&lsaquo;</button>
-        <div class="t"><h1 id="dtitle">Day</h1><div class="sub" id="dsub"></div></div>
-        <button class="arrow" id="next" aria-label="Next day">&rsaquo;</button>
-      </div>
-
-      <div class="card">
-        <h3>Add to this day</h3>
-        <div class="addrow">
-          <label class="btn"><span>Photos &amp; videos</span><small>from your gallery</small>
-            <input type="file" id="fMedia" accept="image/*,video/*,.lrf,.LRF" multiple class="hide"></label>
-          <label class="btn sage"><span>Voice memo</span><small>record or pick</small>
-            <input type="file" id="fVoice" accept="audio/*,.m4a,.mp3,.aac,.amr" multiple class="hide"></label>
-        </div>
-        <label class="btn ghost wide"><span>Any other file (Amap screenshot, ticket, PDF)</span>
-          <input type="file" id="fAny" multiple class="hide"></label>
-        <div class="q" id="queue"></div>
-        <div class="warn hide" id="keep">Keep this page open and the screen on until every file says Done.</div>
-      </div>
-
-      <div class="card">
-        <h3>Note for today</h3>
-        <textarea id="note" placeholder="Where you went, what you ate, what you filmed, anything funny, ideas for posts..."></textarea>
-        <button class="btn wide" id="saveNote">Save note</button>
-      </div>
-
-      <div class="card">
-        <h3>From Claude</h3>
-        <div id="claude"><div class="empty">Loading...</div></div>
-      </div>
-
-      <div class="card">
-        <h3>Your notes</h3>
-        <div id="mine"><div class="empty">Loading...</div></div>
-      </div>
-
-      <div class="card">
-        <h3>Uploaded <span id="cnt" class="pill"></span></h3>
-        <div class="grid" id="files"></div>
-      </div>
-    </section>
-
-    <section id="v-days" class="hide">
-      <h1 style="font-size:26px;margin-bottom:14px">All days</h1>
-      <div class="card days" id="dayList"><div class="empty">Loading...</div></div>
-    </section>
-
-    <section id="v-help" class="hide">
-      <h1 style="font-size:26px;margin-bottom:14px">How it works</h1>
-      <div class="card help">
-        <ol>
-          <li>Pick the day (it opens on today, China time). Add photos, videos and voice memos, and type a note.</li>
-          <li>Everything goes straight into the matching Dropbox day folder. You do not need the Dropbox app or Claude.</li>
-          <li>Every night at 23:07 China time Claude sorts the files, transcribes voice memos, reads Amap screenshots and edits one short.</li>
-          <li>Next morning, "From Claude" on that day shows what was done, post ideas, and what is waiting for you in Metricool.</li>
-          <li>Nothing goes live until you approve it in Metricool.</li>
-        </ol>
-        <p class="empty">Big videos: upload on hotel WiFi and keep the screen on. If the page will not open, try again with the VPN on.</p>
-      </div>
-    </section>
+    <div class="topbar">
+      <div class="crumb">My travels &nbsp;/&nbsp; <b>China 2026</b></div>
+      <div class="sync"><span class="cloud" id="cloud">Connecting to the hub store</span><span class="av">N</span></div>
+    </div>
+    <div id="view" class="view"></div>
+    <div class="foot"><span>✳ &nbsp;Made for the journey, not just the destination.</span><span>Scratch &amp; Roam with Natali · China 2026</span></div>
   </main>
-  <div class="tabs">
-    <a data-v="today" class="on">Today</a>
-    <a data-v="days">All days</a>
-    <a data-v="help">Help</a>
-  </div>
 </div>
 
+<nav class="tabbar" id="tabbar" aria-label="Sections">
+  <button data-v="overview"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5v4.5l3 2"/></svg>Home</button>
+  <button data-v="daily"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h12v12H4z"/><path d="M7 9h6M7 12h4"/></svg>Daily</button>
+  <button data-v="calendar"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>Dates</button>
+  <button data-v="places"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 17s-5-4.5-5-9a5 5 0 0 1 10 0c0 4.5-5 9-5 9z"/><circle cx="10" cy="8" r="1.8"/></svg>Places</button>
+  <button data-v="videos"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="10" height="10" rx="2"/><path d="M13 9l4-2v6l-4-2z"/></svg>Videos</button>
+  <button data-v="checklist"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h3M4 10h3M4 14h3M9 6h7M9 10h7M9 14h7"/></svg>Checklist</button>
+  <button data-v="expenses"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h12v9H4zM4 7l2-3h8l2 3M8 11h4"/></svg>Money</button>
+</nav>
+
+<div class="ovl" id="ovl" role="dialog" aria-modal="true"><div class="modal" id="modal"></div></div>
+
 <script>
-(() => {
-const $ = s => document.querySelector(s);
-const API = "/trip/api/";
-const CHUNK = 8 * 1024 * 1024;
-let DAYS = [], cur = null, uploading = 0, wake = null;
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function todayISO(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+  var WD=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function P(iso){var p=iso.split('-');return new Date(+p[0],+p[1]-1,+p[2])}
+  function shortD(iso){if(!iso)return '';var d=P(iso);return d.getDate()+' '+MO[d.getMonth()]}
+  function longD(iso){var d=P(iso);return d.getDate()+' '+MO[d.getMonth()]+' '+d.getFullYear()}
 
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const dmy = iso => { const [y, m, d] = iso.split("-"); return `${d}/${m}/${y}`; };
-const chinaToday = () => new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);
-function toast(t) { const e = document.createElement("div"); e.className = "toast"; e.textContent = t; document.body.appendChild(e); setTimeout(() => e.remove(), 2600); }
+  /* files live in Dropbox and are served through this site, so they open in China too */
+  var API='/trip/api/';
+  function TH(id){return API+'blob?t=1&id='+encodeURIComponent(id)}
+  function FULL(id){return API+'blob?id='+encodeURIComponent(id)}
 
-async function call(path, opt = {}) {
-  const r = await fetch(API + path, { credentials: "same-origin", ...opt });
-  if (r.status === 401 && !path.startsWith("login")) { showGate(); throw new Error("PIN needed"); }
-  let j = {}; try { j = await r.json(); } catch {}
-  if (!r.ok) throw new Error(j.error || ("Error " + r.status));
-  return j;
-}
+  var CITIES=['Chengdu','Chongqing',"Xi'an",'Travel','Other'];
+  var TYPES={hotel:'Hotel',attraction:'Attraction',show:'Show / performance',food:'Food',transport:'Transport',other:'Other'};
+  var STATUS={idea:'Idea',planned:'Planning',booked:'Booked',done:'Visited'};
+  var FILM={'not-started':'Not filmed','shot-list':'Shot list ready',filmed:'Filmed',edited:'Edited'};
+  var STAGE={idea:'Idea',planned:'Planned',filmed:'Filmed',editing:'Editing',published:'Published'};
+  var PRIO={high:'Must do',medium:'Would love to',low:'Maybe'};
 
-// ---- PIN ----
-function showGate() { $("#gate").classList.remove("hide"); $("#app").classList.add("hide"); setTimeout(() => $("#pin").focus(), 50); }
-async function tryPin() {
-  $("#perr").textContent = ""; $("#go").disabled = true;
-  try { await call("login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin: $("#pin").value.trim() }) }); start(); }
-  catch (e) { $("#perr").textContent = e.message; }
-  $("#go").disabled = false;
-}
-$("#go").onclick = tryPin;
-$("#pin").onkeydown = e => { if (e.key === "Enter") tryPin(); };
+  var S={places:{},videos:{},tasks:{},days:{},notes:{},ideas:{},expenses:{},estimates:[],rate:0.127,meta:{notes:''},loaded:false};
+  var db=null,view='overview',pf={city:'all',type:'all'};
+  var h=(location.hash||'').slice(1);if(['overview','daily','calendar','places','videos','checklist','expenses'].indexOf(h)>-1)view=h;
 
-// ---- views ----
-document.querySelectorAll("[data-v]").forEach(a => a.onclick = () => view(a.dataset.v));
-function view(v) {
-  ["today", "days", "help"].forEach(k => $("#v-" + k).classList.toggle("hide", k !== v));
-  document.querySelectorAll("[data-v]").forEach(a => a.classList.toggle("on", a.dataset.v === v));
-  if (v === "days") loadDays(true);
-  scrollTo(0, 0);
-}
+  /* ---------- rendering ---------- */
+  function tag(cls,txt){return '<span class="tag '+cls+'">'+esc(txt)+'</span>'}
+  function placeMeta(p){var m=p.city;if(p.date)m+=' · '+shortD(p.date)+(p.end?'–'+shortD(p.end):'');else m+=' · Date to add';if(p.time)m+=' · '+p.time;return m}
+  function sortedPlaces(){return Object.keys(S.places).map(function(k){return Object.assign({id:k},S.places[k])}).sort(function(a,b){return (a.order||99)-(b.order||99)||(a.date||'9').localeCompare(b.date||'9')})}
+  function sortedVideos(){return Object.keys(S.videos).map(function(k){return Object.assign({id:k},S.videos[k])}).sort(function(a,b){return (a.order||99)-(b.order||99)})}
+  function sortedTasks(){return Object.keys(S.tasks).map(function(k){return Object.assign({id:k},S.tasks[k])}).sort(function(a,b){return (a.order||99)-(b.order||99)||(a.createdAt||'').localeCompare(b.createdAt||'')})}
+  function sortedDays(){return Object.keys(S.days).sort().reverse().map(function(k){return Object.assign({id:k},S.days[k],{_note:S.notes[k]||null})})}
 
-async function loadDays(render) {
-  const j = await call("days"); DAYS = j.days;
-  if (render) {
-    const t = chinaToday();
-    $("#dayList").innerHTML = DAYS.map(d => {
-      const c = d.counts, bits = [];
-      if (c.photo) bits.push(c.photo + " photo" + (c.photo > 1 ? "s" : ""));
-      if (c.video) bits.push(c.video + " video" + (c.video > 1 ? "s" : ""));
-      if (c.voice) bits.push(c.voice + " voice");
-      if (c.note) bits.push(c.note + " note" + (c.note > 1 ? "s" : ""));
-      return `<div class="row ${d.date === t ? "today" : ""}" data-n="${d.n}"><div class="num">${+d.n}</div>
-        <div class="t"><b>${esc(d.label)}</b><span>${dmy(d.date)}${bits.length ? " · " + bits.join(", ") : ""}</span></div>
-        ${c.claude ? '<span class="pill done">Claude done</span>' : (d.total ? '<span class="pill">Waiting</span>' : "")}</div>`;
-    }).join("");
-    $("#dayList").querySelectorAll(".row").forEach(r => r.onclick = () => { openDay(r.dataset.n); view("today"); });
+  function rOverview(){
+    var pl=sortedPlaces(),stays=pl.filter(function(p){return p.type==='hotel'}),exp=pl.filter(function(p){return p.type!=='hotel'});
+    var tk=sortedTasks(),done=tk.filter(function(t){return t.done}).length,pct=tk.length?Math.round(done/tk.length*100):0;
+    var vids=sortedVideos(),days=sortedDays();var today=todayISO(),todayLogged=!!S.days[today];
+    return '<div class="pagehead"><div class="t"><span class="eyebrow dot">Your travel control room</span><h1>China, here we come.</h1><p class="lead">All your stays, adventures, filming plans and little details in one lovely place.</p></div><button class="btn primary" data-act="addPlace">+ Add a place</button></div>'+
+    '<div class="hero"><div class="t"><span class="eyebrow">✦ &nbsp;The December edition</span><h2>Three cities.<br><em>So many stories.</em></h2><p>Twenty-four days from a Chengdu apartment: Chongqing\'s electric skyline, Xi\'an\'s ancient wonders, and Christmas back in Chengdu.</p><div class="route"><span>Chengdu</span><i>→</i><span>Chongqing</span><i>→</i><span>Xi\'an</span><i>→</i><span>Chengdu</span></div></div>'+
+    '<svg viewBox="0 0 320 170" aria-hidden="true"><defs><linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9DB9A0"/><stop offset="1" stop-color="#C9D9C8"/></linearGradient></defs><circle cx="236" cy="62" r="34" fill="#F1D9C3"/><path d="M0 170 Q 80 110 160 150 T 320 140 V170 Z" fill="url(#gr)" opacity=".8"/><g fill="#5E8A6E"><rect x="140" y="80" width="26" height="90" rx="3"/><rect x="172" y="56" width="22" height="114" rx="3"/><rect x="200" y="96" width="18" height="74" rx="3"/><rect x="224" y="70" width="24" height="100" rx="3"/><rect x="254" y="108" width="16" height="62" rx="3"/><rect x="276" y="86" width="22" height="84" rx="3"/></g><g stroke="#F6F7F3" stroke-width="1.5" opacity=".6"><path d="M0 150h320M0 158h320M0 166h320"/></g><text x="306" y="150" text-anchor="end" font-family="Fraunces,Georgia,serif" font-size="22" fill="#F6F7F3" letter-spacing="3">CHINA</text><text x="306" y="164" text-anchor="end" font-family="DM Sans,sans-serif" font-size="9" fill="#F6F7F3" letter-spacing="3">2026</text></svg></div>'+
+    '<div class="stats">'+
+      stat('peach','<path d="M4 15V7l6-3 6 3v8M8 15v-4h4v4"/>',pad(stays.length),'Stays on the list','places')+
+      stat('green','<path d="M10 17s-5-4.5-5-9a5 5 0 0 1 10 0c0 4.5-5 9-5 9z"/>',pad(exp.length),'Places &amp; experiences','places')+
+      stat('lav','<rect x="3" y="5" width="10" height="10" rx="2"/><path d="M13 9l4-2v6l-4-2z"/>',pad(vids.length),'Video concepts','videos')+
+      stat('sky','<circle cx="10" cy="10" r="7"/><path d="M7 10l2 2 4-4"/>',pct+'<small style="font-size:16px">%</small>','Checklist complete','checklist')+
+    '</div>'+
+    '<div class="cta"><div><span class="eyebrow dot">Tonight</span><h3>'+(todayLogged?'Today is logged. Claude goes through it overnight.':'Finished exploring? Log today and upload your files.')+'</h3><p>'+(days.length?days.length+' day'+(days.length>1?'s':'')+' logged so far, '+Object.keys(S.notes).length+' with Claude\'s notes.':'Every evening: upload, write what happened, save. The sorting and post ideas appear the next morning.')+'</p></div><button class="btn primary" data-go="daily">'+(todayLogged?'Open the daily log':'Log today')+'</button></div>'+
+    '<details class="panel" style="padding:0"><summary style="padding:16px 20px;cursor:pointer;font-weight:600;list-style:none">📱 &nbsp;Put this on your phone home screen, and the China internet rules</summary><div style="padding:0 20px 20px;display:flex;flex-direction:column;gap:10px;font-size:14px"><p><b>Android:</b> open scratchandroam.com/trip in Chrome, tap the three dots, then "Add to Home screen". It opens like an app and remembers your PIN for 60 days.</p><p><b>iPhone:</b> open it in Safari, tap Share, then "Add to Home Screen".</p><p><b>In China:</b> this page lives on your own website, not on Claude, so you never need to open Claude there. It may even open without the VPN; if it does not, turn the VPN on and reload. Everything you upload goes straight into your Dropbox day folders. If nothing loads at all, write the day in your phone Notes app and paste it in later. Photos and voice memos stay on the phone until you can upload, nothing is lost.</p><p><b>Amap screenshots:</b> take one at every place you film (the pin with the Chinese name and address). Upload them with the photos. Claude reads them overnight and records the location against the day, so the blog pages get real addresses.</p></div></details>'+
+    '<div class="two"><div class="panel"><div class="ph"><div><span class="eyebrow">Where you\'ll rest</span><h3>Your stays</h3></div><button class="btn ghost sm" data-go="places">View all →</button></div><div class="list">'+
+      (stays.length?stays.map(function(p){return '<div class="li"><div class="tx"><b>'+esc(p.name)+'</b><span>'+esc(placeMeta(p))+'</span></div>'+tag(p.status,STATUS[p.status]||p.status)+'</div>'}).join(''):'<p class="empty">No stays yet.</p>')+
+    '</div></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">Keep it moving</span><h3>Next on your list</h3></div><button class="btn ghost sm" data-go="checklist">Checklist →</button></div><div class="list">'+
+      (tk.filter(function(t){return !t.done}).slice(0,5).map(function(t){return '<label class="task"><input type="checkbox" data-task="'+esc(t.id)+'"><span>'+esc(t.text)+'</span></label>'}).join('')||'<p class="empty">Everything is ticked off.</p>')+
+    '</div><p class="small muted">'+done+' of '+tk.length+' completed</p></div></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">The highlight reel</span><h3>Experiences worth capturing</h3></div><button class="btn ghost sm" data-go="places">All places →</button></div><div class="grid">'+
+      exp.slice(0,4).map(function(p){return '<div class="pcard"><div class="top"><span class="type">'+esc(p.city)+'</span>'+tag(p.status,STATUS[p.status]||p.status)+'</div><h3>'+esc(p.name)+'</h3><p class="meta">'+esc(TYPES[p.type]||p.type)+'</p></div>'}).join('')+
+    '</div></div>';
   }
-}
+  function pad(n){return n<10?'0'+n:''+n}
+  function stat(c,path,num,label,go){return '<div class="stat"><div class="ic '+c+'"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6">'+path+'</svg></div><b>'+num+'</b><span>'+label+'<button type="button" data-go="'+go+'" aria-label="Open">→</button></span></div>'}
 
-function pickDefault() {
-  const t = chinaToday();
-  const d = DAYS.find(x => x.date === t) || (t < DAYS[0].date ? DAYS[0] : t > DAYS[DAYS.length - 1].date ? DAYS[DAYS.length - 1] : DAYS[0]);
-  return d.n;
-}
-
-function md(t) {
-  const lines = String(t).split(/\r?\n/); let out = "", inUl = false;
-  const inline = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
-  for (const l of lines) {
-    if (/^\s*[-*]\s+/.test(l)) { if (!inUl) { out += "<ul>"; inUl = true; } out += "<li>" + inline(l.replace(/^\s*[-*]\s+/, "")) + "</li>"; continue; }
-    if (inUl) { out += "</ul>"; inUl = false; }
-    if (/^#{1,6}\s/.test(l)) out += "<h4>" + inline(l.replace(/^#+\s*/, "")) + "</h4>";
-    else if (l.trim()) out += "<p>" + inline(l) + "</p>";
+  function rCalendar(){
+    var pl=sortedPlaces(),dated=pl.filter(function(p){return p.date}),undated=pl.filter(function(p){return !p.date});
+    var byDate={};dated.forEach(function(p){(byDate[p.date]=byDate[p.date]||[]).push(p)});
+    var dates=Object.keys(byDate).sort();
+    var range='5–29 December 2026';
+    return '<div class="pagehead"><div class="t"><span class="eyebrow dot">The journey, day by day</span><h1>Your trip calendar.</h1><p class="lead">Every confirmed date in order, with room for spontaneous discoveries.</p></div><button class="btn primary" data-act="addPlace">+ Add a place</button></div>'+
+    '<div class="panel"><h3 style="font-size:24px">'+esc(range)+'</h3><p class="muted">Imported from Wanderlog. The Chengdu apartment is home base throughout; Chongqing 9 to 13 Dec, Xi\'an 14 to 18 Dec, Christmas at the Global Center.</p></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">Work in progress</span><h3>Scheduled stops</h3></div><span class="small muted">'+dated.length+' entries</span></div><div class="cal">'+
+      (dates.map(function(d){var dt=P(d);return '<div class="calday"><div class="d"><b>'+dt.getDate()+'</b><span>'+MO[dt.getMonth()]+'</span></div><div class="e"><span class="wd">'+WD[dt.getDay()]+' · '+longD(d)+(S.days[d]?' · <b style="color:var(--green)">logged</b>':'')+'</span>'+byDate[d].map(function(p){return '<div class="li" style="border:1px solid var(--line);border-radius:12px;padding:12px 14px"><div class="tx"><b>'+esc(p.name)+'</b><span>'+esc(placeMeta(p))+'</span></div>'+tag(p.status,STATUS[p.status])+'</div>'}).join('')+'</div></div>'}).join('')||'<p class="empty">Nothing dated yet.</p>')+
+    '</div></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">Dates still to decide</span><h3>Undated</h3></div><span class="small muted">'+undated.length+' entries</span></div><div class="list">'+
+      undated.map(function(p){return '<div class="li"><div class="tx"><b>'+esc(p.name)+'</b><span>'+esc(p.city)+' · '+esc(TYPES[p.type]||p.type)+'</span></div><button class="btn sm" data-edit="'+esc(p.id)+'">Add date</button></div>'}).join('')+
+    '</div></div>'+
+    '<div class="cta"><div><span class="eyebrow">✳</span><h3>Leave room for the unexpected.</h3><p>The best stories often happen between your plans. Make a little space for surprises.</p></div><button class="btn" data-act="addPlace">Add a stop</button></div>';
   }
-  if (inUl) out += "</ul>";
-  return out;
-}
-const when = iso => iso ? new Date(new Date(iso).getTime() + 8 * 3600e3).toISOString().slice(0, 16).replace("T", " ").replace(/^(\d{4})-(\d\d)-(\d\d)/, "$3/$2/$1") + " China" : "";
 
-async function openDay(n) {
-  cur = n;
-  const i = DAYS.findIndex(d => d.n === n), d = DAYS[i];
-  $("#dtitle").textContent = `Day ${+d.n} · ${d.label}`;
-  $("#dsub").textContent = dmy(d.date) + (d.date === chinaToday() ? " · today" : "");
-  $("#prev").disabled = i === 0; $("#next").disabled = i === DAYS.length - 1;
-  $("#claude").innerHTML = $("#mine").innerHTML = '<div class="empty">Loading...</div>'; $("#files").innerHTML = ""; $("#cnt").textContent = "";
-  try {
-    const j = await call("day?n=" + n);
-    if (cur !== n) return;
-    const cl = j.texts.filter(t => t.kind === "claude"), mine = j.texts.filter(t => t.kind === "note");
-    $("#claude").innerHTML = cl.length ? cl.map(t => `<div class="note claude"><div class="meta">${when(t.at)}</div><div class="md">${md(t.text)}</div></div>`).join("")
-      : '<div class="empty">Nothing yet. Claude writes here after the nightly run (23:07 China time) once you have uploaded something.</div>';
-    $("#mine").innerHTML = mine.length ? mine.map(t => `<div class="note"><div class="meta">${when(t.at)}</div><div class="md">${md(t.text)}</div></div>`).join("") : '<div class="empty">No notes yet.</div>';
-    $("#cnt").textContent = j.files.length || "";
-    $("#files").innerHTML = j.files.length ? j.files.map(f => {
-      const ic = { video: "🎬", voice: "🎙️", file: "📄", photo: "🖼️" }[f.kind] || "📄";
-      const img = f.kind === "photo" ? `<img loading="lazy" alt="" src="${API}thumb?id=${encodeURIComponent(f.id)}" onerror="this.remove()">` : "";
-      return `<div class="tile" title="${esc(f.name)}">${img}<div class="ic">${ic}</div><div class="fn">${esc(f.name)}</div></div>`;
-    }).join("") : '<div class="empty">Nothing uploaded for this day yet.</div>';
-  } catch (e) { $("#claude").innerHTML = `<div class="empty">Could not load: ${esc(e.message)}</div>`; $("#mine").innerHTML = ""; }
-}
-$("#prev").onclick = () => { const i = DAYS.findIndex(d => d.n === cur); if (i > 0) openDay(DAYS[i - 1].n); };
-$("#next").onclick = () => { const i = DAYS.findIndex(d => d.n === cur); if (i < DAYS.length - 1) openDay(DAYS[i + 1].n); };
-
-// ---- notes ----
-$("#saveNote").onclick = async () => {
-  const text = $("#note").value.trim(); if (!text) return;
-  $("#saveNote").disabled = true;
-  try { await call("note", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ n: cur, text }) });
-    $("#note").value = ""; localStorage.removeItem("tripNote"); toast("Note saved"); openDay(cur); }
-  catch (e) { toast("Not saved: " + e.message); }
-  $("#saveNote").disabled = false;
-};
-// keep an unsaved note if the page reloads
-try { $("#note").value = localStorage.getItem("tripNote") || ""; } catch {}
-$("#note").oninput = () => { try { localStorage.setItem("tripNote", $("#note").value); } catch {} };
-
-// ---- uploads ----
-["#fMedia", "#fVoice", "#fAny"].forEach(s => $(s).onchange = e => { const fs = [...e.target.files]; e.target.value = ""; fs.forEach(f => queue(f, cur)); });
-const jobs = []; let running = false;
-function queue(file, n) {
-  const row = document.createElement("div"); row.className = "qi";
-  row.innerHTML = `<div class="nm">${esc(file.name)}</div><div class="bar"><i></i></div><div class="st">Waiting</div>`;
-  $("#queue").prepend(row);
-  jobs.push({ file, n, row }); run();
-}
-async function run() {
-  if (running) return; running = true; $("#keep").classList.remove("hide");
-  try { if ("wakeLock" in navigator) wake = await navigator.wakeLock.request("screen"); } catch {}
-  while (jobs.length) { const j = jobs.shift(); await upload(j); }
-  running = false; $("#keep").classList.add("hide");
-  try { wake && wake.release(); } catch {} wake = null;
-  if (cur) openDay(cur);
-}
-async function post(path, body, tries = 4) {
-  for (let a = 1; ; a++) {
-    try { return await call(path, { method: "POST", headers: { "Content-Type": "application/octet-stream" }, body }); }
-    catch (e) { if (a >= tries || e.message === "PIN needed") throw e; await new Promise(r => setTimeout(r, 1500 * a)); }
+  function rPlaces(){
+    var pl=sortedPlaces();
+    var shown=pl.filter(function(p){return (pf.city==='all'||p.city===pf.city)&&(pf.type==='all'||p.type===pf.type)});
+    function fb(k,v,l){return '<button data-pf="'+k+'" data-val="'+esc(v)+'" class="'+(pf[k]===v?'on':'')+'">'+esc(l)+'</button>'}
+    return '<div class="pagehead"><div class="t"><span class="eyebrow dot">Your China wishlist</span><h1>Places, sights &amp; shows.</h1><p class="lead">Discover it. Add it. Plan it. Film it. Every stop belongs here.</p></div><button class="btn primary" data-act="addPlace">+ Add a place</button></div>'+
+    '<div class="filters">'+fb('city','all','All cities')+CITIES.map(function(c){return fb('city',c,c)}).join('')+'</div>'+
+    '<div class="filters">'+fb('type','all','All types')+Object.keys(TYPES).map(function(t){return fb('type',t,TYPES[t])}).join('')+'</div>'+
+    '<div class="small muted">'+shown.length+' of '+pl.length+' places &nbsp;·&nbsp; ✦ Ideas can become plans, then bookings</div>'+
+    '<div class="grid">'+shown.map(function(p){
+      return '<div class="pcard"><div class="top">'+tag(p.status,STATUS[p.status]||p.status)+'<span class="type">'+esc(TYPES[p.type]||p.type)+'</span></div><h3>'+esc(p.name)+'</h3><p class="meta">'+esc(placeMeta(p))+(p.price?' · '+esc(p.price):'')+'</p>'+(p.notes?'<p class="desc">'+esc(p.notes)+'</p>':'')+
+      seg('Trip status','status',p.id,STATUS,p.status)+seg('Filming','film',p.id,FILM,p.film)+
+      '<div class="foot">'+(p.link?'<a class="btn sm" href="'+esc(p.link)+'" target="_blank" rel="noopener">Booking link</a>':'')+'<button class="btn sm" data-edit="'+esc(p.id)+'">Edit details</button></div></div>'}).join('')+'</div>';
   }
-}
-async function upload({ file, n, row }) {
-  const bar = row.querySelector("i"), st = row.querySelector(".st");
-  const set = (p, t, c) => { bar.style.width = p + "%"; st.textContent = t; st.className = "st " + (c || ""); };
-  try {
-    set(1, "0%");
-    const size = file.size;
-    const first = file.slice(0, Math.min(CHUNK, size));
-    const { sid } = await post("up/start", first);
-    let off = first.size;
-    while (size - off > CHUNK) {
-      await post(`up/append?sid=${encodeURIComponent(sid)}&off=${off}`, file.slice(off, off + CHUNK));
-      off += CHUNK; set(Math.round(off / size * 100), Math.round(off / size * 100) + "%");
+  function seg(label,field,id,map,cur){return '<div class="seg"><span class="lbl">'+label+'</span><div class="opts">'+Object.keys(map).map(function(k){return '<button type="button" data-set="'+field+'" data-id="'+esc(id)+'" data-val="'+k+'" class="'+(cur===k?'on':'')+'">'+esc(map[k])+'</button>'}).join('')+'</div></div>'}
+
+  function rVideos(){
+    var v=sortedVideos();var counts={};Object.keys(STAGE).forEach(function(k){counts[k]=v.filter(function(x){return x.stage===k}).length});
+    return '<div class="pagehead"><div class="t"><span class="eyebrow dot">Behind the camera</span><h1>Your video studio.</h1><p class="lead">From first idea to final upload, keep each story moving.</p></div><button class="btn primary" data-act="addVideo">+ Add video idea</button></div>'+
+    '<div class="panel"><span class="eyebrow">Your production board</span><h3 style="font-size:24px">Every adventure has a story.</h3><p class="muted">Capture moments now and shape your longer YouTube videos after the journey.</p><div class="board"><div><b>'+v.length+'</b><span>Story ideas</span></div>'+Object.keys(STAGE).map(function(k){return '<div><b>'+counts[k]+'</b><span>'+STAGE[k]+'</span></div>'}).join('')+'</div></div>'+
+    '<div style="display:flex;flex-direction:column;gap:14px">'+v.map(function(x,i){
+      return '<div class="film"><span class="no">Film '+pad(i+1)+'</span><div class="b"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><h3>'+esc(x.title)+'</h3>'+tag(x.stage,STAGE[x.stage]||x.stage)+'</div><p class="meta">'+esc(x.kind||'')+(x.length?' &nbsp;·&nbsp; '+esc(x.length):'')+'</p>'+(x.desc?'<p class="desc">'+esc(x.desc)+'</p>':'')+
+      seg('Production stage','stage',x.id,STAGE,x.stage)+'<div class="foot" style="display:flex;justify-content:flex-end"><button class="btn sm" data-editv="'+esc(x.id)+'">Edit</button></div></div></div>'}).join('')+'</div>'+
+    '<div class="cta"><div><h3>Another story in mind?</h3><p>Add it now, decide its shape later.</p></div><button class="btn" data-act="addVideo">Add a video idea</button></div>';
+  }
+
+  function rChecklist(){
+    var tk=sortedTasks(),done=tk.filter(function(t){return t.done}).length,pct=tk.length?Math.round(done/tk.length*100):0;
+    return '<div class="pagehead"><div class="t"><span class="eyebrow dot">All the little details</span><h1>Before you go.</h1><p class="lead">A running list of things to book, prepare, film and remember.</p></div></div>'+
+    '<div class="two"><div class="panel"><span class="eyebrow">Travel prep</span><h3 style="font-size:24px">'+done+' of '+tk.length+' tasks complete</h3><p class="muted">One tick at a time. You\'ve got this, Natali.</p><div style="display:flex;align-items:center;gap:12px"><div class="progress" style="flex:1"><div style="width:'+pct+'%"></div></div><b style="font-family:var(--serif);font-size:22px">'+pct+'%</b></div></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">Your scratchpad</span><h3>Notes to self</h3></div><span class="small muted" id="noteSaved">✦ Changes save automatically</span></div><textarea id="metaNotes" rows="7" placeholder="Addresses, restaurant recommendations and everything else you don\'t want to forget.">'+esc(S.meta.notes||'')+'</textarea></div></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">To-do list</span><h3>Things to sort</h3></div><span class="small muted">'+tk.length+' tasks</span></div><div class="list">'+
+      tk.map(function(t){return '<label class="task"><input type="checkbox" data-task="'+esc(t.id)+'"'+(t.done?' checked':'')+'><span>'+esc(t.text)+'</span><button type="button" data-deltask="'+esc(t.id)+'" aria-label="Delete task">×</button></label>'}).join('')+
+    '</div><form id="taskForm" style="display:flex;gap:8px"><input type="text" id="taskText" placeholder="Add a task" required><button class="btn primary" type="submit">Add</button></form></div>';
+  }
+
+  /* ---------- expenses ---------- */
+  var ECATS={transport:'Transport',hotel:'Hotels',tickets:'Attractions & shows',food:'Food & drink',shopping:'Shopping',sim:'SIM, VPN, apps',other:'Other'};
+  var ECITIES=['Chengdu','Chongqing',"Xi'an",'Travel','Other'];
+  var ef={city:'all',cat:'all'};
+  function sortedExp(){return Object.keys(S.expenses||{}).map(function(k){return Object.assign({id:k},S.expenses[k])}).sort(function(a,b){return (b.date||'').localeCompare(a.date||'')||(b.createdAt||'').localeCompare(a.createdAt||'')})}
+  function toEur(e){var y=+e.cny||0;return e.eur?+e.eur:y*(S.rate||0.127)}
+  function fmtY(n){return '¥'+Math.round(n).toLocaleString('en-IE')}
+  function fmtE(n){return '€'+(Math.round(n)).toLocaleString('en-IE')}
+  function rExpenses(){
+    var all=sortedExp(),rate=S.rate||0.127;
+    var shown=all.filter(function(e){return (ef.city==='all'||e.city===ef.city)&&(ef.cat==='all'||e.cat===ef.cat)});
+    var tot=all.reduce(function(s,e){return s+toEur(e)},0),totY=all.reduce(function(s,e){return s+(+e.cny||0)},0);
+    var byCity={};all.forEach(function(e){byCity[e.city]=(byCity[e.city]||0)+toEur(e)});
+    var byCat={};all.forEach(function(e){byCat[e.cat]=(byCat[e.cat]||0)+toEur(e)});
+    function fb(k,v,l){return '<button data-ef="'+k+'" data-val="'+esc(v)+'" class="'+(ef[k]===v?'on':'')+'">'+esc(l)+'</button>'}
+    var est=S.estimates||[];
+    var estTot=est.reduce(function(s,x){return s+(+x.cny||0)},0);
+    return '<div class="pagehead"><div class="t"><span class="eyebrow dot">Money</span><h1>Expenses &amp; tickets.</h1><p class="lead">Snap every ticket and receipt here. Amounts in yuan, converted at the rate below. Totals are for all three of you unless you mark one as per person.</p></div><button class="btn primary" data-act="addExp">+ Add expense</button></div>'+
+    '<div class="panel conv"><span class="eyebrow">Quick convert</span><div class="row" style="align-items:end"><label class="f">Yuan<input type="number" inputmode="decimal" id="cvY" placeholder="¥" value="100"></label><label class="f">Euro<input type="number" inputmode="decimal" id="cvE" placeholder="€"></label></div><div class="chips" id="cvChips">'+[10,20,50,100,200,500,1000].map(function(v){return '<span class="chip" data-cv="'+v+'">¥'+v+' = €'+(v*rate).toFixed(v<100?2:0)+'</span>'}).join('')+'</div><p class="small muted">Rate '+rate+' EUR per yuan (1 € = ¥'+(1/rate).toFixed(2)+'). Edit it in the tile below when you check the real rate.</p></div>'+
+    '<div class="stats"><div class="stat"><div class="ic peach"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h12v9H4zM4 7l2-3h8l2 3M8 11h4"/></svg></div><b>'+fmtE(tot)+'</b><span>Spent so far · '+fmtY(totY)+'</span></div>'+
+      '<div class="stat"><div class="ic green"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7"/><path d="M10 6v8M7 10h6"/></svg></div><b>'+fmtE(tot/3)+'</b><span>Per person</span></div>'+
+      '<div class="stat"><div class="ic lav"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 15l4-5 3 3 3-6 4 8z"/></svg></div><b>'+fmtE(estTot*rate)+'</b><span>Planned (estimates below)</span></div>'+
+      '<div class="stat"><div class="ic sky"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7"/><path d="M7 10h6"/></svg></div><b style="font-size:22px"><input type="number" step="0.001" id="rateIn" value="'+rate+'" style="width:90px;font-family:var(--serif);font-size:22px;padding:2px 6px"></b><span>EUR per 1 CNY (edit)</span></div></div>'+
+    '<div class="two"><div class="panel"><span class="eyebrow">By city</span><div class="list">'+ECITIES.filter(function(c){return byCity[c]}).map(function(c){return '<div class="li"><div class="tx"><b>'+esc(c)+'</b></div><span>'+fmtE(byCity[c])+'</span></div>'}).join('')+(Object.keys(byCity).length?'':'<p class="empty">Nothing logged yet.</p>')+'</div></div>'+
+    '<div class="panel"><span class="eyebrow">By category</span><div class="list">'+Object.keys(ECATS).filter(function(c){return byCat[c]}).map(function(c){return '<div class="li"><div class="tx"><b>'+esc(ECATS[c])+'</b></div><span>'+fmtE(byCat[c])+'</span></div>'}).join('')+(Object.keys(byCat).length?'':'<p class="empty">Nothing logged yet.</p>')+'</div></div></div>'+
+    '<div class="filters">'+fb('city','all','All cities')+ECITIES.map(function(c){return fb('city',c,c)}).join('')+'</div>'+
+    '<div class="filters">'+fb('cat','all','All types')+Object.keys(ECATS).map(function(c){return fb('cat',c,ECATS[c])}).join('')+'</div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">Ledger</span><h3>Every ticket and receipt</h3></div><span class="small muted">'+shown.length+' of '+all.length+'</span></div><div class="list">'+
+      (shown.length?shown.map(function(e){var im=e.receipt?'<a class="th" style="width:56px;height:56px" href="'+esc(FULL(e.receipt))+'" target="_blank" rel="noopener"><img src="'+esc(TH(e.receipt))+'" alt="receipt" loading="lazy"></a>':'<div class="th" style="width:56px;height:56px;font-size:11px;color:var(--faint)">no photo</div>';
+        return '<div class="li" style="align-items:flex-start"><div style="display:flex;gap:12px;min-width:0">'+im+'<div class="tx"><b>'+esc(e.title)+'</b><span>'+esc(shortD(e.date))+' · '+esc(e.city)+' · '+esc(ECATS[e.cat]||e.cat)+(e.perPerson?' · per person ×3':'')+(e.note?' · '+esc(e.note):'')+'</span></div></div><div style="text-align:right;flex:none"><b style="font-variant-numeric:tabular-nums">'+fmtY(e.cny)+'</b><br><span class="small muted">'+fmtE(toEur(e))+'</span><br><button class="btn sm ghost" data-editexp="'+esc(e.id)+'">Edit</button></div></div>'}).join(''):'<p class="empty">No expenses yet. Tap "Add expense", snap the ticket, type the amount.</p>')+
+    '</div></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">Before you spend</span><h3>Estimates for 3 people</h3></div><span class="small muted">'+fmtY(estTot)+' · about '+fmtE(estTot*rate)+'</span></div><p class="small muted">Researched November 2026 from 12306 fare checks and 2026 ticket guides. Train fares vary by train and sell out at holidays; book on Trip.com or the 12306 app as soon as tickets open (14 days before). Tap a row to log it as a real expense once paid.</p><div class="list">'+
+      est.map(function(x,i){return '<div class="li" data-est="'+i+'" style="cursor:pointer"><div class="tx"><b>'+esc(x.title)+'</b><span>'+esc(x.city)+' · '+esc(ECATS[x.cat]||x.cat)+(x.note?' · '+esc(x.note):'')+'</span></div><div style="text-align:right;flex:none"><b style="font-variant-numeric:tabular-nums">'+fmtY(x.cny)+'</b><br><span class="small muted">'+fmtE(x.cny*rate)+'</span></div></div>'}).join('')+
+    '</div></div>';
+  }
+  function expForm(e,prefill){e=e||{};var isNew=!e.id;var p=prefill||{};
+    openModal('<div class="mh"><div><span class="eyebrow">Expenses</span><h2>'+(isNew?'Add expense':'Edit expense')+'</h2></div><button class="x" type="button" data-close>×</button></div><form id="eForm">'+
+    '<div class="files"><div class="fbtns"><label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 13l4-4 3 3 2-2 5 5"/></svg>Add the ticket or receipt<small>take a photo, or pick a screenshot or image from your gallery</small><input type="file" id="eRec" accept="image/*"></label></div><div class="thumbs" id="eThumb">'+(e.receipt?'<div class="th"><img src="'+esc(TH(e.receipt))+'" alt=""></div>':'')+'</div></div>'+
+    '<label class="f">What *<input id="eTitle" required value="'+esc(e.title||p.title||'')+'" placeholder="Train Chengdu East to Chongqing West, 3 × 2nd class"></label>'+
+    '<div class="row"><label class="f">Amount in yuan *<input id="eCny" type="number" min="0" step="0.01" inputmode="decimal" required value="'+esc(e.cny||p.cny||'')+'"></label><label class="f">Or in euro (if you paid in EUR)<input id="eEur" type="number" min="0" step="0.01" inputmode="decimal" value="'+esc(e.eur||'')+'"></label></div>'+
+    '<div class="row"><label class="f">Date<input type="date" id="eDate" value="'+esc(e.date||todayISO())+'"></label><label class="f">City<select id="eCity">'+ECITIES.map(function(c){return '<option'+((e.city||p.city||'Chengdu')===c?' selected':'')+'>'+esc(c)+'</option>'}).join('')+'</select></label></div>'+
+    '<div class="row"><label class="f">Category<select id="eCat">'+opts(ECATS,e.cat||p.cat||'tickets')+'</select></label><label class="f" style="justify-content:flex-end"><span class="chip" style="margin-top:18px"><input type="checkbox" id="ePP"'+(e.perPerson?' checked':'')+'> Amount is per person (×3)</span></label></div>'+'<p class="small muted" style="margin:4px 0 0">Transport, hotel and ticket bookings with a date also appear in Places and Dates automatically.</p>'+
+    '<label class="f">Note<input id="eNote" value="'+esc(e.note||'')+'" placeholder="Booking ref, seat numbers, who paid"></label>'+
+    '<div class="acts">'+(isNew?'<span></span>':'<button class="btn ghost" type="button" data-delexp="'+esc(e.id)+'">Delete</button>')+'<div style="display:flex;gap:8px"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit" id="eSave">'+(isNew?'Add':'Save')+'</button></div><span class="toast" id="eToast"></span></div></form>');
+    var receipt=e.receipt||'';
+    $('eRec').addEventListener('change',function(ev){var f=ev.target.files[0];if(!f)return;
+      $('eThumb').innerHTML='<div class="th up">Uploading…</div>';$('eSave').disabled=true;
+      assets.upload(f,{dir:'receipts',onProgress:function(x){var t=$('eThumb').firstChild;if(t)t.textContent='Uploading '+Math.round(x*100)+'%'}}).then(function(r){receipt=r.id;$('eThumb').innerHTML='<div class="th"><img src="'+esc(r.url)+'" alt=""></div>';$('eSave').disabled=false}).catch(function(){$('eThumb').innerHTML='';$('eSave').disabled=false;$('eToast').textContent='Photo upload failed; try again on WiFi.'})});
+    $('eForm').addEventListener('submit',function(ev){ev.preventDefault();if(!need())return;
+      var pp=$('ePP').checked,cny=parseFloat($('eCny').value)||0,eur=parseFloat($('eEur').value)||0;
+      var d={title:$('eTitle').value.trim(),cny:pp?cny*3:cny,eur:pp?eur*3:eur,perPerson:pp,date:$('eDate').value,city:$('eCity').value,cat:$('eCat').value,note:$('eNote').value.trim(),receipt:receipt,createdAt:e.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};
+      var ref=isNew?db.collection('expenses').doc():db.doc('expenses/'+e.id);ref.set(d).then(function(){return syncPlace(ref.id,d)}).then(closeModal).catch(function(){$('eToast').textContent='Could not save.'})});
+  }
+
+  /* bookings logged in Money also appear in Places and Dates, no double entry */
+  var PSYNC={transport:'transport',hotel:'hotel',tickets:'attraction'};
+  function syncPlace(expId,d){
+    var pid='x-'+expId,ref=db.doc('places/'+pid);
+    if(!PSYNC[d.cat]||!d.date){return ref.get().then(function(sn){if(sn.exists&&sn.data().fromExpense===expId)return ref.delete()}).catch(function(){})}
+    var price=(d.cny?'¥'+Math.round(d.cny):'')+(d.eur?(d.cny?' / ':'')+'€'+d.eur.toFixed(2):'')+(d.perPerson?' for 3':'');
+    var fields={name:d.title,city:d.city,type:PSYNC[d.cat],date:d.date,status:'booked',price:price,notes:d.note||'',fromExpense:expId,updatedAt:new Date().toISOString()};
+    return ref.get().then(function(sn){
+      if(sn.exists)return ref.update(fields);
+      return ref.set(Object.assign({end:'',time:'',prio:'normal',film:'not-started',link:'',order:80},fields));
+    }).catch(function(){toast('Expense saved; could not add it to Places.',true)});
+  }
+
+  function rDaily(){
+    var days=sortedDays(),ideas=Object.keys(S.ideas).map(function(k){return Object.assign({id:k},S.ideas[k])}).sort(function(a,b){return (b.createdAt||'').localeCompare(a.createdAt||'')});
+    return '<div class="pagehead"><div class="t"><span class="eyebrow dot">Every evening</span><h1>Daily log &amp; content drop.</h1><p class="lead">Upload the day\'s photos and videos, write what happened, save. Overnight Claude sorts the files, logs them and leaves post ideas under that day.</p></div></div>'+
+    '<div class="panel"><span class="eyebrow">Step 1 · Drop today\'s content here</span><form id="dayForm"><div class="row"><label class="f">Date<input type="date" id="fDate" required></label><label class="f">City<select id="fCity"><option>Chengdu</option><option>Chongqing</option><option>Xi\'an</option><option>Travel day</option><option>Other</option></select></label></div>'+
+    '<div class="files"><div class="fbtns">'+
+      '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 13l4-4 3 3 2-2 5 5"/><circle cx="13" cy="8" r="1.3"/></svg>Photos &amp; Amap screenshots<small>pick many at once</small><input type="file" id="upImg" accept="image/*" multiple></label>'+
+      '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2.5" width="6" height="9" rx="3"/><path d="M4.5 9.5a5.5 5.5 0 0 0 11 0M10 15v2.5"/></svg>Voice memo<small>record, then pick the file</small><input type="file" id="upAud" accept="audio/*,.m4a,.mp3,.wav,.aac,.ogg,.webm,.amr" multiple></label>'+
+      '<label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="10" height="10" rx="2"/><path d="M13 9l4-2v6l-4-2z"/></svg>Videos<small>any size, incl. DJI .LRF</small><input type="file" id="upVid" accept="video/*,.mp4,.mov,.lrf,.LRF" multiple></label>'+
+    '</div><div class="thumbs" id="thumbs"></div><p class="small muted" id="upNote">Files go straight into the Dropbox folder for the date above as soon as they upload (saved even before you press Save). Keep this page open and the screen on until every file has finished. Voice memos: record in the phone Recorder, then pick the file here. Keep talking naturally, Claude transcribes it overnight.</p></div>'+
+    '<div class="upload" id="uploadBox" style="padding:14px 16px"><div><b style="font-weight:600">Big batches and backups</b><p class="small muted">Everything can go through this page now, even long videos (hotel WiFi, screen on). If this page will not load, use the Dropbox upload page instead (no sign-in, companions can use it too); files land in <code>01_RAW/China/2026-12_PHONE-INBOX</code> and Claude files them overnight. Google Drive is the last backup.</p><p class="small muted"><b>DJI Pocket 3:</b> upload only the small <code>.LRF</code> proxy files from the card (USB-C card reader into the phone). The 4K originals stay on the microSD cards until home. <b>DJI Osmo Nano:</b> 128 GB built in, so empty it to the phone every two or three days (USB-C or the Mimo app); upload its <code>.LRF</code> proxies the same way.</p></div><div style="display:flex;flex-direction:column;gap:8px"><a class="btn" href="https://www.dropbox.com/request/7mt2mrxu60rij1v5yjip" target="_blank" rel="noopener">Dropbox upload ↗</a><a class="btn" href="https://drive.google.com/drive/folders/1K0V-wXjDGwmTLnT5Qnp8lLO8NxRfC3eO" target="_blank" rel="noopener">Drive backup folder ↗</a></div></div>'+
+    '<span class="eyebrow" style="margin-top:6px">Step 2 · Tell Claude about it (type, or just talk into a voice memo)</span>'+
+    '<label class="f">Where we went<textarea id="fPlaces" placeholder="Hotel Indigo check-in, Hongya Cave at night, hotpot at ..."></textarea></label>'+
+    '<label class="f">Locations (Amap name or address, paste or type; screenshots above also work)<textarea id="fLoc" rows="2" placeholder="洪崖洞 Hongya Cave, 88 Jiabin Rd, Yuzhong District"></textarea></label>'+
+    '<label class="f">What I filmed and photographed<textarea id="fFilmed" placeholder="Room tour, river view from the window, 3 vertical clips of the monorail, hotpot close-ups"></textarea></label>'+
+    '<label class="f">Stories, facts, things that went wrong<textarea id="fStory" placeholder="Alipay refused at the metro, DiDi driver went to the wrong gate, the Diamond upgrade we actually got ..."></textarea></label>'+
+    '<div class="row"><label class="f">Food and prices<textarea id="fFood" placeholder="Hotpot for 3: 280 yuan. Best thing: ..."></textarea></label><label class="f">Ideas you had today<textarea id="fIdeas" placeholder="Reel: expectations vs reality at Hongya Cave"></textarea></label></div>'+
+    '<div><span class="eyebrow">Who appears in the footage</span><div class="chips" style="margin-top:8px"><label class="chip"><input type="checkbox" id="fMe">Me</label><label class="chip"><input type="checkbox" id="fHusband">Husband</label><label class="chip"><input type="checkbox" id="fFamily">Family or friends</label><label class="chip"><input type="checkbox" id="fNone">Nobody, just places</label></div></div>'+
+    '<div class="row"><label class="f">Roughly how many files uploaded<input type="number" id="fCount" min="0" inputmode="numeric" placeholder="e.g. 40"></label><label class="f">Priority for Claude tonight<select id="fEnergy"><option value="normal">Normal: sort, log, suggest posts</option><option value="quick">Quick post tomorrow: pick the best idea</option><option value="longform">Long-form day: plan a YouTube video</option><option value="skip">Nothing much, just sort files</option></select></label></div>'+
+    '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn primary" type="submit" id="saveBtn">Save today\'s log</button><button class="btn ghost" type="button" id="clearBtn">Clear</button><span class="toast" id="toast" role="status"></span></div></form></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">Any time</span><h3>Quick idea</h3></div></div><form id="ideaForm" style="display:flex;gap:8px"><input type="text" id="ideaText" placeholder="The thought you have on the metro" required><button class="btn primary" type="submit">Add</button></form><div class="list">'+
+      (ideas.length?ideas.map(function(d){return '<div class="idea"><span class="d">'+esc((d.date||'').slice(5))+'</span><span>'+esc(d.text)+(d.status==='picked'?' '+tag('done','picked'):'')+'</span><button type="button" data-delidea="'+esc(d.id)+'" aria-label="Remove">×</button></div>'}).join(''):'<p class="empty">No ideas saved yet.</p>')+
+    '</div></div>'+
+    '<div class="panel"><div class="ph"><div><span class="eyebrow">The trip so far</span><h3>Days and Claude\'s notes</h3></div><span class="small muted">newest first</span></div>'+
+      (days.length?days.map(function(d){
+        var who=[d.me&&'Natali',d.husband&&'husband',d.family&&'family or friends',d.nobody&&'nobody, just places'].filter(Boolean).join(', ');var n=d._note;var kv='';
+        [['Where',d.places],['Locations',d.loc],['Filmed',d.filmed],['Stories',d.story],['Food',d.food],['Her ideas',d.ideas],['In frame',who],['Dropbox',d.fileCount?d.fileCount+' files uploaded':''],['Priority',d.priority]].forEach(function(p){if(p[1])kv+='<dt>'+esc(p[0])+'</dt><dd>'+esc(p[1])+'</dd>'});
+        var files=Array.isArray(d.files)?d.files:[];var imgs=files.filter(function(f){return f.kind==='image'}),auds=files.filter(function(f){return f.kind==='audio'}),vids=files.filter(function(f){return f.kind==='video'||f.kind==='other'});
+        var att='';if(files.length){att='<div class="files"><span class="eyebrow">'+files.length+' file'+(files.length>1?'s':'')+' in Dropbox</span>'+(imgs.length?'<div class="thumbs">'+imgs.map(function(f){return '<a class="th" href="'+esc(FULL(f.id))+'" target="_blank" rel="noopener"><img src="'+esc(TH(f.id))+'" alt="'+esc(f.name)+'" loading="lazy"></a>'}).join('')+'</div>':'')+(vids.length?'<div class="thumbs">'+vids.map(function(f){return '<a class="th vid" href="'+esc(FULL(f.id))+'" target="_blank" rel="noopener">▶ '+esc(f.name.slice(0,18))+'</a>'}).join('')+'</div>':'')+(auds.length?'<div class="aud-list">'+auds.map(function(f){return '<div class="aud-row"><span>'+esc(f.name)+(f.transcript?' · transcribed':'')+'</span><audio controls preload="none" src="'+esc(FULL(f.id))+'"></audio></div>'+(f.transcript?'<p class="small muted" style="white-space:pre-wrap">'+esc(f.transcript)+'</p>':'')}).join('')+'</div>':'')+'</div>'}
+        var notes='';if(n){notes='<div class="notes"><span class="eyebrow">Claude\'s notes</span>'+(n.summary?'<p>'+esc(n.summary)+'</p>':'')+(n.sorted?'<p class="small muted">'+esc(n.sorted)+'</p>':'')+(n.locations?'<p class="small"><b>Locations:</b> '+esc(n.locations)+'</p>':'')+(Array.isArray(n.postIdeas)&&n.postIdeas.length?'<span class="small muted">Post ideas</span><ul>'+n.postIdeas.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')+(n.metricool?'<p class="small"><b>Waiting for you in Metricool:</b> '+esc(n.metricool)+'</p>':'')+(n.transcripts?'<p class="small muted" style="white-space:pre-wrap">'+esc(n.transcripts)+'</p>':'')+(n.failed?'<p class="small" style="color:var(--warn)">'+esc(n.failed)+'</p>':'')+(n.questions?'<p><b>Question for you:</b> '+esc(n.questions)+'</p>':'')+'</div>'}
+        return '<div class="daycard"><div class="top"><div><h3>'+esc(d.city||'')+'</h3><span class="small muted">'+esc(WD[P(d.id).getDay()])+' · '+esc(longD(d.id))+'</span></div>'+(n?tag('done','Claude has notes'):tag('idea','waiting for overnight run'))+'</div><dl class="kv">'+kv+'</dl>'+att+notes+'<div style="display:flex;justify-content:flex-end"><button class="btn sm" data-editday="'+esc(d.id)+'">Edit this day</button></div></div>'
+      }).join(''):'<p class="empty">No days logged yet. The first one appears here as soon as you save.</p>')+
+    '</div>';
+  }
+
+  function render(){
+    var el=$('view');
+    el.innerHTML=({overview:rOverview,daily:rDaily,calendar:rCalendar,places:rPlaces,videos:rVideos,checklist:rChecklist,expenses:rExpenses})[view]();
+    if(view==='expenses'){var rt=null;$('rateIn').addEventListener('input',function(){clearTimeout(rt);var v=parseFloat($('rateIn').value);if(!v||!db)return;rt=setTimeout(function(){S.rate=v;db.doc('meta/rate').set({rate:v,updatedAt:new Date().toISOString()}).catch(function(){})},700)});
+      var r=S.rate||0.127;function y2e(){var y=parseFloat($('cvY').value);$('cvE').value=isNaN(y)?'':(y*r).toFixed(2)}function e2y(){var e=parseFloat($('cvE').value);$('cvY').value=isNaN(e)?'':(e/r).toFixed(0)}
+      $('cvY').addEventListener('input',y2e);$('cvE').addEventListener('input',e2y);y2e();
+      $('cvChips').addEventListener('click',function(e){var c=e.target.closest('[data-cv]');if(c){$('cvY').value=c.dataset.cv;y2e()}})}
+    document.querySelectorAll('#nav button,#tabbar button').forEach(function(b){b.classList.toggle('on',b.dataset.v===view)});
+    $('nPlaces').textContent=Object.keys(S.places).length||'';$('nDays').textContent=Object.keys(S.days).length||'';
+    if(view==='daily'){
+      $('fDate').value=todayISO();
+      try{var dr=JSON.parse(localStorage.getItem('cts-draft')||'null');if(dr)fillForm(dr)}catch(e){}
+      $('dayForm').addEventListener('input',function(){try{localStorage.setItem('cts-draft',JSON.stringify(readForm()))}catch(e){}});
+      $('dayForm').addEventListener('submit',saveDay);
+      $('clearBtn').addEventListener('click',function(){$('dayForm').reset();$('fDate').value=todayISO();try{localStorage.removeItem('cts-draft')}catch(e){};renderThumbs()});
+      ['upImg','upAud','upVid'].forEach(function(id){$(id).addEventListener('change',function(e){attachFiles(e.target.files);e.target.value=''})});
+      $('fDate').addEventListener('change',renderThumbs);
+      renderThumbs();
+      $('ideaForm').addEventListener('submit',function(e){e.preventDefault();var t=$('ideaText').value.trim();if(!t||!need())return;db.collection('ideas').add({text:t,date:todayISO(),createdAt:new Date().toISOString(),status:'new'}).then(function(){$('ideaText').value=''}).catch(function(){toast('Could not save the idea.',true)})});
     }
-    const last = file.slice(off, size);
-    const name = file.name || ("upload-" + Date.now());
-    await post(`up/finish?sid=${encodeURIComponent(sid)}&off=${off}&n=${n}&name=${encodeURIComponent(name)}`, last);
-    set(100, "Done", "ok");
-  } catch (e) { set(100, "Failed", "bad"); row.title = e.message; toast(file.name + ": " + e.message); }
-}
-window.addEventListener("beforeunload", e => { if (running) { e.preventDefault(); e.returnValue = ""; } });
-document.addEventListener("visibilitychange", async () => { if (running && document.visibilityState === "visible") { try { wake = await navigator.wakeLock.request("screen"); } catch {} } });
+    if(view==='checklist'){
+      $('taskForm').addEventListener('submit',function(e){e.preventDefault();var t=$('taskText').value.trim();if(!t||!need())return;db.collection('tasks').add({text:t,done:false,createdAt:new Date().toISOString(),order:99}).then(function(){$('taskText').value=''}).catch(function(){})});
+      var tm=null;$('metaNotes').addEventListener('input',function(){clearTimeout(tm);$('noteSaved').textContent='Saving…';var v=$('metaNotes').value;tm=setTimeout(function(){if(!db)return;S.meta.notes=v;db.doc('meta/notes').set({notes:v,updatedAt:new Date().toISOString()}).then(function(){$('noteSaved').textContent='✦ Saved'}).catch(function(){$('noteSaved').textContent='Could not save'})},800)});
+    }
+  }
 
-// ---- start ----
-async function start() {
-  try { await loadDays(false); } catch (e) { if (e.message === "PIN needed") return; $("#perr").textContent = e.message; showGate(); return; }
-  $("#gate").classList.add("hide"); $("#app").classList.remove("hide");
-  openDay(cur || pickDefault());
-}
-start();
+  /* dates shown as dd/mm/yyyy whatever the browser language is */
+  function dmy(iso){if(!iso)return 'dd/mm/yyyy';var p=iso.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+  setInterval(function(){document.querySelectorAll('input[type=date]').forEach(function(i){var w=i.parentNode;if(!w.classList.contains('dwrap')){w=document.createElement('span');w.className='dwrap';i.parentNode.insertBefore(w,i);var n=document.createElement('span');n.className='dshow';w.appendChild(n);w.appendChild(i);w.addEventListener('click',function(){try{i.showPicker()}catch(e){}})}var sp=w.firstChild,t=dmy(i.value);if(sp.textContent!==t)sp.textContent=t})},250);
+  /* ---------- forms ---------- */
+  var FIELDS=['fDate','fCity','fPlaces','fLoc','fFilmed','fStory','fFood','fIdeas','fCount','fEnergy'],BOX=['fMe','fHusband','fFamily','fNone'];
+
+  /* ---------- uploads: straight into the Dropbox day folder, in 8 MB pieces ---------- */
+  var CHUNK=8*1024*1024;
+  function postBin(path,body,tries){tries=tries||4;var a=0;
+    function go(){a++;return fetch(API+path,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/octet-stream'},body:body}).then(function(r){
+      if(r.status===401){showGate();throw new Error('PIN needed')}
+      return r.json().catch(function(){return {}}).then(function(j){if(!r.ok)throw new Error(j.error||('Error '+r.status));return j})
+    }).catch(function(err){if(a>=tries||err.message==='PIN needed')throw err;return new Promise(function(res){setTimeout(res,1500*a)}).then(go)})}
+    return go()}
+  var assets={
+    upload:function(file,o){o=o||{};var size=file.size,first=file.slice(0,Math.min(CHUNK,size)),off=0,sid='';
+      return postBin('up/start',first).then(function(j){sid=j.sid;off=first.size;if(o.onProgress)o.onProgress(off/Math.max(size,1));return loop()}).then(function(r){return {id:r.id,url:TH(r.id),sizeBytes:r.size,name:r.name}});
+      function loop(){
+        if(size-off>CHUNK){return postBin('up/append?sid='+encodeURIComponent(sid)+'&off='+off,file.slice(off,off+CHUNK)).then(function(){off+=CHUNK;if(o.onProgress)o.onProgress(off/size);return loop()})}
+        return postBin('up/finish?sid='+encodeURIComponent(sid)+'&off='+off+'&dir='+encodeURIComponent(o.dir||'')+'&name='+encodeURIComponent(file.name||('upload-'+Date.now())),file.slice(off,size))}
+    },
+    delete:function(){return Promise.resolve()} /* files are never deleted from Dropbox by the page */
+  };
+  var pending={},dbq=Promise.resolve(),busy=0,wake=null;
+  function kindOf(file){var t=(file.type||'').toLowerCase(),n=(file.name||'').toLowerCase();if(t.indexOf('image/')===0||/\.(heic|heif|jpe?g|png|webp)$/.test(n))return 'image';if(t.indexOf('audio/')===0||/\.(m4a|mp3|wav|aac|ogg|oga|opus|amr|3gp)$/.test(n))return 'audio';if(t.indexOf('video/')===0||/\.(mp4|mov|webm|lrf|m4v)$/.test(n))return 'video';return 'other'}
+  function renderThumbs(){var date=$('fDate')?$('fDate').value:'';var el=$('thumbs');if(!el)return;var files=(S.days[date]&&Array.isArray(S.days[date].files))?S.days[date].files:[];
+    el.innerHTML=files.map(function(f){var inner=f.kind==='image'?'<img src="'+esc(TH(f.id))+'" alt="">':(f.kind==='audio'?'🎙 '+esc(f.name.slice(0,14)):'▶ '+esc(f.name.slice(0,14)));return '<div class="th '+(f.kind==='audio'?'aud':f.kind!=='image'?'vid':'')+'">'+inner+'<button type="button" class="rm" data-rmfile="'+esc(f.id)+'" aria-label="Remove">×</button></div>'}).join('')+
+      Object.keys(pending).map(function(k){return '<div class="th up" data-pk="'+esc(k)+'">'+esc(pending[k])+'</div>'}).join('');}
+  function setPending(key,text){pending[key]=text;var el=document.querySelector('[data-pk="'+(window.CSS&&CSS.escape?CSS.escape(key):key)+'"]');if(el)el.textContent=text;else renderThumbs()}
+  function holdScreen(on){if(on){busy++;if(busy===1){try{navigator.wakeLock.request('screen').then(function(w){wake=w}).catch(function(){})}catch(e){}}}else{busy=Math.max(0,busy-1);if(!busy&&wake){try{wake.release()}catch(e){}wake=null}}}
+  document.addEventListener('visibilitychange',function(){if(busy&&document.visibilityState==='visible'){try{navigator.wakeLock.request('screen').then(function(w){wake=w}).catch(function(){})}catch(e){}}});
+  window.addEventListener('beforeunload',function(e){if(busy){e.preventDefault();e.returnValue=''}});
+  var upQ=Promise.resolve();
+  function attachFiles(list){
+    if(!need())return;
+    var date=$('fDate').value;if(!date){toast('Pick a date first.',true);return}
+    var city=$('fCity').value;
+    Array.prototype.slice.call(list).forEach(function(file){
+      var kind=kindOf(file);
+      var key=file.name+'|'+file.size+'|'+Date.now();setPending(key,'Waiting '+file.name.slice(0,10));
+      holdScreen(true);
+      upQ=upQ.catch(function(){}).then(function(){
+        setPending(key,'0% '+file.name.slice(0,10));
+        return assets.upload(file,{dir:'day:'+date,onProgress:function(x){setPending(key,Math.round(x*100)+'% '+file.name.slice(0,10))}});
+      }).then(function(res){
+        var ref=db.doc('days/'+date);return (dbq=dbq.catch(function(){}).then(function(){return ref.get()}).then(function(snap){
+          var cur=snap.exists?Object.assign({},snap.data()):{city:city,createdAt:new Date().toISOString(),reviewed:false,placeholder:true};
+          var files=Array.isArray(cur.files)?cur.files.slice():[];files.push({id:res.id,name:res.name||file.name,kind:kind,size:res.sizeBytes,type:file.type||'',uploadedAt:new Date().toISOString()});
+          cur.files=files;cur.savedAt=new Date().toISOString();cur.reviewed=false;return ref.set(cur)}));
+      }).then(function(){delete pending[key];holdScreen(false);toast(file.name+' saved to Dropbox for '+longD(date)+'.');renderThumbs()})
+      .catch(function(err){delete pending[key];holdScreen(false);renderThumbs();toast('Upload failed for '+file.name+(err&&err.message?' ('+err.message+')':'')+'. Try again on better WiFi.',true)});
+    });
+  }
+  function removeFile(id){if(!need())return;var date=$('fDate').value;var ref=db.doc('days/'+date);ref.get().then(function(snap){if(!snap.exists)return;var cur=Object.assign({},snap.data());cur.files=(cur.files||[]).filter(function(f){return f.id!==id});return ref.set(cur)}).then(function(){renderThumbs();toast('Removed from the hub. The file stays safe in Dropbox.')}).catch(function(){toast('Could not remove the file.',true)})}
+  function readForm(){var o={};FIELDS.forEach(function(k){o[k]=$(k).value});BOX.forEach(function(k){o[k]=$(k).checked});return o}
+  function fillForm(o){FIELDS.forEach(function(k){if(o[k]!==undefined&&o[k]!==null)$(k).value=o[k]});BOX.forEach(function(k){$(k).checked=!!o[k]})}
+  function toast(m,err){var t=$('toast');if(!t)return;t.textContent=m;t.className='toast'+(err?' err':'')}
+  function need(){if(!db){toast('Not connected yet. Check the internet (or turn the VPN on) and reload.',true);return false}return true}
+  function saveDay(e){
+    e.preventDefault();if(!need())return;var f=readForm(),id=f.fDate;if(!id){toast('Pick a date.',true);return}
+    var ex=S.days[id]||{};var data={city:f.fCity,places:f.fPlaces.trim(),loc:f.fLoc.trim(),filmed:f.fFilmed.trim(),story:f.fStory.trim(),food:f.fFood.trim(),ideas:f.fIdeas.trim(),me:f.fMe,husband:f.fHusband,family:f.fFamily,nobody:f.fNone,fileCount:f.fCount?+f.fCount:0,priority:f.fEnergy,files:Array.isArray(ex.files)?ex.files:[],savedAt:new Date().toISOString(),createdAt:ex.createdAt||new Date().toISOString(),reviewed:false};
+    $('saveBtn').disabled=true;toast('Saving');
+    db.doc('days/'+id).set(data).then(function(){toast('Saved '+longD(id)+'. Claude will go through it tonight.');try{localStorage.removeItem('cts-draft')}catch(x){};$('saveBtn').disabled=false}).catch(function(){$('saveBtn').disabled=false;toast('Could not save. Try again in a moment.',true)});
+  }
+
+  function openModal(html){$('modal').innerHTML=html;$('ovl').classList.add('open');var f=$('modal').querySelector('input,select,textarea');if(f)f.focus()}
+  function closeModal(){$('ovl').classList.remove('open');rerenderSoft()}
+  $('ovl').addEventListener('click',function(e){if(e.target===$('ovl'))closeModal()});
+  function opts(map,cur){return Object.keys(map).map(function(k){return '<option value="'+k+'"'+(cur===k?' selected':'')+'>'+esc(map[k])+'</option>'}).join('')}
+  function placeForm(p){p=p||{};var isNew=!p.id;
+    openModal('<div class="mh"><div><span class="eyebrow">My travel plans</span><h2>'+(isNew?'Add a new stop':'Edit details')+'</h2></div><button class="x" type="button" data-close>×</button></div><form id="pForm">'+
+    '<label class="f">Name of place, hotel or experience *<input id="pName" required placeholder="e.g. Terracotta Warriors" value="'+esc(p.name)+'"></label>'+
+    '<div class="row"><label class="f">City<select id="pCity">'+CITIES.map(function(c){return '<option'+((p.city||'Chongqing')===c?' selected':'')+'>'+esc(c)+'</option>'}).join('')+'</select></label><label class="f">Type<select id="pType">'+opts(TYPES,p.type||'attraction')+'</select></label></div>'+
+    '<div class="row"><label class="f">Date / check-in<input type="date" id="pDate" value="'+esc(p.date)+'"></label><label class="f">End date / check-out<input type="date" id="pEnd" value="'+esc(p.end)+'"></label></div>'+
+    '<div class="row"><label class="f">Time<input type="time" id="pTime" value="'+esc(p.time)+'"></label><label class="f">Priority<select id="pPrio">'+opts(PRIO,p.prio||'medium')+'</select></label></div>'+
+    '<div class="row"><label class="f">Trip status<select id="pStatus">'+opts(STATUS,p.status||'idea')+'</select></label><label class="f">Filming<select id="pFilm">'+opts(FILM,p.film||'not-started')+'</select></label></div>'+
+    '<div class="row"><label class="f">Price / budget<input id="pPrice" placeholder="e.g. ¥180" value="'+esc(p.price)+'"></label><label class="f">Booking / website link<input id="pLink" type="url" placeholder="https://…" value="'+esc(p.link)+'"></label></div>'+
+    '<label class="f">Notes, shot list &amp; booking details<textarea id="pNotes" placeholder="What do you want to film, check or remember?">'+esc(p.notes)+'</textarea></label>'+
+    '<div class="acts">'+(isNew?'<span></span>':'<button class="btn ghost" type="button" data-delplace="'+esc(p.id)+'">Delete</button>')+'<div style="display:flex;gap:8px"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">'+(isNew?'Add to my plans':'Save changes')+'</button></div></div></form>');
+    $('pForm').addEventListener('submit',function(e){e.preventDefault();if(!need())return;
+      var d={name:$('pName').value.trim(),city:$('pCity').value,type:$('pType').value,date:$('pDate').value,end:$('pEnd').value,time:$('pTime').value,prio:$('pPrio').value,status:$('pStatus').value,film:$('pFilm').value,price:$('pPrice').value.trim(),link:$('pLink').value.trim(),notes:$('pNotes').value.trim(),order:p.order||99,updatedAt:new Date().toISOString()};
+      var ref=isNew?db.collection('places').doc():db.doc('places/'+p.id);ref.set(d).then(closeModal).catch(function(){alertIn('Could not save.')})});
+  }
+  function videoForm(v){v=v||{};var isNew=!v.id;
+    openModal('<div class="mh"><div><span class="eyebrow">Video planner</span><h2>'+(isNew?'Add a video idea':'Edit video')+'</h2></div><button class="x" type="button" data-close>×</button></div><form id="vForm">'+
+    '<label class="f">Working title *<input id="vTitle" required value="'+esc(v.title)+'" placeholder="e.g. Inside Chongqing\'s brand-new Hotel Indigo"></label>'+
+    '<div class="row"><label class="f">Kind<input id="vKind" value="'+esc(v.kind)+'" placeholder="Hotel review, City vlog, Comparison"></label><label class="f">Target length<input id="vLen" value="'+esc(v.length)+'" placeholder="20–25 min"></label></div>'+
+    '<label class="f">Production stage<select id="vStage">'+opts(STAGE,v.stage||'idea')+'</select></label>'+
+    '<label class="f">What it covers<textarea id="vDesc">'+esc(v.desc)+'</textarea></label>'+
+    '<div class="acts">'+(isNew?'<span></span>':'<button class="btn ghost" type="button" data-delvideo="'+esc(v.id)+'">Delete</button>')+'<div style="display:flex;gap:8px"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">'+(isNew?'Add idea':'Save changes')+'</button></div></div></form>');
+    $('vForm').addEventListener('submit',function(e){e.preventDefault();if(!need())return;
+      var d={title:$('vTitle').value.trim(),kind:$('vKind').value.trim(),length:$('vLen').value.trim(),stage:$('vStage').value,desc:$('vDesc').value.trim(),order:v.order||99,updatedAt:new Date().toISOString()};
+      var ref=isNew?db.collection('videos').doc():db.doc('videos/'+v.id);ref.set(d).then(closeModal).catch(function(){alertIn('Could not save.')})});
+  }
+  function alertIn(m){var a=$('modal').querySelector('.acts');if(a){var s=document.createElement('span');s.className='toast err';s.textContent=m;a.appendChild(s)}}
+
+  /* ---------- events ---------- */
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-v],[data-go],[data-act],[data-edit],[data-editv],[data-editday],[data-set],[data-pf],[data-ef],[data-close],[data-delplace],[data-delvideo],[data-deltask],[data-delidea],[data-rmfile],[data-editexp],[data-delexp],[data-est]');if(!t)return;
+    var d=t.dataset;
+    if(d.rmfile){removeFile(d.rmfile);return}
+    if(d.act==='addExp'){expForm();return}
+    if(d.editexp){expForm(Object.assign({id:d.editexp},S.expenses[d.editexp]));return}
+    if(d.delexp){if(!need())return;var xid=d.delexp;db.doc('expenses/'+xid).delete().then(function(){var pr=db.doc('places/x-'+xid);return pr.get().then(function(sn){if(sn.exists&&sn.data().fromExpense===xid)return pr.delete()})}).then(closeModal).catch(function(){closeModal()});return}
+    if(d.ef){ef[d.ef]=d.val;render();return}
+    if(d.est!==undefined){var x=(S.estimates||[])[+d.est];if(x)expForm(null,{title:x.title,cny:x.cny,city:x.city,cat:x.cat});return}
+    if(d.v||d.go){view=d.v||d.go;try{history.replaceState(null,'','#'+view)}catch(x){}render();window.scrollTo(0,0);return}
+    if(d.act==='addPlace'){placeForm();return}
+    if(d.act==='addVideo'){videoForm();return}
+    if(d.edit){placeForm(Object.assign({id:d.edit},S.places[d.edit]));return}
+    if(d.editv){videoForm(Object.assign({id:d.editv},S.videos[d.editv]));return}
+    if(d.editday){var x=S.days[d.editday];if(!x)return;fillForm({fDate:d.editday,fCity:x.city,fPlaces:x.places,fLoc:x.loc,fFilmed:x.filmed,fStory:x.story,fFood:x.food,fIdeas:x.ideas,fCount:x.fileCount||'',fEnergy:x.priority||'normal',fMe:x.me,fHusband:x.husband,fFamily:x.family,fNone:x.nobody});renderThumbs();$('dayForm').scrollIntoView({behavior:'smooth'});return}
+    if(d.pf){pf[d.pf]=d.val;render();return}
+    if(d.close!==undefined){closeModal();return}
+    if(d.set){if(!need())return;var col=d.set==='stage'?'videos':'places';var cur=S[col][d.id];if(!cur||cur[d.set]===d.val)return;var patch={};patch[d.set]=d.val;patch.updatedAt=new Date().toISOString();db.doc(col+'/'+d.id).update(patch).catch(function(){});return}
+    if(d.delplace){if(!need())return;db.doc('places/'+d.delplace).delete().then(closeModal).catch(function(){alertIn('Could not delete.')});return}
+    if(d.delvideo){if(!need())return;db.doc('videos/'+d.delvideo).delete().then(closeModal).catch(function(){alertIn('Could not delete.')});return}
+    if(d.deltask){e.preventDefault();if(!need())return;db.doc('tasks/'+d.deltask).delete().catch(function(){});return}
+    if(d.delidea){if(!need())return;db.doc('ideas/'+d.delidea).delete().catch(function(){});return}
+  });
+  document.addEventListener('change',function(e){
+    var t=e.target;if(t.dataset&&t.dataset.task){if(!need()){t.checked=!t.checked;return}db.doc('tasks/'+t.dataset.task).update({done:t.checked,updatedAt:new Date().toISOString()}).catch(function(){})}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+
+  $('jumpUpload').addEventListener('click',function(){view='daily';render();var u=$('uploadBox');if(u)u.scrollIntoView({behavior:'smooth'})});
+
+  /* ---------- store: the same calls as the claude.ai hub, kept in Dropbox through this site ---------- */
+  function mkdb(initial){
+    var D=initial||{},L=[],q=Promise.resolve(),inflight=0;
+    function snapCol(c){var o=D[c]||{};return {docs:Object.keys(o).map(function(k){return {id:k,data:function(){return o[k]}}})}}
+    function snapDoc(c,id){var v=(D[c]||{})[id];return {id:id,exists:v!==undefined,data:function(){return v}}}
+    function fire(){L.forEach(function(l){try{l.cb(l.id?snapDoc(l.col,l.id):snapCol(l.col))}catch(e){}})}
+    function local(op){var c=D[op.col]||(D[op.col]={});if(op.op==='set')c[op.id]=op.data;else if(op.op==='update')c[op.id]=Object.assign({},c[op.id]||{},op.data);else delete c[op.id]}
+    function write(op){local(op);fire();inflight++;cloud('Saving…',true);
+      var p=q.then(function(){return fetch(API+'db',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({ops:[op]})}).then(function(r){if(r.status===401){showGate();throw new Error('PIN needed')}if(!r.ok)throw new Error('save')})});
+      q=p.catch(function(){});
+      p.then(function(){inflight--;if(!inflight)cloud('Saved to Dropbox',true)},function(){inflight--;cloud('Could not save, check the connection',false);refresh()});
+      return p}
+    function gid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,10)}
+    function docref(c,id){return {id:id,
+      set:function(d){return write({op:'set',col:c,id:id,data:d})},update:function(d){return write({op:'update',col:c,id:id,data:d})},delete:function(){return write({op:'delete',col:c,id:id})},
+      get:function(){return Promise.resolve(snapDoc(c,id))},onSnapshot:function(cb){L.push({col:c,id:id,cb:cb});cb(snapDoc(c,id))}}}
+    function refresh(){if(inflight)return q;return fetch(API+'db',{credentials:'same-origin'}).then(function(r){if(r.status===401){showGate();throw new Error('PIN needed')}if(!r.ok)throw new Error('load');return r.json()}).then(function(j){if(inflight)return;D=j.data||{};fire();cloud('Synced to Dropbox',true)}).catch(function(){cloud('Offline, changes may not save',false)})}
+    return {collection:function(c){return {doc:function(id){return docref(c,id||gid())},add:function(d){var r=docref(c,gid());return r.set(d).then(function(){return r})},onSnapshot:function(cb){L.push({col:c,cb:cb});cb(snapCol(c))}}},
+      doc:function(path){var p=path.split('/');return docref(p[0],p[1])},refresh:refresh};
+  }
+  function cloud(t,on){$('cloud').textContent=t;$('cloud').className='cloud'+(on?' on':'')}
+  function sub(col,into,after){db.collection(col).onSnapshot(function(s){var o={};s.docs.forEach(function(d){o[d.id]=d.data()});S[into]=o;if(after)after();rerenderSoft()},function(){cloud('Lost the hub store, reload the page',false)})}
+  var raf=null;function rerenderSoft(){if(raf)return;raf=requestAnimationFrame(function(){raf=null;if($('ovl').classList.contains('open'))return;var ae=document.activeElement;var keep=ae&&(ae.tagName==='TEXTAREA'||ae.tagName==='INPUT'||ae.tagName==='SELECT')&&ae.id;if(keep&&(view==='daily'||view==='checklist'||view==='expenses'))return;var y=window.scrollY;render();window.scrollTo(0,y)})}
+
+  /* ---------- PIN gate ---------- */
+  function showGate(){$('gate').hidden=false;setTimeout(function(){$('pin').focus()},50)}
+  $('gateForm').addEventListener('submit',function(e){e.preventDefault();$('pinErr').textContent='';$('pinGo').disabled=true;
+    fetch(API+'login',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({pin:$('pin').value.trim()})})
+    .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Wrong PIN')})}).then(function(){$('gate').hidden=true;$('pin').value='';start()})
+    .catch(function(err){$('pinErr').textContent=err.message}).then(function(){$('pinGo').disabled=false})});
+
+  var started=false;
+  function start(){
+    render();
+    fetch(API+'db',{credentials:'same-origin'}).then(function(r){
+      if(r.status===401){showGate();return null}
+      return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'load');return j});
+    }).then(function(j){
+      if(!j)return;
+      db=mkdb(j.data);cloud('Synced to Dropbox',true);
+      sub('places','places');sub('videos','videos');sub('tasks','tasks');sub('days','days');sub('notes','notes');sub('ideas','ideas');sub('expenses','expenses');
+      db.doc('meta/rate').onSnapshot(function(d){if(d.exists){S.rate=d.data().rate;rerenderSoft()}});
+      db.doc('meta/estimates').onSnapshot(function(d){if(d.exists){S.estimates=d.data().items||[];rerenderSoft()}});
+      db.doc('meta/notes').onSnapshot(function(d){if(d.exists){S.meta=d.data();var ta=$('metaNotes');if(ta&&document.activeElement!==ta)ta.value=S.meta.notes||''}});
+      if(!started){started=true;
+        setInterval(function(){if(document.visibilityState==='visible'&&db)db.refresh()},45000);
+        document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&db)db.refresh()});
+      }
+    }).catch(function(err){cloud('Hub store unavailable: '+(err&&err.message||'check the connection')+'. Reload to try again.',false)});
+  }
+  start();
 })();
 </script>
-</body>
-</html>
+
+</body></html>
