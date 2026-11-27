@@ -753,15 +753,20 @@ button.th{border:0;padding:0;cursor:pointer;font:inherit}
       mr.start(1000);recLabel();
     }).catch(function(){ftoast('The microphone was not allowed. Tap the lock icon in the address bar to allow it.',true)});
   }
-  var ft=null;function ftoast(m,err){var t=$('ftoast');t.textContent=m;t.className=err?'err':'';t.hidden=false;clearTimeout(ft);ft=setTimeout(function(){t.hidden=true},3500)}
+  var ft=null;function ftoast(m,err){var t=$('ftoast');t.textContent=m;t.className=err?'err':'';t.hidden=false;clearTimeout(ft);ft=setTimeout(function(){t.hidden=true},err?8000:3500)}
 
   /* ---------- labels: what a recording or upload is, which place, where ---------- */
   var MOMENTS=[['breakfast','🍳','Breakfast'],['lunch','🍜','Lunch'],['dinner','🍲','Dinner'],['food','🧋','Snack / drink'],['place','📍','Place / sight'],['show','🎭','Show'],['transport','🚄','Transport'],['hotel','🏨','Hotel'],['shopping','🛍️','Shopping'],['other','✳','Other']];
   var MOM={};MOMENTS.forEach(function(m){MOM[m[0]]=m});
   function momLabel(k){return MOM[k]?MOM[k][1]+' '+MOM[k][2]:''}
   function cityOn(iso){var s=stayOn(iso);return s?s.city:''}
-  function getPos(){return new Promise(function(res){if(!navigator.geolocation)return res(null);var done=false;var t=setTimeout(function(){if(!done){done=true;res(null)}},12000);
-    try{navigator.geolocation.getCurrentPosition(function(p){if(done)return;done=true;clearTimeout(t);res({lat:+p.coords.latitude.toFixed(6),lng:+p.coords.longitude.toFixed(6),acc:Math.round(p.coords.accuracy||0)})},function(){if(done)return;done=true;clearTimeout(t);res(null)},{enableHighAccuracy:true,timeout:11000,maximumAge:60000})}catch(e){done=true;clearTimeout(t);res(null)}})}
+  /* GPS: precise first, then a quicker network fix; remembers why it failed */
+  var posErr='';
+  function getPosOnce(o,ms){return new Promise(function(res){var done=false;var t=setTimeout(function(){if(!done){done=true;posErr='timeout';res(null)}},ms);
+    try{navigator.geolocation.getCurrentPosition(function(p){if(done)return;done=true;clearTimeout(t);res({lat:+p.coords.latitude.toFixed(6),lng:+p.coords.longitude.toFixed(6),acc:Math.round(p.coords.accuracy||0)})},function(e){if(done)return;done=true;clearTimeout(t);posErr=e&&e.code===1?'denied':e&&e.code===2?'unavailable':'timeout';res(null)},o)}catch(e){done=true;clearTimeout(t);posErr='unavailable';res(null)}})}
+  function getPos(){posErr='';if(!navigator.geolocation){posErr='unsupported';return Promise.resolve(null)}
+    return getPosOnce({enableHighAccuracy:true,timeout:12000,maximumAge:60000},13000).then(function(g){if(g||posErr==='denied')return g;return getPosOnce({enableHighAccuracy:false,timeout:10000,maximumAge:300000},11000)})}
+  function posHelp(){return posErr==='denied'?'Location is blocked for this site. Tap the icon left of scratchandroam.com, then Permissions, Location, Allow. Also check the phone setting for this browser app (Location: Allow, Precise on).':posErr==='unsupported'?'This browser cannot share location. Open the Hub in Chrome.':'The phone could not find a fix. Check Location is switched on in the phone quick settings, then try again near a window or outside.'}
   /* one sheet for every "what is it?" question; cb gets {moment, placeId, place} (empty when skipped) */
   function labelSheet(title,go,date,cb){
     var city=cityOn(date),pl=sortedPlaces().filter(function(p){return p.type!=='transport'&&p.type!=='hotel'&&((city&&p.city===city)||(p.date&&p.date<=date&&(p.end||p.date)>=date))});
@@ -783,7 +788,7 @@ button.th{border:0;padding:0;cursor:pointer;font:inherit}
     labelSheet(fs.length+' file'+(fs.length>1?'s':''),'Upload',date,function(lab){UQ.add(fs,date,lab);ftoast(fs.length+' file'+(fs.length>1?'s':'')+' queued for '+longD(date)+'.')})}
   function saveLocation(){var td=todayISO();if(!need())return;
     labelSheet('My location','Save where I am',td,function(lab){ftoast('Finding your location…');getPos().then(function(g){
-      if(!g){ftoast('Could not get the location. Turn on Location for Chrome and try again outside.',true);return}
+      if(!g){ftoast(posHelp(),true);return}
       var cur=S.days[td]||{};var locs=Array.isArray(cur.locs)?cur.locs.slice():[];locs.push(Object.assign({at:new Date().toISOString()},g,lab));
       var patch={locs:locs,savedAt:new Date().toISOString(),reviewed:false};if(!S.days[td]){patch.city=cityOn(td)||'Chengdu';patch.createdAt=new Date().toISOString();patch.files=[]}
       db.doc('days/'+td).update(patch).then(function(){ftoast('Location saved'+(lab.place?' for '+lab.place:'')+'. Tap Open in Amap under Spots saved today to check it.')})})})}
