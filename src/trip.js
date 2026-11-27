@@ -15,6 +15,8 @@ const TRIP = "/Scratch and Roam/01_RAW/China/2026-12 December Trip";
 const HUBDIR = TRIP + "/_hub";
 const DATA = HUBDIR + "/hub.json";
 const NOTES = HUBDIR + "/notes";
+const UPDATES = HUBDIR + "/updates";
+const STATUS = HUBDIR + "/status";
 const DAYS = [
   ["01", "2026-12-06", "Chengdu arrival"], ["02", "2026-12-07", "Chengdu"], ["03", "2026-12-08", "Chengdu"],
   ["04", "2026-12-09", "Chongqing"], ["05", "2026-12-10", "Chongqing"], ["06", "2026-12-11", "Chongqing"],
@@ -51,20 +53,26 @@ function safeEq(a, b) {
   let r = 0; for (let i = 0; i < a.length; i++) r |= a.charCodeAt(i) ^ b.charCodeAt(i);
   return r === 0;
 }
+// Returns "natali", "husband" or false. Natali's PIN is TRIP_PIN; an optional second PIN (TRIP_PIN_2) is for her husband.
 async function authed(req, env) {
   if (!env.TRIP_PIN) return false;
   const c = (req.headers.get("Cookie") || "").match(/(?:^|;\s*)trip=([^;]+)/);
   if (!c) return false;
-  const [exp, sig] = decodeURIComponent(c[1]).split(".");
-  if (!exp || !sig || Date.now() > +exp) return false;
-  return safeEq(sig, await hmac(env, exp));
+  const parts = decodeURIComponent(c[1]).split(".");
+  if (parts.length === 2) { const [exp, sig] = parts; return exp && sig && Date.now() <= +exp && safeEq(sig, await hmac(env, exp)) ? "natali" : false; }
+  const [exp, who, sig] = parts;
+  if (!exp || !sig || Date.now() > +exp || !["natali", "husband"].includes(who)) return false;
+  return safeEq(sig, await hmac(env, exp + "." + who)) ? who : false;
 }
 async function login(req, env) {
   if (!env.TRIP_PIN) return json({ error: "The Hub PIN is not set up yet." }, 503);
   let pin = ""; try { pin = String((await req.json()).pin || ""); } catch {}
-  if (!safeEq(pin, String(env.TRIP_PIN))) { await new Promise(r => setTimeout(r, 1500)); return json({ error: "Wrong PIN" }, 401); }
+  let who = "";
+  if (safeEq(pin, String(env.TRIP_PIN))) who = "natali";
+  else if (env.TRIP_PIN_2 && safeEq(pin, String(env.TRIP_PIN_2))) who = "husband";
+  if (!who) { await new Promise(r => setTimeout(r, 1500)); return json({ error: "Wrong PIN" }, 401); }
   const exp = String(Date.now() + 60 * 86400e3);
-  const v = encodeURIComponent(exp + "." + await hmac(env, exp));
+  const v = encodeURIComponent(exp + "." + who + "." + await hmac(env, exp + "." + who));
   return new Response(JSON.stringify({ ok: true }), { headers: { "Content-Type": "application/json", ...NOINDEX,
     "Set-Cookie": `trip=${v}; Path=/trip/; Max-Age=${60 * 86400}; HttpOnly; Secure; SameSite=Lax` } });
 }
@@ -115,7 +123,7 @@ async function readData(env) {
   const meta = JSON.parse(r.headers.get("Dropbox-API-Result") || "{}");
   return { data: await r.json(), rev: meta.rev };
 }
-const COLS = ["places", "videos", "tasks", "days", "notes", "ideas", "expenses", "meta"];
+const COLS = ["places", "videos", "tasks", "days", "notes", "ideas", "expenses", "meta", "feedback"];
 function applyOps(data, ops) {
   for (const o of ops) {
     if (!COLS.includes(o.col) || !o.id || typeof o.id !== "string" || o.id.length > 120) throw new Error("Bad write");
@@ -164,6 +172,49 @@ async function nightlyNotes(env) {
   return out;
 }
 
+// The nightly Claude task cannot write hub.json itself; it drops small update files in _hub/updates
+// ({"ops":[{"op":"update","col":"places","id":"p19","data":{"film":"filmed"}}, ...]}). They are applied here once,
+// then moved to _hub/updates/applied so they never run twice.
+const TASK_OPS = { update: ["places", "videos", "tasks", "days"], set: ["ideas", "notes"] };
+const DAY_FIELDS = ["reviewed", "claudeAt"];
+async function applyTaskUpdates(env) {
+  let entries;
+  try { entries = (await rpc(env, "files/list_folder", { path: UPDATES, limit: 200 })).entries; } catch { return 0; }
+  const files = entries.filter(e => e[".tag"] === "file" && /\.json$/i.test(e.name)).sort((a, b) => a.name.localeCompare(b.name)).slice(0, 20);
+  if (!files.length) return 0;
+  const ops = [];
+  for (const f of files) {
+    try {
+      const r = await content(env, "files/download", { path: f.id }, null);
+      const j = await r.json();
+      for (const o of (Array.isArray(j.ops) ? j.ops : []).slice(0, 200)) {
+        if (!o || typeof o.id !== "string" || typeof o.data !== "object" || !o.data) continue;
+        if (!(TASK_OPS[o.op] || []).includes(o.col)) continue;
+        let data = o.data;
+        if (o.col === "days") data = Object.fromEntries(Object.entries(data).filter(([k]) => DAY_FIELDS.includes(k)));
+        if (Object.keys(data).length) ops.push({ op: o.op, col: o.col, id: o.id, data });
+      }
+    } catch {}
+  }
+  if (ops.length) await writeOps(env, ops);
+  for (const f of files) {
+    try { await rpc(env, "files/move_v2", { from_path: f.path_lower, to_path: `${UPDATES}/applied/${f.name}`, autorename: true }); } catch {}
+  }
+  return ops.length;
+}
+const statusCache = { rev: "", obj: null };
+async function lastRun(env) {
+  try {
+    let j = await rpc(env, "files/list_folder", { path: STATUS, limit: 2000 });
+    const all = j.entries; while (j.has_more) { j = await rpc(env, "files/list_folder/continue", { cursor: j.cursor }); all.push(...j.entries); }
+    const f = all.filter(e => e[".tag"] === "file" && /\.json$/i.test(e.name)).sort((a, b) => b.name.localeCompare(a.name))[0];
+    if (!f) return null;
+    if (statusCache.rev === f.rev) return statusCache.obj;
+    const r = await content(env, "files/download", { path: f.id }, null);
+    const obj = await r.json(); statusCache.rev = f.rev; statusCache.obj = obj; return obj;
+  } catch { return null; }
+}
+
 const cleanName = s => String(s || "file").replace(/[\\/:*?"<>|\u0000-\u001f]/g, "_").slice(0, 180) || "file";
 const MIME = n => { const x = (n.split(".").pop() || "").toLowerCase();
   return ({ jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", gif: "image/gif", webp: "image/webp", heic: "image/heic",
@@ -175,12 +226,14 @@ const MIME = n => { const x = (n.split(".").pop() || "").toLowerCase();
 async function api(req, env, u) {
   const p = u.pathname.replace(/^\/trip\/api\//, "").replace(/\/$/, "");
   if (p === "login" && req.method === "POST") return login(req, env);
-  if (!(await authed(req, env))) return json({ error: "PIN needed" }, 401);
+  const who = await authed(req, env);
+  if (!who) return json({ error: "PIN needed" }, 401);
   try {
     if (p === "db" && req.method === "GET") {
-      const [{ data }, nightly] = await Promise.all([readData(env), nightlyNotes(env)]);
+      await applyTaskUpdates(env).catch(() => 0);
+      const [{ data }, nightly, status] = await Promise.all([readData(env), nightlyNotes(env), lastRun(env)]);
       data.notes = Object.assign({}, data.notes || {}, nightly);
-      return json({ data });
+      return json({ data, status, who });
     }
     if (p === "db" && req.method === "POST") {
       const { ops } = await req.json();
