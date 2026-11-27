@@ -4,6 +4,7 @@
 // Ireland -> Amazon.ie (scratchandroa-21). Everyone else -> Amazon.com (scratchandroa-20),
 // where Amazon OneLink sends UK, DE, FR, IT, ES, CA, JP, AU, NL and others to their own store with the right tag.
 import LINKS from "./amazon-links.json";
+import { trip } from "./trip.js";
 
 const IE = ["www.amazon.ie", "scratchandroa-21"];
 const COM = ["www.amazon.com", "scratchandroa-20"];
@@ -23,13 +24,14 @@ export default {
     // the assets layer (html_handling auto-trailing-slash) adds a second hop as a temporary 307.
     if (u.hostname.endsWith("scratchandroam.com")) {
       const last = u.pathname.split("/").pop();
-      const needsSlash = !u.pathname.endsWith("/") && !last.includes(".") && !u.pathname.startsWith("/go/");
+      const needsSlash = !u.pathname.endsWith("/") && !last.includes(".") && !u.pathname.startsWith("/go/") && !u.pathname.startsWith("/trip/api/");
       if (u.hostname !== "scratchandroam.com" || u.protocol === "http:" || needsSlash) {
         u.hostname = "scratchandroam.com"; u.protocol = "https:"; u.port = "";
         if (needsSlash) u.pathname += "/";
         return Response.redirect(u.toString(), 301);
       }
     }
+    if (u.pathname === "/trip" || u.pathname.startsWith("/trip/")) return trip(req, env, u);
     const m = u.pathname.match(/^\/go\/([a-z0-9-]+)\/?$/);
     if (m) {
       const ie = ((req.cf && req.cf.country) || "") === "IE";

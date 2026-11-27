@@ -1,49 +1,61 @@
 User-agent: *
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: Googlebot
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: Bingbot
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: Perplexity-User
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: Claude-User
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: Applebot
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 User-agent: DuckDuckBot
 Allow: /
 Disallow: /go/
+Disallow: /trip/
 
 Sitemap: https://scratchandroam.com/sitemap.xml
