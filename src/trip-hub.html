@@ -293,6 +293,8 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
 .th img{width:100%;height:100%;object-fit:cover;display:block}
 .th.aud,.th.vid{background:var(--green-soft);color:var(--green);font-size:11px;text-align:center;padding:4px;font-weight:600;line-height:1.2}
 .th .rm{position:absolute;top:2px;right:2px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:50%;width:20px;height:20px;font-size:13px;line-height:1;cursor:pointer}
+.th .cnt{position:absolute;right:3px;bottom:3px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;font-weight:600;border-radius:8px;padding:1px 6px}
+.th > a{display:block;width:100%;height:100%}.th > a img{width:100%;height:100%;object-fit:cover;display:block}
 .th.up{background:var(--peach);color:var(--peach-ink);font-size:11px;text-align:center;padding:4px}
 .aud-list{display:flex;flex-direction:column;gap:6px}
 .aud-list audio{width:100%;max-width:100%;height:36px}
@@ -505,6 +507,7 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
   var ECITIES=['Chengdu','Chongqing',"Xi'an",'Travel','Other'];
   var ef={city:'all',cat:'all'};
   function sortedExp(){return Object.keys(S.expenses||{}).map(function(k){return Object.assign({id:k},S.expenses[k])}).sort(function(a,b){return (b.date||'').localeCompare(a.date||'')||(b.createdAt||'').localeCompare(a.createdAt||'')})}
+  function recsOf(e){var r=Array.isArray(e.receipts)?e.receipts.slice():[];if(e.receipt&&r.indexOf(e.receipt)<0)r.unshift(e.receipt);return r}
   function toEur(e){var y=+e.cny||0;return e.eur?+e.eur:y*(S.rate||0.127)}
   function fmtY(n){return '¥'+Math.round(n).toLocaleString('en-IE')}
   function fmtE(n){return '€'+(Math.round(n)).toLocaleString('en-IE')}
@@ -528,8 +531,9 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
     '<div class="filters">'+fb('city','all','All cities')+ECITIES.map(function(c){return fb('city',c,c)}).join('')+'</div>'+
     '<div class="filters">'+fb('cat','all','All types')+Object.keys(ECATS).map(function(c){return fb('cat',c,ECATS[c])}).join('')+'</div>'+
     '<div class="panel"><div class="ph"><div><span class="eyebrow">Ledger</span><h3>Every ticket and receipt</h3></div><span class="small muted">'+shown.length+' of '+all.length+'</span></div><div class="list">'+
-      (shown.length?shown.map(function(e){var im=e.receipt?'<a class="th" style="width:56px;height:56px" href="'+esc(FULL(e.receipt))+'" target="_blank" rel="noopener"><img src="'+esc(TH(e.receipt))+'" alt="receipt" loading="lazy"></a>':'<div class="th" style="width:56px;height:56px;font-size:11px;color:var(--faint)">no photo</div>';
-        return '<div class="li" style="align-items:flex-start"><div style="display:flex;gap:12px;min-width:0">'+im+'<div class="tx"><b>'+esc(e.title)+'</b><span>'+esc(shortD(e.date))+' · '+esc(e.city)+' · '+esc(ECATS[e.cat]||e.cat)+(e.perPerson?' · per person ×3':'')+(e.note?' · '+esc(e.note):'')+'</span></div></div><div style="text-align:right;flex:none"><b style="font-variant-numeric:tabular-nums">'+fmtY(e.cny)+'</b><br><span class="small muted">'+fmtE(toEur(e))+'</span><br><button class="btn sm ghost" data-editexp="'+esc(e.id)+'">Edit</button></div></div>'}).join(''):'<p class="empty">No expenses yet. Tap "Add expense", snap the ticket, type the amount.</p>')+
+      (shown.length?shown.map(function(e){var rs=recsOf(e);var im=rs.length?'<a class="th" style="width:56px;height:56px" href="'+esc(FULL(rs[0]))+'" target="_blank" rel="noopener"><img src="'+esc(TH(rs[0]))+'" alt="receipt" loading="lazy">'+(rs.length>1?'<span class="cnt">+'+(rs.length-1)+'</span>':'')+'</a>':'<div class="th" style="width:56px;height:56px;font-size:11px;color:var(--faint)">no photo</div>';
+        var more=rs.length>1?'<div class="thumbs" style="margin-top:6px">'+rs.slice(1).map(function(id){return '<a class="th" style="width:44px;height:44px" href="'+esc(FULL(id))+'" target="_blank" rel="noopener"><img src="'+esc(TH(id))+'" alt="receipt" loading="lazy"></a>'}).join('')+'</div>':'';
+        return '<div class="li" style="align-items:flex-start"><div style="display:flex;gap:12px;min-width:0">'+im+'<div class="tx"><b>'+esc(e.title)+'</b><span>'+esc(shortD(e.date))+' · '+esc(e.city)+' · '+esc(ECATS[e.cat]||e.cat)+(e.perPerson?' · per person ×3':'')+(e.note?' · '+esc(e.note):'')+'</span>'+more+'</div></div><div style="text-align:right;flex:none"><b style="font-variant-numeric:tabular-nums">'+fmtY(e.cny)+'</b><br><span class="small muted">'+fmtE(toEur(e))+'</span><br><button class="btn sm ghost" data-editexp="'+esc(e.id)+'">Edit</button></div></div>'}).join(''):'<p class="empty">No expenses yet. Tap "Add expense", snap the ticket, type the amount.</p>')+
     '</div></div>'+
     '<div class="panel"><div class="ph"><div><span class="eyebrow">Before you spend</span><h3>Estimates for 3 people</h3></div><span class="small muted">'+fmtY(estTot)+' · about '+fmtE(estTot*rate)+'</span></div><p class="small muted">Researched November 2026 from 12306 fare checks and 2026 ticket guides. Train fares vary by train and sell out at holidays; book on Trip.com or the 12306 app as soon as tickets open (14 days before). Tap a row to log it as a real expense once paid.</p><div class="list">'+
       est.map(function(x,i){return '<div class="li" data-est="'+i+'" style="cursor:pointer"><div class="tx"><b>'+esc(x.title)+'</b><span>'+esc(x.city)+' · '+esc(ECATS[x.cat]||x.cat)+(x.note?' · '+esc(x.note):'')+'</span></div><div style="text-align:right;flex:none"><b style="font-variant-numeric:tabular-nums">'+fmtY(x.cny)+'</b><br><span class="small muted">'+fmtE(x.cny*rate)+'</span></div></div>'}).join('')+
@@ -537,20 +541,23 @@ textarea{min-height:74px;resize:vertical;line-height:1.45}
   }
   function expForm(e,prefill){e=e||{};var isNew=!e.id;var p=prefill||{};
     openModal('<div class="mh"><div><span class="eyebrow">Expenses</span><h2>'+(isNew?'Add expense':'Edit expense')+'</h2></div><button class="x" type="button" data-close>×</button></div><form id="eForm">'+
-    '<div class="files"><div class="fbtns"><label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 13l4-4 3 3 2-2 5 5"/></svg>Add the ticket or receipt<small>take a photo, or pick a screenshot or image from your gallery</small><input type="file" id="eRec" accept="image/*"></label></div><div class="thumbs" id="eThumb">'+(e.receipt?'<div class="th"><img src="'+esc(TH(e.receipt))+'" alt=""></div>':'')+'</div></div>'+
+    '<div class="files"><div class="fbtns"><label class="fbtn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 13l4-4 3 3 2-2 5 5"/></svg>Add tickets or receipts<small>one or many photos, screenshots or images; tap again to add more</small><input type="file" id="eRec" accept="image/*" multiple></label></div><div class="thumbs" id="eThumb"></div></div>'+
     '<label class="f">What *<input id="eTitle" required value="'+esc(e.title||p.title||'')+'" placeholder="Train Chengdu East to Chongqing West, 3 × 2nd class"></label>'+
     '<div class="row"><label class="f">Amount in yuan *<input id="eCny" type="number" min="0" step="0.01" inputmode="decimal" required value="'+esc(e.cny||p.cny||'')+'"></label><label class="f">Or in euro (if you paid in EUR)<input id="eEur" type="number" min="0" step="0.01" inputmode="decimal" value="'+esc(e.eur||'')+'"></label></div>'+
     '<div class="row"><label class="f">Date<input type="date" id="eDate" value="'+esc(e.date||todayISO())+'"></label><label class="f">City<select id="eCity">'+ECITIES.map(function(c){return '<option'+((e.city||p.city||'Chengdu')===c?' selected':'')+'>'+esc(c)+'</option>'}).join('')+'</select></label></div>'+
     '<div class="row"><label class="f">Category<select id="eCat">'+opts(ECATS,e.cat||p.cat||'tickets')+'</select></label><label class="f" style="justify-content:flex-end"><span class="chip" style="margin-top:18px"><input type="checkbox" id="ePP"'+(e.perPerson?' checked':'')+'> Amount is per person (×3)</span></label></div>'+'<p class="small muted" style="margin:4px 0 0">Transport, hotel and ticket bookings with a date also appear in Places and Dates automatically.</p>'+
     '<label class="f">Note<input id="eNote" value="'+esc(e.note||'')+'" placeholder="Booking ref, seat numbers, who paid"></label>'+
     '<div class="acts">'+(isNew?'<span></span>':'<button class="btn ghost" type="button" data-delexp="'+esc(e.id)+'">Delete</button>')+'<div style="display:flex;gap:8px"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit" id="eSave">'+(isNew?'Add':'Save')+'</button></div><span class="toast" id="eToast"></span></div></form>');
-    var receipt=e.receipt||'';
-    $('eRec').addEventListener('change',function(ev){var f=ev.target.files[0];if(!f)return;
-      $('eThumb').innerHTML='<div class="th up">Uploading…</div>';$('eSave').disabled=true;
-      assets.upload(f,{dir:'receipts',onProgress:function(x){var t=$('eThumb').firstChild;if(t)t.textContent='Uploading '+Math.round(x*100)+'%'}}).then(function(r){receipt=r.id;$('eThumb').innerHTML='<div class="th"><img src="'+esc(r.url)+'" alt=""></div>';$('eSave').disabled=false}).catch(function(){$('eThumb').innerHTML='';$('eSave').disabled=false;$('eToast').textContent='Photo upload failed; try again on WiFi.'})});
+    var recs=recsOf(e),upn=0,rq=Promise.resolve();
+    function drawRecs(){$('eThumb').innerHTML=recs.map(function(id,i){return '<div class="th"><a href="'+esc(FULL(id))+'" target="_blank" rel="noopener"><img src="'+esc(TH(id))+'" alt=""></a><button type="button" class="rm" data-rmrec="'+i+'" aria-label="Remove">×</button></div>'}).join('')+(upn?'<div class="th up" id="eUp">Uploading…</div>':'');$('eSave').disabled=upn>0}
+    drawRecs();
+    $('eThumb').addEventListener('click',function(ev){var b=ev.target.closest('[data-rmrec]');if(!b)return;ev.preventDefault();ev.stopPropagation();recs.splice(+b.dataset.rmrec,1);drawRecs()});
+    $('eRec').addEventListener('change',function(ev){var fs=Array.prototype.slice.call(ev.target.files);ev.target.value='';if(!fs.length)return;
+      upn+=fs.length;drawRecs();
+      fs.forEach(function(f){rq=rq.then(function(){return assets.upload(f,{dir:'receipts',onProgress:function(x){var t=$('eUp');if(t)t.textContent=upn+' left · '+Math.round(x*100)+'%'}})}).then(function(r){recs.push(r.id);upn--;drawRecs()},function(){upn--;drawRecs();$('eToast').textContent='One photo did not upload; try it again on WiFi.'})})});
     $('eForm').addEventListener('submit',function(ev){ev.preventDefault();if(!need())return;
       var pp=$('ePP').checked,cny=parseFloat($('eCny').value)||0,eur=parseFloat($('eEur').value)||0;
-      var d={title:$('eTitle').value.trim(),cny:pp?cny*3:cny,eur:pp?eur*3:eur,perPerson:pp,date:$('eDate').value,city:$('eCity').value,cat:$('eCat').value,note:$('eNote').value.trim(),receipt:receipt,createdAt:e.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};
+      var d={title:$('eTitle').value.trim(),cny:pp?cny*3:cny,eur:pp?eur*3:eur,perPerson:pp,date:$('eDate').value,city:$('eCity').value,cat:$('eCat').value,note:$('eNote').value.trim(),receipts:recs,receipt:recs[0]||'',createdAt:e.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};
       var ref=isNew?db.collection('expenses').doc():db.doc('expenses/'+e.id);ref.set(d).then(function(){return syncPlace(ref.id,d)}).then(closeModal).catch(function(){$('eToast').textContent='Could not save.'})});
   }
 
