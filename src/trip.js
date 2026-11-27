@@ -65,7 +65,7 @@ async function login(req, env) {
   const exp = String(Date.now() + 45 * 86400e3);
   const v = encodeURIComponent(exp + "." + await hmac(env, exp));
   return new Response(JSON.stringify({ ok: true }), { headers: { "Content-Type": "application/json", ...NOINDEX,
-    "Set-Cookie": `trip=${v}; Path=/trip/; Max-Age=${45 * 86400}; HttpOnly; Secure; SameSite=Strict` } });
+    "Set-Cookie": `trip=${v}; Path=/trip/; Max-Age=${45 * 86400}; HttpOnly; Secure; SameSite=Lax` } });
 }
 
 // ---------- Dropbox ----------
@@ -195,13 +195,21 @@ async function api(req, env, u) {
 async function connect(req, env, u) {
   const page = (body) => new Response(`<!doctype html><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noindex><title>Connect Dropbox</title><body style="font:16px system-ui;max-width:560px;margin:40px auto;padding:0 18px;color:#243127">${body}</body>`,
     { headers: { "Content-Type": "text/html; charset=utf-8", ...NOINDEX } });
-  if (!(await authed(req, env))) return Response.redirect("https://scratchandroam.com/trip/", 302);
+  const code = u.searchParams.get("code");
+  let ok = await authed(req, env);
+  if (!ok && code) {
+    // Coming back from Dropbox: trust the signed state we sent out.
+    const [exp, sig] = String(u.searchParams.get("state") || "").split(".");
+    ok = !!exp && Date.now() < +exp && safeEq(sig || "", await hmac(env, "state" + exp));
+  }
+  if (!ok) return Response.redirect("https://scratchandroam.com/trip/", 302);
   if (!env.DROPBOX_APP_KEY || !env.DROPBOX_APP_SECRET) return page("<h2>Almost there</h2><p>Add DROPBOX_APP_KEY and DROPBOX_APP_SECRET as secrets in Cloudflare first, then open this page again.</p>");
   const redirect = "https://scratchandroam.com/trip/connect/";
-  const code = u.searchParams.get("code");
   if (!code) {
     const a = new URL("https://www.dropbox.com/oauth2/authorize");
-    a.search = new URLSearchParams({ client_id: env.DROPBOX_APP_KEY, response_type: "code", token_access_type: "offline", redirect_uri: redirect });
+    const exp = String(Date.now() + 15 * 60e3);
+    a.search = new URLSearchParams({ client_id: env.DROPBOX_APP_KEY, response_type: "code", token_access_type: "offline",
+      redirect_uri: redirect, state: exp + "." + await hmac(env, "state" + exp) });
     return Response.redirect(a.toString(), 302);
   }
   const r = await fetch("https://api.dropboxapi.com/oauth2/token", { method: "POST",
